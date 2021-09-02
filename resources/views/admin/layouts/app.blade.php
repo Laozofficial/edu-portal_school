@@ -42,6 +42,11 @@
     <script src="{{asset('admin/vendor/peity/jquery.peity.min.js')}}"></script>
     <!-- Dashboard 1 -->
     <script src="{{asset('admin/js/dashboard/dashboard-1.js')}}"></script>
+
+
+
+    <!-- page custom plugins -->
+    <script src="{{asset('admin/plugins/js/vue.js')}}"></script>
 </body>
 
 </html>
