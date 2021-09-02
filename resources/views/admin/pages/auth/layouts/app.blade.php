@@ -33,8 +33,9 @@
 
 
     <!-- layout plugins -->
-    <script src="{{asset('admin/plugins/js/vue.js')}}"></script>
-    <!--importing vue js-->
+    <script src="{{asset('admin/plugins/js/vue.js')}}"></script><!--importing vue js-->
+
+    @yield('script')
 </body>
 
 </html>

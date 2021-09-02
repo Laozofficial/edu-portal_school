@@ -43,7 +43,7 @@
                                     </form>
                                     <div class="new-account mt-3">
                                         <p>Don't have an account? <a class="text-primary"
-                                                href="./page-register.html">Sign up</a></p>
+                                                href="{{url('dashboard/auth/register')}}">Sign up</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -54,4 +54,7 @@
         </div>
     </div>
 
+@endsection
+@section('script')
+    <script src="{{asset('admin/plugins/pages/login.js')}}"></script>
 @endsection
