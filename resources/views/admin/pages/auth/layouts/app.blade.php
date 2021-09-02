@@ -50,8 +50,7 @@
     <script src="{{asset('admin/plugins/js/vue.js')}}"></script><!--importing vue-->
     <script src="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script><!--importing sweet alert js-->
     <script src="{{asset('admin/vendor/toastr/js/toastr.min.js')}}"></script><!--import toastr-->
-
-
+    <script src="{{asset('admin/plugins/js/axios.js')}}"></script><!--importing axios-->
 
     @yield('script')
 </body>

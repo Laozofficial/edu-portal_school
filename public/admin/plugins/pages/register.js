@@ -54,6 +54,14 @@ new Vue({
                 this.confirm_password_error = 'Passwords doe not match';
                 this.confirm_password_switch = true;
             }
+            if (this.name !== '' && this.email !== '' && this.phone_number !== '' && this.password !== '' && this.password.length >= 8 && this.password_confirmation !== '' && this.password === this.password_confirmation) {
+                console.log('validation passed');
+                this.register();
+            }
+        },
+
+        register() {
+            
         }
     },
 })

@@ -9,27 +9,13 @@
                             <span class="nav-text">Dashboard</span>
                         </a>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-networking"></i>
-                            <span class="nav-text">Frontend</span>
-                            <span class="badge badge-xs badge-danger">New</span>
+                    <li><a class="has-arrow ai-icon" href="{{url('/dashboard/school')}}" aria-expanded="false">
+                            <!-- <i class="lni lni-school-bench-alt"></i> -->
+                            <span class="nav-text">School</span>
+                            <!-- <span class="badge badge-xs badge-danger">New</span> -->
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="../frontend/front-home.html">POS</a></li>
-                            <li><a href="../frontend/front-dashboard.html">Dashboard</a></li>
-                            <li><a href="../frontend/front-authentication.html">Authentication</a></li>
-                            <li><a href="../frontend/front-booking.html">Booking</a></li>
-                            <li><a href="../frontend/front-food-items.html">Food Items</a></li>
-                            <li><a href="../frontend/front-orders_status.html">Orders Status</a></li>
-                            <li><a href="../frontend/front-people.html">People</a></li>
-                            <li><a href="../frontend/front-reviews.html">Reviews</a></li>
-                            <li><a href="../frontend/front-setting.html">Setting</a></li>
-                            <li><a href="../frontend/front-support.html">Support</a></li>
-                            <li><a href="../frontend/front-terms_conditions.html">Terms & Conditions</a></li>
-                            <li><a href="../frontend/front-transactions.html">Transactions</a></li>
-                            <li><a href="../frontend/front-upload_item.html">Upload Item</a></li>
-                            <li><a href="../frontend/front-wallet.html">Wallet</a></li>
-                            <li><a href="../frontend/front-login.html">Login</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

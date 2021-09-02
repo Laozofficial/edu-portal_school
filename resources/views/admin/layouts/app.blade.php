@@ -84,6 +84,7 @@
     <script src="{{asset('admin/plugins/js/vue.js')}}"></script>
     <script src="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script>
     <script src="{{asset('admin/vendor/toastr/js/toastr.min.js')}}"></script>
+    <script src="{{asset('admin/plugins/js/axios.js')}}"></script>
 
     <!-- yield on all pages -->
     @yield('script')
