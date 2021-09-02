@@ -14,6 +14,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('admin/images/favicon.png')}}">
     <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
 
+     <!-- page plugins -->
+    <link href="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{asset('admin/vendor/toastr/css/toastr.min.css')}}"/>
+
 </head>
 
 
@@ -33,7 +37,12 @@
 
 
     <!-- layout plugins -->
-    <script src="{{asset('admin/plugins/js/vue.js')}}"></script><!--importing vue js-->
+    <!-- page custom plugins -->
+    <script src="{{asset('admin/plugins/js/vue.js')}}"></script><!--importing vue-->
+    <script src="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script><!--importing sweet alert js-->
+    <script src="{{asset('admin/vendor/toastr/js/toastr.min.js')}}"></script><!--import toastr-->
+
+
 
     @yield('script')
 </body>
