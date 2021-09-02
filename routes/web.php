@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Auth\LoginController;
+use App\Http\Controllers\Web\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::prefix('dashboard')->group(function () {
     Route::prefix('auth')->group(function () {
 
         Route::get('login', [LoginController::class, 'login_view']);
+        Route::get('register', [RegisterController::class, 'register_view']);
 
     });
 
