@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\RegisterController;
+use App\Http\Controllers\Web\ViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,11 @@ Route::prefix('dashboard')->group(function () {
         Route::get('register', [RegisterController::class, 'register_view']);
 
     });
+
+
+    Route::get('index', [ViewController::class, 'index_view']);
+
+
 
 
 });

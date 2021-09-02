@@ -7,5 +7,5 @@
 
 @endsection
 @section('script')
-    <script src="{{asset('admin/plugins/pages/index.js')}}"></script>
+    <script src="{{asset('admin/plugins/pages/')}}"></script>
 @endsection
