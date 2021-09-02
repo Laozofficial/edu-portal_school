@@ -12,10 +12,10 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
 									<div class="text-center mb-3">
-										<a href="{{url('/')}}"><img src="{{asset('admin/images/logo-full.png')}}" alt=""></a>
+										<a href="{{url('/')}}"><img src="{{asset('admin/images/easyschool_logo.png')}}" style="width: 50%" alt=""></a>
 									</div>
                                     <h4 class="text-center mb-4">Sign up your account</h4>
-                                    <form action="index.html">
+                                    <div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Username</strong></label>
                                             <input type="text" class="form-control" placeholder="username">
@@ -28,10 +28,14 @@
                                             <label class="mb-1"><strong>Password</strong></label>
                                             <input type="password" class="form-control" value="Password">
                                         </div>
+                                        <div class="form-group">
+                                            <label class="mb-1"><strong>Phone Number</strong></label>
+                                            <input type="phone_number" class="form-control" value="Phone Number">
+                                        </div>
                                         <div class="text-center mt-4">
                                             <button type="submit" class="btn btn-primary btn-block">Sign me up</button>
                                         </div>
-                                    </form>
+                                    </div>
                                     <div class="new-account mt-3">
                                         <p>Already have an account? <a class="text-primary" href="{{url('dashboard/auth/login')}}">Sign in</a></p>
                                     </div>

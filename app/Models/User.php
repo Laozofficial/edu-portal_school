@@ -12,6 +12,15 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    CONST SCHOOL_ADMIN = 0;
+    CONST TEACHER = 1;
+    CONST STUDENT = 2;
+    CONST ADMIN = 3;
+
+
+    const ACTIVE = 0;
+    const NOT_ACTIVE = 1;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -56,4 +65,38 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\Teacher');
     }
+
+    public function getRoleAttribute()
+    {
+        switch ($this->role) {
+            case $this::SCHOOL_ADMIN:
+                return 'school admin';
+            case $this::TEACHER:
+                return 'teacher';
+            case $this::STUDENT:
+                return 'student';
+            case $this::ADMIN:
+                return 'platform admin';
+            default:
+                return 'unknown';
+                break;
+        }
+    }
+
+    public function getStatusAttribute()
+    {
+        switch ($this->role) {
+            case $this::ACTIVE:
+                return 'active';
+            case $this::NOT_ACTIVE:
+                return 'banned';
+            default:
+                return 'unknown';
+                break;
+        }
+    }
+
+    protected $appends = [
+        'get_role_text', 'get_status_text'
+    ];
 }
