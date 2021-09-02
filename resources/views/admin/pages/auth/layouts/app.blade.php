@@ -23,7 +23,9 @@
 
 <body class="h-100">
 
-    @yield('content')
+   <div id="app">
+        @yield('content')
+   </div>
 
 
     <!--**********************************
