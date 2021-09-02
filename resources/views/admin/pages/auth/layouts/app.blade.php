@@ -18,6 +18,13 @@
     <link href="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{asset('admin/vendor/toastr/css/toastr.min.css')}}"/>
 
+    <style>
+        .alert {
+            font-size: 0.7rem !important;
+            font-weight: bolder !important
+        }
+    </style>
+
 </head>
 
 

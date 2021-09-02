@@ -27,7 +27,32 @@ new Vue({
     methods: {
         validate(){
             if (this.name == '') {
-
+                this.name_error = 'Name cannot be empty';
+                this.name_error_switch = true;
+            }
+            if (this.email == '') {
+                this.email_error = 'Email Cannot be Empty';
+                this.email_error_switch = true;
+            }
+            if (this.phone_number == '') {
+                this.phone_number_error = 'Phone Number Error';
+                this.phone_error_switch = true;
+            }
+            if (this.password == '') {
+                this.password_error = 'Password cannot be empty';
+                this.password_error_switch = true;
+            }
+            if (this.password.length < 8) {
+                this.password_error = 'Password cannot be less that 8 characters';
+                this.password_error_switch = true;
+            }
+            if (this.password_confirmation == '') {
+                this.confirm_password_error = 'Confirm Password Field is empty';
+                this.confirm_password_switch = true;
+            }
+            if (this.password === this.password_confirmation) {
+                this.confirm_password_error = 'Passwords doe not match';
+                this.confirm_password_switch = true;
             }
         }
     },
