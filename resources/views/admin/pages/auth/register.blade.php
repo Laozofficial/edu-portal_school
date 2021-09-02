@@ -17,20 +17,20 @@
                                     <h4 class="text-center mb-4">Sign up your account</h4>
                                     <div>
                                         <div class="form-group">
-                                            <label class="mb-1"><strong>Username</strong></label>
-                                            <input type="text" class="form-control" placeholder="username">
+                                            <label class="mb-1"><strong>Name</strong></label>
+                                            <input type="text" class="form-control" placeholder="Name" v-model="name">
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Email</strong></label>
-                                            <input type="email" class="form-control" placeholder="hello@example.com">
+                                            <input type="email" class="form-control" placeholder="Email" v-model="email">
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Password</strong></label>
-                                            <input type="password" class="form-control" value="Password">
+                                            <input type="password" class="form-control" placeholder="password" v-model="password">
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Phone Number</strong></label>
-                                            <input type="phone_number" class="form-control" value="Phone Number">
+                                            <input type="phone_number" class="form-control" placeholder="Phone Number" v-model="phone_number">
                                         </div>
                                         <div class="text-center mt-4">
                                             <button type="submit" class="btn btn-primary btn-block">Sign me up</button>
