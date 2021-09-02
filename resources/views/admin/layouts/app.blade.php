@@ -20,7 +20,38 @@
 </head>
 
 <body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
 
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+        @include('admin.partials.nav')
+        @include('admin.partials.sidenav')
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+
+
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+    </div>
 
 
 
@@ -47,6 +78,9 @@
 
     <!-- page custom plugins -->
     <script src="{{asset('admin/plugins/js/vue.js')}}"></script>
+
+    <!-- yield on all pages -->
+    @yield('script')
 </body>
 
 </html>
