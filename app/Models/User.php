@@ -66,7 +66,7 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Teacher');
     }
 
-    public function getRoleAttribute()
+    public function getRoleTextAttribute()
     {
         switch ($this->role) {
             case $this::SCHOOL_ADMIN:
@@ -83,9 +83,9 @@ class User extends Authenticatable
         }
     }
 
-    public function getStatusAttribute()
+    public function getStatusTextAttribute()
     {
-        switch ($this->role) {
+        switch ($this->status) {
             case $this::ACTIVE:
                 return 'active';
             case $this::NOT_ACTIVE:
@@ -97,6 +97,6 @@ class User extends Authenticatable
     }
 
     protected $appends = [
-        'get_role_text', 'get_status_text'
+        'role_text', 'status_text'
     ];
 }

@@ -85,6 +85,8 @@
     <script src="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script>
     <script src="{{asset('admin/vendor/toastr/js/toastr.min.js')}}"></script>
     <script src="{{asset('admin/plugins/js/axios.js')}}"></script>
+    <script src="{{asset('admin/plugins/js/app.js')}}"></script>
+    <script src="{{asset('admin/plugins/js/check_token.js')}}"></script>
 
     <script>
         const base_url = "{{ url('/dashboard/') }}";

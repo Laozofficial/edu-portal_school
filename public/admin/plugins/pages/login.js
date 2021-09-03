@@ -26,7 +26,7 @@ new Vue({
                     .then((response) => {
                         console.log(response);
                         toastr.success(response.data.success);
-                        window.localStorage.setItem('token', response.data.token);
+                        window.localStorage.setItem('token', JSON.stringify(response.data.token));
                         window.localStorage.setItem('user', JSON.stringify(response.data.user));
                         swal.close();
                         setTimeout(() => {

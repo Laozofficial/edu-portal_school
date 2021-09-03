@@ -14,17 +14,7 @@ let hide_alert = () => {
     }, 2000);
 }
 
-let get_token = () => {
-    token = localStorage.getItem('token');
-    if (token === null) {
-       if (window.location.pathname == '/dashboard/auth/register' || window.location.pathname == '/dashboard/auth/login' || window.location.pathname == '/dashboard/auth/otp-verification') {
 
-       }else {
-         window.location.href = '/dashboard/auth/login';
-       }
-    }
-}
 
 
 hide_alert();
-// get_token();
