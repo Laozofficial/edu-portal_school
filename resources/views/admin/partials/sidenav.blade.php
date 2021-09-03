@@ -10,147 +10,108 @@
                         </a>
                     </li>
                     <li><a class="has-arrow ai-icon" href="{{url('/dashboard/school')}}" aria-expanded="false">
-                            <!-- <i class="lni lni-school-bench-alt"></i> -->
+                            <i class="lni lni-school-bench-alt"></i>
                             <span class="nav-text">School</span>
                             <!-- <span class="badge badge-xs badge-danger">New</span> -->
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="../frontend/front-home.html">POS</a></li>
+                            <li><a href="{{url('/dashboard/add-school')}}"><i class="lni lni-plus"></i> Add School</a></li>
+                            <li><a href="{{url('/dashboard/all-schools')}}"><i class="lni lni-list"></i> All Schools</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-television"></i>
-                            <span class="nav-text">Apps</span>
+
+                    <li><a class="has-arrow ai-icon" href="" aria-expanded="false">
+                            <i class="lni lni-direction"></i>
+                            <span class="nav-text">Academic</span>
+                            <!-- <span class="badge badge-xs badge-danger">New</span> -->
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./app-profile.html">Profile</a></li>
-                            <li><a href="./post-details.html">Post Details</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
+                            <li><a href="{{url('/dashboard/academic-session')}}"><i class="lni lni-school-bench-alt"></i> Academic Session</a></li>
+                            <li><a href="{{url('/dashboard/subjects')}}"><i class="lni lni-book"></i> Subjects</a></li>
+                            <li><a href="{{url('/dashboard/classes')}}"><i class="lni lni-users"></i> Classes</a></li>
+                            <li><a href="{{url('/dashboard/traits')}}"><i class="lni lni-more-alt"></i> Traits </a></li>
+                            <li><a href="{{url('/dashboard/grade-scale')}}"><i class="lni lni-network"></i> Grade Scale</a></li>
+                             <li><a class="has-arrow ai-icon" aria-expanded="false">
+                                    <i class="lni lni-pencil"></i>
+                                    <span class="nav-text">Assessments</span>
+                                    <!-- <span class="badge badge-xs badge-danger">New</span> -->
+                                </a>
                                 <ul aria-expanded="false">
-                                    <li><a href="./email-compose.html">Compose</a></li>
-                                    <li><a href="./email-inbox.html">Inbox</a></li>
-                                    <li><a href="./email-read.html">Read</a></li>
+                                    <li><a href="{{url('/dashboard/assessment-types')}}"><i class="lni lni-list"></i> Assessment Types</a></li>
+                                    <li><a href="{{url('/dashboard/add-assessment')}}"><i class="lni lni-plus"></i> Enter Assessment Score</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./app-calender.html">Calendar</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./ecom-product-grid.html">Product Grid</a></li>
-                                    <li><a href="./ecom-product-list.html">Product List</a></li>
-                                    <li><a href="./ecom-product-detail.html">Product Details</a></li>
-                                    <li><a href="./ecom-product-order.html">Order</a></li>
-                                    <li><a href="./ecom-checkout.html">Checkout</a></li>
-                                    <li><a href="./ecom-invoice.html">Invoice</a></li>
-                                    <li><a href="./ecom-customers.html">Customers</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{url('/dashboard/time-table')}}"><i class="lni lni-paperclip"></i> Time Table</a></li>
+                            <li><a href="{{url('/dashboard/assignment')}}"><i class="lni lni-customer"></i> Assignments</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-controls-3"></i>
-                            <span class="nav-text">Charts</span>
+
+
+                     <li><a class="has-arrow ai-icon" href="" aria-expanded="false">
+                            <i class="lni lni-users"></i>
+                            <span class="nav-text">Students</span>
+                            <!-- <span class="badge badge-xs badge-danger">New</span> -->
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Flot</a></li>
-                            <li><a href="./chart-morris.html">Morris</a></li>
-                            <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="./chart-chartist.html">Chartist</a></li>
-                            <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="./chart-peity.html">Peity</a></li>
+                            <li><a href="{{url('/dashboard/students')}}"><i class="lni lni-user"></i> Students</a></li>
+                            <li><a href="{{url('/dashboard/add-students')}}"><i class="lni lni-plus"></i> Add Students</a></li>
+                            <li><a href="{{url('/dashboard/student-attendance')}}"><i class="lni lni-checkmark-circle"></i> Mark Attendance</a></li>
+                            <li><a href="{{url('/dashboard/student-remark')}}"><i class="lni lni-cup"></i> Remark</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-internet"></i>
-                            <span class="nav-text">Bootstrap</span>
+
+                    <li><a class="has-arrow ai-icon" href="" aria-expanded="false">
+                            <i class="lni lni-users"></i>
+                            <span class="nav-text">Teachers</span>
+                            <!-- <span class="badge badge-xs badge-danger">New</span> -->
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.html">Accordion</a></li>
-                            <li><a href="./ui-alert.html">Alert</a></li>
-                            <li><a href="./ui-badge.html">Badge</a></li>
-                            <li><a href="./ui-button.html">Button</a></li>
-                            <li><a href="./ui-modal.html">Modal</a></li>
-                            <li><a href="./ui-button-group.html">Button Group</a></li>
-                            <li><a href="./ui-list-group.html">List Group</a></li>
-                            <li><a href="./ui-media-object.html">Media Object</a></li>
-                            <li><a href="./ui-card.html">Cards</a></li>
-                            <li><a href="./ui-carousel.html">Carousel</a></li>
-                            <li><a href="./ui-dropdown.html">Dropdown</a></li>
-                            <li><a href="./ui-popover.html">Popover</a></li>
-                            <li><a href="./ui-progressbar.html">Progressbar</a></li>
-                            <li><a href="./ui-tab.html">Tab</a></li>
-                            <li><a href="./ui-typography.html">Typography</a></li>
-                            <li><a href="./ui-pagination.html">Pagination</a></li>
-                            <li><a href="./ui-grid.html">Grid</a></li>
+                            <li><a href="{{url('/dashboard/teachers')}}"><i class="lni lni-user"></i> Teachers</a></li>
+                            <li><a href="{{url('/dashboard/add-teacher')}}"><i class="lni lni-plus"></i> Add Teachers</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-heart"></i>
-                            <span class="nav-text">Plugins</span>
+
+
+                    <li><a class="has-arrow ai-icon" href="" aria-expanded="false">
+                            <i class="lni lni-users"></i>
+                            <span class="nav-text">Parents</span>
+                            <!-- <span class="badge badge-xs badge-danger">New</span> -->
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./uc-select2.html">Select 2</a></li>
-                            <li><a href="./uc-nestable.html">Nestedable</a></li>
-                            <li><a href="./uc-noui-slider.html">Noui Slider</a></li>
-                            <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
-                            <li><a href="./uc-toastr.html">Toastr</a></li>
-                            <li><a href="./map-jqvmap.html">Jqv Map</a></li>
-                            <li><a href="./uc-lightgallery.html">Light Gallery</a></li>
+                            <li><a href="{{url('/dashboard/parents')}}"><i class="lni lni-user"></i> Parents</a></li>
+                            <li><a href="{{url('/dashboard/add-parents')}}"><i class="lni lni-plus"></i> Add Parents</a></li>
                         </ul>
                     </li>
-                    <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-381-settings-2"></i>
-                            <span class="nav-text">Widget</span>
+
+
+                    <li><a href="{{url('/dashboard/subscriptions')}}">
+                            <i class="lni lni-bolt"></i>
+                            <span class="nav-text">Subscriptions</span>
+                            <!-- <span class="badge badge-xs badge-danger">New</span> -->
                         </a>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-notepad"></i>
-                            <span class="nav-text">Forms</span>
+
+
+                    <li><a href="{{url('/dashboard/notifications')}}">
+                            <i class="fa fa-bell"></i>
+                            <span class="nav-text">Notifications</span>
+                            <!-- <span class="badge badge-xs badge-danger">New</span> -->
                         </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./form-element.html">Form Elements</a></li>
-                            <li><a href="./form-wizard.html">Wizard</a></li>
-                            <li><a href="./form-editor-summernote.html">Summernote</a></li>
-                            <li><a href="form-pickers.html">Pickers</a></li>
-                            <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
-                        </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-network"></i>
-                            <span class="nav-text">Table</span>
+
+                     <li><a href="#">
+                            <i class="lni lni-laptop-phone"></i>
+                            <span class="nav-text">CBT</span>
+                            <span class="badge badge-xs badge-primary">Coming Soon</span>
                         </a>
-                        <ul aria-expanded="false">
-                            <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
-                            <li><a href="table-datatable-basic.html">Datatable</a></li>
-                        </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-layer-1"></i>
-                            <span class="nav-text">Pages</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./page-register.html">Register</a></li>
-                            <li><a href="./page-login.html">Login</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./page-error-400.html">Error 400</a></li>
-                                    <li><a href="./page-error-403.html">Error 403</a></li>
-                                    <li><a href="./page-error-404.html">Error 404</a></li>
-                                    <li><a href="./page-error-500.html">Error 500</a></li>
-                                    <li><a href="./page-error-503.html">Error 503</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./page-lock-screen.html">Lock Screen</a></li>
-                        </ul>
-                    </li>
+                  
+                  
                 </ul>
-                <div class="add-menu-sidebar">
-                    <img src="images/icon1.png" alt="" />
-                    <p>Organize your menus through button bellow</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-block light">+ Add Menus</a>
-                </div>
-                <div class="copyright">
-                    <p><strong>Davur - Restaurant Admin Dashboard</strong> © 2021 All Rights Reserved</p>
-                    <p>Made with <span class="heart"></span> by DexignZone</p>
+               
+                <div class="copyright mt-3">
+                    <p><strong>Easy School</strong> © 2021 All Rights Reserved</p>
+                    <p>Made with <span class="heart"></span> by EasyAce Synergy</p>
                 </div>
             </div>
         </div>

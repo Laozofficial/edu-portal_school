@@ -43,7 +43,9 @@ class LoginController extends Controller
         //     return response($errors, 400);
         // }
 
-        $access_token = Auth::user()->createToken('Easy School Auth token')->accessToken;
+        $user_token = User::where('email', $request->get('email'))->first();
+
+        $access_token = $user_token->createToken('Easy School Auth token')->accessToken;
 
         $response = [
             'user' => User::where('email', $request->get('email'))->first(),
