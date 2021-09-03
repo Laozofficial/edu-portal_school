@@ -79,7 +79,14 @@ new Vue({
             axios.post(`${url.register}`, fd)
                 .then((response) => {
                     console.log(response);
-                    toastr.success(response.data.success);
+                    swal.fire({
+                        title: response.data.success,
+                        text: response.data.message,
+                        icon: 'success'
+                    });
+                    setTimeout(() => {
+                        window.location.href = '/dashboard/auth/otp-verification/'.this.email;
+                    })
                 })
                 .catch((error) => {
                     console.log(error);

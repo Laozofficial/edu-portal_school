@@ -55,7 +55,8 @@
     <script>
         const base_url = "{{ url('/api/dashboard/') }}";
         axios.defaults.baseURL = base_url;
-        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+        //axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+        axios.defaults.headers.post['Content-Type'] = 'application/json'
     </script>
 
     <script src="{{asset('admin/plugins/js/app.js')}}"></script>
