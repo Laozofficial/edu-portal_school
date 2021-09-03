@@ -80,7 +80,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center mt-4">
-                                            <button type="submit" class="btn btn-primary btn-block" @click="validate">Sign me up</button>
+                                            <button type="submit" class="btn btn-primary btn-block" @click="validate()">Sign me up</button>
                                         </div>
                                     </div>
                                     <div class="new-account mt-3">

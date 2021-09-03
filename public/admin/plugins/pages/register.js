@@ -27,35 +27,35 @@ new Vue({
 
     },
     methods: {
-        validate(){
-            if (this.name == '') {
-                this.name_error = 'Name cannot be empty';
-                this.name_error_switch = true;
-            }
-            if (this.email == '') {
-                this.email_error = 'Email Cannot be Empty';
-                this.email_error_switch = true;
-            }
-            if (this.phone_number == '') {
-                this.phone_number_error = 'Phone Number Error';
-                this.phone_error_switch = true;
-            }
-            if (this.password == '') {
-                this.password_error = 'Password cannot be empty';
-                this.password_error_switch = true;
-            }
-            if (this.password.length < 8) {
-                this.password_error = 'Password cannot be less that 8 characters';
-                this.password_error_switch = true;
-            }
-            if (this.password_confirmation == '') {
-                this.confirm_password_error = 'Confirm Password Field is empty';
-                this.confirm_password_switch = true;
-            }
-            if (this.name !== '' && this.email !== '' && this.phone_number !== '' && this.password !== '' && this.password.length >= 8 && this.password_confirmation !== '' && this.password === this.password_confirmation) {
-                console.log('validation passed');
+        validate() {
+            if (this.name == '' || this.email == '' || this.phone_number == '' || this.password == '' || this.password_confirmation == '') {
+                swal.fire('Oops..', 'some fields are empty', 'error');
+
+            } else {
                 this.register();
             }
+            // if (this.name == '') {
+            //     this.name_error = 'Name cannot be empty';
+            //     this.name_error_switch = true;
+            // } else if (this.email == '') {
+            //     this.email_error = 'Email Cannot be Empty';
+            //     this.email_error_switch = true;
+            // } else if (this.phone_number == '') {
+            //     this.phone_number_error = 'Phone Number Error';
+            //     this.phone_error_switch = true;
+            // } else if (this.password == '') {
+            //     this.password_error = 'Password cannot be empty';
+            //     this.password_error_switch = true;
+            // } else if (this.password.length < 8) {
+            //     this.password_error = 'Password cannot be less that 8 characters';
+            //     this.password_error_switch = true;
+            // } else if (this.password_confirmation == '') {
+            //     this.confirm_password_error = 'Confirm Password Field is empty';
+            //     this.confirm_password_switch = true;
+            // } else if (this.name !== '' && this.email !== '' && this.phone_number !== '' && this.password !== '' && this.password.length >= 8 && this.password_confirmation !== '' && this.password === this.password_confirmation) {
+            //     console.log('validation passed');
+            //     this.register();
+            // }
         },
 
         register() {

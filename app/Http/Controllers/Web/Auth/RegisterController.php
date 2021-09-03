@@ -40,7 +40,7 @@ class RegisterController extends Controller
         $user = new User;
         $user->name = $request->get('name');
         $user->email = $request->get('email');
-        $user->phone_number = $request->get('phone_number');
+        $user->phone = $request->get('phone_number');
         $user->password = Hash::make($request->get('password'));
         $user->otp = $email_otp;
         $user->save();
@@ -62,7 +62,7 @@ class RegisterController extends Controller
         );
 
 
-        Mail::send('email.otp', $data, function ($message) use ($email) {
+        Mail::send('admin.pages.auth.email.otp', $data, function ($message) use ($email) {
             $message->from('noreply@easyschool.com.ng', 'Easy School OTP');
             $message->to($email);
             // $message->cc('john@johndoe.com', 'John Doe');
