@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Web\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Mail;
 
 class OTPController extends Controller
@@ -64,6 +64,47 @@ class OTPController extends Controller
                     'errors' => 'something went wrong with the OTP Verification , please re-submit again'
                 ]
             ]);
+        }
+    }
+
+    public function verify_otp(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|string|email|max:255',
+            'otp' => 'required',
+        ]); //validate request
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422); //return error validator error
+        }
+
+        $user = User::where('email', $request->get('email'))
+        ->where('otp', $request->get('otp'))
+        ->first();
+
+        if ($user) {
+            if ($user->email_verified_at) {
+                $response = [
+                    'errors' => 'this account has already been verified'
+                ];
+
+                return response($response, 400);
+            } else {
+                $user->email_verified_at = now();
+                $user->save();
+
+                $response = [
+                    'success' => 'Account has been verified'
+                ];
+
+                return response($response, 200);
+            }
+        } else {
+            $response = [
+                'errors' => 'OTP does not match the email'
+            ];
+
+            return response($response, 400);
         }
     }
 

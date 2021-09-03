@@ -83,16 +83,18 @@ new Vue({
                     setTimeout(() => {
                         window.location.href = '/dashboard/auth/otp-verification/' + this.email;
                     }, 3000);
+                    swal.close();
                 })
                 .catch((error) => {
                     console.log(error.response.data.errors);
                     this.server_errors = error.response.data.errors;
                     this.server_error_switch = true;
                     toastr.error('something went wrong');
-                })
-                .then(() => {
                     swal.close();
-                });
+                })
+                // .then(() => {
+                //     swal.close();
+                // });
         }
     },
 })

@@ -1,6 +1,7 @@
 let url = {
     register: 'auth/register',
     resend_otp: 'auth/resend_otp',
+    verify_otp: 'auth/verify-otp'
 }
 
 
@@ -15,7 +16,7 @@ let hide_alert = () => {
 let get_token = () => {
     token = localStorage.getItem('token');
     if (token === null) {
-       if(window.location.pathname == '/dashboard/auth/register' || window.location.pathname == '/dashboard/auth/login') {
+       if (window.location.pathname == '/dashboard/auth/register' || window.location.pathname == '/dashboard/auth/login' || window.location.pathname == '/dashboard/auth/otp-verification') {
 
        }else {
          window.location.href = '/dashboard/auth/login';
@@ -25,4 +26,4 @@ let get_token = () => {
 
 
 hide_alert();
-get_token();
+// get_token();

@@ -29,6 +29,7 @@ Route::prefix('dashboard')->group(function () {
         Route::post('login', [LoginController::class, 'login_user']);
         Route::post('register', [RegisterController::class, 'register_user']);
         Route::post('resend_otp', [OTPController::class, 'resend_otp_code']);
+        Route::post('verify-otp', [OTPController::class, 'verify_otp']);
     });
 
 
