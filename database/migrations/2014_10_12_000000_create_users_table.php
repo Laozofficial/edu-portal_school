@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer('status')->unsigned()->default(0);
             $table->integer('role')->unsigned()->default(0);
             $table->integer('otp')->unsigned();
-            $table->date('verified')->unsigned();
+            $table->date('verified')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -17,7 +17,7 @@ class CreateAffectiveTraitsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('institution_id')->constrained();
-            $table->foreignId('name')->constrained();
+            $table->string('name');
             $table->timestamps();
         });
     }

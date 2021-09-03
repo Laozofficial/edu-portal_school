@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Mail;
@@ -29,6 +30,10 @@ class OTPController extends Controller
         $email_otp = rand(10000, 99999); //otp generation
 
         $this->generate_OTP($request->get('email'), $email_otp);
+
+        $user = User::where('email', $request->get('email'))->first();
+        $user->otp = $email_otp;
+        $user->save();
 
         $response = [
             'success' => 'OTP has been resent'

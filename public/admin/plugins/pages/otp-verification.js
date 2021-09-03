@@ -2,7 +2,8 @@ new Vue({
     el: '#app',
     data: {
         email: email,
-        otp: ''
+        otp: '',
+        server_errors: []
     },
     mounted() {
 

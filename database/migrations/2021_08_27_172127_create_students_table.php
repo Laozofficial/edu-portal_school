@@ -30,7 +30,6 @@ class CreateStudentsTable extends Migration
             $table->text('present_address');
             $table->string('city');
             $table->foreignId('state_id')->constrained();
-            $table->foreignId('country_id')->constrained();
             $table->string('father_name');
             $table->string('father_phone');
             $table->string('mother_name');

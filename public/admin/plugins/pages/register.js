@@ -13,7 +13,7 @@ new Vue({
         phone_number_error: '',
         password_error: '',
         confirm_password_error: '',
-        server_error:'',
+        server_errors: [],
 
 
         name_error_switch: false,
@@ -52,10 +52,6 @@ new Vue({
                 this.confirm_password_error = 'Confirm Password Field is empty';
                 this.confirm_password_switch = true;
             }
-            if (this.password === this.password_confirmation) {
-                this.confirm_password_error = 'Passwords doe not match';
-                this.confirm_password_switch = true;
-            }
             if (this.name !== '' && this.email !== '' && this.phone_number !== '' && this.password !== '' && this.password.length >= 8 && this.password_confirmation !== '' && this.password === this.password_confirmation) {
                 console.log('validation passed');
                 this.register();
@@ -85,11 +81,13 @@ new Vue({
                         icon: 'success'
                     });
                     setTimeout(() => {
-                        window.location.href = '/dashboard/auth/otp-verification/'+this.email;
-                    })
+                        window.location.href = '/dashboard/auth/otp-verification/' + this.email;
+                    }, 3000);
                 })
                 .catch((error) => {
-                    console.log(error);
+                    console.log(error.response.data.errors);
+                    this.server_errors = error.response.data.errors;
+                    this.server_error_switch = true;
                     toastr.error('something went wrong');
                 })
                 .then(() => {

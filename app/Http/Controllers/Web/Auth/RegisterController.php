@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Web\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use Mail;
 
 class RegisterController extends Controller
@@ -42,6 +42,7 @@ class RegisterController extends Controller
         $user->email = $request->get('email');
         $user->phone_number = $request->get('phone_number');
         $user->password = Hash::make($request->get('password'));
+        $user->otp = $email_otp;
         $user->save();
 
         $response = [
