@@ -30,7 +30,7 @@ class LoginController extends Controller
 
         if (!Auth::attempt($user)) {
             $errors = [
-                'errors' => 'invalid login credentials'
+                'errors' => ['invalid login credentials']
             ];
             return response($errors, 400);
         }
