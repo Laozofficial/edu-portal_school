@@ -1,5 +1,6 @@
 let url = {
-    register: 'auth/register'
+    register: 'auth/register',
+    resend_otp: 'auth/resend_otp',
 }
 
 

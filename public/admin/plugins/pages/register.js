@@ -85,7 +85,7 @@ new Vue({
                         icon: 'success'
                     });
                     setTimeout(() => {
-                        window.location.href = '/dashboard/auth/otp-verification/'.this.email;
+                        window.location.href = '/dashboard/auth/otp-verification/'+this.email;
                     })
                 })
                 .catch((error) => {

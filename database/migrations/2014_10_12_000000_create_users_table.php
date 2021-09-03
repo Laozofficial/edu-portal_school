@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('phone')->unique();
             $table->integer('status')->unsigned()->default(0);
             $table->integer('role')->unsigned()->default(0);
+            $table->integer('otp')->unsigned();
+            $table->date('verified')->unsigned();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Web\Auth\LoginController;
+use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,8 +26,9 @@ Route::prefix('dashboard')->group(function () {
 
 
     Route::prefix('auth')->group(function () {
-        Route::get('login', [LoginController::class, 'login_user']);
-        Route::get('register', [RegisterController::class, 'register_user']);
+        Route::post('login', [LoginController::class, 'login_user']);
+        Route::post('register', [RegisterController::class, 'register_user']);
+        Route::post('resend_otp', [OTPController::class, 'resend_otp_code']);
     });
 
 
