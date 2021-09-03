@@ -1,7 +1,8 @@
 let url = {
     register: 'auth/register',
     resend_otp: 'auth/resend_otp',
-    verify_otp: 'auth/verify-otp'
+    verify_otp: 'auth/verify-otp',
+    login: 'auth/login',
 }
 
 
