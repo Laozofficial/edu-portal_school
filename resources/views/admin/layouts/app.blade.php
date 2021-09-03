@@ -86,6 +86,12 @@
     <script src="{{asset('admin/vendor/toastr/js/toastr.min.js')}}"></script>
     <script src="{{asset('admin/plugins/js/axios.js')}}"></script>
 
+    <script>
+        const base_url = "{{ url('/dashboard/') }}";
+        axios.defaults.baseURL = base_url;
+        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+     </script>
+
     <!-- yield on all pages -->
     @yield('script')
 </body>

@@ -13,13 +13,15 @@ new Vue({
         phone_number_error: '',
         password_error: '',
         confirm_password_error: '',
+        server_error:'',
 
 
         name_error_switch: false,
         email_error_switch: false,
         phone_error_switch: false,
         password_error_switch: false,
-        confirm_password_switch: false
+        confirm_password_switch: false,
+        server_error_switch: false
     },
     mounted() {
 
@@ -61,7 +63,31 @@ new Vue({
         },
 
         register() {
-            
+            swal.fire({
+                text: 'Please wait ....',
+                allowOutsideClick: false
+            });
+            swal.showLoading();
+
+            let fd = new FormData;
+            fd.append('name', this.name);
+            fd.append('email', this.email);
+            fd.append('phone_number', this.phone_number);
+            fd.append('password', this.password);
+            fd.append('password_confirmation', this.password_confirmation);
+
+            axios.post(`${url.register}`, fd)
+                .then((response) => {
+                    console.log(response);
+                    toastr.success(response.data.success);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toastr.error('something went wrong');
+                })
+                .then(() => {
+                    swal.close();
+                });
         }
     },
 })
