@@ -1,9 +1,17 @@
 // this file handles any authentication for the frontend of the app
 let token = '';
 let user = {};
+let config = {};
+
 
 let get_token = () => {
-    token = localStorage.getItem('token');
+    token = window.localStorage.getItem('token');
+    config = {
+        headers: {
+            Authorization: "Bearer " + token
+        }
+    };
+    // console.log(config);
     if (token === null) {
         if (window.location.pathname == '/dashboard/auth/register' || window.location.pathname == '/dashboard/auth/login' || window.location.pathname == '/dashboard/auth/otp-verification') {
 

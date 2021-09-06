@@ -3,10 +3,13 @@ let url = {
     resend_otp: 'auth/resend_otp',
     verify_otp: 'auth/verify-otp',
     login: 'auth/login',
+
+
+    // school admin
+    get_details_for_registration: 'get_details_for_registration',
 }
 
 
-// let token = '';
 
 let hide_alert = () => {
     setTimeout(() => {

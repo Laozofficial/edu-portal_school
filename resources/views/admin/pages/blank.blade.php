@@ -4,6 +4,13 @@
 
 @section('content')
 
+<div class="text-center" v-show="">
+    <i class="fa fa-spinner fa-spin fa-5x text-primary"></i>
+</div>
+
+<div class="container fluid">
+
+</div>
 
 @endsection
 @section('script')

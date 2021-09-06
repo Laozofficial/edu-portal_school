@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Institution;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,12 +48,28 @@ class LoginController extends Controller
 
         $access_token = $user_token->createToken('Easy School Auth token')->accessToken;
 
-        $response = [
-            'user' => User::where('email', $request->get('email'))->first(),
-            'token' => $access_token,
-            'success' => 'Login Attempt Successful'
-        ];
+        $check_school = Institution::where('user_id', $user_token->id)->first();
 
-        return response($response, 200);
+        if($check_school){
+            $response = [
+                'user' => User::where('email', $request->get('email'))->first(),
+                'token' => $access_token,
+                'success' => 'Login Attempt Successful',
+                'has_school' => 1
+            ];
+
+            return response($response, 200);
+        }else {
+            $response = [
+                'user' => User::where('email', $request->get('email'))->first(),
+                'token' => $access_token,
+                'success' => 'Login Attempt Successful',
+                'has_school' => 0
+            ];
+
+            return response($response, 200);
+        }
+
+
     }
 }

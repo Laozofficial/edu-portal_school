@@ -91,9 +91,9 @@
     <script src="{{asset('admin/plugins/js/check_token.js')}}"></script>
 
     <script>
-        const base_url = "{{ url('/dashboard/') }}";
+        const base_url = "{{ url('/api/dashboard/admin/') }}";
         axios.defaults.baseURL = base_url;
-        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+        axios.defaults.headers.post['Content-Type'] = 'application/json';
      </script>
 
     <!-- yield on all pages -->

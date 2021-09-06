@@ -3,6 +3,7 @@
 use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
+use App\Http\Controllers\Web\GeneralInfoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,10 @@ Route::prefix('dashboard')->group(function () {
         Route::post('register', [RegisterController::class, 'register_user']);
         Route::post('resend_otp', [OTPController::class, 'resend_otp_code']);
         Route::post('verify-otp', [OTPController::class, 'verify_otp']);
+    });
+
+    Route::prefix('admin')->group(function () {
+        Route::get('get_details_for_registration', [GeneralInfoController::class, 'get_details_for_registration']);
     });
 
 

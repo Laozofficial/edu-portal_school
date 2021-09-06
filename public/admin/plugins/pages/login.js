@@ -8,7 +8,7 @@ new Vue({
         server_errors_switch: false
     },
     mounted() {
-        
+
     },
     methods: {
         login() {
@@ -29,10 +29,15 @@ new Vue({
                         window.localStorage.setItem('token', JSON.stringify(response.data.token));
                         window.localStorage.setItem('user', JSON.stringify(response.data.user));
                         swal.close();
-                        setTimeout(() => {
-                            window.location.href = '/dashboard/index';
-                        }, 2000);
-                        // this.user = JSON.parse(window.localStorage.getItem('user'));
+                        if (response.data.has_school === 1) {
+                            setTimeout(() => {
+                                window.location.href = '/dashboard/admin/index';
+                            }, 2000);
+                        }else {
+                            setTimeout(() => {
+                                window.location.href = '/dashboard/admin/add-school';
+                            }, 2000);
+                        }
                     })
                     .catch((error) => {
                         console.log(error.response.data.errors);
@@ -41,6 +46,6 @@ new Vue({
                         swal.close();
                     });
             }
-        }        
+        }
     },
 })
