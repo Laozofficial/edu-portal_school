@@ -22,6 +22,11 @@
     <!-- page plugins -->
     <link href="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{asset('admin/vendor/toastr/css/toastr.min.css')}}"/>
+    <style>
+        label{
+            font-weight: bolder !important
+        }
+    </style>
 </head>
 <body>
 
@@ -76,7 +81,7 @@
                          <input type="text" class="form-control input-default form-control-sm" placeholder="Name" id="name" v-model="name">
 
                          <label for="address" class="mt-3">Institution Address <span class="text-danger">*</span></label>
-                         <input type="text" class="form-control input-default form-control-sm" placeholder="Address" id="name" v-model="name">
+                         <input type="text" class="form-control input-default form-control-sm" placeholder="Address" id="address" v-model="address">
 
                           <label for="email" class="mt-3">Institution Email <span class="text-danger">*</span></label>
                          <input type="email" class="form-control input-default form-control-sm" placeholder="Email Address" id="email" v-model="email">
@@ -84,7 +89,7 @@
                           <label for="phone" class="mt-3">Institution Phone Number <span class="text-danger">*</span></label>
                          <input type="number" class="form-control input-default form-control-sm" placeholder="Phone Number" id="phone" v-model="phone">
 
-                         <button class="btn btn-primary btn-sm mt-3 btn-block">
+                         <button class="btn btn-primary btn-sm mt-3 btn-block" @click="save_institution">
                              <i class="fa fa-paper-plane"></i> Submit
                          </button>
                     </div>

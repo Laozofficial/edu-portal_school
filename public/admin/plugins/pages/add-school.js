@@ -77,8 +77,9 @@ new Vue({
             fd.append('state_id', this.selected_state);
             fd.append('logo', this.logo);
             fd.append('signature', this.signature);
+            fd.append('phone', this.phone);
 
-            axios.post(`${save_institution}`, fd, config)
+            axios.post(`${url.save_institution}`, fd, config)
                 .then((response) => {
                     console.log(response);
                     swal.close();
