@@ -37,6 +37,7 @@ Route::prefix('dashboard')->group(function () {
      Route::prefix('admin')->group(function () {
 
         Route::get('index', [ViewController::class, 'index_view']);
+        Route::get('add-school', [ViewController::class, 'add_school_view']);
 
     });
 
