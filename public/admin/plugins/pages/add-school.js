@@ -51,5 +51,46 @@ new Vue({
         onSignatureChanged(event) {
             this.signature = event.target.files[0];
         },
+        add_institution() {
+            if (this.name == '' || this.email == '' || this.phone == '' || this.logo == '' || this.selected_country == '' || this.selected_currency == '' || this.selected_language == '' || this.selected_state == '') {
+                swal.fire('Oops..', 'some fields were left unattended', 'error');
+            } else {
+                this.save_institution();
+            }
+        },
+        save_institution() {
+            swal.fire({
+                text: 'Please wait...',
+                allowOutsideClick: false
+            });
+            swal.showLoading();
+
+            let fd = new FormData;
+            fd.append('name', this.name);
+            fd.append('email', this.email);
+            fd.append('prefix', this.prefix);
+            fd.append('address', this.address);
+            fd.append('website', this.website);
+            fd.append('country_id', this.selected_country);
+            fd.append('currency_id', this.selected_currency);
+            fd.append('language_id', this.selected_language);
+            fd.append('state_id', this.selected_state);
+            fd.append('logo', this.logo);
+            fd.append('signature', this.signature);
+
+            axios.post(`${save_institution}`, fd, config)
+                .then((response) => {
+                    console.log(response);
+                    swal.close();
+                    swal.fire('Weldon', response.data.success, 'error');
+                    setTimeout(() => {
+                        window.location.href = '/dashboard/admin/index';
+                    },2000);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toastr.error('something went wrong');
+                });
+        }
     },
 });
