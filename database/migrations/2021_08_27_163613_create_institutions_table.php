@@ -29,7 +29,6 @@ class CreateInstitutionsTable extends Migration
             $table->foreignId('currency_id')->constrained();
             $table->string('signature')->nullable();
             $table->integer('use_result_pin')->unsigned()->nullable();
-            $table->foreignId('grade_system_id')->constrained();
             $table->timestamps();
         });
     }

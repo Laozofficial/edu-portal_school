@@ -17,6 +17,7 @@
     <link href="{{asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
     <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('https://cdn.lineicons.com/2.0/LineIcons.css')}}" rel="stylesheet">
+    <link href="{{asset('admin/plugins/css/vue-select.css')}}" rel="stylesheet"/>
 
     <!-- page plugins -->
     <link href="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
@@ -85,6 +86,7 @@
     <script src="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script>
     <script src="{{asset('admin/vendor/toastr/js/toastr.min.js')}}"></script>
     <script src="{{asset('admin/plugins/js/axios.js')}}"></script>
+    <script src="{{asset('admin/plugins/js/vue-select2.js')}}"></script>
     <script src="{{asset('admin/plugins/js/app.js')}}"></script>
     <script src="{{asset('admin/plugins/js/check_token.js')}}"></script>
 
