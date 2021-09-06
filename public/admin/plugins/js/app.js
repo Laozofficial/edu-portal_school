@@ -6,7 +6,7 @@ let url = {
 }
 
 
-let token = '';
+// let token = '';
 
 let hide_alert = () => {
     setTimeout(() => {

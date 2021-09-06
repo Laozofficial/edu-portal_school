@@ -34,7 +34,12 @@ Route::prefix('dashboard')->group(function () {
     });
 
 
-    Route::get('index', [ViewController::class, 'index_view']);
+     Route::prefix('admin')->group(function () {
+
+        Route::get('index', [ViewController::class, 'index_view']);
+
+    });
+
 
 
 
