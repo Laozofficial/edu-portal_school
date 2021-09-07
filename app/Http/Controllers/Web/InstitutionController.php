@@ -26,7 +26,7 @@ class InstitutionController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'phone' => 'required|unique:users',
+            'phone' => 'required|unique:users|min:11',
             'country_id' => 'required',
             'currency_id' => 'required',
             'language_id' => 'required',

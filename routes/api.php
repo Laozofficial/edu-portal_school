@@ -35,9 +35,14 @@ Route::prefix('dashboard')->group(function () {
     });
 
     Route::prefix('admin')->group(function () {
+            //unauthenticated admin routes
+            Route::get('get_details_for_registration', [GeneralInfoController::class, 'get_details_for_registration']);
+
+            // authenticated route
             Route::middleware(['auth:api'])->group(function () {
-                Route::get('get_details_for_registration', [GeneralInfoController::class, 'get_details_for_registration']);
+
                 Route::post('save_institution', [InstitutionController::class, 'save_institution']);
+
             });
     });
 

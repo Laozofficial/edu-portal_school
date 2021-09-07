@@ -5,6 +5,9 @@ new Vue({
         loading: true,
         content: true,
 
+        errors: {},
+        errors_switch: false,
+
         currencies: [],
         countries: [],
         states: [],
@@ -90,6 +93,9 @@ new Vue({
                 })
                 .catch((error) => {
                     console.log(error);
+                    this.errors = error.response.data.errors;
+                    this.errors_switch = true;
+                    swal.close();
                     toastr.error('something went wrong');
                 });
         }

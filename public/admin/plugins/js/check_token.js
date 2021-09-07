@@ -5,7 +5,7 @@ let config = {};
 
 
 let get_token = () => {
-    token = window.localStorage.getItem('token');
+    token = JSON.parse(window.localStorage.getItem('token'));
     config = {
         headers: {
             Authorization: "Bearer " + token

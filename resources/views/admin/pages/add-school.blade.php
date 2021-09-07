@@ -67,6 +67,7 @@
         <div class="card w-75">
             <div class="card-header">
                 Add Institution
+                @{{errors}}
             </div>
             <div class="card-body">
                 <div class="row">
