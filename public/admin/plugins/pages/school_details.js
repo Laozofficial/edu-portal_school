@@ -27,5 +27,8 @@ new Vue({
             this.loading = false;
             this.content = true;
         },
+        update(slug) {
+            window.location.href = '/dashboard/admin/school-update/' + slug;
+        }
     },
 })

@@ -29,4 +29,11 @@ class ViewController extends Controller
             'id' => $institution->id
         ]);
     }
+
+    public function school_update_view(Institution $institution)
+    {
+        return view('admin.pages.update-school', [
+            'id' => $institution->id
+        ]);
+    }
 }
