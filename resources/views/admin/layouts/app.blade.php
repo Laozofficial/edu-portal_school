@@ -64,6 +64,7 @@
 
 
       <!-- Required vendors -->
+    <script src="{{asset('admin/plugins/js/jquery.js')}}"></script>
     <script src="{{asset('admin/vendor/global/global.min.js')}}"></script>
     <script src="{{asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
     <script src="{{asset('admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>

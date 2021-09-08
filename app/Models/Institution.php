@@ -34,4 +34,14 @@ class Institution extends Model
     {
         return $this->belongsTo('App\Models\Currency');
     }
+
+    public function getFullLogoPathAttribute()
+    {
+        $full_logo_path =  url('/') . '/uploads/' . $this->logo;
+        return $full_logo_path;
+    }
+
+    protected $appends = [
+        'full_logo_path'
+    ];
 }

@@ -34,7 +34,8 @@ class InstitutionController extends Controller
             'currency_id' => 'required',
             'language_id' => 'required',
             'state_id' => 'required',
-            'logo' => 'required'
+            'logo' => 'required',
+            'signature' => 'required',
         ]);
 
 
@@ -57,21 +58,21 @@ class InstitutionController extends Controller
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
             $extension = $logo->getClientOriginalExtension(); // you can also use file name
-            $image =   '-1-' . time() . '.' . $extension;
+            $logo_image =   Auth::user()->id.'-1-' . time() . '.' . $extension;
             $path = Env('PUBLIC_IMAGE_PATH');
-            $upload = $logo->move($path, $image);
+            $upload = $logo->move($path, $logo_image);
 
-            $institution->logo = $image;
+            $institution->logo = $logo_image;
         }
 
         if ($request->hasFile('signature')) {
             $signature = $request->file('signature');
             $extension = $signature->getClientOriginalExtension(); // you can also use file name
-            $image = '-1-' . time() . '.' . $extension;
+            $image = Auth::user()->id.'-1-' . time() . '.' . $extension;
             $path = Env('PUBLIC_IMAGE_PATH');
             $upload = $signature->move($path, $image);
 
-            $institution->logo = $image;
+            $institution->signature = $image;
         }
 
         $institution->user_id = Auth::user()->id;
@@ -88,10 +89,13 @@ class InstitutionController extends Controller
     public function validate_user_school()
     {
         $validate_school = Institution::where('user_id', Auth::user()->id)->first();
+        $all_schools = Institution::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         if($validate_school){
             $response = [
                 'success' => 'user has a school',
-                'has_school' => 1
+                'has_school' => 1,
+                'school' => $validate_school,
+                'schools' => $all_schools
             ];
 
             return response($response, 200);

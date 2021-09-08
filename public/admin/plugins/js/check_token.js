@@ -2,6 +2,10 @@
 let token = '';
 let user = {};
 let config = {};
+let school = {};
+let schools = [];
+
+
 
 
 let get_token = () => {
@@ -39,11 +43,14 @@ let remove_token_and_redirect_to_login = () => {
 
 let get_user = () => {
     user = JSON.parse(window.localStorage.getItem('user'));
+    $('#user_name').html(user.name);
 };
 
 $("#logout-button").click(function(){
     remove_token_and_redirect_to_login();
 });
+
+
 
 
 get_token();
