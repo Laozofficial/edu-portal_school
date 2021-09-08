@@ -11,6 +11,6 @@ class Subscription extends Model
 
     public function institution()
     {
-        // return $this->
+        return $this->belongsTo('App\Models\Institution');
     }
 }
