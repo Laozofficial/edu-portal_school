@@ -16,4 +16,9 @@ class ViewController extends Controller
     {
         return view('admin.pages.add-school');
     }
+
+    public function all_schools_view()
+    {
+        return view('admin.pages.all-school');
+    }
 }

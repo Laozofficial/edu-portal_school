@@ -35,13 +35,24 @@ class Institution extends Model
         return $this->belongsTo('App\Models\Currency');
     }
 
+    public function subscription()
+    {
+        return $this->hasOne('App\Models\Subscription');
+    }
+
     public function getFullLogoPathAttribute()
     {
         $full_logo_path =  url('/') . '/uploads/' . $this->logo;
         return $full_logo_path;
     }
 
+    public function getCreatedATextAttribute()
+    {
+        $created_at_text = $this->created_at->diffForHumans();
+        return $created_at_text;
+    }
+
     protected $appends = [
-        'full_logo_path'
+        'full_logo_path', 'created_at_text'
     ];
 }
