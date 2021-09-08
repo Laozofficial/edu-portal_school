@@ -8,7 +8,7 @@ let check_if_user_has_school = () => {
                     if (response.data.has_school === 0) {
                         window.location.href = '/dashboard/admin/add-school';
                     } else {
-                        window.location.href = '/dashboard/admin/index';
+                        // window.location.href = '/dashboard/admin/index';
                     }
                 })
                 .catch((error) => {

@@ -46,6 +46,7 @@ class InstitutionController extends Controller
         $institution->name = $request->get('name');
         $institution->email = $request->get('email');
         $institution->phone = $request->get('phone');
+        $institution->address = $request->get('address');
         $institution->country_id = $request->get('country_id');
         $institution->language_id = $request->get('language_id');
         $institution->state_id = $request->get('state_id');

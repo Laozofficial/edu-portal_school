@@ -94,7 +94,7 @@ new Vue({
                 .then((response) => {
                     console.log(response);
                     swal.close();
-                    swal.fire('Weldon', response.data.success, 'error');
+                    swal.fire('Weldon', response.data.success, 'success');
                     setTimeout(() => {
                         window.location.href = '/dashboard/admin/index';
                     },2000);
