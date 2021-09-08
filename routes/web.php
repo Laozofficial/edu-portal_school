@@ -39,6 +39,7 @@ Route::prefix('dashboard')->group(function () {
         Route::get('index', [ViewController::class, 'index_view']);
         Route::get('add-school', [ViewController::class, 'add_school_view']);
         Route::get('all-schools', [ViewController::class, 'all_schools_view']);
+        Route::get('school-details/{institution:slug}', [ViewController::class, 'school_details_views']);
 
     });
 

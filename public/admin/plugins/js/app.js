@@ -12,6 +12,9 @@ let url = {
     get_details_for_registration: 'get_details_for_registration',
     save_institution: 'save_institution',
     get_all_schools: 'get_all_schools',
+    get_school_details: 'get_school_details/',
+
+
 }
 
 

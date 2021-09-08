@@ -3,17 +3,17 @@ new Vue({
     data: {
         loading: true,
         content: false,
-        institutions: []
+        institution: {}
     },
     mounted() {
-        this.get_schools();
+        this.get_school_details();
     },
     methods: {
-        get_schools() {
-            axios.get(`${url.get_all_schools}`, config)
+        get_school_details() {
+            axios.get(`${url.get_school_details + id}`, config)
                 .then((response) => {
                     console.log(response);
-                    this.institutions = response.data.institutions;
+                    this.institution = response.data.institution;
                 })
                 .catch((error) => {
                     console.log(error);
@@ -27,11 +27,5 @@ new Vue({
             this.loading = false;
             this.content = true;
         },
-        view(slug) {
-            window.location.href = '/dashboard/admin/school-details/' + slug;
-        },
-        update(slug) {
-            window.location.href = '/dashboard/admin/school-update/' + slug;
-        }
     },
 })

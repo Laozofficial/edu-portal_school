@@ -40,13 +40,18 @@ class Institution extends Model
         return $this->hasOne('App\Models\Subscription');
     }
 
+    public function country()
+    {
+        return $this->belongsTo('App\Models\Country');
+    }
+
     public function getFullLogoPathAttribute()
     {
         $full_logo_path =  url('/') . '/uploads/' . $this->logo;
         return $full_logo_path;
     }
 
-    public function getCreatedATextAttribute()
+    public function getCreatedAtTextAttribute()
     {
         $created_at_text = $this->created_at->diffForHumans();
         return $created_at_text;
@@ -54,5 +59,9 @@ class Institution extends Model
 
     protected $appends = [
         'full_logo_path', 'created_at_text'
+    ];
+
+    protected $with = [
+        'subscription', 'country', 'currency', 'state', 'language'
     ];
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Institution;
+use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -65,18 +66,26 @@ class InstitutionController extends Controller
             $institution->logo = $logo_image;
         }
 
-        if ($request->hasFile('signature')) {
-            $signature = $request->file('signature');
-            $extension = $signature->getClientOriginalExtension(); // you can also use file name
-            $image = Auth::user()->id.'-1-' . time() . '.' . $extension;
-            $path = Env('PUBLIC_IMAGE_PATH');
-            $upload = $signature->move($path, $image);
+        // if ($request->hasFile('signature')) {
+        //     $signature = $request->file('signature');
+        //     $extension = $signature->getClientOriginalExtension(); // you can also use file name
+        //     $image = Auth::user()->id.'-1-' . time() . '.' . $extension;
+        //     $path = Env('PUBLIC_IMAGE_PATH');
+        //     $upload = $signature->move($path, $image);
 
-            $institution->signature = $image;
-        }
+        //     $institution->signature = $image;
+        // }
 
         $institution->user_id = Auth::user()->id;
         $institution->save();
+
+
+        $subscription = new Subscription;
+        $subscription->subscription_type_id = 1;
+        $subscription->institution_id = $institution->id;
+        $subscription->start_date = now();
+        $subscription->status = 1;
+        $subscription->save();
 
         $response = [
             'success' => 'Institution has been added Successfully'
@@ -107,5 +116,23 @@ class InstitutionController extends Controller
 
             return response($response, 200);
         }
+    }
+
+    public function get_all_schools()
+    {
+        $institutions = Institution::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
+        $response = [
+            'institutions' => $institutions
+        ];
+        return response($response, 200);
+    }
+
+    public function get_school_details(Institution $institution)
+    {
+        $response = [
+            'institution' => $institution
+        ];
+
+        return response($response, 200);
     }
 }
