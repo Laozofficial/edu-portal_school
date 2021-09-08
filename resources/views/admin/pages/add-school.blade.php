@@ -48,6 +48,7 @@
         Main wrapper start
     ***********************************-->
     <div id="main-wrapper">
+        @include('admin.partials.nav')
 
         <!--**********************************
             Content body start
@@ -66,10 +67,18 @@
 
         <div class="card w-75">
             <div class="card-header">
-                Add Institution
-                @{{errors}}
+                <h5>Add Institution</h5>
             </div>
             <div class="card-body">
+                  <div v-for="error in errors" class="mb-4 col-md-12 container">
+                    <div class="alert alert-danger alert-dismissible fade show" v-show="errors_switch">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                            <strong>Error!</strong> @{{error}}
+                        <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                        </button>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-md-6">
                          <label for="country">Select Institution Country <span class="text-danger">*</span></label>
@@ -148,6 +157,7 @@
 
 
       <!-- Required vendors -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{asset('admin/vendor/global/global.min.js')}}"></script>
     <script src="{{asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
     <script src="{{asset('admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Institution;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
 
 class InstitutionController extends Controller
 {
@@ -23,7 +25,8 @@ class InstitutionController extends Controller
 
     public function save_institution(Request $request)
     {
-        $request->validate([
+
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'phone' => 'required|unique:users|min:11',
@@ -33,6 +36,11 @@ class InstitutionController extends Controller
             'state_id' => 'required',
             'logo' => 'required'
         ]);
+
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422); //return error validator error
+        }
 
         $institution = new Institution;
         $institution->name = $request->get('name');
@@ -73,5 +81,26 @@ class InstitutionController extends Controller
         ] ;
 
         return response($response, 200);
+    }
+
+
+    public function validate_user_school()
+    {
+        $validate_school = Institution::where('user_id', Auth::user()->id)->first();
+        if($validate_school){
+            $response = [
+                'success' => 'user has a school',
+                'has_school' => 1
+            ];
+
+            return response($response, 200);
+        }else {
+            $response = [
+                'error' => 'user has no school',
+                'has_school' => 0
+            ];
+
+            return response($response, 200);
+        }
     }
 }

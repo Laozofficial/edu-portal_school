@@ -4,6 +4,9 @@ let url = {
     verify_otp: 'auth/verify-otp',
     login: 'auth/login',
 
+    // check if user has a school
+    validate_user_school: 'validate_user_school',
+
 
     // school admin
     get_details_for_registration: 'get_details_for_registration',

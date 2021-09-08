@@ -96,6 +96,8 @@
         axios.defaults.headers.post['Content-Type'] = 'application/json';
      </script>
 
+     <script src="{{asset('admin/plugins/js/validate_user_school.js')}}"></script>
+
     <!-- yield on all pages -->
     @yield('script')
 </body>

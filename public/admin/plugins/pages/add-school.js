@@ -5,7 +5,7 @@ new Vue({
         loading: true,
         content: true,
 
-        errors: {},
+        errors: [],
         errors_switch: false,
 
         currencies: [],
@@ -32,6 +32,14 @@ new Vue({
     },
     mounted() {
         this.get_details_for_registration();
+
+    },
+    watch: {
+        errors_switch: function () {
+            setTimeout(() => {
+                this.errors_switch = false;
+            }, 10000);
+        }
     },
     methods: {
         get_details_for_registration() {
@@ -98,6 +106,6 @@ new Vue({
                     swal.close();
                     toastr.error('something went wrong');
                 });
-        }
+        },
     },
 });

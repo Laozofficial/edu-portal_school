@@ -21,15 +21,25 @@ let get_token = () => {
     }
 };
 
+// let check_if_user_has_school = () => {
+//     axios.get(`${url.validate_user_school}`, config)
+//         .then((response) => {
+//             console.log(response);
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//         })
+// };
+
 let remove_token_and_redirect_to_login = () => {
     window.localStorage.removeItem('token');
     window.localStorage.removeItem('user');
     window.location.href = '/dashboard/auth/login';
-}
+};
 
 let get_user = () => {
     user = JSON.parse(window.localStorage.getItem('user'));
-}
+};
 
 $("#logout-button").click(function(){
     remove_token_and_redirect_to_login();
@@ -38,4 +48,5 @@ $("#logout-button").click(function(){
 
 get_token();
 get_user();
+// check_if_user_has_school();
 
