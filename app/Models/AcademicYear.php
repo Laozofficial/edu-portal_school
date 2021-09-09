@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,7 +32,22 @@ class AcademicYear extends Model
         }
     }
 
+    public function getStartDateTextAttribute()
+    {
+        return Carbon::parse($this->start_date)->diffForHumans();
+    }
+
+    public function getEndDateTextAttribute()
+    {
+        return Carbon::parse($this->end_date)->diffForHumans();
+    }
+
+    public function getCreatedAtTextAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
     protected $appends = [
-        'status_text'
+        'status_text','start_date_text', 'end_date_text', 'created_at_text'
     ];
 }

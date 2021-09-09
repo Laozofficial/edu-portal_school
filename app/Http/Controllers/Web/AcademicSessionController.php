@@ -10,6 +10,17 @@ use Illuminate\Http\Request;
 
 class AcademicSessionController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth:api']);
+    }
+
+
     public function get_sessions(Institution $institution)
     {
         $sessions = AcademicYear::where('institution_id', $institution->id)->orderBy('id', 'desc')->get();
@@ -22,9 +33,31 @@ class AcademicSessionController extends Controller
 
     public function save_session(Request $request,  Institution $institution)
     {
-        $session = new AcademicYear;
-        $session->start_date = Carbon::createFromFormat('Y-m-d', $request->get('start_date'))->toDateTimeString();
-        $session->end_date = Carbon::createFromFormat('Y-m-d', $request->get('end_date'))->toDateTimeString();
-        $session->save();
+        $start_date = Carbon::parse($request->get('start_date'));
+        $end_date = Carbon::parse($request->get('end_date'));
+
+        // if($start_date < $end_date)  {
+        //     $response = [
+        //         'error' => 'Date cannot be less than a day'
+        //     ];
+
+        //     return response($response, 422);
+        // }else {
+            $session = new AcademicYear;
+            $session->institution_id =  $institution->id;
+            $session->start_date = Carbon::createFromFormat('Y-m-d', $request->get('start_date'))->toDateTimeString();
+            $session->end_date = Carbon::createFromFormat('Y-m-d', $request->get('end_date'))->toDateTimeString();
+            $session->status = $request->get('status');
+            $session->save();
+
+            $response = [
+                'success' => 'session has been created'
+            ];
+
+            return response($response, 200);
+
+
+
+
     }
 }

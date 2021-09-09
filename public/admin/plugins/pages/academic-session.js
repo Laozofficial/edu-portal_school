@@ -9,6 +9,7 @@ new Vue({
         selected_institution: '',
         end_date: '',
         start_date: '',
+        status: '',
         sessions: [],
 
         error: '',
@@ -39,7 +40,7 @@ new Vue({
             });
             swal.showLoading();
 
-            axios.post(`${url.get_session + this.selected_institution}`, config)
+            axios.get(`${url.get_session + this.selected_institution}`, config)
                 .then((response) => {
                     console.log(response);
                     swal.close();
@@ -53,29 +54,33 @@ new Vue({
                     console.log(console.error());
                     toastr.error('something went wrong');
                 });
-
         },
         save_session() {
-            swal.fire({
-                text: 'Please wait...',
-                allowOutsideClick: false
-            });
-            swal.showLoading();
-
-            let fd = new FormData;
-            fd.append('start_date', this.start_date);
-            fd.append('end_start', this.end_start);
-
-            axios.post(`${url.save_session + this.selected_institution}`, config)
-                .then((response) => {
-                    console.log(response);
-                    swal.fire('weldon', response.data.success, 'success');
-                })
-                .catch((error) => {
-                    console.log(error);
-                    toastr.error('something went wrong');
+            if (this.selected_institution == '' || this.start_date == '' || this.end_date == '') {
+                swal.fire('Oops..', 'Some fields are empty, Please make sure you select an institution on the top right of your screen', 'error');
+            }else {
+                swal.fire({
+                    text: 'Please wait...',
+                    allowOutsideClick: false
                 });
+                swal.showLoading();
 
+                let fd = new FormData;
+                fd.append('start_date', this.start_date);
+                fd.append('end_date', this.end_date);
+                fd.append('status', this.status);
+
+                axios.post(`${url.save_session + this.selected_institution}`,fd, config)
+                    .then((response) => {
+                        console.log(response);
+                        this.get_sessions();
+                        swal.fire('weldon', response.data.success, 'success');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        toastr.error('something went wrong');
+                    });
+            }
         },
         showContent() {
             this.loading = false;
