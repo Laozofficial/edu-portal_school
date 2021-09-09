@@ -36,4 +36,9 @@ class ViewController extends Controller
             'id' => $institution->id
         ]);
     }
+
+    public function academic_session_view()
+    {
+        return view('admin.pages.academic-session');
+    }
 }

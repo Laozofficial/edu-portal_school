@@ -37,10 +37,15 @@ Route::prefix('dashboard')->group(function () {
      Route::prefix('admin')->group(function () {
 
         Route::get('index', [ViewController::class, 'index_view']);
+
+        // school CRUD Route
         Route::get('add-school', [ViewController::class, 'add_school_view']);
         Route::get('all-schools', [ViewController::class, 'all_schools_view']);
         Route::get('school-details/{institution:slug}', [ViewController::class, 'school_details_views']);
         Route::get('school-update/{institution:slug}', [ViewController::class, 'school_update_view']);
+
+        // academic CRUD Route
+        Route::get('academic-session', [ViewController::class, 'academic_session_view']);
 
     });
 
