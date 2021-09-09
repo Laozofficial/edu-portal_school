@@ -54,7 +54,7 @@ class InstitutionController extends Controller
         $institution->state_id = $request->get('state_id');
         $institution->currency_id = $request->get('currency_id');
         $institution->website = $request->get('website');
-        $institution->prefix_code = $request->get('prefix_code');
+        $institution->prefix_code = $request->get('prefix');
         $institution->slug = Str::slug($request->get('name').'-');
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
@@ -134,5 +134,50 @@ class InstitutionController extends Controller
         ];
 
         return response($response, 200);
+    }
+
+    public function update_school_details(Request $request, Institution $institution)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required|unique:users|min:11',
+            'address' => 'require'
+        ]);
+
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422); //return error validator error
+        }
+
+        $institution->email = $request->get('email');
+        $institution->phone = $request->get('phone');
+        $institution->address = $request->get('address');
+        $institution->country_id = $request->get('country_id');
+        $institution->language_id = $request->get('language_id');
+        $institution->state_id = $request->get('state_id');
+        $institution->currency_id = $request->get('currency_id');
+        $institution->website = $request->get('website');
+        $institution->prefix_code = $request->get('prefix');
+        $institution->slug = Str::slug($request->get('name') . '-');
+
+        if ($request->hasFile('signature')) {
+            $signature = $request->file('signature');
+            $extension = $signature->getClientOriginalExtension(); // you can also use file name
+            $image = Auth::user()->id.'-1-' . time() . '.' . $extension;
+            $path = Env('PUBLIC_IMAGE_PATH');
+            $upload = $signature->move($path, $image);
+
+            $institution->signature = $image;
+        }
+
+        $institution->save();
+
+        $response = [
+            'success' => 'institution has been updated'
+        ];
+
+        return response($response, 200);
+
     }
 }

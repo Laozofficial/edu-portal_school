@@ -70,7 +70,6 @@
 @section('script')
     <script>
         let id = "{{$id}}";
-        console.log(id);
     </script>
     <script src="{{asset('admin/plugins/pages/school_details.js')}}"></script>
 @endsection

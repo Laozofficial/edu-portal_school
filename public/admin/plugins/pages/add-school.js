@@ -63,7 +63,7 @@ new Vue({
             this.signature = event.target.files[0];
         },
         add_institution() {
-            if (this.name == '' || this.email == '' || this.phone == '' || this.logo == '' || this.selected_country == '' || this.selected_currency == '' || this.selected_language == '' || this.selected_state == '') {
+            if (this.name == '' || this.email == '' || this.phone == '' || this.logo == '' || this.selected_country == '' || this.selected_currency == '' || this.selected_language == '' || this.selected_state == '' || this.address == '') {
                 swal.fire('Oops..', 'some fields were left unattended', 'error');
             } else {
                 this.save_institution();

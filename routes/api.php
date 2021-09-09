@@ -46,6 +46,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('validate_user_school', [InstitutionController::class, 'validate_user_school']);
                 Route::get('get_all_schools', [InstitutionController::class, 'get_all_schools']);
                 Route::get('get_school_details/{institution}', [InstitutionController::class, 'get_school_details']);
+                Route::post('update_institution/{institution}', [InstitutionController::class, 'update_school_details']);
 
             });
     });
