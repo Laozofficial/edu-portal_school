@@ -22,6 +22,11 @@
     <!-- page plugins -->
     <link href="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{asset('admin/vendor/toastr/css/toastr.min.css')}}"/>
+     <!-- Pick date -->
+    <link rel="stylesheet" href="{{asset('admin/vendor/pickadate/themes/default.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/vendor/pickadate/themes/default.date.css')}}">
+    <!-- Daterange picker -->
+    <link href="{{asset('asset/vendor/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -90,6 +95,14 @@
     <script src="{{asset('admin/plugins/js/vue-select2.js')}}"></script>
     <script src="{{asset('admin/plugins/js/app.js')}}"></script>
     <script src="{{asset('admin/plugins/js/check_token.js')}}"></script>
+
+    <script src="{{asset('admin/vendor/pickadate/picker.js')}}"></script>
+    <script src="{{asset('admin/vendor/pickadate/picker.time.js')}}"></script>
+    <script src="{{asset('admin/vendor/pickadate/picker.date.js')}}"></script>
+
+    <!-- momment js is must -->
+    <script src="{{asset('asset/vendor/moment/moment.min.js')}}"></script>
+    <script src="{{asset('asset/vendor/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
     <script>
         const base_url = "{{ url('/api/dashboard/admin/') }}";

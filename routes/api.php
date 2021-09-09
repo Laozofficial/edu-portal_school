@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\AcademicSessionController;
 use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
@@ -47,6 +48,10 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_all_schools', [InstitutionController::class, 'get_all_schools']);
                 Route::get('get_school_details/{institution}', [InstitutionController::class, 'get_school_details']);
                 Route::post('update_institution/{institution}', [InstitutionController::class, 'update_school_details']);
+
+                // Academic session Routes
+                Route::get('get_session/{institution}', [AcademicSessionController::class, 'get_sessions']);
+                Route::post('save_session/{institution}', [AcademicSessionController::class, 'save_session']);
 
             });
     });

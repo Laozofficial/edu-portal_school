@@ -45,6 +45,11 @@ class Institution extends Model
         return $this->belongsTo('App\Models\Country');
     }
 
+    public function academic_sessions()
+    {
+        return $this->hasMany('App\Models\AcademicYear');
+    }
+
     public function getFullLogoPathAttribute()
     {
         $full_logo_path =  url('/') . '/uploads/' . $this->logo;

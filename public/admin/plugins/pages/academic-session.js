@@ -6,7 +6,13 @@ new Vue({
         content: false,
         institutions: [],
         institution: {},
-        selected_institution: ''
+        selected_institution: '',
+        end_date: '',
+        start_date: '',
+        sessions: [],
+
+        error: '',
+        errors_switch: false
     },
     mounted() {
         this.get_schools();
@@ -25,6 +31,51 @@ new Vue({
                 .then(() => {
                     this.showContent();
                 });
+        },
+        get_sessions() {
+            swal.fire({
+                text: 'Please wait...',
+                allowOutsideClick: false
+            });
+            swal.showLoading();
+
+            axios.post(`${url.get_session + this.selected_institution}`, config)
+                .then((response) => {
+                    console.log(response);
+                    swal.close();
+                    this.sessions = response.data.sessions;
+                    if (this.sessions.length < 1) {
+                        this.error = 'No Sessions has been Created Yet';
+                        this.errors_switch = true;
+                    }
+                })
+                .catch((error) => {
+                    console.log(console.error());
+                    toastr.error('something went wrong');
+                });
+
+        },
+        save_session() {
+            swal.fire({
+                text: 'Please wait...',
+                allowOutsideClick: false
+            });
+            swal.showLoading();
+
+            let fd = new FormData;
+            fd.append('start_date', this.start_date);
+            fd.append('end_start', this.end_start);
+
+            axios.post(`${url.save_session + this.selected_institution}`, config)
+                .then((response) => {
+                    console.log(response);
+                    swal.fire('weldon', response.data.success, 'success');
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toastr.error('something went wrong');
+                });
+
         },
         showContent() {
             this.loading = false;

@@ -23,7 +23,7 @@
                     </svg>
                     <div class="text-left ml-3">
                         <span class="d-block fs-16">Select Institution</span>
-                        <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" id="institution"></v-select>
+                        <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" @input="get_sessions" id="institution"></v-select>
                     </div>
                     <i class="fa fa-angle-down scale5 ml-3"></i>
                 </div>
@@ -42,8 +42,13 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
-                            <label for="start_date"
+                        <div class="col-lg-12">
+                            <label for="start_year">Start Date</label>
+                            <input name="datepicker" class="datepicker-default form-control" id="datepicker" type="date" v-model="start_date">
+                        </div>
+                        <div class="col-lg-12 mt-4">
+                            <label for="start_month">Start Month</label>
+                            <input name="datepicker" class="datepicker-default form-control" id="datepicker" type="date" v-model="end_date">
                         </div>
                     </div>
                 </div>
@@ -53,6 +58,84 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Sessions</h4>
+                </div>
+                <div class="card-body">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Exam Toppers</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-responsive-md">
+                                        <thead>
+                                            <tr>
+                                                <th><strong>S/N</strong></th>
+                                                <th><strong>Start Date</strong></th>
+                                                <th><strong>End Date</strong></th>
+                                                <th><strong>Status</strong></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="(session, index) in sessions">
+                                                <td><strong>@{{index + 1}}</strong></td>
+                                                <td><div class="d-flex align-items-center">
+                                                    <span class="w-space-no">Dr. Jackson</span></div>
+                                                </td>
+                                                <td>example@example.com	</td>
+                                                <td>01 August 2020</td>
+                                                <td><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> Successful</div></td>
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+											<tr>
+                                                <td>
+													<div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
+														<input type="checkbox" class="custom-control-input" id="customCheckBox3" required="">
+														<label class="custom-control-label" for="customCheckBox3"></label>
+													</div>
+												</td>
+                                                <td><strong>542</strong></td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/2.jpg" class="rounded-lg mr-2" width="24" alt=""/> <span class="w-space-no">Dr. Jackson</span></div></td>
+                                                <td>example@example.com	</td>
+                                                <td>01 August 2020</td>
+                                                <td><div class="d-flex align-items-center"><i class="fa fa-circle text-danger mr-1"></i> Canceled</div></td>
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+											<tr>
+                                                <td>
+													<div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
+														<input type="checkbox" class="custom-control-input" id="customCheckBox4" required="">
+														<label class="custom-control-label" for="customCheckBox4"></label>
+													</div>
+												</td>
+                                                <td><strong>542</strong></td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/3.jpg" class="rounded-lg mr-2" width="24" alt=""/> <span class="w-space-no">Dr. Jackson</span></div></td>
+                                                <td>example@example.com	</td>
+                                                <td>01 August 2020</td>
+                                                <td><div class="d-flex align-items-center"><i class="fa fa-circle text-warning mr-1"></i> Pending</div></td>
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
