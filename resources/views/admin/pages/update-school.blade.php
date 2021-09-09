@@ -42,10 +42,10 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                         <label for="country">Update Institution Country <span class="text-danger">*</span></label>
-                         <v-select :options="countries" label="name" v-model="selected_country" :reduce="countries => countries.id" id="country"></v-select>
+                         <!-- <label for="country">Update Institution Country <span class="text-danger">*</span></label>
+                         <v-select :options="countries" label="name" v-model="selected_country" :reduce="countries => countries.id" id="country"></v-select> -->
 
-                         <label for="language" class="mt-3">Update Institution Language <span class="text-danger">*</span></label>
+                         <label for="language" class="">Update Institution Language <span class="text-danger">*</span></label>
                          <v-select :options="languages" label="name" v-model="selected_language" :reduce="languages => languages.id" id="language"></v-select>
 
                          <!-- <label for="name" class="mt-3">Update Institution Name <span class="text-danger">*</span></label>
@@ -68,8 +68,8 @@
                         <label for="currency">Update Institution Currency <span class="text-danger">*</span></label>
                          <v-select :options="currencies" label="currency_name" v-model="selected_currency" :reduce="currencies => currencies.id" id="currency"></v-select>
 
-                         <label for="states" class="mt-3">Update Institution State Of Origin <span class="text-danger">*</span></label>
-                         <v-select :options="states" label="name" v-model="selected_state" :reduce="states => states.id" od="states"></v-select>
+                         <!-- <label for="states" class="mt-3">Update Institution State Of Origin <span class="text-danger">*</span></label>
+                         <v-select :options="states" label="name" v-model="selected_state" :reduce="states => states.id" od="states"></v-select> -->
 
                           <label for="prefix" class="mt-3">Update Institution Name Prefix </label>
                          <input type="text" class="form-control input-default form-control-sm" placeholder="Eg STH" id="prefix" v-model="institution.prefix_code">

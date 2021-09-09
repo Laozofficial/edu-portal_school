@@ -139,10 +139,9 @@ class InstitutionController extends Controller
     public function update_school_details(Request $request, Institution $institution)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
             'email' => 'required|email|unique:users',
             'phone' => 'required|unique:users|min:11',
-            'address' => 'require'
+            'address' => 'required'
         ]);
 
 
@@ -153,13 +152,14 @@ class InstitutionController extends Controller
         $institution->email = $request->get('email');
         $institution->phone = $request->get('phone');
         $institution->address = $request->get('address');
-        $institution->country_id = $request->get('country_id');
-        $institution->language_id = $request->get('language_id');
-        $institution->state_id = $request->get('state_id');
-        $institution->currency_id = $request->get('currency_id');
+        if($request->get('currency_id') !== null){
+            $institution->currency_id = $request->get('currency_id');
+        }
+        if($request->get('language_id') !== null) {
+            $institution->language_id = $request->get('language_id');
+        }
         $institution->website = $request->get('website');
-        $institution->prefix_code = $request->get('prefix');
-        $institution->slug = Str::slug($request->get('name') . '-');
+        $institution->prefix_code = $request->get('prefix_code');
 
         if ($request->hasFile('signature')) {
             $signature = $request->file('signature');

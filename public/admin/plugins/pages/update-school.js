@@ -78,18 +78,14 @@ new Vue({
                 fd.append('prefix_code', this.institution.prefix_code);
                 fd.append('address', this.institution.address);
                 fd.append('website', this.institution.website);
-                if (Number.isInteger(this.selected_country)) {
-                    fd.append('country_id', this.selected_country);
-                }
+
                 if (Number.isInteger(this.selected_currency)) {
                     fd.append('currency_id', this.selected_currency);
                 }
                 if (Number.isInteger(this.selected_language)) {
                     fd.append('language_id', this.selected_language);
                 }
-                if (Number.isInteger(this.selected_state)) {
-                    fd.append('state_id', this.selected_state);
-                }
+
                 fd.append('signature', this.signature);
                 fd.append('phone', this.institution.phone);
 
