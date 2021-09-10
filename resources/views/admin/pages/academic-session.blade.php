@@ -35,7 +35,7 @@
         </div>
 
      <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <div class="card">
                 <div class="card-header">
                     <h4>Add Session</h4>
@@ -43,6 +43,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-12">
+                            <label for="name">Session Name</label>
+                            <input class="datepicker-default form-control form-control-sm" type="text" v-model="name" placeholder="Example 2020/2021">
+                        </div>
+                        <div class="col-lg-12 mt-4">
                             <label for="start_year">Session Start Date</label>
                             <input name="datepicker" class="datepicker-default form-control" id="datepicker" type="date" v-model="start_date">
                         </div>
@@ -68,7 +72,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-8">
             <div class="card">
                 <div class="card-header">
                     <h4>Sessions</h4>
@@ -83,19 +87,28 @@
                                         <thead>
                                             <tr>
                                                 <th><strong>S/N</strong></th>
+                                                <th><strong>Session Name</strong></th>
                                                 <th><strong>Session Starting</strong></th>
                                                 <th><strong>End Date</strong></th>
                                                 <th><strong>Status</strong></th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr v-for="(session, index) in sessions">
                                                 <td><strong>@{{index + 1}}</strong></td>
+                                                <td>@{{session.name}}</td>
                                                 <td><div class="d-flex align-items-center">
                                                     <span class="w-space-no">@{{session.start_date_text}}</span></div>
                                                 </td>
                                                 <td>@{{session.end_date_text}}	</td>
-                                                <td>@{{session.created_at_text}}</td>
+                                                <td v-if="session.status == 0"><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> @{{session.status_text}}</div> </td>
+                                                <td v-if="session.status == 1"><div class="d-flex align-items-center"> <i class="fa fa-circle text-danger mr-1"></i> @{{session.status_text}}</div> </td>
+                                                 <td>
+													<div class="d-flex">
+														<a @click="update_session(session.id)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
+													</div>
+												</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -108,6 +121,47 @@
             </div>
         </div>
      </div>
+
+
+     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="update_session">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Session</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12">
+                        <label for="name">Session Name</label>
+                        <input class="datepicker-default form-control form-control-sm" type="text" v-model="session.name" placeholder="Example 2020/2021">
+                    </div>
+                    <div class="col-lg-12 mt-4">
+                        <label for="start_year">Session Start Date</label>
+                        <input class="datepicker-default form-control" id="datepicker" type="date" v-model="session.start_date">
+                    </div>
+                    <div class="col-lg-12 mt-4">
+                        <label for="start_month">Session End Date</label>
+                        <input class="datepicker-default form-control" id="datepicker" type="date" v-model="session.end_date">
+                    </div>
+                        <div class="col-lg-12 mt-4">
+                        <label for="start_month">Session Status</label>
+                        <div class="form-group">
+                            <select class="form-control default-select form-control-lg" v-model="session.status">
+                                <option value="0">Active</option>
+                                <option value="1">Not Active</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" @click="save_update_session(session.id)">Update changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 

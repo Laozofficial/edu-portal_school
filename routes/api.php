@@ -52,6 +52,7 @@ Route::prefix('dashboard')->group(function () {
                 // Academic session Routes
                 Route::get('get_session/{institution}', [AcademicSessionController::class, 'get_sessions']);
                 Route::post('save_session/{institution}', [AcademicSessionController::class, 'save_session']);
+                Route::get('get_single_session/{session}', [AcademicSessionController::class, 'get_single_session']);
 
             });
     });

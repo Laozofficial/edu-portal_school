@@ -14,9 +14,12 @@ let url = {
     update_institution: 'update_institution/',
     get_all_schools: 'get_all_schools',
     get_school_details: 'get_school_details/',
+
     // session level routes links
     get_session: 'get_session/',
-    save_session: 'save_session/'
+    save_session: 'save_session/',
+    get_single_session: 'get_single_session/',
+    save_update_session: 'save_update_session/',
 
 
 }

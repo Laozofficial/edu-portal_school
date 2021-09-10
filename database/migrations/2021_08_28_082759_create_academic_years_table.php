@@ -16,6 +16,7 @@ class CreateAcademicYearsTable extends Migration
         Schema::create('academic_years', function (Blueprint $table) {
             $table->id();
             $table->foreignId('institution_id')->constrained();
+            $table->string('name');
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('status')->unsigned();

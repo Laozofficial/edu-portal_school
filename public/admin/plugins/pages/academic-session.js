@@ -4,13 +4,18 @@ new Vue({
     data: {
         loading: true,
         content: false,
+
         institutions: [],
         institution: {},
         selected_institution: '',
+
+        name: '',
         end_date: '',
         start_date: '',
         status: '',
+
         sessions: [],
+        session: {},
 
         error: '',
         errors_switch: false
@@ -66,6 +71,7 @@ new Vue({
                 swal.showLoading();
 
                 let fd = new FormData;
+                fd.append('name', this.name);
                 fd.append('start_date', this.start_date);
                 fd.append('end_date', this.end_date);
                 fd.append('status', this.status);
@@ -81,6 +87,48 @@ new Vue({
                         toastr.error('something went wrong');
                     });
             }
+        },
+        update_session(id) {
+            swal.fire('Loading session....');
+            swal.showLoading();
+
+            axios.get(`${url.get_single_session + id}`, config)
+                .then((response) => {
+                    console.log(response);
+                    this.session = response.data.session;
+                    $('#update_session').modal('show');
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toastr.error('something went wrong');
+                })
+                .then(() => {
+                    swal.close();
+                });
+        },
+        save_update_session(id) {
+            swal.fire({
+                text: 'Please wait...',
+                allowOutsideClick: false
+            });
+            swal.showLoading();
+
+            let fd = new FormData;
+            fd.append('name', this.session.name);
+            fd.append('start_date', this.session.start_date);
+            fd.append('end_date', this.session.end_date);
+            fd.append('status', this.session.status);
+
+            axios.post(`${url.save_update_session + id}`, fd , config)
+                .then((response) => {
+                    console.log(response);
+                    swal.close();
+                    swal.fire('weldon', response.data.success, 'success');
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toastr.error('something went wrong');
+                })
         },
         showContent() {
             this.loading = false;

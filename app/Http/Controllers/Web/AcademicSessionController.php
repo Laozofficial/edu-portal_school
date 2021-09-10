@@ -45,6 +45,7 @@ class AcademicSessionController extends Controller
         // }else {
             $session = new AcademicYear;
             $session->institution_id =  $institution->id;
+            $session->name = $request->get('name');
             $session->start_date = Carbon::createFromFormat('Y-m-d', $request->get('start_date'))->toDateTimeString();
             $session->end_date = Carbon::createFromFormat('Y-m-d', $request->get('end_date'))->toDateTimeString();
             $session->status = $request->get('status');
@@ -55,9 +56,15 @@ class AcademicSessionController extends Controller
             ];
 
             return response($response, 200);
-
-
-
-
     }
+
+    public function get_single_session(AcademicYear $session)
+    {
+        $response = [
+            'session' => $session
+        ];
+
+        return response($response, 200);
+    }
+
 }
