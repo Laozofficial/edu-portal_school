@@ -28,6 +28,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{url('/dashboard/admin/academic-session')}}"><i class="lni lni-school-bench-alt"></i> Academic Session</a></li>
+                            <li><a href="{{url('/dashboard/admin/term')}}"><i class="lni lni-blackboard"></i> Terms</a></li>
                             <li><a href="{{url('/dashboard/admin/subjects')}}"><i class="lni lni-book"></i> Subjects</a></li>
                             <li><a href="{{url('/dashboard/admin/classes')}}"><i class="lni lni-users"></i> Classes</a></li>
                             <li><a href="{{url('/dashboard/admin/traits')}}"><i class="lni lni-more-alt"></i> Traits </a></li>

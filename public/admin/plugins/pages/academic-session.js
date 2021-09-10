@@ -107,28 +107,34 @@ new Vue({
                 });
         },
         save_update_session(id) {
-            swal.fire({
-                text: 'Please wait...',
-                allowOutsideClick: false
-            });
-            swal.showLoading();
+            if (this.session.name == '' || this.session.start_date == '' || this.session.end_date == '' || this.session.status) {
+                swal.fire('Oops..', 'some fields are empty', 'error');
+            } else {
+                swal.fire({
+                    text: 'Please wait...',
+                    allowOutsideClick: false
+                });
+                swal.showLoading();
 
-            let fd = new FormData;
-            fd.append('name', this.session.name);
-            fd.append('start_date', this.session.start_date);
-            fd.append('end_date', this.session.end_date);
-            fd.append('status', this.session.status);
+                let fd = new FormData;
+                fd.append('name', this.session.name);
+                fd.append('start_date', this.session.start_date);
+                fd.append('end_date', this.session.end_date);
+                fd.append('status', this.session.status);
 
-            axios.post(`${url.save_update_session + id}`, fd , config)
-                .then((response) => {
-                    console.log(response);
-                    swal.close();
-                    swal.fire('weldon', response.data.success, 'success');
-                })
-                .catch((error) => {
-                    console.log(error);
-                    toastr.error('something went wrong');
-                })
+                axios.post(`${url.save_update_session + id}`, fd, config)
+                    .then((response) => {
+                        console.log(response);
+                        swal.close();
+                        swal.fire('weldon', response.data.success, 'success');
+                        this.get_sessions();
+                        $('#update_session').modal('hide');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        toastr.error('something went wrong');
+                    })
+            }
         },
         showContent() {
             this.loading = false;

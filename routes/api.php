@@ -53,6 +53,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_session/{institution}', [AcademicSessionController::class, 'get_sessions']);
                 Route::post('save_session/{institution}', [AcademicSessionController::class, 'save_session']);
                 Route::get('get_single_session/{session}', [AcademicSessionController::class, 'get_single_session']);
+                Route::post('save_update_session/{session}', [AcademicSessionController::class, 'save_update_session']);
 
             });
     });
