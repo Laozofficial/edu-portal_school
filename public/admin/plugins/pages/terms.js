@@ -10,6 +10,11 @@ new Vue({
 
         sessions: [],
         selected_session: '',
+
+        name: '',
+        start_date: '',
+        end_date: '',
+        status: ''
     },
     mounted() {
         this.get_schools();
@@ -50,6 +55,26 @@ new Vue({
                     console.log(console.error());
                     toastr.error('something went wrong');
                 });
+        },
+        save_term() {
+            if (this.name == '' || this.selected_institution == '' || this.selected_session == '' || this.status == '' || this.start_date == '' || this.end_date == '') {
+                swal.fire('Oops..', 'some fields are empty', 'error');
+            } else {
+                swal.fire({
+                    text: 'Please wait...',
+                    allowOutsideClick: false
+                });
+                swal.showLoading();
+
+                let fd = new FormData;
+                fd.append('name', this.name);
+                fd.append('academic_year_id', this.selected_session);
+                fd.append('institution_id', this.selected_institution);
+                fd.append('start_date', this.start_date);
+                fd.append('end_date', this.end_date);
+
+                axio
+            }
         },
         showContent() {
             this.loading = false;

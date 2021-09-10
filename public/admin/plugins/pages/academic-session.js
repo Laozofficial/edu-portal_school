@@ -84,6 +84,7 @@ new Vue({
                     })
                     .catch((error) => {
                         console.log(error);
+                        swal.fire('Oops..', error.response.data.error, 'error');
                         toastr.error('something went wrong');
                     });
             }

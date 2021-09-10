@@ -21,6 +21,9 @@ let url = {
     get_single_session: 'get_single_session/',
     save_update_session: 'save_update_session/',
 
+    // terms
+    save_terms: 'save_session',
+
 
 }
 

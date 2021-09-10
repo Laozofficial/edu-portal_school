@@ -12,7 +12,7 @@
     <div class="form-head d-flex mb-3 align-items-start">
         <div class="mr-auto d-none d-lg-block">
             <h2 class="text-black font-w600 mb-0">School Terms</h2>
-            <p class="mb-0">Add An Term</p>
+            <p class="mb-0">Add A Term</p>
         </div>
         <div class="dropdown custom-dropdown">
             <div class="btn btn-sm btn-primary light d-flex align-items-center svg-btn" data-toggle="dropdown">
@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-lg-12 mt-4">
                             <label for="name">Term Name</label>
-                            <input class="form-control form-control-sm" type="text" v-model="name" placeholder="Eg First Name"/>
+                            <input class="form-control form-control-sm" type="text" v-model="name" placeholder="Eg Term Name"/>
                         </div>
                         <div class="col-lg-12 mt-4">
                             <label for="name">Term Start Date</label>
@@ -59,7 +59,16 @@
                             <input class="form-control form-control-sm" type="date" v-model="end_date" placeholder="End Date"/>
                         </div>
                         <div class="col-lg-12 mt-4">
-                            <button class="btn btn-primary btn-sm btn-block">
+                            <label for="start_month">Session Status</label>
+                            <div class="form-group">
+                                <select class="form-control default-select form-control-lg" v-model="status">
+                                    <option value="0">Active</option>
+                                    <option value="1">Not Active</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-4">
+                            <button class="btn btn-primary btn-sm btn-block" @click="save_term">
                                 <i class="fa fa-paper-plane"></i> Save Term
                             </button>
                         </div>
@@ -91,9 +100,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="(session, index) in sessions">
+                                            <!-- <tr v-for="(session, index) in sessions">
                                                 <td><strong>@{{index + 1}}</strong></td>
-                                                <td>@{{session.name}}</td>
+                                                <td>@{{term..name}}</td>
                                                 <td><div class="d-flex align-items-center">
                                                     <span class="w-space-no">@{{session.start_date_text}}</span></div>
                                                 </td>
@@ -105,7 +114,7 @@
 														<a @click="update_session(session.id)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
 													</div>
 												</td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>

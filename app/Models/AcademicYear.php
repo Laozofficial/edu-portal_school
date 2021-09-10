@@ -19,6 +19,11 @@ class AcademicYear extends Model
         return $this->belongsTo('App\Models\Institution');
     }
 
+    public function terms()
+    {
+        return $this->hasMany('App\Models\Term');
+    }
+
     public function getStatusTextAttribute()
     {
         switch ($this->status) {

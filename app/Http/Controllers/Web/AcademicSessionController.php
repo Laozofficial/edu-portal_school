@@ -36,13 +36,13 @@ class AcademicSessionController extends Controller
         $start_date = Carbon::parse($request->get('start_date'));
         $end_date = Carbon::parse($request->get('end_date'));
 
-        // if($start_date < $end_date)  {
-        //     $response = [
-        //         'error' => 'Date cannot be less than a day'
-        //     ];
+        if($end_date->lt($start_date))  {
+            $response = [
+                'error' => 'End Date cannot be less than the start date'
+            ];
 
-        //     return response($response, 422);
-        // }else {
+            return response($response, 422);
+        }else {
             $session = new AcademicYear;
             $session->institution_id =  $institution->id;
             $session->name = $request->get('name');
@@ -56,6 +56,7 @@ class AcademicSessionController extends Controller
             ];
 
             return response($response, 200);
+        }
     }
 
     public function get_single_session(AcademicYear $session)
