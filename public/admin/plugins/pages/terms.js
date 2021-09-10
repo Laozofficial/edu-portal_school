@@ -11,6 +11,8 @@ new Vue({
         sessions: [],
         selected_session: '',
 
+        terms: [],
+
         name: '',
         start_date: '',
         end_date: '',
@@ -54,6 +56,9 @@ new Vue({
                 .catch((error) => {
                     console.log(console.error());
                     toastr.error('something went wrong');
+                })
+                .then(() => {
+                    this.get_terms();
                 });
         },
         save_term() {
@@ -72,9 +77,39 @@ new Vue({
                 fd.append('institution_id', this.selected_institution);
                 fd.append('start_date', this.start_date);
                 fd.append('end_date', this.end_date);
+                fd.append('status', this.status);
 
-                axio
+                axios.post(`${url.save_terms}`, fd, config)
+                    .then((response) => {
+                        console.log(response);
+                        swal.close();
+                        swal.fire('weldon', response.data.success, 'success');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        if (error.response.data.error) {
+                            swal.fire('Oops...', error.response.data.error, 'error');
+                        }
+                        toastr.error('something went wrong');
+                    })
+                    .then(() => {
+                        this.get_terms();
+                    });
             }
+        },
+        get_terms() {
+            axios.get(`${url.get_terms + this.selected_institution}`, config)
+                .then((response) => {
+                    console.log(response);
+                    this.terms = response.data.terms;
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toastr.error('something went wrong');
+                });
+        },
+        update_term(id) {
+
         },
         showContent() {
             this.loading = false;

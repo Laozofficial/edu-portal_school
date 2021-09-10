@@ -100,21 +100,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- <tr v-for="(session, index) in sessions">
+                                            <tr v-for="(term, index) in terms">
                                                 <td><strong>@{{index + 1}}</strong></td>
-                                                <td>@{{term..name}}</td>
+                                                <td>@{{term.academic_year.name}}</td>
                                                 <td><div class="d-flex align-items-center">
-                                                    <span class="w-space-no">@{{session.start_date_text}}</span></div>
+                                                    <span class="w-space-no">@{{term.name}}</span></div>
                                                 </td>
-                                                <td>@{{session.end_date_text}}	</td>
-                                                <td v-if="session.status == 0"><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> @{{session.status_text}}</div> </td>
-                                                <td v-if="session.status == 1"><div class="d-flex align-items-center"> <i class="fa fa-circle text-danger mr-1"></i> @{{session.status_text}}</div> </td>
+                                                <td>@{{term.start_date_text}}	</td>
+                                                <td>@{{term.end_date_text}}	</td>
+                                                <td v-if="term.status == 0"><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> @{{term.status_text}}</div> </td>
+                                                <td v-if="term.status == 1"><div class="d-flex align-items-center"> <i class="fa fa-circle text-danger mr-1"></i> @{{term.status_text}}</div> </td>
                                                  <td>
 													<div class="d-flex">
-														<a @click="update_session(session.id)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
+														<a @click="update_term(session.id)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
 													</div>
 												</td>
-                                            </tr> -->
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

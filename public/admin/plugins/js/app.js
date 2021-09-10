@@ -22,7 +22,8 @@ let url = {
     save_update_session: 'save_update_session/',
 
     // terms
-    save_terms: 'save_session',
+    save_terms: 'save_terms',
+    get_terms: 'get_all_terms/',
 
 
 }

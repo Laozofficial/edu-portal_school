@@ -70,17 +70,28 @@ class AcademicSessionController extends Controller
 
     public function save_update_session(Request $request, AcademicYear $session)
     {
-        $session->name = $request->get('name');
-        $session->start_date = Carbon::createFromFormat('Y-m-d', $request->get('start_date'))->toDateTimeString();
-        $session->end_date = Carbon::createFromFormat('Y-m-d', $request->get('end_date'))->toDateTimeString();
-        $session->status = $request->get('status');
-        $session->save();
+        $start_date = Carbon::parse($request->get('start_date'));
+        $end_date = Carbon::parse($request->get('end_date'));
 
-        $response = [
-            'success' => 'session has been updated'
-        ];
+        if ($end_date->lt($start_date)) {
+            $response = [
+                'error' => 'End Date cannot be less than the start date'
+            ];
 
-        return response($response, 200);
+            return response($response, 422);
+        } else {
+            $session->name = $request->get('name');
+            $session->start_date = Carbon::createFromFormat('Y-m-d', $request->get('start_date'))->toDateTimeString();
+            $session->end_date = Carbon::createFromFormat('Y-m-d', $request->get('end_date'))->toDateTimeString();
+            $session->status = $request->get('status');
+            $session->save();
+
+            $response = [
+                'success' => 'session has been updated'
+            ];
+
+            return response($response, 200);
+        }
     }
 
 }

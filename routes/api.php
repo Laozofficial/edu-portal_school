@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Web\AcademicSessionController;
+use App\Http\Controllers\Web\AcademicTermController;
 use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
@@ -54,6 +55,10 @@ Route::prefix('dashboard')->group(function () {
                 Route::post('save_session/{institution}', [AcademicSessionController::class, 'save_session']);
                 Route::get('get_single_session/{session}', [AcademicSessionController::class, 'get_single_session']);
                 Route::post('save_update_session/{session}', [AcademicSessionController::class, 'save_update_session']);
+
+                // Term Routes
+                Route::post('save_terms', [AcademicTermController::class, 'save_term']);
+                Route::get('get_all_terms/{institution}', [AcademicTermController::class, 'get_terms']);
 
             });
     });
