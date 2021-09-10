@@ -20,6 +20,7 @@ class CreateTermsTable extends Migration
             $table->string('name');
             $table->date('start_date');
             $table->date('end_date');
+            $table->integer('status')->unsigned();
             $table->timestamps();
         });
     }

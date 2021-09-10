@@ -35,7 +35,87 @@
     </div>
 
      <div class="row">
-
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Add Term
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label for="academic_year">Academic Session</label>
+                            <v-select :options="sessions" label="name" v-model="selected_session" :reduce="session => session.id" id="academic_year"></v-select>
+                        </div>
+                        <div class="col-lg-12 mt-4">
+                            <label for="name">Term Name</label>
+                            <input class="form-control form-control-sm" type="text" v-model="name" placeholder="Eg First Name"/>
+                        </div>
+                        <div class="col-lg-12 mt-4">
+                            <label for="name">Term Start Date</label>
+                            <input class="form-control form-control-sm" type="date" v-model="start_date" placeholder="Start Date"/>
+                        </div>
+                        <div class="col-lg-12 mt-4">
+                            <label for="name">Term End Date</label>
+                            <input class="form-control form-control-sm" type="date" v-model="end_date" placeholder="End Date"/>
+                        </div>
+                        <div class="col-lg-12 mt-4">
+                            <button class="btn btn-primary btn-sm btn-block">
+                                <i class="fa fa-paper-plane"></i> Save Term
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+             <div class="card">
+                <div class="card-header">
+                    <h4>Sessions</h4>
+                </div>
+                <div class="card-body">
+                    <div class="col-lg-12">
+                        <div class="cad">
+                            <div class="card-ody">
+                               <div class="table table-sm">
+                                    <div class="table-responsive">
+                                    <table class="table table-responsive-md">
+                                        <thead>
+                                            <tr>
+                                                <th><strong>S/N</strong></th>
+                                                <th><strong>Session</strong></th>
+                                                <th><strong>Term</strong></th>
+                                                <th><strong>Term Starting</strong></th>
+                                                <th><strong>Term End Date</strong></th>
+                                                <th><strong>Status</strong></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="(session, index) in sessions">
+                                                <td><strong>@{{index + 1}}</strong></td>
+                                                <td>@{{session.name}}</td>
+                                                <td><div class="d-flex align-items-center">
+                                                    <span class="w-space-no">@{{session.start_date_text}}</span></div>
+                                                </td>
+                                                <td>@{{session.end_date_text}}	</td>
+                                                <td v-if="session.status == 0"><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> @{{session.status_text}}</div> </td>
+                                                <td v-if="session.status == 1"><div class="d-flex align-items-center"> <i class="fa fa-circle text-danger mr-1"></i> @{{session.status_text}}</div> </td>
+                                                 <td>
+													<div class="d-flex">
+														<a @click="update_session(session.id)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
+													</div>
+												</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
      </div>
 
 </div>

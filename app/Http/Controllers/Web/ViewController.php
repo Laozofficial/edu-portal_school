@@ -41,4 +41,9 @@ class ViewController extends Controller
     {
         return view('admin.pages.academic-session');
     }
+
+    public function terms_view()
+    {
+        return view('admin.pages.terms');
+    }
 }

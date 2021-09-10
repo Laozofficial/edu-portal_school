@@ -47,6 +47,9 @@ Route::prefix('dashboard')->group(function () {
         // academic CRUD Route
         Route::get('academic-session', [ViewController::class, 'academic_session_view']);
 
+        // terms route
+        Route::get('term', [ViewController::class, 'terms_view']);
+
     });
 
 
