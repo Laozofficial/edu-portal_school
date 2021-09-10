@@ -70,4 +70,60 @@ class AcademicTermController extends Controller
 
         return response($response, 200);
     }
+
+    public function get_single_term(Term $term)
+    {
+        $response = [
+            'term' => $term
+        ];
+
+        return response($response, 200);
+    }
+
+    public function save_updated_term(Request $request, Term $term)
+    {
+        $session = AcademicYear::where('id', $term->academic_year_id)->first();
+
+        $term_start_date = Carbon::parse($request->get('start_date'));
+        $term_end_date = Carbon::parse($request->get('end_start'));
+
+        $session_start_date = Carbon::parse($session->start_date);
+        $session_end_date = Carbon::parse($session->end_date);
+
+        // if ($term_end_date->lt($term_start_date)) {
+        //     $response = [
+        //         'error' => 'Term End Date cannot be less than the start date'
+        //     ];
+
+        //     return response($response, 422);
+        // }
+
+        if($term_start_date->lt($session_start_date)) {
+            $response = [
+                'error' => 'Term Date cannot be before the session date'
+            ];
+
+            return response($response, 422);
+        }
+
+        if($term_end_date->gt($session_end_date)) {
+            $response = [
+                'error' => 'Term End Date cannot be greater than the session date'
+            ];
+
+            return response($response, 422);
+        }
+
+        $term->name = $request->get('name');
+        $term->start_date = Carbon::createFromFormat('Y-m-d', $request->get('start_date'))->toDateTimeString();
+        $term->end_date = Carbon::createFromFormat('Y-m-d', $request->get('end_date'))->toDateTimeString();
+        $term->status = $request->get('status');
+        $term->save();
+
+        $response = [
+            'success' => 'Term has been Updated successfully'
+        ];
+
+        return response($response, 200);
+    }
 }

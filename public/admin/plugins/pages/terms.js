@@ -11,7 +11,10 @@ new Vue({
         sessions: [],
         selected_session: '',
 
+        update_selected_session: '',
+
         terms: [],
+        term: {},
 
         name: '',
         start_date: '',
@@ -109,7 +112,53 @@ new Vue({
                 });
         },
         update_term(id) {
+            swal.fire({
+                text: 'Please wait...',
+                allowOutsideClick: false
+            });
+            swal.showLoading();
 
+            axios.get(`${url.get_single_term + id}`, config)
+                .then((response) => {
+                    console.log(response);
+                    swal.close();
+                    this.term = response.data.term;
+                    $('#update_term').modal('show');
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toastr.error('something went wrong');
+                })
+                .then(() => {
+                    swal.close();
+                });
+        },
+        save_update_term(id) {
+            swal.fire({
+                text: 'Please wait...',
+                allowOutsideClick: false
+            });
+            swal.showLoading();
+
+            let fd = new FormData;
+            fd.append('name', this.term.name);
+            fd.append('start_date', this.term.start_date);
+            fd.append('end_date', this.term.end_date);
+            fd.append('status', this.term.status);
+
+            axios.post(`${url.save_updated_term + id}`, fd, config)
+                .then((response) => {
+                    console.log(response);
+                    swal.close();
+                    swal.fire('weldon', response.data.success, 'success');
+                    $('#update_term').modal('hide');
+                    this.get_terms();
+                })
+                .catch((error) => {
+                    console.log(error);
+                    swal.close();
+                    toastr.error('something went wrong');
+                });
         },
         showContent() {
             this.loading = false;

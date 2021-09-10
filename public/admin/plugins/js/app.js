@@ -24,6 +24,8 @@ let url = {
     // terms
     save_terms: 'save_terms',
     get_terms: 'get_all_terms/',
+    get_single_term: 'get_single_term/',
+    save_updated_term: 'save_updated_term/',
 
 
 }

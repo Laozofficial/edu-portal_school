@@ -59,6 +59,8 @@ Route::prefix('dashboard')->group(function () {
                 // Term Routes
                 Route::post('save_terms', [AcademicTermController::class, 'save_term']);
                 Route::get('get_all_terms/{institution}', [AcademicTermController::class, 'get_terms']);
+                Route::get('get_single_term/{term}', [AcademicTermController::class, 'get_single_term']);
+                Route::post('save_updated_term/{term}', [AcademicTermController::class, 'save_updated_term']);
 
             });
     });

@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-lg-12 mt-4">
                             <label for="name">Term Name</label>
-                            <input class="form-control form-control-sm" type="text" v-model="name" placeholder="Eg Term Name"/>
+                            <input class="form-control form-control-sm" type="text" v-model="name" placeholder="Eg First Term"/>
                         </div>
                         <div class="col-lg-12 mt-4">
                             <label for="name">Term Start Date</label>
@@ -112,7 +112,7 @@
                                                 <td v-if="term.status == 1"><div class="d-flex align-items-center"> <i class="fa fa-circle text-danger mr-1"></i> @{{term.status_text}}</div> </td>
                                                  <td>
 													<div class="d-flex">
-														<a @click="update_term(session.id)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
+														<a @click="update_term(term.id)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
 													</div>
 												</td>
                                             </tr>
@@ -127,6 +127,56 @@
             </div>
         </div>
      </div>
+
+
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="update_term">
+        <div class="modal-dialog model-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Term</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-lg-12 mt-4">
+                                <label for="start_year">Term Name</label>
+                                <input class="datepicker-default form-control" id="datepicker" type="text" v-model="term.name">
+                            </div>
+
+                           <div class="col-lg-12 mt-4">
+                                <label for="start_month">Term End Date</label>
+                                <input class="datepicker-default form-control" id="datepicker" type="date" v-model="term.end_date">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                             <div class="col-lg-12 mt-4">
+                                <label for="start_year">Term Start Date</label>
+                                <input class="datepicker-default form-control" id="datepicker" type="date" v-model="term.start_date">
+                            </div>
+
+                             <div class="col-lg-12 mt-4">
+                                <label for="start_month">Term Status</label>
+                                <div class="form-group">
+                                    <select class="form-control default-select form-control-lg" v-model="term.status">
+                                        <option value="0">Active</option>
+                                        <option value="1">Not Active</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" @click="save_update_term(term.id)">Update changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 
