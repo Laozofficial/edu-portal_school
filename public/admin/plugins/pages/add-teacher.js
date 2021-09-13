@@ -5,7 +5,7 @@ new Vue({
         content: false,
 
         institutions: [],
-        selected_institution: '',
+        selected_institution: ''
     },
     mounted() {
 
@@ -29,5 +29,6 @@ new Vue({
             this.loading = false;
             this.content = true;
         },
+
     },
 });

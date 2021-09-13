@@ -51,4 +51,9 @@ class ViewController extends Controller
     {
         return view('admin.pages.classes');
     }
+
+    public function add_teacher()
+    {
+        return view('admin.pages.add-teachers');
+    }
 }

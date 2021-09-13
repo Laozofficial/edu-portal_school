@@ -42,5 +42,5 @@
 
 @endsection
 @section('script')
-    <script src="{{asset('admin/plugins/pages/')}}"></script>
+    <script src="{{asset('admin/plugins/pages/add-teacher.js')}}"></script>
 @endsection
