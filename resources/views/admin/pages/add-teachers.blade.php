@@ -23,7 +23,7 @@
                 </svg>
                 <div class="text-left ml-3">
                     <span class="d-block fs-16">Select Institution</span>
-                    <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" @input="get_sessions" id="institution"></v-select>
+                    <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" id="institution"></v-select>
                 </div>
                 <i class="fa fa-angle-down scale5 ml-3"></i>
             </div>
@@ -35,7 +35,89 @@
     </div>
 
      <div class="row">
-
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    Add Teacher
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="first_name">First Name</label>
+                            <input class="form-control form-control-sm mb-4" type="text" v-model="first_name"/>
+                        </div>
+                         <div class="col-md-4">
+                            <label for="middle_name">Middle Name</label>
+                            <input class="form-control form-control-sm mb-4" type="text" v-model="middle_name"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="last_name">Last Name</label>
+                            <input class="form-control form-control-sm mb-4" type="text" v-model="last_name"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="email">Email</label>
+                            <input class="form-control form-control-sm mb-4" type="email" v-model="email"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="phone">Phone Number</label>
+                            <input class="form-control form-control-sm mb-4" type="number" v-model="phone"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="dob">Date of Birth</label>
+                            <input class="form-control form-control-sm mb-4" type="date" v-model="date_of_birth"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="gender">Gender</label>
+                            <div class="form-group">
+                                <select class="form-control default-select " v-model="gender">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="gender">Qualification</label>
+                            <div class="form-group">
+                                <select class="form-control default-select " v-model="qualification">
+                                    <option value="ssce">SscE</option>
+                                    <option value="nce">NCE</option>
+                                    <option value="national diploma">National Diploma</option>
+                                    <option value="higher national diploma">Higher National Diploma</option>
+                                    <option value="bachelor">BSc</option>
+                                    <option value="master degree">MSc</option>
+                                    <option value="doctorate">PhD</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="gender">Religion</label>
+                            <div class="form-group">
+                                <select class="form-control default-select " v-model="religion">
+                                    <option value="Christianity">Christianity</option>
+                                    <option value="islam">Islam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="d-block fs-16">State of Origin</span>
+                            <v-select :options="states" label="name" v-model="selected_state" :reduce="states => states.id" id="states"></v-select>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="d-block fs-16">Nationality</span>
+                            <v-select :options="countries" label="name" v-model="selected_country" :reduce="countries => countries.id" id="countries"></v-select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Address">Permanent Address</label>
+                            <input class="form-control form-control-sm" type="text" v-model="permanent_address"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="present_address">Present Address</label>
+                            <input class="form-control from-control-sm" type="text" v-model="present_address"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
      </div>
 
 </div>

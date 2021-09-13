@@ -17,6 +17,8 @@ class CreateTeachersTable extends Migration
             $table->id();
             $table->foreignId('institution_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('state_id')->constrained();
+            $table->foreignId('country_id')->constrained();
             $table->string('image')->nullable();
             $table->string('first_name');
             $table->string('middle_name')->nullable();
@@ -24,13 +26,8 @@ class CreateTeachersTable extends Migration
             $table->string('gender');
             $table->date('date_of_birth');
             $table->string('qualification');
-            $table->string('blood_group')->nullable();
             $table->string('religion');
-            $table->text('permanent_address');
             $table->text('present_address');
-            $table->string('city');
-            $table->foreignId('state_id')->constrained();
-            $table->foreignId('country_id')->constrained();
             $table->timestamps();
         });
     }
