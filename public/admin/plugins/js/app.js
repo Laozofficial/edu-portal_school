@@ -27,6 +27,9 @@ let url = {
     get_single_term: 'get_single_term/',
     save_updated_term: 'save_updated_term/',
 
+    // teacher
+    save_teacher: 'save_teacher',
+
 
 }
 

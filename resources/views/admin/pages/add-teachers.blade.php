@@ -43,7 +43,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <label for="first_name">First Name</label>
+                            <label for="first_name">First Name <span class="text-danger">*</span></label>
                             <input class="form-control form-control-sm mb-4" type="text" v-model="first_name"/>
                         </div>
                          <div class="col-md-4">
@@ -51,23 +51,23 @@
                             <input class="form-control form-control-sm mb-4" type="text" v-model="middle_name"/>
                         </div>
                         <div class="col-md-4">
-                            <label for="last_name">Last Name</label>
+                            <label for="last_name">Last Name <span class="text-danger">*</span></label>
                             <input class="form-control form-control-sm mb-4" type="text" v-model="last_name"/>
                         </div>
                         <div class="col-md-4">
-                            <label for="email">Email</label>
+                            <label for="email">Email <span class="text-danger">*</span></label>
                             <input class="form-control form-control-sm mb-4" type="email" v-model="email"/>
                         </div>
                         <div class="col-md-4">
-                            <label for="phone">Phone Number</label>
+                            <label for="phone">Phone Number <span class="text-danger">*</span></label>
                             <input class="form-control form-control-sm mb-4" type="number" v-model="phone"/>
                         </div>
                         <div class="col-md-4">
-                            <label for="dob">Date of Birth</label>
+                            <label for="dob">Date of Birth <span class="text-danger">*</span></label>
                             <input class="form-control form-control-sm mb-4" type="date" v-model="date_of_birth"/>
                         </div>
                         <div class="col-md-4">
-                            <label for="gender">Gender</label>
+                            <label for="gender">Gender <span class="text-danger">*</span></label>
                             <div class="form-group">
                                 <select class="form-control default-select " v-model="gender">
                                     <option value="male">Male</option>
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <label for="gender">Qualification</label>
+                            <label for="gender">Qualification <span class="text-danger">*</span></label>
                             <div class="form-group">
                                 <select class="form-control default-select " v-model="qualification">
                                     <option value="ssce">SscE</option>
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <label for="gender">Religion</label>
+                            <label for="gender">Religion <span class="text-danger">*</span></label>
                             <div class="form-group">
                                 <select class="form-control default-select " v-model="religion">
                                     <option value="Christianity">Christianity</option>
@@ -99,20 +99,30 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <span class="d-block fs-16">State of Origin</span>
+                            <span class="d-block fs-16">State of Origin <span class="text-danger">*</span></span>
                             <v-select :options="states" label="name" v-model="selected_state" :reduce="states => states.id" id="states"></v-select>
                         </div>
                         <div class="col-md-4">
-                            <span class="d-block fs-16">Nationality</span>
+                            <span class="d-block fs-16">Nationality <span class="text-danger">*</span></span>
                             <v-select :options="countries" label="name" v-model="selected_country" :reduce="countries => countries.id" id="countries"></v-select>
                         </div>
                         <div class="col-md-4">
-                            <label for="Address">Permanent Address</label>
-                            <input class="form-control form-control-sm" type="text" v-model="permanent_address"/>
+                            <label for="present_address">Present Address <span class="text-danger">*</span></label>
+                            <input class="form-control from-control-sm" type="text" v-model="present_address" id="present_address"/>
                         </div>
                         <div class="col-md-4">
-                            <label for="present_address">Present Address</label>
-                            <input class="form-control from-control-sm" type="text" v-model="present_address"/>
+                            <label for="passport_image">Passport Image</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input">
+                                    <label class="custom-file-label" @change="onPassportChange">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-5">
+                            <button class="btn btn-primary ml-3 btn-lg" @click="validate">
+                                <i class="fa fa-paper-plane"></i> Save Teacher Details
+                            </button>
                         </div>
                     </div>
                 </div>

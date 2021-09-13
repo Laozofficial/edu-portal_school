@@ -7,6 +7,7 @@ use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
 use App\Http\Controllers\Web\GeneralInfoController;
 use App\Http\Controllers\Web\InstitutionController;
+use App\Http\Controllers\Web\TeacherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +62,9 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_all_terms/{institution}', [AcademicTermController::class, 'get_terms']);
                 Route::get('get_single_term/{term}', [AcademicTermController::class, 'get_single_term']);
                 Route::post('save_updated_term/{term}', [AcademicTermController::class, 'save_updated_term']);
+
+                // Teacher Route
+                Route::post('save_teacher', [TeacherController::class, 'save_teacher']);
 
             });
     });
