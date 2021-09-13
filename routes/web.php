@@ -50,6 +50,9 @@ Route::prefix('dashboard')->group(function () {
         // terms route
         Route::get('term', [ViewController::class, 'terms_view']);
 
+        // Class route
+        Route::get('classes', [ViewController::class, 'classes_view']);
+
     });
 
 

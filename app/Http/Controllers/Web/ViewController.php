@@ -46,4 +46,9 @@ class ViewController extends Controller
     {
         return view('admin.pages.terms');
     }
+
+    public function classes_view()
+    {
+        return view('admin.pages.classes');
+    }
 }
