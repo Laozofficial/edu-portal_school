@@ -85,7 +85,7 @@ class TeacherController extends Controller
 
 
         $response = [
-            'success' => 'Teacher has been added Successfully'
+            'success' => 'Teacher has been added to the System Successfully'
         ];
 
         return response($response, 200);
