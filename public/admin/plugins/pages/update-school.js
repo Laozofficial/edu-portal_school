@@ -26,7 +26,7 @@ new Vue({
         errors_switch: function () {
             setTimeout(() => {
                 this.errors_switch = false;
-            }, 10000);
+            }, 5000);
         }
     },
     methods: {

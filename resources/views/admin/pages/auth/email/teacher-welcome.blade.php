@@ -13,7 +13,7 @@
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <h1>Hello {{$details['teacher']}}, <span class="text-uppercase"> {{ $details['institution_name'] }}</span> has Added You to their System</h1>
+                    <h1>Hello {{ $details['teacher'] }}, <span class="text-uppercase"> {{ $details['institution_name'] }}</span> has Added You to their System</h1>
                 </div>
             </div>
         </div>

@@ -28,7 +28,7 @@ let url = {
     save_updated_term: 'save_updated_term/',
 
     // teacher
-    save_teacher: 'save_teacher',
+    save_teacher: 'save_teacher/',
 
 
 }

@@ -14,16 +14,19 @@ new Vue({
         countries: [],
         selected_country: '',
 
-        first_name: '',
-        last_name: '',
+        server_error_switch: false,
+        server_errors: [],
+
+        first_name: 'Pedro',
+        last_name: 'william',
         middle_name: '',
-        email: '',
-        phone: '',
+        email: 'livingintunes@gmail.com',
+        phone: '09098311782',
         date_of_birth: '',
-        gender: '',
-        religion: '',
-        qualification: '',
-        present_address: '',
+        gender: 'male',
+        religion: 'islam',
+        qualification: 'higher national diploma',
+        present_address: 'military cantonment ikeja',
         avatar: '',
 
     },
@@ -61,8 +64,8 @@ new Vue({
                 });
         },
         validate() {
-            if (this.selected_institution == '' || this.selected_country == '' || this.selected_state == '' || this.first_name == '' || this.last_name == '' || this.middle_name == '' || this.phone == '' || this.date_of_birth == '' || this.gender == '' || this.religion == '' || this.qualification == '' || this.present_address == '') {
-                swal.fire('Oops..', 'some fields are missing', 'error');
+            if (this.selected_institution == '' || this.selected_country == '' || this.selected_state == '' || this.first_name == '' || this.last_name == '' || this.phone == '' || this.date_of_birth == '' || this.gender == '' || this.religion == '' || this.qualification == '' || this.present_address == '') {
+                swal.fire('Oops..', 'some fields are missing, if you have not selected the institution , please do so', 'error');
             }else {
                 this.save_teacher();
             }
@@ -88,8 +91,22 @@ new Vue({
             fd.append('religion', this.religion);
             fd.append('qualification', this.qualification);
             fd.append('image', this.avatar);
+            fd.append('email', this.email);
 
-            axios.post()
+            axios.post(`${url.save_teacher + this.selected_institution}`, fd, config)
+                .then((response) => {
+                    console.log(response);
+                    swal.close();
+                    swal.fire('Weldon', response.data.success, 'success');
+                })
+                .catch((error) => {
+                    console.log(error);
+                    this.server_errors = error.response.data.errors;
+                    this.server_error_switch = true;
+                    toastr.error('something went wrong');
+                    swal.close();
+                });
+
         },
         onPassportChange(event) {
             this.avatar = event.target.files[0];
@@ -99,5 +116,12 @@ new Vue({
             this.content = true;
         },
 
+    },
+    watch: {
+        server_error_switch: function () {
+            setTimeout(() => {
+                this.errors_switch = false;
+            }, 5000);
+        }
     },
 });

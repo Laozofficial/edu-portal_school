@@ -11,6 +11,8 @@ class TeacherNotificationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $details;
+
     /**
      * Create a new message instance.
      *
@@ -28,6 +30,9 @@ class TeacherNotificationMail extends Mailable
      */
     public function build()
     {
-        return  $this->subject('Mail From School')->view('admin.pages.auth.email.teacher-welcome');
+        return  $this
+                    ->from($this->details['school_email'], $this->details['institution_name'])
+                    ->subject('Mail From School')
+                    ->view('admin.pages.auth.email.teacher-welcome');
     }
 }

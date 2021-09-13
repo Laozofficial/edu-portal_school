@@ -11,10 +11,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Mail;
 use App\Mail\TeacherNotificationMail;
+use Illuminate\Support\Facades\Auth;
 
 class TeacherController extends Controller
 {
-    public function save_teacher(Request $request)
+    public function save_teacher(Request $request, Institution $institution)
     {
         $validator = Validator::make($request->all(), [
             'first_name' => 'required|max:255',
@@ -43,6 +44,7 @@ class TeacherController extends Controller
         $user->password = Hash::make('password');
         $user->phone = $request->get('phone');
         $user->role = 1; //role is teacher
+        $user->otp = mt_rand('1000', '9999');
         $user->save();
 
         $institution = Institution::where('id', $request->get('institution_id'))->first();
@@ -59,13 +61,23 @@ class TeacherController extends Controller
         $teacher->present_address = $request->get('present_address');
         $teacher->state_id = $request->get('state_id');
         $teacher->country_id = $request->get('country_id');
+        if ($request->hasFile('image')) {
+            $logo = $request->file('image');
+            $extension = $logo->getClientOriginalExtension(); // you can also use file name
+            $image =   Auth::user()->id . '-1-' . time() . '.' . $extension;
+            $path = Env('PUBLIC_IMAGE_PATH');
+            $upload = $logo->move($path, $image);
+
+            $teacher->image = $image;
+        }
         $teacher->save();
 
-        // $this->send_notifications($request->get('email'), $institution->name);
+
         $details = [
             'institution_name' => $institution->name,
             'teacher' => $user->name,
             'email' => $user->email,
+            'school_email' => $institution->email
         ];
 
         Mail::to($request->get('email'))->send(new TeacherNotificationMail($details));
@@ -78,29 +90,5 @@ class TeacherController extends Controller
 
         return response($response, 200);
 
-    }
-
-    public function send_notifications($email, $institution)
-    {
-        $data = array(
-            'message' =>  'Welcome to'. $institution
-        );
-
-
-        Mail::send('admin.pages.auth.email.teacher-welcome', $data, function ($message) use ($email) {
-            $message->from('noreply@easyschool.com.ng', 'A School Registered You on their system');
-            $message->to($email);
-            // $message->cc('john@johndoe.com', 'John Doe');
-            // $message->bcc('john@johndoe.com', 'John Doe');
-            $message->replyTo('noreply@easyschool.com.ng', 'Easy School');
-            $message->subject('Hello , A School Registered You on their system');
-        });
-        if (Mail::failures()) { //if mail sending fails
-            return response()->json([
-                'errors' => [
-                    'errors' => 'something went wrong with Sending Notification, please tell Send Details to the teacher'
-                ]
-            ]);
-        }
     }
 }

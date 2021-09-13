@@ -41,6 +41,13 @@
                     Add Teacher
                 </div>
                 <div class="card-body">
+                    <div class="alert alert-danger alert-dismissible fade show mt-2" v-show="server_error_switch">
+                        <div v-for="error in server_errors">
+                                <strong>Error!</strong> @{{ error  }}
+                        </div>
+                        <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                        </button>
+                    </div>
                     <div class="row">
                         <div class="col-md-4">
                             <label for="first_name">First Name <span class="text-danger">*</span></label>
@@ -114,8 +121,8 @@
                             <label for="passport_image">Passport Image</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input">
-                                    <label class="custom-file-label" @change="onPassportChange">Choose file</label>
+                                    <input type="file" class="custom-file-input" @change="onPassportChange">
+                                    <label class="custom-file-label" >Choose file</label>
                                 </div>
                             </div>
                         </div>

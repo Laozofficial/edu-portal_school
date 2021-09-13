@@ -64,7 +64,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::post('save_updated_term/{term}', [AcademicTermController::class, 'save_updated_term']);
 
                 // Teacher Route
-                Route::post('save_teacher', [TeacherController::class, 'save_teacher']);
+                Route::post('save_teacher/{institution}', [TeacherController::class, 'save_teacher']);
 
             });
     });
