@@ -2,10 +2,10 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="{{url('/dashboard/index')}}" class="brand-logo">
-                <img class="logo-abbr" src="{{asset('asset/images/easyschool_logo.png')}}" alt="">
-                <img class="logo-compact" src="{{asset('admin/images/easyschool_logo_icon.png')}}" alt="">
-                <img class="brand-title" src="{{asset('admin/images/easyschool_logo.png')}}" alt="">
+            <a href="{{url('/dashboard/admin/index')}}" class="brand-logo">
+                <!--<img class="logo-abbr" src="{{asset('uploads/eduportal-white.png')}}" alt="">-->
+                <img class="logo-compact" src="{{asset('uploads/eduportal-white.png')}}" alt="">
+                <img class="brand-title" src="{{asset('uploads/eduportal-white.png')}}" alt="">
             </a>
             <div class="nav-control">
                 <div class="hamburger">
