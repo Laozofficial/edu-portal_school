@@ -23,7 +23,7 @@
                 </svg>
                 <div class="text-left ml-3">
                     <span class="d-block fs-16">Select Institution</span>
-                    <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" @input="get_sessions" id="institution"></v-select>
+                    <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" @input="get_teachers" id="institution"></v-select>
                 </div>
                 <i class="fa fa-angle-down scale5 ml-3"></i>
             </div>
@@ -53,7 +53,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(teacher, index) in teachers">
+                                    <tr v-for="(teacher, index) in teachers.data">
                                         <td><strong>@{{index + 1}}</strong></td>
                                         <td><div class="d-flex align-items-center"><img :src="institution.full_logo_path" class="rounded-lg mr-2" width="24" alt=""/> <span class="w-space-no">@{{institution.name}}</span></div></td>
                                         <td>@{{institution.email}}</td>
@@ -74,6 +74,16 @@
                                 </tbody>
                             </table>
                         </div>
+                </div>
+                <div class="card-footer">
+                    <vue-pagination
+                        :total-items="teachers.total"
+                        :page="page"
+                        :loading="loading_teachers"
+                        :items-per-page="teachers.per_page"
+                        v-on:page-change="pageChange"
+                    >
+                    </vue-pagination>
                 </div>
             </div>
         </div>

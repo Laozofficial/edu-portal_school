@@ -91,6 +91,7 @@
     <script src="{{asset('admin/plugins/js/vue-select2.js')}}"></script>
     <script src="{{asset('admin/plugins/js/app.js')}}"></script>
     <script src="{{asset('admin/plugins/js/check_token.js')}}"></script>
+    <script src="{{asset('admin/plugins/js/vue-pagination.js')}}"></script>
 
     <script>
         const base_url = "{{ url('/api/dashboard/admin/') }}";
