@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,8 +41,18 @@ class Teacher extends Model
         return $full_image_path;
     }
 
+    public function getDateOfBirthTextAttribute()
+    {
+        return Carbon::parse($this->date_of_birth)->diffForHumans();
+    }
+
+    public function getCreatedAtTextAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
     protected $appends = [
-        'full_name_text', 'full_image_path'
+        'full_name_text', 'full_image_path','date_of_birth_text', 'created_at_text'
     ];
 
     protected $with = [

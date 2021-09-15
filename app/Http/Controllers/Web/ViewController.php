@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Institution;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -60,5 +61,12 @@ class ViewController extends Controller
     public function all_teachers_view()
     {
         return view('admin.pages.all-teachers');
+    }
+
+    public function teacher_update(Teacher $teacher)
+    {
+        return view('admin.pages.teacher_update', [
+            'slug' => $teacher->slug
+        ]);
     }
 }

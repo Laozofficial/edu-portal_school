@@ -5,7 +5,7 @@ var config = {};
 let school = {};
 let schools = [];
 
-  console.log(config);
+//   console.log(config);
 
 
 
@@ -18,7 +18,7 @@ let get_token = () => {
         }
     };
 
-    console.log(config);
+    // console.log(config);
     // console.log(config);
     if (token === null) {
         if (window.location.pathname == '/dashboard/auth/register' || window.location.pathname == '/dashboard/auth/login' || window.location.pathname == '/dashboard/auth/otp-verification') {

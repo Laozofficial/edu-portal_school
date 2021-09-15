@@ -56,6 +56,7 @@ Route::prefix('dashboard')->group(function () {
         // Teachers route
         Route::get('add-teacher', [ViewController::class, 'add_teacher']);
         Route::get('teachers', [ViewController::class, 'all_teachers_view']);
+        Route::get('update-teacher/{teacher:slug}', [ViewController::class, 'teacher_update']);
 
     });
 

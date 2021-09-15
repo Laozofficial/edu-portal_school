@@ -12,7 +12,12 @@ new Vue({
         teachers: [],
         page: 1,
 
-
+        teacher: {
+            country: {},
+            state: {},
+            full_name_text: '',
+            user:{}
+        }
     },
     mounted() {
         this.get_schools();
@@ -58,6 +63,28 @@ new Vue({
                 this.get_teachers();
             }
         },
+        view(slug) {
+             swal.fire({
+                 text: 'Please wait...',
+                 allowOutsideClick: false
+             });
+            swal.showLoading();
 
+            axios.get(`${url.get_single_teacher + slug}`, config)
+                .then((response) => {
+                    console.log(response);
+                    swal.close();
+                    this.teacher = response.data.teacher;
+                    $('.teacher-details-lg').modal('show');
+                })
+                .catch((error) => {
+                    console.log(error);
+                    swal.close();
+                    toastr.error('something went wrong');
+                });
+        },
+        update(slug) {
+            window.location.href = '/dashboard/admin/update-teacher/' + slug;
+        }
     },
 });

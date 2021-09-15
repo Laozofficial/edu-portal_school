@@ -102,4 +102,13 @@ class TeacherController extends Controller
         ];
         return response($response, 200);
     }
+
+    public function get_single_teacher(Teacher $teacher)
+    {
+        $response = [
+            'teacher' => $teacher
+        ];
+
+        return response($response, 200);
+    }
 }

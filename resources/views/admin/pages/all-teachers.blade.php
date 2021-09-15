@@ -11,8 +11,8 @@
 <div class="container-fluid" v-show="content">
      <div class="form-head d-flex mb-3 align-items-start">
         <div class="mr-auto d-none d-lg-block">
-            <h2 class="text-black font-w600 mb-0">School Terms</h2>
-            <p class="mb-0">Add A Term</p>
+            <h2 class="text-black font-w600 mb-0">School Teachers</h2>
+            <p class="mb-0">All School Teachers</p>
         </div>
         <div class="dropdown custom-dropdown">
             <div class="btn btn-sm btn-primary light d-flex align-items-center svg-btn" data-toggle="dropdown">
@@ -88,6 +88,64 @@
             </div>
         </div>
      </div>
+
+
+<!---->     <div class="modal fade teacher-details-lg" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Teacher Details</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="containe">
+                        <div class="d-flex align-items-center text-center">
+                            <img :src="teacher.full_image_path" class="rounded-lg mr-2 text-center" width="114" alt=""/>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Full Name</h5>
+                                <p class="mb-4">@{{teacher.full_name_text}}</p>
+
+                                <h5>Gender</h5>
+                                <p class="mb-4">@{{teacher.gender}}</p>
+
+                                <h5>Qualification</h5>
+                                <p class="mb-4">@{{teacher.qualification}}</p>
+
+                                <h5>Address</h5>
+                                <p class="mb-4">@{{teacher.present_address}}</p>
+
+                                <h5>Nationality</h5>
+                                <p class="mb-4">@{{teacher.country.name}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Email</h5>
+                                <p class="mb-4">@{{teacher.user.email}}</p>
+
+                                <h5>Date Of Birth</h5>
+                                <p class="mb-4">@{{teacher.date_of_birth_text}} | @{{teacher.date_of_birth}}</p>
+
+                                <h5>Religion</h5>
+                                <p class="mb-4">@{{teacher.religion}}</p>
+
+                                <h5>State Of Origin</h5>
+                                <p class="mb-4">@{{teacher.state.name}} State</p>
+
+                                <h5>Joined</h5>
+                                <p class="mb-4">@{{teacher.created_at_text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
