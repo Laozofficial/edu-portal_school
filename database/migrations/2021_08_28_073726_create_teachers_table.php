@@ -28,6 +28,7 @@ class CreateTeachersTable extends Migration
             $table->string('qualification');
             $table->string('religion');
             $table->text('present_address');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

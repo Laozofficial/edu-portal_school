@@ -48,25 +48,25 @@
                                         <th><strong>S/N</strong></th>
                                         <th><strong>Name</strong></th>
                                         <th><strong>Email</strong></th>
-                                        <th><strong>Date</strong></th>
+                                        <th><strong>Gender</strong></th>
                                         <th><strong>Status</strong></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="(teacher, index) in teachers.data">
                                         <td><strong>@{{index + 1}}</strong></td>
-                                        <td><div class="d-flex align-items-center"><img :src="institution.full_logo_path" class="rounded-lg mr-2" width="24" alt=""/> <span class="w-space-no">@{{institution.name}}</span></div></td>
-                                        <td>@{{institution.email}}</td>
-                                        <td>@{{institution.created_at_text}}</td>
-                                        <td><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> @{{institution.subscription.status_text}}</div></td>
+                                        <td><div class="d-flex align-items-center"><img :src="teacher.full_image_path" class="rounded-lg mr-2" width="24" alt=""/> <span class="w-space-no">@{{teacher.full_name_text}}</span></div></td>
+                                        <td>@{{teacher.user.email}}</td>
+                                        <td>@{{teacher.gender}}</td>
+                                        <td><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> @{{teacher.user.status_text}}</div></td>
                                         <td>
                                             <div class="d-flex">
-                                                <a @click="view(institution.slug)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-eye text-white"></i></a>
+                                                <a @click="view(teacher.slug)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-eye text-white"></i></a>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex">
-                                                <a @click="update(institution.slug)" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
+                                                <a @click="update(teacher.slug)" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
                                             </div>
                                         </td>
                                     </tr>

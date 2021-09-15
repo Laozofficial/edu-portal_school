@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Mail;
 use App\Mail\TeacherNotificationMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class TeacherController extends Controller
 {
@@ -72,6 +73,9 @@ class TeacherController extends Controller
         }
         $teacher->save();
 
+        $add_slug = Teacher::where('id', $teacher->id)->first();
+        $add_slug->slug = Str::of($teacher->full_name_text)->slug('-');
+        $add_slug->save();
 
         $details = [
             'institution_name' => $institution->name,
@@ -81,8 +85,6 @@ class TeacherController extends Controller
         ];
 
         Mail::to($request->get('email'))->send(new TeacherNotificationMail($details));
-
-
 
         $response = [
             'success' => 'Teacher has been added to the System Successfully'
