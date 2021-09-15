@@ -100,7 +100,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="(term, index) in terms">
+                                            <tr v-for="(term, index) in terms.data">
                                                 <td><strong>@{{index + 1}}</strong></td>
                                                 <td>@{{term.academic_year.name}}</td>
                                                 <td><div class="d-flex align-items-center">
@@ -123,6 +123,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="card-footer">
+                    <vue-pagination
+                        :total-items="terms.total"
+                        :page="page"
+                        :loading="loading_terms"
+                        :items-per-page="terms.per_page"
+                        v-on:page-change="pageChange"
+                    >
+                    </vue-pagination>
                 </div>
             </div>
         </div>

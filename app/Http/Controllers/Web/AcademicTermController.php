@@ -63,7 +63,7 @@ class AcademicTermController extends Controller
 
     public function get_terms(Institution $institution)
     {
-        $terms = Term::where('institution_id', $institution->id)->get();
+        $terms = Term::where('institution_id', $institution->id)->paginate(15);
         $response = [
             'terms' => $terms
         ];

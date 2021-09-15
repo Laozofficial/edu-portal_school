@@ -19,7 +19,10 @@ new Vue({
         name: '',
         start_date: '',
         end_date: '',
-        status: ''
+        status: '',
+
+        page: 1,
+        loading_terms: false,
     },
     mounted() {
         this.get_schools();
@@ -101,7 +104,8 @@ new Vue({
             }
         },
         get_terms() {
-            axios.get(`${url.get_terms + this.selected_institution}`, config)
+            this.loading_terms = true;
+            axios.get(`${url.get_terms + this.selected_institution + '?page=' + this.page}`, config)
                 .then((response) => {
                     console.log(response);
                     this.terms = response.data.terms;
@@ -109,6 +113,9 @@ new Vue({
                 .catch((error) => {
                     console.log(error);
                     toastr.error('something went wrong');
+                })
+                .then(() => {
+                    this.loading_terms = false;
                 });
         },
         update_term(id) {
@@ -163,6 +170,12 @@ new Vue({
         showContent() {
             this.loading = false;
             this.content = true;
+        },
+        pageChange(page) {
+            if (this.page != page && page != 0) {
+                this.page = page;
+                this.get_terms();
+            }
         },
     },
 })
