@@ -65,6 +65,7 @@ Route::prefix('dashboard')->group(function () {
 
                 // Teacher Route
                 Route::post('save_teacher/{institution}', [TeacherController::class, 'save_teacher']);
+                Route::get('get_teachers/{institution}', [TeacherController::class, 'all_teachers']);
 
             });
     });
