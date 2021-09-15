@@ -31,6 +31,7 @@ let url = {
     save_teacher: 'save_teacher/',
     get_teachers: 'get_teachers/',
     get_single_teacher: 'get_single_teacher/',
+    update_teacher: 'update_single_teacher/',
 
 
 }

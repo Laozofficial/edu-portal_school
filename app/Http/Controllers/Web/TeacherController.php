@@ -111,4 +111,43 @@ class TeacherController extends Controller
 
         return response($response, 200);
     }
+
+    public function update_single_teacher(Request $request, Teacher $teacher)
+    {
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required|max:255',
+            'last_name' => 'required',
+            'qualification' => 'required',
+            'religion' => 'required',
+            'phone' => 'required|min:11',
+            'present_address' => 'required',
+        ]);
+
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422); //return error validator error
+        }
+
+        $user =  User::where('id', $teacher->user->id)->first();
+        $user->name = $request->get('first_name') . ' ' . $request->get('last_name');
+        $user->phone = $request->get('phone');
+        $user->save();
+
+        $teacher->user_id = $user->id;
+        $teacher->first_name = $request->get('first_name');
+        $teacher->last_name = $request->get('last_name');
+        $teacher->qualification = $request->get('qualification');
+        $teacher->religion = $request->get('religion');
+        $teacher->present_address = $request->get('present_address');
+        if ($request->hasFile('image')) {
+            $logo = $request->file('image');
+            $extension = $logo->getClientOriginalExtension(); // you can also use file name
+            $image =   Auth::user()->id . '-1-' . time() . '.' . $extension;
+            $path = Env('PUBLIC_IMAGE_PATH');
+            $upload = $logo->move($path, $image);
+
+            $teacher->image = $image;
+        }
+        $teacher->save();
+    }
 }
