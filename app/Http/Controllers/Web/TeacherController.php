@@ -119,7 +119,6 @@ class TeacherController extends Controller
             'last_name' => 'required',
             'qualification' => 'required',
             'religion' => 'required',
-            'phone' => 'required|min:11',
             'present_address' => 'required',
         ]);
 
@@ -130,12 +129,11 @@ class TeacherController extends Controller
 
         $user =  User::where('id', $teacher->user->id)->first();
         $user->name = $request->get('first_name') . ' ' . $request->get('last_name');
-        $user->phone = $request->get('phone');
         $user->save();
 
-        $teacher->user_id = $user->id;
         $teacher->first_name = $request->get('first_name');
         $teacher->last_name = $request->get('last_name');
+        $teacher->middle_name = $request->get('middle_name');
         $teacher->qualification = $request->get('qualification');
         $teacher->religion = $request->get('religion');
         $teacher->present_address = $request->get('present_address');
@@ -149,5 +147,11 @@ class TeacherController extends Controller
             $teacher->image = $image;
         }
         $teacher->save();
+
+        $response = [
+            'success' => 'Teacher details has been updated'
+        ];
+
+        return response($response, 200);
     }
 }

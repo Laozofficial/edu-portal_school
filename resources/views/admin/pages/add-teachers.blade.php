@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 mt-5">
-                            <button class="btn btn-primary ml-3 btn-lg" @click="validate">
+                            <button class="btn btn-primary ml-3" @click="validate">
                                 <i class="fa fa-paper-plane"></i> Save Teacher Details
                             </button>
                         </div>

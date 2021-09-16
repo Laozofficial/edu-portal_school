@@ -23,6 +23,12 @@
     <link href="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{asset('admin/vendor/toastr/css/toastr.min.css')}}"/>
 
+    <style>
+          body,html,p,h1,h2,h3,h4,h5,h6,span,li,ul,button,a,code,input,textarea, label{
+                font-size: 0.875rem !important;
+            }
+    </style>
+
 </head>
 
 <body>

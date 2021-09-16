@@ -48,7 +48,7 @@ new Vue({
             });
             swal.showLoading();
 
-            axios.post(`${url.update_teacher + slug}`, config)
+            axios.post(`${url.update_teacher + slug}`, this.teacher, config)
                 .then((response) => {
                     console.log(response);
                     swal.close();
@@ -56,8 +56,13 @@ new Vue({
                 })
                 .catch((error) => {
                     console.log(error);
+                    this.server_errors = error.response.data.errors;
+                    this.server_error_switch = true;
                     swal.close();
                     toastr.error('something went wrong');
+                })
+                .then(() => {
+                    this.get_teacher();
                 });
         },
     },

@@ -58,6 +58,7 @@ Route::prefix('dashboard')->group(function () {
         Route::get('teachers', [ViewController::class, 'all_teachers_view']);
         Route::get('update-teacher/{teacher:slug}', [ViewController::class, 'teacher_update']);
 
+
     });
 
 
