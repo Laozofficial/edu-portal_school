@@ -7,6 +7,8 @@ let url = {
     // check if user has a school
     validate_user_school: 'validate_user_school',
 
+    // check items
+    get_classes_and_teachers: 'get_classes_and_teachers/',
 
     // school admin
     get_details_for_registration: 'get_details_for_registration',
@@ -35,7 +37,7 @@ let url = {
     update_teacher_passport: 'update_teacher_passport/',
 
     // classes
-
+    save_class: 'save_class',
 
 
 }

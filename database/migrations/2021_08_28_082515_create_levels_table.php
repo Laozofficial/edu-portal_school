@@ -15,10 +15,10 @@ class CreateLevelsTable extends Migration
     {
         Schema::create('levels', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
             $table->foreignId('institution_id')->constrained();
             $table->foreignId('teacher_id')->constrained();
             $table->text('name');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

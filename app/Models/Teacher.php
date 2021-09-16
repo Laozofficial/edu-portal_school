@@ -46,6 +46,11 @@ class Teacher extends Model
         return Carbon::parse($this->date_of_birth)->diffForHumans();
     }
 
+    public function classes()
+    {
+        return $this->hasMany('App\Models\Level');
+    }
+
     public function getCreatedAtTextAttribute()
     {
         return $this->created_at->diffForHumans();
@@ -59,8 +64,5 @@ class Teacher extends Model
         'user', 'country', 'state'
     ];
 
-    protected $with = [
-        'user'
-    ];
 
 }

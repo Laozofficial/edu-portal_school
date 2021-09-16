@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LevelController;
 use App\Http\Controllers\Web\AcademicSessionController;
 use App\Http\Controllers\Web\AcademicTermController;
 use App\Http\Controllers\Web\Auth\LoginController;
@@ -51,6 +52,9 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_school_details/{institution}', [InstitutionController::class, 'get_school_details']);
                 Route::post('update_institution/{institution}', [InstitutionController::class, 'update_school_details']);
 
+                // get teachers and classes
+                Route::get('get_classes_and_teachers/{institution}', [InstitutionController::class, 'get_classes_and_teachers']);
+
                 // Academic session Routes
                 Route::get('get_session/{institution}', [AcademicSessionController::class, 'get_sessions']);
                 Route::post('save_session/{institution}', [AcademicSessionController::class, 'save_session']);
@@ -69,6 +73,11 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_single_teacher/{teacher:slug}', [TeacherController::class, 'get_single_teacher']);
                 Route::post('update_single_teacher/{teacher:slug}', [TeacherController::class, 'update_single_teacher']);
                 Route::post('update_teacher_passport/{teacher:slug}', [TeacherController::class, 'update_teacher_passport']);
+
+                // class
+                Route::post('save_class', [LevelController::class, 'save_class']);
+
+
 
             });
     });

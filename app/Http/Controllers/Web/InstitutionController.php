@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Institution;
+use App\Models\Level;
 use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Teacher;
 
 class InstitutionController extends Controller
 {
@@ -178,6 +180,32 @@ class InstitutionController extends Controller
         ];
 
         return response($response, 200);
+
+    }
+
+    public function get_classes_and_teachers(Institution $institution)
+    {
+        $classes = Level::where('institution_id', $institution->id)->orderBy('id', 'desc')->get();
+        $teachers = Teacher::where('institution_id', $institution->id)->orderBy('id', 'desc')->get();
+
+        if($classes->count() > 0 && $teachers->count() > 0) {
+            $response = [
+                'classes' => $classes,
+                'teachers' => $teachers
+            ];
+
+            return response($response, 200);
+
+        } elseif($classes->count() < 1 || $teachers->count() < 1) {
+            $response = [
+                'error' => 'either class or teachers has not been added , Please add it ',
+                'classes' => $classes,
+                'teachers' => $teachers
+            ];
+
+            return response($response, 400);
+
+        }
 
     }
 }
