@@ -22,10 +22,13 @@
     <!-- page plugins -->
     <link href="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{asset('admin/vendor/toastr/css/toastr.min.css')}}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.css" integrity="sha512-7uSoC3grlnRktCWoO4LjHMjotq8gf9XDFQerPuaph+cqR7JC9XKGdvN+UwZMC14aAaBDItdRj3DcSDs4kMWUgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/basic.css" integrity="sha512-+Vla3mZvC+lQdBu1SKhXLCbzoNCl0hQ8GtCK8+4gOJS/PN9TTn0AO6SxlpX8p+5Zoumf1vXFyMlhpQtVD5+eSw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
           body,html,p,h1,h2,h3,h4,h5,h6,span,li,ul,button,a,code,input,textarea, label{
                 font-size: 0.875rem !important;
+                /*font-weight: 700 !important;*/
             }
     </style>
 
@@ -98,6 +101,7 @@
     <script src="{{asset('admin/plugins/js/app.js')}}"></script>
     <script src="{{asset('admin/plugins/js/check_token.js')}}"></script>
     <script src="{{asset('admin/plugins/js/vue-pagination.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
         const base_url = "{{ url('/api/dashboard/admin/') }}";

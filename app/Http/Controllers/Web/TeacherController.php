@@ -154,4 +154,34 @@ class TeacherController extends Controller
 
         return response($response, 200);
     }
+
+    public function update_teacher_passport(Request $request, Teacher $teacher)
+    {
+        $validator = Validator::make($request->all(), [
+            'image' => 'required|image',
+        ]);
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422); //return error validator error
+        }
+
+        $teacher = Teacher::where('slug', $teacher->slug)->firstOrFail();
+
+        if ($request->hasFile('image')) {
+            $logo = $request->file('image');
+            $extension = $logo->getClientOriginalExtension(); // you can also use file name
+            $image =   Auth::user()->id . '-1-' . time() . '.' . $extension;
+            $path = Env('PUBLIC_IMAGE_PATH');
+            $upload = $logo->move($path, $image);
+
+            $teacher->image = $image;
+        }
+
+        $response = [
+            'success' => 'Teacher\'s passport has been updated'
+        ];
+
+        return response($response, 200);
+
+    }
 }

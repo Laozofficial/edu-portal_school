@@ -17,13 +17,14 @@
         <div class="dropdown custom-dropdown">
 
                 <div class="text-left ml-3">
-                    <span class="d-block fs-16"><i class="fa fa-upload"></i> Upload Passport</span>
-                    <div class="input-group">
+                    <!-- <span class="d-block fs-16"><i class="fa fa-upload"></i> Upload Passport</span> -->
+                    <button class="btn btn-sm btn-success" data-toggle="modal" data-target=".image_upload"><i class="fa fa-upload"></i> Upload Passport</button>
+                    <!-- <div class="input-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" @change="onPassportChange">
                             <label class="custom-file-label" >Choose file</label>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
         </div>
     </div>
@@ -105,6 +106,32 @@
             </div>
         </div>
      </div>
+
+
+<div class="modal fade image_upload" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Upload Teacher Passport</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label> Upload Teacher Image</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" @change="onPassportChange">
+                        <label class="custom-file-label" >Choose file</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" @click="upload_image(teacher.slug)">Update changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </div>
 
