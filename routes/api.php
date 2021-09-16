@@ -72,6 +72,4 @@ Route::prefix('dashboard')->group(function () {
 
             });
     });
-
-
 });
