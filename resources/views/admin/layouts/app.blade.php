@@ -101,7 +101,10 @@
     <script src="{{asset('admin/plugins/js/app.js')}}"></script>
     <script src="{{asset('admin/plugins/js/check_token.js')}}"></script>
     <script src="{{asset('admin/plugins/js/vue-pagination.js')}}"></script>
+<<<<<<< HEAD
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+=======
+>>>>>>> 03b1670a8c7ca1bd3ab9d4910f2d84cc0c68baef
 
     <script>
         const base_url = "{{ url('/api/dashboard/admin/') }}";

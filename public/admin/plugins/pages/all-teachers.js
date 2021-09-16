@@ -11,6 +11,10 @@ new Vue({
 
         teachers: [],
         page: 1,
+<<<<<<< HEAD
+=======
+
+>>>>>>> 03b1670a8c7ca1bd3ab9d4910f2d84cc0c68baef
 
         teacher: {
             country: {},
@@ -86,5 +90,6 @@ new Vue({
         update(slug) {
             window.location.href = '/dashboard/admin/update-teacher/' + slug;
         }
+
     },
 });

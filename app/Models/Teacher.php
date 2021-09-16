@@ -59,4 +59,8 @@ class Teacher extends Model
         'user', 'country', 'state'
     ];
 
+    protected $with = [
+        'user'
+    ];
+
 }
