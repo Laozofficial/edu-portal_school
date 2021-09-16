@@ -8,7 +8,7 @@ new Vue({
         institutions: [],
         selected_institution: '',
 
-        classes: [],
+        levels: [],
         selected_classes: '',
 
         teachers: [],
@@ -45,13 +45,14 @@ new Vue({
                 .then((response) => {
                     console.log(response);
                     swal.close();
-                    this.classes = response.data.classes;
+                    this.levels = response.data.classes;
                     this.teachers = response.data.teachers;
                 })
                 .catch((error) => {
                     console.log(error);
                     swal.fire('Oops', error.response.data.error, 'error');
-                    this.classes = error.response.data.classes;
+                    this.levels = error.response.data.classes;
+                    console.log(error.response.data.classes);
                     this.teachers = error.response.data.teachers;
                     toastr.error('something went wrong');
                 });

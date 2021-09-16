@@ -45,9 +45,9 @@
                     <v-select :options="teachers" label="first_name" v-model="selected_teacher" :reduce="teachers => teachers.id" id="teacher"></v-select>
 
                     <label class="mt-3" for="class_name">Class Name</label>
-                    <input class="form-control form-control-sm" type="text" placeholder="example jss 2 science"/>
+                    <input class="form-control form-control-sm" type="text" placeholder="example jss 2 science" v-model="name"/>
 
-                    <button class="btn btn-sm btn-primary mt-3 btn-block">
+                    <button class="btn btn-sm btn-primary mt-3 btn-block" @click="save_class">
                         <i class="fa fa-paper-plane"></i> Add Class
                     </button>
                 </div>
@@ -60,40 +60,35 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                                    <table class="table table-responsive-md">
-                                        <thead>
-                                            <tr>
-                                                <th style="width:80px;"><strong>#</strong></th>
-                                                <th><strong>Class Name</strong></th>
-                                                <th><strong>Teacher</strong></th>
-                                                <th><strong>status</strong></th>
-                                                <th><strong>created at</strong></th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr v-for="(class, index) in classes">
-                                                <td><strong>@{{index + 1}}</strong></td>
-                                                <td>Mr. Bobby</td>
-                                                <td>Dr. Jackson</td>
-                                                <td>01 August 2020</td>
-                                                <td><span class="badge light badge-success">Successful</span></td>
-                                                <td>$21.56</td>
-                                                <td>
-													<div class="dropdown">
-														<button type="button" class="btn btn-success light sharp" data-toggle="dropdown">
-															<svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><circle fill="#000000" cx="5" cy="12" r="2"/><circle fill="#000000" cx="12" cy="12" r="2"/><circle fill="#000000" cx="19" cy="12" r="2"/></g></svg>
-														</button>
-														<div class="dropdown-menu">
-															<a class="dropdown-item" href="#">Edit</a>
-															<a class="dropdown-item" href="#">Delete</a>
-														</div>
-													</div>
-												</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                        <table class="table table-responsive-md">
+                            <thead>
+                                <tr>
+                                    <th style="width:80px;"><strong>#</strong></th>
+                                    <th><strong>Class Name</strong></th>
+                                    <th><strong>Teacher</strong></th>
+                                    <th><strong>status</strong></th>
+                                    <th><strong>created at</strong></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(level, index) in levels">
+                                    <td><strong>@{{index + 1}}</strong></td>
+                                    <td>@{{level.name}}</td>
+                                    <td>@{{level.teacher.full_name_text}}</td>
+                                    <td v-if="level.status == 0"><span class="badge light badge-success">@{{level.status_text}}</span></td>
+                                    <td v-if="level.status == 1"><span class="badge light badge-error">@{{level.status_text}}</span></td>
+                                    <td>@{{level.created_at_text}}</td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
