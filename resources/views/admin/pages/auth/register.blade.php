@@ -12,7 +12,7 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
 									<div class="text-center mb-3">
-										<a href="{{url('/')}}"><img src="{{asset('uploads/eduportal-white.png')}}" style="width: 50%" alt=""></a>
+										<a href="{{url('/')}}"><img src="{{asset('admin/images/easyschool_logo.png')}}" style="width: 50%" alt=""></a>
 									</div>
                                     <!--<h4 class="text-center mb-4">Sign up your account</h4>-->
                                     <div class="alert alert-danger alert-dismissible fade show mt-2" v-show="server_error_switch">
