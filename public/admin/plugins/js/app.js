@@ -38,6 +38,8 @@ let url = {
 
     // classes
     save_class: 'save_class',
+    get_single_class: 'get_single_class/',
+    update_single_class: 'update_single_class/',
 
 
 }

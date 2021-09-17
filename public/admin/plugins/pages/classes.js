@@ -15,6 +15,9 @@ new Vue({
         selected_teacher: '',
 
         name: '',
+
+        level: {},
+        update_selected_teacher: ''
     },
     mounted() {
         this.get_schools();
@@ -87,6 +90,59 @@ new Vue({
                         this.get_items();
                     });
 
+            }
+        },
+        edit_school(id) {
+            swal.fire({
+                text: 'Please wait...',
+                allowOutsideClick: false
+            });
+            swal.showLoading();
+
+            axios.get(`${url.get_single_class + id}`, config)
+                .then((response) => {
+                    console.log(response);
+                    swal.close();
+                    this.level = response.data.level;
+                    this.update_selected_teacher = response.data.level.teacher.full_name_text;
+                    $('.update_class').modal('show');
+                })
+                .catch((error) => {
+                    console.log(error);
+                    swal.close();
+                    toastr.error('something went wrong');
+                });
+        },
+        update_class(id) {
+            if (this.update_selected_teacher == '' || this.level.name == '') {
+                swal.fire('oops', 'some fields are empty', 'error');
+            } else {
+                swal.fire({
+                    text: 'Please wait...',
+                    allowOutsideClick: false
+                });
+                swal.showLoading();
+
+                let fd = new FormData;
+                fd.append('name', this.level.name);
+                if (Number.isInteger(this.update_selected_teacher)) {
+                    fd.append('teacher_id', this.update_selected_teacher);
+                }
+
+                axios.post(`${url.update_single_class + id}`, fd, config)
+                    .then((response) => {
+                        console.log(response);
+                        swal.fire('weldon', response.data.success, 'success');
+                        $('.update_class').modal('hide');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        toastr.error('something went wrong');
+                    })
+                    .then(() => {
+                        this.get_items();
+                        swal.close();
+                    });
             }
         },
         showContent() {

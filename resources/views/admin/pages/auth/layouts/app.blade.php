@@ -23,6 +23,11 @@
             font-size: 0.7rem !important;
             font-weight: bolder !important
         }
+
+        body,html,p,h1,h2,h3,h4,h5,h6,span,li,ul,button,a,code,input,textarea, label{
+                font-size: 0.875rem !important;
+                /*font-weight: 700 !important;*/
+        }
     </style>
 
 </head>

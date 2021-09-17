@@ -76,6 +76,8 @@ Route::prefix('dashboard')->group(function () {
 
                 // class
                 Route::post('save_class', [LevelController::class, 'save_class']);
+                Route::get('get_single_class/{level}', [LevelController::class, 'get_single_class']);
+                Route::post('update_single_class/{level}', [LevelController::class, 'update_single_class']);
 
 
 

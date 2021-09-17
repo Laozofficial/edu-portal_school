@@ -42,7 +42,7 @@
                 </div>
                 <div class="card-body">
                     <label for="teacher">Assign Teacher</label>
-                    <v-select :options="teachers" label="first_name" v-model="selected_teacher" :reduce="teachers => teachers.id" id="teacher"></v-select>
+                    <v-select :options="teachers" label="full_name_text" v-model="selected_teacher" :reduce="teachers => teachers.id" id="teacher"></v-select>
 
                     <label class="mt-3" for="class_name">Class Name</label>
                     <input class="form-control form-control-sm" type="text" placeholder="example jss 2 science" v-model="name"/>
@@ -81,8 +81,8 @@
                                     <td>@{{level.created_at_text}}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="edit_school(level.id)"><i class="fa fa-pencil"></i></a>
+                                            <!-- <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a> -->
                                         </div>
                                     </td>
                                 </tr>
@@ -93,6 +93,33 @@
             </div>
         </div>
      </div>
+
+
+     <div class="modal fade update_class" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Class</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="teacher">Update Assigned Teacher</label>
+                    <v-select :options="teachers" label="full_name_text" v-model="update_selected_teacher" :reduce="teachers => teachers.id" id="teacher"></v-select>
+
+                    <label class="mt-3" for="class_name">Update Class Name</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="example jss 2 science" v-model="level.name"/>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light btn-sm" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-sm" @click="update_class(level.id)"><i class="fa fa-paper-plane"></i> Update changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 </div>
 
