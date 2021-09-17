@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LevelController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Web\AcademicSessionController;
 use App\Http\Controllers\Web\AcademicTermController;
 use App\Http\Controllers\Web\Auth\LoginController;
@@ -78,6 +79,12 @@ Route::prefix('dashboard')->group(function () {
                 Route::post('save_class', [LevelController::class, 'save_class']);
                 Route::get('get_single_class/{level}', [LevelController::class, 'get_single_class']);
                 Route::post('update_single_class/{level}', [LevelController::class, 'update_single_class']);
+
+                // subjects
+                Route::get('get_subjects/{institution}', [SubjectController::class, 'get_subjects']);
+                Route::post('save_subject/{institution}', [SubjectController::class, 'save_subject']);
+                Route::get('get_single_subject/{subject}', [SubjectController::class, 'get_single_subject']);
+                Route::post('save_subject_update/{subject}', [SubjectController::class, 'save_subject_update']);
 
 
 

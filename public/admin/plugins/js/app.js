@@ -41,6 +41,12 @@ let url = {
     get_single_class: 'get_single_class/',
     update_single_class: 'update_single_class/',
 
+    // subjects
+    get_subjects: 'get_subjects/',
+    save_subject: 'save_subject/',
+    get_single_subject: 'get_single_subject/',
+    save_subject_update: 'save_subject_update/',
+
 
 }
 

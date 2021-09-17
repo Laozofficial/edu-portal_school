@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\OTPController;
@@ -57,6 +58,9 @@ Route::prefix('dashboard')->group(function () {
         Route::get('add-teacher', [ViewController::class, 'add_teacher']);
         Route::get('teachers', [ViewController::class, 'all_teachers_view']);
         Route::get('update-teacher/{teacher:slug}', [ViewController::class, 'teacher_update']);
+
+        // subject Route
+        Route::get('subjects', [SubjectController::class, 'subject_view']);
 
 
     });

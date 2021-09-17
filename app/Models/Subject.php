@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
+
+    public function getCreatedAtTextAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
+    protected $appends = [
+        'created_at_text'
+    ];
 }
