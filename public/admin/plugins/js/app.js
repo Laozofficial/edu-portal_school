@@ -47,6 +47,12 @@ let url = {
     get_single_subject: 'get_single_subject/',
     save_subject_update: 'save_subject_update/',
 
+    // grades
+    save_grades: 'save_grades/',
+    get_grades: 'get_grades/',
+    get_single_grade: 'get_single_grade/',
+    save_grade_update: 'save_grade_update/'
+
 
 }
 

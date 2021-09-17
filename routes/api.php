@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\LevelController;
-use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\Web\GradeScaleController;
+use App\Http\Controllers\Web\LevelController;
+use App\Http\Controllers\Web\SubjectController;
 use App\Http\Controllers\Web\AcademicSessionController;
 use App\Http\Controllers\Web\AcademicTermController;
 use App\Http\Controllers\Web\Auth\LoginController;
@@ -86,7 +87,11 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_single_subject/{subject}', [SubjectController::class, 'get_single_subject']);
                 Route::post('save_subject_update/{subject}', [SubjectController::class, 'save_subject_update']);
 
-
+                // grades
+                Route::post('save_grades/{institution}', [GradeScaleController::class, 'save_grade']);
+                Route::get('get_grades/{institution}', [GradeScaleController::class, 'get_grades']);
+                Route::get('get_single_grade/{grade}', [GradeScaleController::class, 'get_single_grade']);
+                Route::post('save_grade_update/{grade}', [GradeScaleController::class, 'save_update_grade']);
 
             });
     });

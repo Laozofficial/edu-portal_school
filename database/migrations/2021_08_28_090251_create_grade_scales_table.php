@@ -15,7 +15,6 @@ class CreateGradeScalesTable extends Migration
     {
         Schema::create('grade_scales', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
             $table->foreignId('institution_id')->constrained();
             $table->string('grade');
             $table->integer('lower_value')->unsigned();

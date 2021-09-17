@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\Web\GradeScaleController;
+use App\Http\Controllers\Web\SubjectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\OTPController;
@@ -61,6 +62,9 @@ Route::prefix('dashboard')->group(function () {
 
         // subject Route
         Route::get('subjects', [SubjectController::class, 'subject_view']);
+
+        // Grade Scale
+        Route::get('grade-scale', [GradeScaleController::class, 'grade_scale_view']);
 
 
     });
