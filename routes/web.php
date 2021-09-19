@@ -74,3 +74,8 @@ Route::prefix('dashboard')->group(function () {
 
 
 });
+
+
+Route::prefix('edu_portal/dashboard')->group(function () {
+
+});

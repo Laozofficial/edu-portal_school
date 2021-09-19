@@ -185,12 +185,12 @@ class TeacherController extends Controller
 
     }
 
-    public function all_teachers(Institution $institution)
-    {
-        $teachers = Teacher::where('institution_id', $institution->id)->orderBy('id', 'desc')->paginate(25);
-        $response = [
-            'teachers' => $teachers
-        ];
-        return response($response, 200);
-    }
+    // public function all_teachers(Institution $institution)
+    // {
+    //     $teachers = Teacher::where('institution_id', $institution->id)->orderBy('id', 'desc')->paginate(25);
+    //     $response = [
+    //         'teachers' => $teachers
+    //     ];
+    //     return response($response, 200);
+    // }
 }

@@ -1,4 +1,4 @@
-@extends('admin.pages.auth.layouts.app')
+@extends('easy_school.admin.pages.auth.layouts.app')
 
 
 @section('content')
@@ -12,7 +12,7 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <div class="text-center mb-3">
-                                        <a href="{{url('/')}}"><img src="{{asset('admin/images/easyschool_logo.png')}}" alt="" style="width: 50%"></a>
+                                        <a href="{{url('/')}}"><img src="{{asset('easy_school.admin/images/easyschool_logo.png')}}" alt="" style="width: 50%"></a>
                                     </div>
                                     <!--<h4 class="text-center mb-4">Sign in your account</h4>-->
 
@@ -67,5 +67,5 @@
 
 @endsection
 @section('script')
-    <script src="{{asset('admin/plugins/pages/login.js')}}"></script>
+    <script src="{{asset('easy_school.admin/plugins/pages/login.js')}}"></script>
 @endsection

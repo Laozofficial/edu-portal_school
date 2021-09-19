@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('easy_school.admin.layouts.app')
 
 
 
@@ -71,5 +71,5 @@
     <script>
         let id = "{{$id}}";
     </script>
-    <script src="{{asset('admin/plugins/pages/school_details.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/pages/school_details.js')}}"></script>
 @endsection

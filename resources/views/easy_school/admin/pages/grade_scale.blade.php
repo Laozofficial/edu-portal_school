@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('easy_school.admin.layouts.app')
 
 
 
@@ -11,8 +11,8 @@
 <div class="container-fluid" v-show="content">
      <div class="form-head d-flex mb-3 align-items-start">
         <div class="mr-auto d-none d-lg-block">
-            <h2 class="text-black font-w600 mb-0">School Classes</h2>
-            <p class="mb-0">Add A Class</p>
+            <h2 class="text-black font-w600 mb-0">School Grade System</h2>
+            <p class="mb-0">Update The Institution Grade System</p>
         </div>
         <div class="dropdown custom-dropdown">
             <div class="btn btn-sm btn-primary light d-flex align-items-center svg-btn" data-toggle="dropdown">
@@ -23,7 +23,7 @@
                 </svg>
                 <div class="text-left ml-3">
                     <span class="d-block fs-16">Select Institution</span>
-                    <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" @input="get_items" id="institution"></v-select>
+                    <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" @input="get_grades" id="institution"></v-select>
                 </div>
                 <i class="fa fa-angle-down scale5 ml-3"></i>
             </div>
@@ -38,17 +38,20 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    Add Class
+                    Add Grade Scale
                 </div>
                 <div class="card-body">
-                    <label for="teacher">Assign Teacher</label>
-                    <v-select :options="teachers" label="full_name_text" v-model="selected_teacher" :reduce="teachers => teachers.id" id="teacher"></v-select>
+                    <label id="minimum_mark">Minimum Mark</label>
+                    <input class="form-control form-control-sm mb-3" type="number" v-model="lower_value" placeholder="70"/>
 
-                    <label class="mt-3" for="class_name">Class Name</label>
-                    <input class="form-control form-control-sm" type="text" placeholder="example jss 2 science" v-model="name"/>
+                    <label id="maximum_mark">Maximum Mark</label>
+                    <input class="form-control form-control-sm mb-4" type="number" v-model="upper_value" placeholder="100"/>
 
-                    <button class="btn btn-sm btn-primary mt-3 btn-block" @click="save_class">
-                        <i class="fa fa-paper-plane"></i> Add Class
+                    <label id="grade">Grade</label>
+                    <input class="form-control form-control-sm mb-4" type="text" v-model="grade" placeholder="Example A+"/>
+
+                    <button class="btn btn-primary btn-block" @click="save_grade">
+                        <i class="fa fa-paper-plane"></i> Add Grade
                     </button>
                 </div>
             </div>
@@ -56,7 +59,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    Classes
+                    Grades
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -64,25 +67,23 @@
                             <thead>
                                 <tr>
                                     <th style="width:80px;"><strong>#</strong></th>
-                                    <th><strong>Class Name</strong></th>
-                                    <th><strong>Teacher</strong></th>
-                                    <th><strong>status</strong></th>
-                                    <th><strong>created at</strong></th>
+                                    <th><strong>Grade</strong></th>
+                                    <th><strong>From</strong></th>
+                                    <th><strong>To</strong></th>
+                                    <th><strong>Created at</strong></th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(level, index) in levels">
+                                <tr v-for="(grade, index) in grades">
                                     <td><strong>@{{index + 1}}</strong></td>
-                                    <td>@{{level.name}}</td>
-                                    <td>@{{level.teacher.full_name_text}}</td>
-                                    <td v-if="level.status == 0"><span class="badge light badge-success">@{{level.status_text}}</span></td>
-                                    <td v-if="level.status == 1"><span class="badge light badge-error">@{{level.status_text}}</span></td>
-                                    <td>@{{level.created_at_text}}</td>
+                                    <td>@{{grade.grade}}</td>
+                                    <td>@{{grade.lower_value}}</td>
+                                    <td>@{{grade.upper_value}}</td>
+                                    <td>@{{grade.created_at_text}}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="edit_school(level.id)"><i class="fa fa-pencil"></i></a>
-                                            <!-- <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a> -->
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="edit_grade(grade.id)"><i class="fa fa-pencil"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -95,35 +96,36 @@
      </div>
 
 
-     <div class="modal fade update_class" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade update_grade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Class</h5>
+                    <h5 class="modal-title">Update Grade</h5>
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label for="teacher">Update Assigned Teacher</label>
-                    <v-select :options="teachers" label="full_name_text" v-model="update_selected_teacher" :reduce="teachers => teachers.id" id="teacher"></v-select>
+                    <label id="minimum_mark">Update Minimum Mark</label>
+                    <input class="form-control form-control-sm mb-3" type="number" v-model="single_grade.lower_value" placeholder="70"/>
 
-                    <label class="mt-3" for="class_name">Update Class Name</label>
-                    <input class="form-control form-control-sm" type="text" placeholder="example jss 2 science" v-model="level.name"/>
+                    <label id="maximum_mark">Update Maximum Mark</label>
+                    <input class="form-control form-control-sm mb-4" type="number" v-model="single_grade.upper_value" placeholder="100"/>
 
+                    <label id="grade">Grade</label>
+                    <input class="form-control form-control-sm mb-4" type="text" v-model="single_grade.grade" placeholder="Example A+"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger light btn-sm" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-sm" @click="update_class(level.id)"><i class="fa fa-paper-plane"></i> Update changes</button>
+                    <button type="button" class="btn btn-primary btn-sm" @click="save_update_grade(single_grade.id)"><i class="fa fa-paper-plane"></i> Update changes</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-
 </div>
 
 @endsection
 @section('script')
-    <script src="{{asset('admin/plugins/pages/classes.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/pages/grade_scale.js')}}"></script>
 @endsection

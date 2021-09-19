@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('easy_school.admin.layouts.app')
 
 
 
@@ -192,5 +192,5 @@
 
 @endsection
 @section('script')
-    <script src="{{asset('admin/plugins/pages/terms.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/pages/terms.js')}}"></script>
 @endsection

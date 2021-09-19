@@ -33,6 +33,6 @@ class TeacherNotificationMail extends Mailable
         return  $this
                     ->from($this->details['school_email'], $this->details['institution_name'])
                     ->subject('Mail From School')
-                    ->view('admin.pages.auth.email.teacher-welcome');
+                    ->view('easy_school.admin.pages.auth.email.teacher-welcome');
     }
 }

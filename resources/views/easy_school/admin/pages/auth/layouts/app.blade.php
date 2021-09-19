@@ -7,16 +7,16 @@
     <meta name="keywords" content="" />
     <meta name="author" content="" />
     <meta name="robots" content="" />
-    <meta name="description" content="Davur - Restaurant Bootstrap Admin Dashboard + FrontEnd" />
+    <meta name="description" content="School Management system" />
     <meta name="format-detection" content="telephone=no">
     <title>Easy School - Authentication </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('admin/images/favicon.png')}}">
-    <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('easy_school/admin/images/favicon.png')}}">
+    <link href="{{asset('easy_school/admin/css/style.css')}}" rel="stylesheet">
 
      <!-- page plugins -->
-    <link href="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
-    <link rel="stylesheet" href="{{asset('admin/vendor/toastr/css/toastr.min.css')}}"/>
+    <link href="{{asset('easy_school/admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{asset('easy_school/admin/vendor/toastr/css/toastr.min.css')}}"/>
 
     <style>
         .alert {
@@ -44,18 +44,18 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="{{asset('admin/vendor/global/global.min.js')}}"></script>
-    <script src="{{asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
-    <script src="{{asset('admin/js/custom.min.js')}}"></script>
-    <script src="{{asset('admin/js/deznav-init.js')}}"></script>
+    <script src="{{asset('easy_school/admin/vendor/global/global.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/js/custom.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/js/deznav-init.js')}}"></script>
 
 
     <!-- layout plugins -->
     <!-- page custom plugins -->
-    <script src="{{asset('admin/plugins/js/vue.js')}}"></script><!--importing vue-->
-    <script src="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script><!--importing sweet alert js-->
-    <script src="{{asset('admin/vendor/toastr/js/toastr.min.js')}}"></script><!--import toastr-->
-    <script src="{{asset('admin/plugins/js/axios.js')}}"></script><!--importing axios-->
+    <script src="{{asset('easy_school/admin/plugins/js/vue.js')}}"></script><!--importing vue-->
+    <script src="{{asset('easy_school/admin/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script><!--importing sweet alert js-->
+    <script src="{{asset('easy_school/admin/vendor/toastr/js/toastr.min.js')}}"></script><!--import toastr-->
+    <script src="{{asset('easy_school/admin/plugins/js/axios.js')}}"></script><!--importing axios-->
 
     <script>
         const base_url = "{{ url('/api/dashboard/') }}";
@@ -64,7 +64,7 @@
         axios.defaults.headers.post['Content-Type'] = 'application/json'
     </script>
 
-    <script src="{{asset('admin/plugins/js/app.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/js/app.js')}}"></script>
 
     @yield('script')
 </body>

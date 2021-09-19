@@ -12,16 +12,16 @@
     <title>Easy School </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
-    <link href="{{asset('admin/vendor/jqvmap/css/jqvmap.min.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('admin/vendor/chartist/css/chartist.min.css')}}">
-    <link href="{{asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
-    <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('easy_school/admin/vendor/jqvmap/css/jqvmap.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('easy_school/admin/vendor/chartist/css/chartist.min.css')}}">
+    <link href="{{asset('easy_school/admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
+    <link href="{{asset('easy_school/admin/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('https://cdn.lineicons.com/2.0/LineIcons.css')}}" rel="stylesheet">
-    <link href="{{asset('admin/plugins/css/vue-select.css')}}" rel="stylesheet"/>
+    <link href="{{asset('easy_school/admin/plugins/css/vue-select.css')}}" rel="stylesheet"/>
 
     <!-- page plugins -->
-    <link href="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
-    <link rel="stylesheet" href="{{asset('admin/vendor/toastr/css/toastr.min.css')}}"/>
+    <link href="{{asset('easy_school/admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{asset('easy_school/admin/vendor/toastr/css/toastr.min.css')}}"/>
     <style>
         label{
             font-weight: bolder !important
@@ -48,7 +48,7 @@
         Main wrapper start
     ***********************************-->
     <div id="main-wrapper">
-        @include('admin.partials.nav')
+        @include('easy_school.admin.partials.nav')
 
         <!--**********************************
             Content body start
@@ -158,31 +158,31 @@
 
       <!-- Required vendors -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{asset('admin/vendor/global/global.min.js')}}"></script>
-    <script src="{{asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
-    <script src="{{asset('admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
-    <script src="{{asset('admin/js/custom.min.js')}}"></script>
-    <script src="{{asset('admin/js/deznav-init.js')}}"></script>
+    <script src="{{asset('easy_school/admin/vendor/global/global.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/js/custom.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/js/deznav-init.js')}}"></script>
     <!-- Counter Up -->
-    <script src="{{asset('admin/vendor/waypoints/jquery.waypoints.min.js')}}"></script>
-    <script src="{{asset('admin/vendor/jquery.counterup/jquery.counterup.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/vendor/waypoints/jquery.waypoints.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/vendor/jquery.counterup/jquery.counterup.min.js')}}"></script>
     <!-- Apex Chart -->
-    <script src="{{asset('admin/vendor/apexchart/apexchart.js')}}"></script>
+    <script src="{{asset('easy_school/admin/vendor/apexchart/apexchart.js')}}"></script>
     <!-- Chart piety plugin files -->
-    <script src="{{asset('admin/vendor/peity/jquery.peity.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/vendor/peity/jquery.peity.min.js')}}"></script>
     <!-- Dashboard 1 -->
-    <script src="{{asset('admin/js/dashboard/dashboard-1.js')}}"></script>
+    <script src="{{asset('easy_school/admin/js/dashboard/dashboard-1.js')}}"></script>
 
 
 
     <!-- page custom plugins -->
-    <script src="{{asset('admin/plugins/js/vue.js')}}"></script>
-    <script src="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script>
-    <script src="{{asset('admin/vendor/toastr/js/toastr.min.js')}}"></script>
-    <script src="{{asset('admin/plugins/js/axios.js')}}"></script>
-    <script src="{{asset('admin/plugins/js/vue-select2.js')}}"></script>
-    <script src="{{asset('admin/plugins/js/app.js')}}"></script>
-    <script src="{{asset('admin/plugins/js/check_token.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/js/vue.js')}}"></script>
+    <script src="{{asset('easy_school/admin/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/vendor/toastr/js/toastr.min.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/js/axios.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/js/vue-select2.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/js/app.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/js/check_token.js')}}"></script>
 
     <script>
         const base_url = "{{ url('/api/dashboard/admin/') }}";
@@ -191,7 +191,7 @@
      </script>
 
     <!-- yield on all pages -->
-    <script src="{{asset('admin/plugins/pages/add-school.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/pages/add-school.js')}}"></script>
 
 </body>
 

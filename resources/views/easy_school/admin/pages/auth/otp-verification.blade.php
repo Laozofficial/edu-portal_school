@@ -1,12 +1,7 @@
-@extends('admin.pages.auth.layouts.app')
+@extends('easy_school.admin.pages.auth.layouts.app')
 
 
 @section('content')
-<style>
-    .resend_otp{ 
-        cursor:  !important;
-    }
-</style>
 
  <div class="authincation h-100">
         <div class="container h-100">
@@ -17,7 +12,7 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <div class="text-center mb-3">
-                                        <a href="{{url('/')}}"><img src="{{asset('admin/images/easyschool_logo.png')}}" alt="" style="width: 50%"></a>
+                                        <a href="{{url('/')}}"><img src="{{asset('easy_school/admin/images/easyschool_logo.png')}}" alt="" style="width: 50%"></a>
                                     </div>
                                     <h4 class="text-center mb-4">Sign in your account</h4>
                                     <div>
@@ -59,5 +54,5 @@
     <script>
         let email = "{{$email}}";
     </script>
-    <script src="{{asset('admin/plugins/pages/otp-verification.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/pages/otp-verification.js')}}"></script>
 @endsection
