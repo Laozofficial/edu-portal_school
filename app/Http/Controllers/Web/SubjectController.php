@@ -11,7 +11,7 @@ class SubjectController extends Controller
 {
     public function subject_view()
     {
-        return view('easy_school.admin.pages.subjects');
+        return view(env('APP_THEME') . '.admin.pages.subjects');
     }
 
     public function get_subjects(Institution $institution)

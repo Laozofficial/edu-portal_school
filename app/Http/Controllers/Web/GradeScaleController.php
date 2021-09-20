@@ -12,7 +12,7 @@ class GradeScaleController extends Controller
 {
     public function grade_scale_view()
     {
-        return view('easy_school.admin.pages.grade_scale');
+        return view(env('APP_THEME') . '.admin.pages.grade_scale');
     }
 
     public function save_grade(Request $request, Institution $institution)
