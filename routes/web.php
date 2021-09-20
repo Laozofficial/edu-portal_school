@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
+use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\ViewController;
 
 /*
@@ -69,6 +70,9 @@ Route::prefix('dashboard')->group(function () {
 
         // Assessment Types
         Route::get('assessment-types', [AssessmentTypeController::class, 'assessment_types']);
+
+        // student Route
+        Route::get('add-students', [StudentController::class, 'add_students']);
 
 
     });
