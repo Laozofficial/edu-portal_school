@@ -12,7 +12,7 @@ class OTPController extends Controller
 {
     public function otp_verification_view($email)
     {
-        return view('admin.pages.auth.otp-verification', [
+        return view(env('APP_THEME').'admin.pages.auth.otp-verification', [
             'email' => $email
         ]);
     }

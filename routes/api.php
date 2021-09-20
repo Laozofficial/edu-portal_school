@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\LevelController;
 use App\Http\Controllers\Web\SubjectController;
 use App\Http\Controllers\Web\AcademicSessionController;
 use App\Http\Controllers\Web\AcademicTermController;
+use App\Http\Controllers\Web\AssessmentTypeController;
 use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
@@ -92,6 +93,12 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_grades/{institution}', [GradeScaleController::class, 'get_grades']);
                 Route::get('get_single_grade/{grade}', [GradeScaleController::class, 'get_single_grade']);
                 Route::post('save_grade_update/{grade}', [GradeScaleController::class, 'save_update_grade']);
+
+                // Assessment Type
+                Route::get('get_assessment_types/{institution}', [AssessmentTypeController::class, 'get_assessment_type']);
+                Route::get('get_single_assessment/{assessment_type}', [AssessmentTypeController::class, 'get_single_assessment']);
+                Route::post('save_assessment_type/{institution}', [AssessmentTypeController::class, 'save_assessment']);
+                Route::post('update_single_assessment/{assessment_type}', [AssessmentTypeController::class, 'save_update_assessment']);
 
             });
     });

@@ -15,7 +15,6 @@ class CreateAssessmentTypesTable extends Migration
     {
         Schema::create('assessment_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
             $table->foreignId('institution_id')->constrained();
             $table->string('name');
             $table->integer('max_mark')->unsigned();

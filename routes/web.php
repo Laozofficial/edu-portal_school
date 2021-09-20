@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\AssessmentTypeController;
 use App\Http\Controllers\Web\GradeScaleController;
 use App\Http\Controllers\Web\SubjectController;
 use Illuminate\Support\Facades\Route;
@@ -65,6 +66,9 @@ Route::prefix('dashboard')->group(function () {
 
         // Grade Scale
         Route::get('grade-scale', [GradeScaleController::class, 'grade_scale_view']);
+
+        // Assessment Types
+        Route::get('assessment-types', [AssessmentTypeController::class, 'assessment_types']);
 
 
     });

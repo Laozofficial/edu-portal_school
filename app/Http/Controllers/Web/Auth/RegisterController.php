@@ -13,7 +13,7 @@ class RegisterController extends Controller
 {
     public function register_view()
     {
-        return view('admin.pages.auth.register');
+        return view(env('APP_THEME').'admin.pages.auth.register');
     }
 
 
