@@ -13,7 +13,7 @@ class LoginController extends Controller
 {
     public function login_view()
     {
-        return view(env('APP_THEME').'admin.pages.auth.login');
+        return view(env('APP_THEME').'.admin.pages.auth.login');
     }
 
     public function login_user(Request $request)

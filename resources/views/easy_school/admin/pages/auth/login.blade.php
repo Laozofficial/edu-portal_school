@@ -67,5 +67,5 @@
 
 @endsection
 @section('script')
-    <script src="{{asset('easy_school.admin/plugins/pages/login.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/pages/login.js')}}"></script>
 @endsection
