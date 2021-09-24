@@ -22,7 +22,13 @@
                                             <h5 class="mb-0">Welcome Back !</h5>
                                             <p class="text-muted mt-2">Sign in to continue to Edu Portal.</p>
                                         </div>
-                                        <form class="mt-4 pt-2" action="http://minia.php.themesbrand.com/index.html">
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" v-show="server_errors_switch">
+                                           <div v-for="error in server_errors">
+                                                  @{{ error  }}
+                                            </div>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                        <div class="mt-4 pt-2">
                                             <div class="mb-3">
                                                 <label class="form-label">Email</label>
                                                 <input type="text" class="form-control" id="email" placeholder="Enter Email" v-model="email">
@@ -40,15 +46,15 @@
                                                 </div>
 
                                                 <div class="input-group auth-pass-inputgroup">
-                                                    <input type="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon" v-model="password">
-                                                    <button class="btn btn-light shadow-none ms-0" type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
+                                                    <input :type="type" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon" v-model="password">
+                                                    <button class="btn btn-light shadow-none ms-0" type="button" id="password-addon" @click="show_password"><i class="mdi mdi-eye-outline"></i></button>
                                                 </div>
                                             </div>
 
                                             <div class="mb-3">
-                                                <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Log In</button>
+                                                <button class="btn btn-primary w-100 waves-effect waves-light" @click="login">Log In</button>
                                             </div>
-                                        </form>
+                                        </div>
 
                                       <!--  <div class="mt-4 pt-2 text-center">
                                             <div class="signin-other-title">

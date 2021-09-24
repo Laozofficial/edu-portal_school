@@ -20,7 +20,9 @@
         <!-- Icons Css -->
         <link href="{{asset('edu_portal/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="{{asset('edu_portal/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="{{asset('edu_portal/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" /> <!-- page plugins -->
+        <link href="{{asset('easy_school/admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"/>
+        <link rel="stylesheet" href="{{asset('easy_school/admin/vendor/toastr/css/toastr.min.css')}}"/>
 
     </head>
 </head>

@@ -4,6 +4,8 @@ new Vue({
         email: '',
         password: '',
 
+        type: 'password',
+
         server_errors: [],
         server_errors_switch: false
     },
@@ -45,6 +47,13 @@ new Vue({
                         this.server_errors_switch = true;
                         swal.close();
                     });
+            }
+        },
+        show_password() {
+            if (this.type === 'password') {
+                this.type = 'text';
+            } else {
+                this.type = 'password';
             }
         }
     },
