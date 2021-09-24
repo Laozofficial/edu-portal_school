@@ -91,7 +91,7 @@ new Vue({
                     this.server_error_switch = true;
                     toastr.error('something went wrong');
                     swal.close();
-                })
+                });
                 // .then(() => {
                 //     swal.close();
                 // });
