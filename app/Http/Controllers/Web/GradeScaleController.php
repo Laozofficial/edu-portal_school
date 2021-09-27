@@ -44,7 +44,7 @@ class GradeScaleController extends Controller
 
     public function get_grades(Institution $institution)
     {
-        $grades = GradeScale::where('institution_id', $institution->id)->orderBy('id', 'desc')->get();
+        $grades = GradeScale::where('institution_id', $institution->id)->orderBy('grade', 'asc')->get();
         $response = [
             'grades' => $grades
         ];

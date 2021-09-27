@@ -128,7 +128,31 @@ new Vue({
             }
         },
         delete_grade(id) {
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    type: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal('please wait ....');
+                        swal.showLoading();
 
+                        axios.get(`${url.delete_grade + id}`, config)
+                            .then((response) => {
+                                console.log(response);
+                                swal.close();
+                                swal('Weldon', response.data.success, 'success');
+                                this.get_grades();
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                                toastr.error(`something went wrong, ${response.data.status}`);
+                            });
+                    }
+                });
         },
         showContent() {
             this.loading = false;
