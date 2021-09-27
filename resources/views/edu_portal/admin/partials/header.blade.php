@@ -8,7 +8,7 @@
                                     <img src="{{asset('edu_portal/assets/images/eduportal-white.png')}}" alt="" height="24">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{asset('edu_portal/assets/images/eduportal-white.png')}}" alt="" height="24"> <span class="logo-txt">Minia</span>
+                                    <img src="{{asset('edu_portal/assets/images/eduportal-white.png')}}" alt="" height="24"> <span class="logo-txt">Edu Portal</span>
                                 </span>
                             </a>
 
@@ -17,7 +17,7 @@
                                     <img src="{{asset('edu_portal/assets/images/eduportal-white.png')}}" alt="" height="24">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{asset('edu_portal/assets/images/eduportal-white.png')}}" alt="" height="24"> <span class="logo-txt">Minia</span>
+                                    <img src="{{asset('edu_portal/assets/images/eduportal-white.png')}}" alt="" height="24"> <span class="logo-txt">Edu Portal</span>
                                 </span>
                             </a>
                         </div>

@@ -85,4 +85,15 @@ class GradeScaleController extends Controller
 
         return response($response, 200);
     }
+
+    public function delete_grade(GradeScale $grade)
+    {
+        $grade->delete();
+
+        $response = [
+            'success' => 'Grade Has been deleted Successfully'
+        ];
+
+        return response($response, 200);
+    }
 }

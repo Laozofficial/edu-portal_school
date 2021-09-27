@@ -52,6 +52,7 @@ let url = {
     get_grades: 'get_grades/',
     get_single_grade: 'get_single_grade/',
     save_grade_update: 'save_grade_update/',
+    delete_grade: 'delete_grade/',
 
     // Assessment Types
     get_assessment_types: 'get_assessment_types/',

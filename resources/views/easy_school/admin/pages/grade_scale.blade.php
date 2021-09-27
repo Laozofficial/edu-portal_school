@@ -86,6 +86,11 @@
                                             <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="edit_grade(grade.id)"><i class="fa fa-pencil"></i></a>
                                         </div>
                                     </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="#" class="btn btn-sm btn-danger shadow btn-xs sharp mr-1" @click="delete_grade(grade.id)"><i class="fa fa-trash"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

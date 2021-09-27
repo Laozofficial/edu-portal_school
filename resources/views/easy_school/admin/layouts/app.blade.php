@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="{{asset('easy_school/admin/vendor/toastr/css/toastr.min.css')}}"/>
 
     <style>
-          body,html,p,h1,h2,h3,h4,h5,h6,span,li,ul,button,a,code,input,textarea, label{
-                font-size: 0.875rem !important;
+          body,html,p,h1,h2,h3,h4,h5,h6,span,li,ul,button,th,a,code,input,textarea, label, span{
+                font-size: 0.825rem !important;
                 /*font-weight: 700 !important;*/
             }
     </style>

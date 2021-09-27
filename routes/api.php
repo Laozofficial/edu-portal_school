@@ -12,6 +12,7 @@ use App\Http\Controllers\Web\Auth\RegisterController;
 use App\Http\Controllers\Web\GeneralInfoController;
 use App\Http\Controllers\Web\InstitutionController;
 use App\Http\Controllers\Web\TeacherController;
+use App\Models\GradeScale;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -93,6 +94,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_grades/{institution}', [GradeScaleController::class, 'get_grades']);
                 Route::get('get_single_grade/{grade}', [GradeScaleController::class, 'get_single_grade']);
                 Route::post('save_grade_update/{grade}', [GradeScaleController::class, 'save_update_grade']);
+                Route::get('delete_grade/{grade}', [GradeScaleController::class, 'delete_grade']);
 
                 // Assessment Type
                 Route::get('get_assessment_types/{institution}', [AssessmentTypeController::class, 'get_assessment_type']);

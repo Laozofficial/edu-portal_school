@@ -127,6 +127,9 @@ new Vue({
 
             }
         },
+        delete_grade(id) {
+
+        },
         showContent() {
             this.loading = false;
             this.content = true;
