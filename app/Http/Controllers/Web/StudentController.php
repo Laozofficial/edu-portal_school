@@ -3,12 +3,101 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Institution;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
     public function add_students()
     {
         return view(env('APP_THEME').'.admin.pages.add-students');
+    }
+
+    public function students()
+    {
+        return view(env('APP_THEME'). '.admin.pages.students');
+    }
+
+    public function get_students(Institution $institution)
+    {
+        $students = Student::where('institution_id', $institution->id)->orderBy('id', 'desc')->paginate(30);
+
+        $response = [
+            'students' => $students
+        ];
+
+        return response($response, 200);
+    }
+
+    public function save_student(Request $request, Institution $institution)
+    {
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'middle_name' => 'required',
+            'last_name' => 'required',
+            'gender' => 'required',
+            'religion' => 'required',
+            'state' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'present_address' => 'required',
+            'avatar' => 'required',
+            'email' => 'email|unique:users'
+        ]);
+
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422); //return error validator error
+        }
+
+        $user = new User;
+        $user->name = $request->get('first_name') . ' ' . $request->get('last_name');
+        if(!$request->get('email')) {
+            $user->email = 'someEmail@gmail.com';
+        }else {
+            $user->email = $request->get('email');
+        }
+        $user->email_verified_at = now();
+        $user->password = Hash::make('password');
+        $user->phone = $request->get('phone');
+        $user->role = 1; //role is teacher
+        $user->otp = mt_rand('1000', '9999');
+        $user->save();
+
+        $student =  new Student;
+        $student->first_name = $request->get('first_name');
+        $student->last_name = $request->get('last_name');
+        $student->middle_name = $request->get('middle_name');
+        $student->user_id = $user->id;
+        $student->gender = $request->get('gender');
+        $student->date_of_birth = $request->get('date_of_birth');
+        $student->country_id = $request->get('country');
+        $student->state_id = $request->get('state');
+        $student->religion = $request->get('religion');
+        $student->present_address = $request->get('present_address');
+        $student->city = $request->get('city');
+        $student->institution_id = $institution->id;
+        if ($request->hasFile('avatar')) {
+            $logo = $request->file('avatar');
+            $extension = $logo->getClientOriginalExtension(); // you can also use file name
+            $image =   Auth::user()->id . '-1-' . time() . '.' . $extension;
+            $path = Env('PUBLIC_IMAGE_PATH');
+            $upload = $logo->move($path, $image);
+
+            $student->image = $image;
+        }
+        $student->save();
+
+        $response = [
+            'success' => 'Student has been Added Successfully'
+        ];
+
+        return response($response, 200);
+
     }
 }

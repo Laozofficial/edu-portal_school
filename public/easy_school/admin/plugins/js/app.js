@@ -58,8 +58,12 @@ let url = {
     get_assessment_types: 'get_assessment_types/',
     get_single_assessment: 'get_single_assessment/',
     save_assessment_type: 'save_assessment_type/',
-    update_single_assessment_type: 'update_single_assessment/'
+    update_single_assessment_type: 'update_single_assessment/',
 
+
+    // students Routes
+    get_students:  'get_students/',
+    save_student: 'save_student/'
 
 }
 

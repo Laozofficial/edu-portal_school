@@ -23,7 +23,7 @@
                 </svg>
                 <div class="text-left ml-3">
                     <span class="d-block fs-16">Select Institution</span>
-                    <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" @input="get_sessions" id="institution"></v-select>
+                    <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" id="institution"></v-select>
                 </div>
                 <i class="fa fa-angle-down scale5 ml-3"></i>
             </div>
@@ -51,14 +51,24 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
-                            <label for="country">Select Institution Country <span class="text-danger">*</span></label>
+                        <div class="col-md-4">
+                            <label for="country">Select Student Country <span class="text-danger">*</span></label>
                             <v-select :options="countries" label="name" v-model="selected_country" :reduce="countries => countries.id" id="country"></v-select>
                         </div>
 
-                        <div class="col-md-6">
-                            <label for="state">Select Institution State <span class="text-danger">*</span></label>
+                        <div class="col-md-4">
+                            <label for="state">Select Student State <span class="text-danger">*</span></label>
                             <v-select :options="states" label="name" v-model="selected_state" :reduce="states => states.id" id="states"></v-select>
+                        </div>
+
+                        <div class="col-md-4">
+                           <label for="passport_image">Passport Image</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" @change="onPassportChange">
+                                    <label class="custom-file-label" >Choose file</label>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-md-4">
@@ -75,7 +85,29 @@
                             <input class="form-control form-control-sm mb-4" type="text" v-model="middle_name" id="middle_name" placeholder="Middle Name"/>
                         </div>
 
-                        <div class="col-md-6">
+
+
+                        <div class="col-md-4">
+                           <label for="email">Student Email</label>
+                           <input class="form-control form-control-sm" type="email" v-model="email">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="address" class="mt-2">Present Address</label>
+                            <input class="form-control form-control-sm mb-4" type="text" v-model="present_address" placeholder="Present Address"/>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="city" class="mt-2">City</label>
+                            <input class="form-control form-control-sm mb-4" type="text" v-model="city" placeholder="City"/>
+                        </div>
+
+                         <div class="col-md-4">
+                            <label for="dob">Date of Birth <span class="text-danger">*</span></label>
+                            <input class="form-control form-control-sm mb-4" type="date" v-model="date_of_birth"/>
+                        </div>
+
+                         <div class="col-md-4">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <label class="input-group-text">Gender</label>
@@ -87,7 +119,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                            <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <label class="input-group-text">Religion</label>
@@ -99,14 +131,12 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
-                            <label for="address" class="mt-2">Present Address</label>
-                            <input class="form-control form-control-sm mb-4" type="text" v-model="present_address" placeholder="Present Address"/>
-                        </div>
 
-                        <div class="col-md-4">
-                            <label for="city" class="mt-2">City</label>
-                            <input class="form-control form-control-sm mb-4" type="text" v-model="city" placeholder="City"/>
+
+                        <div class="col-md-6">
+                            <button class="btn btn-sm btn-primary" @click="save_student">
+                                <i class="fa fa-paper-plane"></i> Save Student
+                            </button>
                         </div>
 
                     </div>

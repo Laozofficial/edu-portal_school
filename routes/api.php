@@ -11,6 +11,7 @@ use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
 use App\Http\Controllers\Web\GeneralInfoController;
 use App\Http\Controllers\Web\InstitutionController;
+use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TeacherController;
 use App\Models\GradeScale;
 use Illuminate\Http\Request;
@@ -101,6 +102,11 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_single_assessment/{assessment_type}', [AssessmentTypeController::class, 'get_single_assessment']);
                 Route::post('save_assessment_type/{institution}', [AssessmentTypeController::class, 'save_assessment']);
                 Route::post('update_single_assessment/{assessment_type}', [AssessmentTypeController::class, 'save_update_assessment']);
+
+
+                // student Routes
+                Route::get('get_students/{institution}', [StudentController::class, 'get_students']);
+                Route::post('save_student/{institution}', [StudentController::class, 'save_student']);
 
             });
     });

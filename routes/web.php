@@ -73,6 +73,7 @@ Route::prefix('dashboard')->group(function () {
 
         // student Route
         Route::get('add-students', [StudentController::class, 'add_students']);
+        Route::get('students', [StudentController::class, 'students']);
 
 
     });
@@ -80,10 +81,5 @@ Route::prefix('dashboard')->group(function () {
 
 
 
-
-});
-
-
-Route::prefix('edu_portal/dashboard')->group(function () {
 
 });

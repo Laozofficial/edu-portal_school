@@ -78,7 +78,7 @@
                                         <td>@{{type.max_mark}} marks</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a @click="update_type(type.id)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-eye text-white"></i></a>
+                                                <a @click="update_type(type.id)" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
                                             </div>
                                         </td>
                                     </tr>
