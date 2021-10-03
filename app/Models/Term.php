@@ -39,7 +39,7 @@ class Term extends Model
             case $this::ACTIVE:
                 return 'active';
             case $this::NOT_ACTIVE:
-                return 'banned';
+                return 'not active';
             default:
                 return 'unknown';
                 break;
