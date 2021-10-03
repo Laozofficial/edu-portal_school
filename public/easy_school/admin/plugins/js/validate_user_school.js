@@ -6,7 +6,11 @@ let check_if_user_has_school = () => {
             .then((response) => {
                 console.log(response);
                 if (response.data.has_school === 0) {
-                    window.location.href = '/dashboard/admin/add-school';
+                    if (window.location.pathname == '/dashboard/admin/add-school') {
+
+                    } else {
+                        window.location.href = '/dashboard/admin/add-school';
+                    }
                 } else {
                     window.localStorage.setItem('school', JSON.stringify(response.data.school));
                     window.localStorage.setItem('schools', JSON.stringify(response.data.schools));

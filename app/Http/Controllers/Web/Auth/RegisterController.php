@@ -62,7 +62,7 @@ class RegisterController extends Controller
         );
 
 
-        Mail::send('admin.pages.auth.email.otp', $data, function ($message) use ($email) {
+        Mail::send('easy_school.admin.pages.auth.email.otp', $data, function ($message) use ($email) {
             $message->from('noreply@easyschool.com.ng', 'Easy School OTP');
             $message->to($email);
             // $message->cc('john@johndoe.com', 'John Doe');

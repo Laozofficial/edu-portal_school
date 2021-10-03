@@ -37,7 +37,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="phone" class="form-label">Phone</label>
-                                            <input type="text" class="form-control" id="phone" placeholder="Enter Phone Number" v-model="phone">
+                                            <input type="text" class="form-control" id="phone" placeholder="Enter Phone Number" v-model="phone_number">
                                         </div>
                                         <div class="mb-3">
                                             <label for="userpassword" class="form-label">Password</label>
