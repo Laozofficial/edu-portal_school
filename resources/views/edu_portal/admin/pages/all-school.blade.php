@@ -31,7 +31,7 @@
                                     <th><strong>NAME</strong></th>
                                     <th><strong>Email</strong></th>
                                     <th><strong>Date</strong></th>
-                                    <th><strong>Status</strong></th>
+                                    <!-- <th><strong>Status</strong></th> -->
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -42,7 +42,7 @@
                                     <td><div class="d-flex align-items-center"><img :src="institution.full_logo_path" class="rounded-lg mr-2" width="24" alt=""/> <span class="w-space-no">@{{institution.name}}</span></div></td>
                                     <td>@{{institution.email}}</td>
                                     <td>@{{institution.created_at_text}}</td>
-                                    <td><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> @{{institution.subscription.status_text}}</div></td>
+                                    <!-- <td><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> @{{institution.subscription.status_text}}</div></td> -->
                                     <td>
                                         <div class="d-flex">
                                             <a @click="view(institution.slug)" class="btn btn-success btn-sm shadow btn-xs sharp mr-1"><i class="fa fa-eye text-white"></i></a>
