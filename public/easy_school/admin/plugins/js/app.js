@@ -63,7 +63,9 @@ let url = {
 
     // students Routes
     get_students:  'get_students/',
-    save_student: 'save_student/'
+    save_student: 'save_student/',
+    search_student: 'search_student/',
+    get_single_student: 'get_single_student/'
 
 }
 

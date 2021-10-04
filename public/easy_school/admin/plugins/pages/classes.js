@@ -48,7 +48,7 @@ new Vue({
             });
             swal.showLoading();
 
-            axios.get(`${url.get_classes_and_teachers + this.selected_institution}`, config)
+            axios.get(`${url.get_classes_and_teachers + this.selected_institution + '?page=' + this.page}`, config)
                 .then((response) => {
                     console.log(response);
                     swal.close();

@@ -107,6 +107,8 @@ Route::prefix('dashboard')->group(function () {
                 // student Routes
                 Route::get('get_students/{institution}', [StudentController::class, 'get_students']);
                 Route::post('save_student/{institution}', [StudentController::class, 'save_student']);
+                Route::get('search_student/{q}/{institution}', [StudentController::class, 'get_searched_students']);
+                Route::get('get_single_student/{student}/{institution}', [StudentController::class, 'get_single_student']);
 
             });
     });

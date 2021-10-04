@@ -41,6 +41,11 @@ class Level extends Model
         return $this->created_at->diffForHumans();
     }
 
+    public function students()
+    {
+        return $this->belongsToMany('App\Models\Student', 'level_student', 'student_id', 'level_id')->withPivot('active');
+    }
+
     protected $appends = [
         'status_text', 'created_at_text'
     ];

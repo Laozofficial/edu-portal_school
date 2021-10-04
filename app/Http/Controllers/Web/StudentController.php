@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use  App\Models\Level;
 
 class StudentController extends Controller
 {
@@ -99,5 +100,30 @@ class StudentController extends Controller
 
         return response($response, 200);
 
+    }
+
+    public function get_searched_students($q, Institution $institution)
+    {
+        $students = Student::where('institution_id', $institution->id)
+                    ->where('first_name', 'LIKE', "%{$q}%")
+                    ->orWhere('last_name', 'LIKE', "%{$q}%")
+                    ->paginate(30);
+
+        $response = [
+            'students' => $students
+        ];
+
+        return response($response, 200);
+    }
+
+    public function get_single_student(Student $student, Institution $institution)
+    {
+        $classes =  Level::where('institution_id', $institution->id)->get();
+        $response = [
+            'student' => $student,
+            'classes' => $classes
+        ];
+
+        return response($response, 200);
     }
 }

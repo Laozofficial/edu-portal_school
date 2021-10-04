@@ -36,15 +36,23 @@
 
      <div class="row">
         <div class="col-md-12">
-                <div class="card">
+            <div class="card">
                 <div class="card-header">
-                    <h4>Sessions</h4>
+                    <h4>Students</h4>
                 </div>
                 <div class="card-body">
                     <div class="col-lg-12">
                         <div class="cad">
                             <div class="card-ody">
-                               <div class="table table-sm">
+                                <div class="row">
+                                    <div class="col-md-4 pr-0">
+                                        <input class="form-control form-control-sm pr-0" placeholder="search student by first or last name " type="text" style="height: 30px" v-model="q"/>
+                                    </div>
+                                    <div class="col-md-4 pl-1">
+                                        <button class="btn btn-sm btn-info pl-1" style="height: 28px; border-radius: 0 !important" @click="search_student"><i class="fa fa-search" style="height: 28px; "></i> search</button>
+                                    </div>
+                                </div>
+                               <div class="table table-sm mt-3">
                                     <div class="table-responsive">
                                     <table class="table table-responsive-md">
                                         <thead>
@@ -55,6 +63,7 @@
                                                 <th><strong>Gender</strong></th>
                                                 <th><strong>State</strong></th>
                                                 <th><strong>Joined</strong></th>
+                                                <th></th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -70,9 +79,14 @@
                                                 <td>@{{ student.created_at_text }}</td>
                                                  <td>
 													<div class="d-flex">
-														<a @click="view_student(student.id)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
+														<a @click="view_student(student.id)" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
 													</div>
 												</td>
+                                                <td>
+                                                    <button class="btn btn-info btn-xs shadow" @click="assign_to_class(student.id)">
+                                                        <i class="fa fa-tasks"></i>  assign to class
+                                                    </button>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -95,6 +109,28 @@
             </div>
         </div>
      </div>
+
+
+     <div class="modal fade" id="assign-class">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Assign Student To class</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-5">
+                    <label>Select Class</label>
+                    <v-select :options="classes" label="name" v-model="selected_class" :reduce="classes => levels.id"  id="levels"></v-select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Assign Class to @{{ student.first_name }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 

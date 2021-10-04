@@ -34,6 +34,11 @@ class Student extends Model
         return $this->created_at->diffForHumans();
     }
 
+    public function levels()
+    {
+        return $this->belongsToMany('App\Models\Level', 'level_student', 'student_id', 'level_id')->withPivot('active');
+    }
+
     protected $appends = [
         'full_name_text', 'created_at_text'
     ];
