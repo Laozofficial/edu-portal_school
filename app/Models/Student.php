@@ -44,6 +44,6 @@ class Student extends Model
     ];
 
     protected $with = [
-      'state', 'user'
+      'state', 'user', 'levels'
     ];
 }

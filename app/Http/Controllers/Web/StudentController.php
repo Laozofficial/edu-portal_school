@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use  App\Models\Level;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -122,6 +123,38 @@ class StudentController extends Controller
         $response = [
             'student' => $student,
             'classes' => $classes
+        ];
+
+        return response($response, 200);
+    }
+
+    public function assign_class_to_student(Request $request, Student $student)
+    {
+        $check_for_assignment = DB::table('level_student')
+                                    ->where('student_id','=', $student->id)
+                                    ->where('level_id', '=', $request->get('level'))
+                                    ->get(); //check if students have already active classes
+
+
+        if($check_for_assignment->count() > 0){
+            foreach ($check_for_assignment as $assignment) {
+                DB::table('level_student')
+                    ->where('student_id', '=', $student->id)
+                    ->where('level_id', '=', $request->get('level'))
+                    ->update(['active' => 0]);
+            }//update the classes to inactive
+        }
+
+        $assignment = DB::table('level_student')->insert(
+                    [
+                        'student_id' => $student->id,
+                        'level_id' => $request->get('level'),
+                        'active' => 1
+                    ]
+                );//set new class to active
+
+        $response = [
+            'success' => 'Student has been assigned to the class'
         ];
 
         return response($response, 200);

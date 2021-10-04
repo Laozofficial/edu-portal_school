@@ -28,6 +28,7 @@ class CreateStudentsTable extends Migration
             $table->text('present_address');
             $table->string('city');
             $table->foreignId('state_id')->constrained();
+            $table->foreignId('level_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

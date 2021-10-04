@@ -112,6 +112,29 @@ new Vue({
                     toastr.error(`something went wrong ${error.response.status}`);
                 })
         },
+        assign_class() {
+            if (this.selected_class == '') {
+                swal.fire('oops', 'Please Select a class', 'error');
+            } else {
+                 swal.fire('please wait ....');
+                swal.showLoading();
+
+                let fd = new FormData;
+                fd.append('level', this.selected_class);
+
+                axios.post(`${url.assign_class + this.student.id}`, fd, config)
+                    .then((response) => {
+                        console.log(response);
+                        $('#assign-class').modal('hide');
+                        swal.fire('weldon', response.data.success, 'success');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        swal.close();
+                        toastr.error(`something went wrong ${error.response.status}`);
+                    });
+            }
+        },
         showContent() {
             this.loading = false;
             this.content = true;

@@ -65,7 +65,8 @@ let url = {
     get_students:  'get_students/',
     save_student: 'save_student/',
     search_student: 'search_student/',
-    get_single_student: 'get_single_student/'
+    get_single_student: 'get_single_student/',
+    assign_class: 'assign_class_to_student/'
 
 }
 

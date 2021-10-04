@@ -119,13 +119,13 @@
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <div class="modal-body p-5">
+                <div class="modal-body p-lg-5">
                     <label>Select Class</label>
-                    <v-select :options="classes" label="name" v-model="selected_class" :reduce="classes => levels.id"  id="levels"></v-select>
+                    <v-select :options="classes" label="name" v-model="selected_class" :reduce="levels => levels.id"  id="levels"></v-select>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Assign Class to @{{ student.first_name }}</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-sm" @click="assign_class">Assign Class to @{{ student.first_name }}</button>
                 </div>
             </div>
         </div>
