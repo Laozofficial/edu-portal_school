@@ -72,7 +72,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(level, index) in levels">
+                                <tr v-for="(level, index) in levels.data">
                                     <td><strong>@{{index + 1}}</strong></td>
                                     <td>@{{level.name}}</td>
                                     <td>@{{level.teacher.full_name_text}}</td>
@@ -89,6 +89,16 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="card-footer">
+                     <vue-pagination
+                        :total-items="levels.total"
+                        :page="page"
+                        :loading="loading_levels"
+                        :items-per-page="levels.per_page"
+                        v-on:page-change="pageChange"
+                    >
+                    </vue-pagination>
                 </div>
             </div>
         </div>

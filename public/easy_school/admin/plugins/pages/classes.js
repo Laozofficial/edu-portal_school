@@ -17,7 +17,10 @@ new Vue({
         name: '',
 
         level: {},
-        update_selected_teacher: ''
+        update_selected_teacher: '',
+
+        loading_levels: false,
+        page: 1,
     },
     mounted() {
         this.get_schools();
@@ -38,6 +41,7 @@ new Vue({
                 });
         },
         get_items() {
+            this.loading_levels = true;
             swal.fire({
                 text: 'Please wait...',
                 allowOutsideClick: false
@@ -58,6 +62,9 @@ new Vue({
                     console.log(error.response.data.classes);
                     this.teachers = error.response.data.teachers;
                     toastr.error('something went wrong');
+                })
+                .then(() => {
+                    this.loading_levels = false;
                 });
         },
         save_class() {
@@ -143,6 +150,12 @@ new Vue({
                         this.get_items();
                         swal.close();
                     });
+            }
+        },
+        pageChange(page) {
+            if (this.page != page && page != 0) {
+                this.page = page;
+                this.get_items();
             }
         },
         showContent() {

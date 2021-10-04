@@ -185,7 +185,7 @@ class InstitutionController extends Controller
 
     public function get_classes_and_teachers(Institution $institution)
     {
-        $classes = Level::where('institution_id', $institution->id)->orderBy('id', 'desc')->get();
+        $classes = Level::where('institution_id', $institution->id)->orderBy('id', 'desc')->paginate(10);
         $teachers = Teacher::where('institution_id', $institution->id)->orderBy('id', 'desc')->get();
 
         if($classes->count() > 0 && $teachers->count() > 0) {

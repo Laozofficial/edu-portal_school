@@ -18,4 +18,27 @@ class Student extends Model
     {
         return $this->belongsTo('App\Models\Institution');
     }
+
+    public function state()
+    {
+        return $this->belongsTo('App\Models\State');
+    }
+
+    public function getFullNameTextAttribute()
+    {
+        return $this->first_name.' '.$this->middle_name.' '.$this->last_name;
+    }
+
+    public function getCreatedAtTextAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
+    protected $appends = [
+        'full_name_text', 'created_at_text'
+    ];
+
+    protected $with = [
+      'state', 'user'
+    ];
 }

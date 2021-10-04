@@ -52,24 +52,25 @@
                                                 <th><strong>S/N</strong></th>
                                                 <th><strong>Student Name</strong></th>
                                                 <th><strong>Email</strong></th>
-                                                <th><strong>End Date</strong></th>
-                                                <th><strong>Status</strong></th>
+                                                <th><strong>Gender</strong></th>
+                                                <th><strong>State</strong></th>
+                                                <th><strong>Joined</strong></th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="(session, index) in sessions">
+                                            <tr v-for="(student, index) in students.data">
                                                 <td><strong>@{{index + 1}}</strong></td>
-                                                <td>@{{session.name}}</td>
+                                                <td>@{{student.first_name}}</td>
                                                 <td><div class="d-flex align-items-center">
-                                                    <span class="w-space-no">@{{session.start_date_text}}</span></div>
+                                                    <span class="w-space-no">@{{student.user.email}}</span></div>
                                                 </td>
-                                                <td>@{{session.end_date_text}}	</td>
-                                                <td v-if="session.status == 0"><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> @{{session.status_text}}</div> </td>
-                                                <td v-if="session.status == 1"><div class="d-flex align-items-center"> <i class="fa fa-circle text-danger mr-1"></i> @{{session.status_text}}</div> </td>
+                                                <td>@{{ student.gender }}	</td>
+                                                <td><div class="d-flex align-items-center"> @{{student.state.name}} state</div> </td>
+                                                <td>@{{ student.created_at_text }}</td>
                                                  <td>
 													<div class="d-flex">
-														<a @click="update_session(session.id)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
+														<a @click="view_student(student.id)" class="btn btn-success shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
 													</div>
 												</td>
                                             </tr>
@@ -80,6 +81,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="card-footer">
+                     <vue-pagination
+                        :total-items="students.total"
+                        :page="page"
+                        :loading="loading_students"
+                        :items-per-page="students.per_page"
+                        v-on:page-change="pageChange"
+                    >
+                    </vue-pagination>
                 </div>
             </div>
         </div>
