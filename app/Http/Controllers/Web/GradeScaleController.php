@@ -19,8 +19,8 @@ class GradeScaleController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'grade' => 'required',
-            'lower_value' => 'required',
-            'upper_value' => 'required',
+            'lower_value' => 'required|integer',
+            'upper_value' => 'required|integer',
         ]);
 
 
@@ -65,8 +65,8 @@ class GradeScaleController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'grade' => 'required',
-            'lower_value' => 'required',
-            'upper_value' => 'required',
+            'lower_value' => 'required|integer',
+            'upper_value' => 'required|integer',
         ]);
 
 

@@ -83,21 +83,21 @@ class AcademicTermController extends Controller
         //     return response($response, 422);
         // }
 
-        if($term_start_date->lt($session_start_date)) {
-            $response = [
-                'error' => 'Term Date cannot be before the session date'
-            ];
+        // if($term_start_date->lt($session_start_date)) {
+        //     $response = [
+        //         'error' => 'Term Date cannot be before the session date'
+        //     ];
 
-            return response($response, 422);
-        }
+        //     return response($response, 422);
+        // }
 
-        if($term_end_date->gt($session_end_date)) {
-            $response = [
-                'error' => 'Term End Date cannot be greater than the session date'
-            ];
+        // if($term_end_date->gt($session_end_date)) {
+        //     $response = [
+        //         'error' => 'Term End Date cannot be greater than the session date'
+        //     ];
 
-            return response($response, 422);
-        }
+        //     return response($response, 422);
+        // }
 
         $term->name = $request->get('name');
         $term->start_date = Carbon::createFromFormat('Y-m-d', $request->get('start_date'))->toDateTimeString();
