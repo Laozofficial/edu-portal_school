@@ -8,6 +8,7 @@ use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
 use App\Http\Controllers\Web\StudentController;
+use App\Http\Controllers\Web\TimeTableController;
 use App\Http\Controllers\Web\ViewController;
 
 /*
@@ -76,7 +77,7 @@ Route::prefix('dashboard')->group(function () {
         Route::get('students', [StudentController::class, 'students']);
 
         // time table
-        // Route::get('time-table', )
+        Route::get('time-table', [TimeTableController::class, 'time_table_view']);
 
 
     });
