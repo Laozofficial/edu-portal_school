@@ -126,12 +126,19 @@ new Vue({
                     .then((response) => {
                         console.log(response);
                         $('#assign-class').modal('hide');
+                        swal.close();
                         swal.fire('weldon', response.data.success, 'success');
+                        this.get_students();
                     })
                     .catch((error) => {
                         console.log(error);
                         swal.close();
                         toastr.error(`something went wrong ${error.response.status}`);
+                    })
+                    .then(() => {
+                        setTimeout(() => {
+                            swal.close();
+                        }, 3000);
                     });
             }
         },

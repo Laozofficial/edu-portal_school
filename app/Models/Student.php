@@ -34,9 +34,9 @@ class Student extends Model
         return $this->created_at->diffForHumans();
     }
 
-    public function levels()
+    public function level()
     {
-        return $this->belongsToMany('App\Models\Level', 'level_student', 'student_id', 'level_id')->withPivot('active');
+        return $this->belongsTo('App\Models\Level');
     }
 
     protected $appends = [
@@ -44,6 +44,6 @@ class Student extends Model
     ];
 
     protected $with = [
-      'state', 'user', 'levels'
+      'state', 'user', 'level'
     ];
 }

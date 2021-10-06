@@ -43,7 +43,7 @@ class Level extends Model
 
     public function students()
     {
-        return $this->hasMany('App\Models\Student', 'level_student', 'level_id', 'student_id')->withPivot('active');
+        return $this->hasMany('App\Models\Student');
     }
 
     protected $appends = [
@@ -51,6 +51,6 @@ class Level extends Model
     ];
 
     protected $with = [
-        'institution', 'teacher', 'students'
+        'institution', 'teacher',
     ];
 }
