@@ -75,6 +75,9 @@ Route::prefix('dashboard')->group(function () {
         Route::get('add-students', [StudentController::class, 'add_students']);
         Route::get('students', [StudentController::class, 'students']);
 
+        // time table
+        // Route::get('time-table', )
+
 
     });
 

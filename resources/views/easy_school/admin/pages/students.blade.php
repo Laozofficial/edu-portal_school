@@ -128,7 +128,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-sm" @click="assign_class">Assign Class to @{{ student.first_name }}</button>
+                    <button type="button" class="btn btn-primary btn-sm" @click="assign_class" :disabled="isNaN(selected_class)">Assign Class to @{{ student.first_name }}</button>
                 </div>
             </div>
         </div>

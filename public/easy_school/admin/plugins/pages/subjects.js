@@ -64,7 +64,7 @@ new Vue({
         },
         save_subject() {
             if (this.name == '' || this.subject_code == '' || this.selected_institution == '') {
-                swal.fire('oops', response.data.success, 'error');
+                swal.fire('oops', institution_and_empty_field_error, 'error');
             } else {
                 swal.fire({
                     text: 'Please wait...',

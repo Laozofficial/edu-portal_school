@@ -79,6 +79,7 @@ let hide_alert = () => {
 }
 
 
+var institution_and_empty_field_error = 'Some fields are missing and if you have not selected an institution, it\'s at the top right of your screen , please do so'
 
 
 

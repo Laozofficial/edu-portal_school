@@ -15,11 +15,11 @@ class CreateTimeTablesTable extends Migration
     {
         Schema::create('time_tables', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
             $table->foreignId('institution_id')->constrained();
             $table->foreignId('academic_year_id')->constrained();
             $table->foreignId('level_id')->constrained();
-            $table->string('path');
+            $table->foreignId('term_id')->constrained();
+            $table->string('file');
             $table->timestamps();
         });
     }

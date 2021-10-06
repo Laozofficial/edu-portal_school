@@ -17,6 +17,8 @@ new Vue({
 
         classes: '',
         selected_class: '',
+
+        is_button_active: true,
     },
     mounted() {
         this.get_schools();
@@ -37,11 +39,11 @@ new Vue({
                 });
         },
         get_students() {
-             swal.fire({
-                 text: 'Please wait...',
-                 allowOutsideClick: false
-             });
-             swal.showLoading();
+            swal.fire({
+                text: 'Please wait...',
+                allowOutsideClick: false
+            });
+            swal.showLoading();
 
             axios.get(`${url.get_students + this.selected_institution + '?page=' + this.page}`, config)
                 .then((response) => {
@@ -75,7 +77,7 @@ new Vue({
                     });
                     swal.showLoading();
 
-                    axios.get(`${url.search_student + this.q + '/' + this.selected_institution}` , config)
+                    axios.get(`${url.search_student + this.q + '/' + this.selected_institution}`, config)
                         .then((response) => {
                             console.log(response);
                             swal.close();
@@ -104,6 +106,7 @@ new Vue({
                     swal.close();
                     this.student = response.data.student;
                     this.classes = response.data.classes;
+                    this.selected_class = this.student.level.name;
                     $('#assign-class').modal('show');
                 })
                 .catch((error) => {
@@ -116,7 +119,7 @@ new Vue({
             if (this.selected_class == '') {
                 swal.fire('oops', 'Please Select a class', 'error');
             } else {
-                 swal.fire('please wait ....');
+                swal.fire('please wait ....');
                 swal.showLoading();
 
                 let fd = new FormData;
@@ -142,9 +145,15 @@ new Vue({
                     });
             }
         },
+        hide_button_when_class_is_not_selected() {
+            if (Number.isInteger(this.selected_class)) {
+                this.is_button_active = false;
+            }
+        },
         showContent() {
             this.loading = false;
             this.content = true;
         }
     },
-})
+
+});

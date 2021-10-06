@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
+                 <div class="card-body">
                     <div class="col-lg-12">
                         <div class="cad">
                             <div class="card-ody">
@@ -52,6 +52,7 @@
                                                 <th><strong>Email</strong></th>
                                                 <th><strong>Gender</strong></th>
                                                 <th><strong>State</strong></th>
+                                                <th><strong>Current Class</strong></th>
                                                 <th><strong>Joined</strong></th>
                                                 <th></th>
                                                 <th></th>
@@ -66,14 +67,16 @@
                                                 </td>
                                                 <td>@{{ student.gender }}	</td>
                                                 <td><div class="d-flex align-items-center"> @{{student.state.name}} state</div> </td>
+                                                <td v-if="student.level !== null"> <i class="fa fa-circle text-success mr-1"></i> @{{  student.level.name }}</td>
+                                                <td v-else><i class="fa fa-circle text-danger mr-1"></i> Not Assigned</td>
                                                 <td>@{{ student.created_at_text }}</td>
                                                  <td>
 													<div class="d-flex">
-														<a @click="view_student(student.id)" class="btn btn-primary shadow btn-sm sharp mr-1"><i class="fa fa-pen text-white"></i></a>
+														<a @click="view_student(student.id)" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
 													</div>
 												</td>
                                                 <td>
-                                                    <button class="btn btn-info btn-sm shadow" @click="assign_to_class(student.id)">
+                                                    <button class="btn btn-info btn-xs shadow" @click="assign_to_class(student.id)">
                                                         <i class="fa fa-tasks"></i>  assign to class
                                                     </button>
                                                 </td>
@@ -101,11 +104,11 @@
      </div>
 
 
-     <div class="modal fade" id="assign-class">
+    <div class="modal fade" id="assign-class">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Assign Student To class</h5>
+                    <h5 class="modal-title">Assign Student To class</h5>n>&times;</span>
                 </div>
                 <div class="modal-body p-lg-5">
                     <label>Select Class</label>
@@ -113,7 +116,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-sm" @click="assign_class">Assign Class to @{{ student.first_name }}</button>
+                    <button type="button" class="btn btn-primary btn-sm" @click="assign_class" :disabled="isNaN(selected_class)">Assign Class to @{{ student.first_name }}</button>
                 </div>
             </div>
         </div>
