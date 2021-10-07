@@ -66,7 +66,14 @@ let url = {
     save_student: 'save_student/',
     search_student: 'search_student/',
     get_single_student: 'get_single_student/',
-    assign_class: 'assign_class_to_student/'
+    assign_class: 'assign_class_to_student/',
+
+    // time table routes
+    get_other_details: 'get_other_details/',
+    get_terms_from_academic_session: 'get_terms_from_academic_session/',
+    save_time_table: 'save_time_table',
+    get_time_tables: 'get_time_tables/',
+    delete_time_table: 'delete_time_table/',
 
 }
 

@@ -46,6 +46,11 @@ class Level extends Model
         return $this->hasMany('App\Models\Student');
     }
 
+    public function time_table()
+    {
+        return $this->hasOne('App\Models\TimeTable');
+    }
+
     protected $appends = [
         'status_text', 'created_at_text'
     ];

@@ -13,7 +13,9 @@ use App\Http\Controllers\Web\GeneralInfoController;
 use App\Http\Controllers\Web\InstitutionController;
 use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TeacherController;
+use App\Http\Controllers\Web\TimeTableController;
 use App\Models\GradeScale;
+use App\Models\TimeTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -110,6 +112,13 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('search_student/{q}/{institution}', [StudentController::class, 'get_searched_students']);
                 Route::get('get_single_student/{student}/{institution}', [StudentController::class, 'get_single_student']);
                 Route::post('assign_class_to_student/{student}', [StudentController::class, 'assign_class_to_student']);
+
+                // time table routes
+                Route::get('get_other_details/{institution}', [TimeTableController::class, 'get_other_details']);
+                Route::get('get_terms_from_academic_session/{session}', [TimeTableController::class, 'get_terms_from_academic_session']);
+                Route::post('save_time_table', [TimeTableController::class, 'save_time_table']);
+                Route::post('get_time_tables/{institution}', [TimeTableController::class, 'get_time_tables']);
+                Route::get('delete_time_table/{time_table}', [TimeTableController::class, 'delete_time_table']);
 
             });
     });
