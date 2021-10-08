@@ -39,6 +39,7 @@ class Student extends Model
         return $this->belongsTo('App\Models\Level');
     }
 
+
     protected $appends = [
         'full_name_text', 'created_at_text'
     ];

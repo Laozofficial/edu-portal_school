@@ -132,25 +132,29 @@ new Vue({
                     title: "Are you sure?",
                     text: "Once deleted, you will not be able to recover this file!",
                     type: "warning",
-                    buttons: true,
-                    dangerMode: true,
+                    showConfirmButton: true,
+                    cancelButtonText: "Cancel",
+                    showCancelButton: true,
                 })
-                .then((willDelete) => {
-                    if (willDelete) {
+                .then((isConfirmed) => {
+                    console.log(isConfirmed.dismiss)
+                    if (isConfirmed.dismiss == 'cancel' || isConfirmed.dismiss == 'overlay') {
+                        console.log('do nothing')
+                    } else {
                         swal('please wait ....');
                         swal.showLoading();
 
-                        axios.get(`${url.delete_grade + id}`, config)
-                            .then((response) => {
-                                console.log(response);
-                                swal.close();
-                                swal('Weldon', response.data.success, 'success');
-                                this.get_grades();
-                            })
-                            .catch((error) => {
-                                console.log(error);
-                                toastr.error(`something went wrong, ${response.data.status}`);
-                            });
+                          axios.get(`${url.delete_grade + id}`, config)
+                              .then((response) => {
+                                  console.log(response);
+                                  swal.close();
+                                  swal('Weldon', response.data.success, 'success');
+                                  this.get_grades();
+                              })
+                              .catch((error) => {
+                                  console.log(error);
+                                  toastr.error(`something went wrong, ${response.data.status}`);
+                              });
                     }
                 });
         },

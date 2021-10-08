@@ -152,17 +152,21 @@ new Vue({
 
         },
         delete_time_table(id) {
-            swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this file!",
-                    type: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal('please wait ....');
-                        swal.showLoading();
+             swal({
+                     title: "Are you sure?",
+                     text: "Once deleted, you will not be able to recover this file!",
+                     type: "warning",
+                     showConfirmButton: true,
+                     cancelButtonText: "Cancel",
+                     showCancelButton: true,
+                 })
+                 .then((isConfirmed) => {
+                     console.log(isConfirmed.dismiss)
+                     if (isConfirmed.dismiss == 'cancel' || isConfirmed.dismiss == 'overlay') {
+                         console.log('do nothing')
+                     } else {
+                         swal('please wait ....');
+                         swal.showLoading();
 
                         axios.get(`${url.delete_time_table + id}`, config)
                             .then((response) => {
@@ -175,8 +179,8 @@ new Vue({
                                 console.log(error);
                                 toastr.error(`something went wrong, ${response.data.status}`);
                             });
-                    }
-                });
+                     }
+                 });
         },
     },
     watch: {

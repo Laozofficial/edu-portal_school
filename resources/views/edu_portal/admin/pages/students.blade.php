@@ -61,7 +61,7 @@
                                         <tbody>
                                             <tr v-for="(student, index) in students.data">
                                                 <td><strong>@{{index + 1}}</strong></td>
-                                                <td>@{{student.first_name}}</td>
+                                                <td>@{{student.full_name_text}}</td>
                                                 <td><div class="d-flex align-items-center">
                                                     <span class="w-space-no">@{{student.user.email}}</span></div>
                                                 </td>
@@ -72,11 +72,11 @@
                                                 <td>@{{ student.created_at_text }}</td>
                                                  <td>
 													<div class="d-flex">
-														<a @click="view_student(student.id)" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil text-white"></i></a>
+														<a @click="view_student(student.id)" class="btn btn-primary shadow btn-sm sharp mr-1"><i class="fa fa-pen text-white"></i></a>
 													</div>
 												</td>
                                                 <td>
-                                                    <button class="btn btn-info btn-xs shadow" @click="assign_to_class(student.id)">
+                                                    <button class="btn btn-info btn-sm shadow" @click="assign_to_class(student.id)">
                                                         <i class="fa fa-tasks"></i>  assign to class
                                                     </button>
                                                 </td>

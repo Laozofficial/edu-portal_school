@@ -83,13 +83,13 @@ class TimeTableController extends Controller
         $query = TimeTable::where('institution_id', $institution->id);
 
         if($request->get('session') ) {
-            $query->andWhere('academic_year_id', $request->get('session'));
+            $query->where('academic_year_id', $request->get('session'));
         }
         if($request->get('level')) {
-            $query->andWhere('level_id', $request->get('level'));
+            $query->where('level_id', $request->get('level'));
         }
         if($request->get('term')) {
-            $query->andWhere('term_id', $request->get('term'));
+            $query->where('term_id', $request->get('term'));
         }
         $time_tables =  $query->orderBy('id', 'desc')->get();
 
