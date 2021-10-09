@@ -150,6 +150,9 @@ new Vue({
                 this.is_button_active = false;
             }
         },
+        view_student(id) {
+            window.location.href = '/dashboard/admin/student-details/' + id;
+        },
         showContent() {
             this.loading = false;
             this.content = true;

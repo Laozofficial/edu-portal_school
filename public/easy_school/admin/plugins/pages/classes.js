@@ -162,5 +162,8 @@ new Vue({
             this.loading = false;
             this.content = true;
         },
+        see_students(id) {
+            window.location.href = '/dashboard/admin/see-class-students/' + id;
+        }
     },
 });

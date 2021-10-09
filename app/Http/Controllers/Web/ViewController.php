@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Institution;
 use App\Models\Teacher;
+use App\Models\Level;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -67,6 +69,15 @@ class ViewController extends Controller
     {
         return view(env('APP_THEME') . '.admin.pages.teacher_update', [
             'slug' => $teacher->slug
+        ]);
+    }
+
+    public function see_class_students(Level $level)
+    {
+        // $students = Student::where('level_id', $level->id)->orderBy('id', 'desc')->get();
+
+        return view(env('APP_THEME'). '.admin.pages.see-class-students', [
+            'id' => $level->id
         ]);
     }
 }

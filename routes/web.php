@@ -57,6 +57,7 @@ Route::prefix('dashboard')->group(function () {
 
         // Class route
         Route::get('classes', [ViewController::class, 'classes_view']);
+        Route::get('see-class-students/{level}', [ViewController::class, 'see_class_students']);
 
         // Teachers route
         Route::get('add-teacher', [ViewController::class, 'add_teacher']);
@@ -76,6 +77,7 @@ Route::prefix('dashboard')->group(function () {
         // student Route
         Route::get('add-students', [StudentController::class, 'add_students']);
         Route::get('students', [StudentController::class, 'students']);
+        Route::get('student-details/{student}', [StudentController::class, 'student_details']);
 
         // time table
         Route::get('time-table', [TimeTableController::class, 'time_table_view']);

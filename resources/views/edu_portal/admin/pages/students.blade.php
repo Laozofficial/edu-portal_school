@@ -72,7 +72,7 @@
                                                 <td>@{{ student.created_at_text }}</td>
                                                  <td>
 													<div class="d-flex">
-														<a @click="view_student(student.id)" class="btn btn-primary shadow btn-sm sharp mr-1"><i class="fa fa-pen text-white"></i></a>
+														<a @click="view_student(student.id)" class="btn btn-primary shadow btn-sm sharp mr-1"><i class="fa fa-eye text-white"></i></a>
 													</div>
 												</td>
                                                 <td>

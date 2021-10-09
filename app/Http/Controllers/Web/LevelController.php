@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Level;
 use Illuminate\Http\Request;
+use App\Models\Student;
 use Illuminate\Support\Facades\Validator;
 
 class LevelController extends Controller
@@ -52,6 +53,17 @@ class LevelController extends Controller
 
         $response = [
             'success' => 'Class has been updated'
+        ];
+
+        return response($response, 200);
+    }
+
+    public function get_students_for_class(Level $level)
+    {
+        $students = Student::where('level_id', $level->id)->orderBy('id', 'desc')->get();
+
+        $response = [
+            'students' => $students
         ];
 
         return response($response, 200);

@@ -85,6 +85,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::post('save_class', [LevelController::class, 'save_class']);
                 Route::get('get_single_class/{level}', [LevelController::class, 'get_single_class']);
                 Route::post('update_single_class/{level}', [LevelController::class, 'update_single_class']);
+                Route::get('get_students_for_class/{level}', [LevelController::class, 'get_students_for_class']);
 
                 // subjects
                 Route::get('get_subjects/{institution}', [SubjectController::class, 'get_subjects']);
@@ -114,6 +115,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('search_student/{q}/{institution}', [StudentController::class, 'get_searched_students']);
                 Route::get('get_single_student/{student}/{institution}', [StudentController::class, 'get_single_student']);
                 Route::post('assign_class_to_student/{student}', [StudentController::class, 'assign_class_to_student']);
+                Route::get('get_single-student_by_id/{student}', [StudentController::class, 'get_single_student_by_id']);
 
                 // time table routes
                 Route::get('get_other_details/{institution}', [TimeTableController::class, 'get_other_details']);

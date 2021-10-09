@@ -40,6 +40,7 @@ let url = {
     save_class: 'save_class',
     get_single_class: 'get_single_class/',
     update_single_class: 'update_single_class/',
+    get_students_for_class: 'get_students_for_class/',
 
     // subjects
     get_subjects: 'get_subjects/',
@@ -69,6 +70,7 @@ let url = {
     search_student: 'search_student/',
     get_single_student: 'get_single_student/',
     assign_class: 'assign_class_to_student/',
+    get_single_student_by_id: 'get_single-student_by_id/',
 
     // time table routes
     get_other_details: 'get_other_details/',

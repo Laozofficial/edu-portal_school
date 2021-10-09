@@ -139,4 +139,20 @@ class StudentController extends Controller
 
         return response($response, 200);
     }
+
+    public function student_details(Student $student)
+    {
+        return view(env('APP_THEME').'.admin.pages.student-details', [
+            'id' => $student->id
+        ]);
+    }
+
+    public function get_single_student_by_id(Student $student)
+    {
+        $response = [
+            'students' => $student
+        ];
+
+        return response($response, 200);
+    }
 }
