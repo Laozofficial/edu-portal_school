@@ -14,9 +14,16 @@ class Subject extends Model
         return $this->created_at->diffForHumans();
     }
 
-
+    public function level()
+    {
+        return $this->belongsTo('App\Models\Level');
+    }
 
     protected $appends = [
         'created_at_text'
+    ];
+
+    protected $with = [
+        'level'
     ];
 }

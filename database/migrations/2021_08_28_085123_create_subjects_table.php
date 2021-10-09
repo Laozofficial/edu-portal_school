@@ -17,7 +17,9 @@ class CreateSubjectsTable extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('institution_id')->constrained();
+            $table->foreignId('level_id')->constrained();
             $table->string('subject_code')->unique()->nullable();
+            $table->string('label');
             $table->timestamps();
         });
     }
