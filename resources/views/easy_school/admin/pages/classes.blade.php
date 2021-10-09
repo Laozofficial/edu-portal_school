@@ -123,7 +123,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger light btn-sm" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-sm" @click="update_class(level.id)"><i class="fa fa-paper-plane"></i> Update changes</button>
+                    <button type="button" class="btn btn-primary btn-sm" @click="update_class(level.id)" :disabled="isNaN(update_selected_teacher)"><i class="fa fa-paper-plane"></i> Update changes</button>
                 </div>
             </div>
         </div>
