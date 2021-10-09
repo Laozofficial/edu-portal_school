@@ -41,6 +41,7 @@ let url = {
     get_single_class: 'get_single_class/',
     update_single_class: 'update_single_class/',
     get_students_for_class: 'get_students_for_class/',
+    get_classes: 'get_all_classes/',
 
     // subjects
     get_subjects: 'get_subjects/',

@@ -30,6 +30,8 @@ class SubjectController extends Controller
         $subjects->name = $request->get('name');
         $subjects->subject_code = $request->get('subject_code');
         $subjects->institution_id =  $institution->id;
+        $subjects->label = $request->get('label');
+        $subjects->level_id = $request->get('level');
         $subjects->save();
 
         $response = [
@@ -52,6 +54,10 @@ class SubjectController extends Controller
     {
         $subject->name = $request->get('name');
         $subject->subject_code = $request->get('subject_code');
+        $subject->label = $request->get('label');
+        if($request->get('level')) {
+            $subject->level_id = $request->get('level');
+        }
         $subject->save();
 
         $response = [

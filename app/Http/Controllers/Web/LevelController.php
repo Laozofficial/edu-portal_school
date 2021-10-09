@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Institution;
 use App\Models\Level;
 use Illuminate\Http\Request;
 use App\Models\Student;
@@ -64,6 +65,16 @@ class LevelController extends Controller
 
         $response = [
             'students' => $students
+        ];
+
+        return response($response, 200);
+    }
+
+    public function get_all_classes(Institution $institution)
+    {
+        $levels = Level::where('institution_id', $institution->id)->orderBy('id', 'desc')->get();
+        $response = [
+            'levels' => $levels
         ];
 
         return response($response, 200);

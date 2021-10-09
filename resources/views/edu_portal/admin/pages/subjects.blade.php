@@ -17,23 +17,18 @@
     </div>
 
 
-      <div class="row">
+     <div class="row">
         <div class="col-md-4">
-            <div class="card shadow-lg">
+            <div class="card">
                 <div class="card-header">
-                    <div class="row">
-                        <div class="col-md-6">
-                            Add Subjects
-                        </div>
-                        <div class="col-md-6 text-right">
-                            <span class="d-block fs-16">Select Institution</span>
-                            <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" @input="get_subjects" id="institution"></v-select>
-                        </div>
-                    </div>
+                    Add Subjects
                 </div>
                 <div class="card-body">
-                    <!-- <span class="d-block fs-16">Select Class</span>
-                    <v-select :options="levels" label="name" v-model="selected_level" :reduce="levels => levels.id" id="classes"></v-select> -->
+                    <label for="level">Select Class</label>
+                    <v-select :options="levels" label="name" v-model="selected_level" :reduce="levels => levels.id" id="classes"></v-select>
+
+                    <label id="name" class="mt-3">Subject Label</label>
+                    <input class="form-control form-control-sm mb-3" type="text" v-model="label"/>
 
                     <label id="name">Subject Name</label>
                     <input class="form-control form-control-sm mb-3" type="text" v-model="name"/>
@@ -48,7 +43,7 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="card shadow-lg">
+            <div class="card">
                 <div class="card-header">
                     Subjects
                 </div>
@@ -60,6 +55,8 @@
                                     <th style="width:80px;"><strong>#</strong></th>
                                     <th><strong>Subject Code</strong></th>
                                     <th><strong>Subject Name</strong></th>
+                                    <th><strong>Subject General Label</strong></th>
+                                    <th><strong>Subject Class</strong></th>
                                     <th><strong>Created at</strong></th>
                                     <th></th>
                                 </tr>
@@ -69,10 +66,12 @@
                                     <td><strong>@{{index + 1}}</strong></td>
                                     <td>@{{subject.subject_code}}</td>
                                     <td>@{{subject.name}}</td>
+                                    <td>@{{ subject.label }}</td>
+                                    <td>@{{ subject.level.name }}</td>
                                     <td>@{{subject.created_at_text}}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-sm sharp mr-1" @click="update_subject(subject.id)"><i class="fa fa-pen"></i></a>
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="update_subject(subject.id)"><i class="fa fa-pencil"></i></a>
                                             <!-- <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a> -->
                                         </div>
                                     </td>
@@ -97,6 +96,7 @@
 
 
 
+
      <div class="modal fade update_subject" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
@@ -104,6 +104,12 @@
                     <h5 class="modal-title">Update Subject</h5>
                 </div>
                 <div class="modal-body">
+                    <label for="level">Update Class</label>
+                    <v-select :options="levels" label="name" v-model="selected_level" :reduce="levels => levels.id" id="classes"></v-select>
+
+                    <label id="name" class="mt-3">Update Subject Label</label>
+                    <input class="form-control form-control-sm mb-3" type="text" v-model="subject.label"/>
+
                     <label id="name">Update Subject Name</label>
                     <input class="form-control form-control-sm mb-3" type="text" v-model="subject.name"/>
 

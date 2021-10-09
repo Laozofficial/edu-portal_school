@@ -86,6 +86,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_single_class/{level}', [LevelController::class, 'get_single_class']);
                 Route::post('update_single_class/{level}', [LevelController::class, 'update_single_class']);
                 Route::get('get_students_for_class/{level}', [LevelController::class, 'get_students_for_class']);
+                Route::get('get_all_classes/{institution}', [LevelController::class, 'get_all_classes']);
 
                 // subjects
                 Route::get('get_subjects/{institution}', [SubjectController::class, 'get_subjects']);

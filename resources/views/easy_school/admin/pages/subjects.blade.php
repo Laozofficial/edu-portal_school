@@ -41,8 +41,11 @@
                     Add Subjects
                 </div>
                 <div class="card-body">
-                    <!-- <span class="d-block fs-16">Select Class</span>
-                    <v-select :options="levels" label="name" v-model="selected_level" :reduce="levels => levels.id" id="classes"></v-select> -->
+                    <label for="level">Select Class</label>
+                    <v-select :options="levels" label="name" v-model="selected_level" :reduce="levels => levels.id" id="classes"></v-select>
+
+                    <label id="name" class="mt-3">Subject Label</label>
+                    <input class="form-control form-control-sm mb-3" type="text" v-model="label"/>
 
                     <label id="name">Subject Name</label>
                     <input class="form-control form-control-sm mb-3" type="text" v-model="name"/>
@@ -69,6 +72,8 @@
                                     <th style="width:80px;"><strong>#</strong></th>
                                     <th><strong>Subject Code</strong></th>
                                     <th><strong>Subject Name</strong></th>
+                                    <th><strong>Subject General Label</strong></th>
+                                    <th><strong>Subject Class</strong></th>
                                     <th><strong>Created at</strong></th>
                                     <th></th>
                                 </tr>
@@ -78,6 +83,8 @@
                                     <td><strong>@{{index + 1}}</strong></td>
                                     <td>@{{subject.subject_code}}</td>
                                     <td>@{{subject.name}}</td>
+                                    <td>@{{ subject.label }}</td>
+                                    <td>@{{ subject.level.name }}</td>
                                     <td>@{{subject.created_at_text}}</td>
                                     <td>
                                         <div class="d-flex">
@@ -115,6 +122,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <label for="level">Update Class</label>
+                    <v-select :options="levels" label="name" v-model="selected_level" :reduce="levels => levels.id" id="classes"></v-select>
+
+                    <label id="name" class="mt-3">Update Subject Label</label>
+                    <input class="form-control form-control-sm mb-3" type="text" v-model="subject.label"/>
+
                     <label id="name">Update Subject Name</label>
                     <input class="form-control form-control-sm mb-3" type="text" v-model="subject.name"/>
 
