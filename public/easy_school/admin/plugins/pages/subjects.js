@@ -138,8 +138,8 @@ new Vue({
                 });
         },
         save_update_changes(id) {
-            if (this.subject.subject_code == '' || this.subject.name == '' || this.label == '') {
-                swal.fire('Oops', 'Subject name or subject code field cannot be empty', 'error');
+            if (this.subject.subject_code == '' || this.subject.name == '' || this.student.label == '') {
+                swal.fire('Oops', 'Subject name or subject code or subject label field cannot be empty', 'error');
             } else {
                 swal.fire({
                     text: 'Please wait...',

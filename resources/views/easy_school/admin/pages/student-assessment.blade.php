@@ -65,6 +65,7 @@
                                                 <th><strong>Current Class</strong></th>
                                                 <th><strong>Joined</strong></th>
                                                 <th></th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -86,7 +87,12 @@
                                                 </td>
                                                 <td v-else>
                                                     <button class="btn btn-danger btn-sm" @click="go_to_student">
-                                                        <i class="fa fa-link"></i> Go Assign to Class
+                                                        <i class="fa fa-link"></i>Assign to a Class
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-success btn-sm" @click="get_student_assessments(student.id)">
+                                                        <i class="fa fa-eye"></i> All Assessments
                                                     </button>
                                                 </td>
                                             </tr>
@@ -132,11 +138,11 @@
                     <span class=" mt-3">Select Class <span class="text-danger">*</span></span>
                     <v-select :options="levels" label="name" v-model="selected_level" :reduce="levels => levels.id" id="levels"></v-select>
                     <br>
-                    <label for="" class="mt-3">Enter CA Score  <span class="text-danger">*</span></label>
-                    <input class="form-control form-control-sm" type="number" v-model="ca" placeholder="Enter CA Score"/>
+                    <span class=" mt-3">Select Assessment Type <span class="text-danger">*</span></span>
+                    <v-select :options="assessment_types" label="name" v-model="selected_assessment_type" :reduce="assessments => assessments.id" id="assessments"></v-select>
                     <br>
                     <label for="" class="mt-3">Enter Exam Score</label>
-                    <input class="form-control form-control-sm" type="number" v-model="exam" placeholder="Enter Exam Score"/>
+                    <input class="form-control form-control-sm" type="number" v-model="score" placeholder="Enter Score"/>
 
                 </div>
                 <div class="modal-footer">
@@ -146,6 +152,8 @@
             </div>
         </div>
     </div>
+
+
 
 
 </div>

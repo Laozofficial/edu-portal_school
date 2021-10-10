@@ -23,8 +23,11 @@ new Vue({
         terms: [],
         selected_term: '',
 
+        assessment_types: [],
+        selected_assessment_type: '',
+
         ca: '',
-        exam: '',
+        score: '',
 
         page: 1,
 
@@ -119,6 +122,7 @@ new Vue({
                     this.sessions = response.data.sessions;
                     this.subjects = response.data.subjects;
                     this.student = response.data.student;
+                    this.assessment_types = response.data.assessment_types;
 
                     $('#record_assessment').modal('show');
                 })
@@ -151,7 +155,7 @@ new Vue({
             if (this.selected_institution == '') {
                 swal.fire('Oops', 'Please Select an Institution', 'error');
             } else {
-                if (this.selected_level == '' || this.selected_session == '' || this.selected_student == '' || this.selected_subject == '' || this.selected_term == '' || this.ca == '') {
+                if (this.selected_level == '' || this.selected_session == '' || this.student.id == '' || this.selected_subject == '' || this.selected_term == '' || this.score == '' || this.selected_assessment_type == '') {
                     swal.fire('Oops', 'some fields are missing', 'error');
                 } else {
                      swal.fire('Please wait ....');
@@ -161,30 +165,35 @@ new Vue({
                      fd.append('academic_year_id', this.selected_session);
                      fd.append('level_id', this.selected_level);
                      fd.append('term_id', this.selected_term);
-                     fd.append('student_id', this.selected_student);
+                     fd.append('student_id', this.student.id);
                      fd.append('institution_id', this.selected_institution);
                      fd.append('subject_id', this.selected_subject);
-                     fd.append('ca', this.ca);
-                     fd.append('exam', this.exam);  
+                     fd.append('assessment_type_id', this.selected_assessment_type);
+                     fd.append('score', this.score);
 
-                     axios.post(`${url.save_student_assessment}`, fd, config)
-                         .then((response) => {
-                             console.log(response);
-                              $('#record_assessment').modal('hide');
-                             swal.fire('Weldon', response.data.success, 'success');
-                         })
-                         .catch((error) => {
-                             console.log(error);
-                             toastr.error(`something went wrong ${error.response.status}`);
-                         })
-                         .then(() => {
-                             swal.close();
-                         });
+                    axios.post(`${url.save_student_assessment}`, fd, config)
+                        .then((response) => {
+                            console.log(response);
+                            $('#record_assessment').modal('hide');
+                            swal.close();
+                            swal.fire('Weldon', response.data.success, 'success');
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                            swal.close();
+                            if (error.response.data.error) {
+                                swal.fire('Oops', error.response.data.error, 'error');
+                            }
+                            toastr.error(`something went wrong ${error.response.status}`);
+                        });
                 }
            }
         },
         go_to_student() {
             window.location.href = '/dashboard/admin/students';
+        },
+        get_student_assessments(id) {
+            window.location.href = '/dashboard.admin/single_assessment_view/' + id;
         },
         showContent() {
             this.loading = false;

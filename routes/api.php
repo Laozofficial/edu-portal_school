@@ -108,6 +108,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::post('update_single_assessment/{assessment_type}', [AssessmentTypeController::class, 'save_update_assessment']);
                 Route::get('get_details_to_assessment/{institution}/{student}', [AssessmentTypeController::class, 'get_details_to_assessment']);
                 Route::post('save_student_assessments', [AssessmentTypeController::class, 'save_student_assessments']);
+                Route::get('get_student_assessments/{student}', [AssessmentTypeController::class, 'get_student_assessments']);
 
 
                 // student Routes

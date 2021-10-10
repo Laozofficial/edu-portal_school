@@ -15,6 +15,7 @@ new Vue({
         selected_teacher: '',
 
         name: '',
+        code: '',
 
         level: {},
         update_selected_teacher: '',
@@ -68,7 +69,7 @@ new Vue({
                 });
         },
         save_class() {
-            if (this.name == '' || this.selected_institution == '' || this.selected_teacher == '') {
+            if (this.name == '' || this.selected_institution == '' || this.selected_teacher == '' || this.code == '') {
                 swal.fire('oops', 'some fields are empty', 'error');
             } else {
                 swal.fire({
@@ -81,6 +82,7 @@ new Vue({
                 fd.append('name', this.name);
                 fd.append('institution_id', this.selected_institution);
                 fd.append('teacher_id', this.selected_teacher);
+                fd.append('code', this.code);
 
                 axios.post(`${url.save_class}`, fd, config)
                     .then((response) => {
@@ -132,6 +134,7 @@ new Vue({
 
                 let fd = new FormData;
                 fd.append('name', this.level.name);
+                fd.append('code', this.level.code);
                 if (Number.isInteger(this.update_selected_teacher)) {
                     fd.append('teacher_id', this.update_selected_teacher);
                 }

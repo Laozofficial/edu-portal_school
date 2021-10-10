@@ -75,13 +75,14 @@ class AssessmentTypeController extends Controller
         $levels = Level::where('id', $student->level_id)->orderBy('id', 'desc')->get();
         $sessions = AcademicYear::where('institution_id', $institution->id)->orderBy('id', 'desc')->get();
         $subjects = Subject::where('institution_id', $institution->id)->orderBy('id', 'desc')->get();
-        $levels =
+        $assessment_types = AssessmentType::where('institution_id', $institution->id)->orderBy('id', 'desc')->get();
 
         $response = [
             'sessions' => $sessions,
             'levels' => $levels,
             'subjects' => $subjects,
-            'student' => $student
+            'student' => $student,
+            'assessment_types' => $assessment_types
         ];
 
         return response($response, 200);
@@ -90,6 +91,17 @@ class AssessmentTypeController extends Controller
 
     public function save_student_assessments(Request $request)
     {
+
+        $check_assessments = AssessmentType::where('id', $request->get('assessment_type_id'))->first();
+
+        if ($request->get('score') > $check_assessments->max_mark) {
+            $response = [
+                'error' => 'Assessment Score Cannot be More than '. $check_assessments->max_mark. ' mark'
+            ];
+
+            return response($response, 400);
+        }
+
         $student_assessment = new AssessmentStudent;
         $student_assessment->academic_year_id = $request->get('academic_year_id');
         $student_assessment->level_id = $request->get('level_id');
@@ -97,8 +109,8 @@ class AssessmentTypeController extends Controller
         $student_assessment->student_id = $request->get('student_id');
         $student_assessment->institution_id = $request->get('institution_id');
         $student_assessment->subject_id = $request->get('subject_id');
-        $student_assessment->ca = $request->get('ca');
-        $student_assessment->exam = $request->get('exam');
+        $student_assessment->assessment_type_id = $request->get('assessment_type_id');
+        $student_assessment->score = $request->get('score');
         $student_assessment->save();
 
         $response = [
@@ -106,5 +118,22 @@ class AssessmentTypeController extends Controller
         ];
 
         return response($response, 200);
+    }
+
+    public function get_student_assessments(Student $student)
+    {
+        $assessment_types = AssessmentStudent::where('student_id', $student->id)->paginate(30);
+        $response = [
+            'assessments' => $assessment_types
+        ];
+
+        return response($response, 200);
+    }
+
+    public function single_assessment_view(Student $student)
+    {
+        return view(env('APP_THEME'). '.admin.pages.single_student_assessment', [
+            'id' => $student->id
+        ]);
     }
 }

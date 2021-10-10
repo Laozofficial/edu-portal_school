@@ -73,6 +73,7 @@ Route::prefix('dashboard')->group(function () {
         // Assessment Types
         Route::get('assessment-types', [AssessmentTypeController::class, 'assessment_types']);
         Route::get('add-assessment',  [AssessmentTypeController::class, 'add_assessment']);
+        Route::get('single_assessment_view/{student}', [AssessmentTypeController::class, 'single_assessment_view']);
 
         // student Route
         Route::get('add-students', [StudentController::class, 'add_students']);

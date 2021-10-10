@@ -21,8 +21,8 @@ class CreateAssessmentStudentsTable extends Migration
             $table->foreignId('student_id')->constrained();
             $table->foreignId('institution_id')->constrained();
             $table->foreignId('subject_id')->constrained();
-            $table->integer('ca')->unsigned();
-            $table->integer('exam')->nullable()->unsigned();
+            $table->integer('assessment_type_id')->constrained();
+            $table->integer('score')->constrained();
             $table->timestamps();
         });
     }

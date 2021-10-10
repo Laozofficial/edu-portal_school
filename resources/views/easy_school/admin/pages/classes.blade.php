@@ -47,6 +47,9 @@
                     <label class="mt-3" for="class_name">Class Name</label>
                     <input class="form-control form-control-sm" type="text" placeholder="example jss 2 science" v-model="name"/>
 
+                    <label class="mt-3" for="class_code">Class Code</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="example jss 2" v-model="code"/>
+
                     <button class="btn btn-sm btn-primary mt-3 btn-block" @click="save_class">
                         <i class="fa fa-paper-plane"></i> Add Class
                     </button>
@@ -65,6 +68,7 @@
                                 <tr>
                                     <th style="width:80px;"><strong>#</strong></th>
                                     <th><strong>Class Name</strong></th>
+                                    <th><strong>Class Code</strong></th>
                                     <th><strong>Teacher</strong></th>
                                     <th><strong>status</strong></th>
                                     <th><strong>created at</strong></th>
@@ -76,6 +80,7 @@
                                 <tr v-for="(level, index) in levels.data">
                                     <td><strong>@{{index + 1}}</strong></td>
                                     <td>@{{level.name}}</td>
+                                    <td>@{{ level.code }}</td>
                                     <td>@{{level.teacher.full_name_text}}</td>
                                     <td v-if="level.status == 0"><span class="badge light badge-success">@{{level.status_text}}</span></td>
                                     <td v-if="level.status == 1"><span class="badge light badge-error">@{{level.status_text}}</span></td>
@@ -127,6 +132,9 @@
 
                     <label class="mt-3" for="class_name">Update Class Name</label>
                     <input class="form-control form-control-sm" type="text" placeholder="example jss 2 science" v-model="level.name"/>
+
+                    <label class="mt-3" for="class_name">Update Class Code</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="example jss 2" v-model="level.code"/>
 
                 </div>
                 <div class="modal-footer">

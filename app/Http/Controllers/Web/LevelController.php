@@ -17,6 +17,7 @@ class LevelController extends Controller
         $level->name = $request->get('name');
         $level->institution_id = $request->get('institution_id');
         $level->teacher_id = $request->get('teacher_id');
+        $level->code = $request->get('code');
         $level->save();
 
         $response = [
@@ -47,6 +48,7 @@ class LevelController extends Controller
         }
 
         $level->name = $request->get('name');
+        $level->code = $request->get('code');
         if($request->get('teacher_id') !== null) {
             $level->teacher_id = $request->get('teacher_id');
         }

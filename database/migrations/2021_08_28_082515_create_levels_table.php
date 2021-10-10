@@ -18,6 +18,7 @@ class CreateLevelsTable extends Migration
             $table->foreignId('institution_id')->constrained();
             $table->foreignId('teacher_id')->constrained();
             $table->text('name');
+            $table->string('code');
             $table->integer('status')->default(0);
             $table->timestamps();
         });
