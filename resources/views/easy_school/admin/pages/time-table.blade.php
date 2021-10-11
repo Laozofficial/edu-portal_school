@@ -121,7 +121,7 @@
                                     <td><a :href="time_table.download_link" class="text-primary"> Download</a></td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp mr-1" @click="delete_time_table(time_table.id)"><i class="fa fa-trash"></i></a>
+                                            <a href="#" class="btn btn-danger shadow btn-xs sharp mr-1" @click="delete_time_table(time_table.id)"><i class="fa fa-trash text-white"></i></a>
                                         </div>
                                     </td>
                                 </tr>

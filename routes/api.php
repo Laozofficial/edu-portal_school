@@ -14,6 +14,7 @@ use App\Http\Controllers\Web\InstitutionController;
 use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TeacherController;
 use App\Http\Controllers\Web\TimeTableController;
+use App\Models\AssessmentStudent;
 use App\Models\GradeScale;
 use App\Models\TimeTable;
 use Illuminate\Http\Request;
@@ -109,6 +110,8 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_details_to_assessment/{institution}/{student}', [AssessmentTypeController::class, 'get_details_to_assessment']);
                 Route::post('save_student_assessments', [AssessmentTypeController::class, 'save_student_assessments']);
                 Route::get('get_student_assessments/{student}', [AssessmentTypeController::class, 'get_student_assessments']);
+                Route::get('get_single_assessment_for_student/{assessment}', [AssessmentTypeController::class, 'get_single_assessment_for_student']);
+                Route::post('update_single_assessment_score/{assessment}', [AssessmentTypeController::class, 'update_single_assessment']);
 
 
                 // student Routes

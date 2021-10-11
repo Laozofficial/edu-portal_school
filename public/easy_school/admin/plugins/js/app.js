@@ -64,6 +64,8 @@ let url = {
     get_details_to_assessment: 'get_details_to_assessment/',
     save_student_assessment: 'save_student_assessments',
     get_student_assessments: 'get_student_assessments/',
+    get_single_assessment_for_student: 'get_single_assessment_for_student/',
+    update_single_assessment: 'update_single_assessment_score/',
 
 
     // students Routes

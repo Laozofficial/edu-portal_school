@@ -47,14 +47,14 @@
                                 <tr v-for="(student, index) in students">
                                     <td><strong>@{{index + 1}}</strong></td>
                                     <td>@{{student.full_name_text}}</td>
-                                    <td v-if="student.level.status == 0"><span class="badge light badge-success">@{{student.level.name}}</span></td>
-                                    <td v-if="student.level.status == 1"><span class="badge light badge-error">@{{student.level.name}}</span></td>
+                                    <td v-if="student.level.status == 0">@{{student.level.name}}</td>
+                                    <td v-if="student.level.status == 1">@{{student.level.name}}</td>
                                     <td>@{{student.level.teacher.full_name_text}}</td>
                                     <td>@{{ student.gender }}</td>
                                     <td>@{{student.level.created_at_text}}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="student_details(student.id)"><i class="fa fa-eye"></i></a>
+                                            <a href="#" class="btn btn-primary shadow btn-sm sharp mr-1" @click="student_details(student.id)"><i class="fa fa-eye"></i></a>
                                         </div>
                                     </td>
                                 </tr>

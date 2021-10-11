@@ -122,7 +122,7 @@ class AssessmentTypeController extends Controller
 
     public function get_student_assessments(Student $student)
     {
-        $assessment_types = AssessmentStudent::where('student_id', $student->id)->paginate(30);
+        $assessment_types = AssessmentStudent::where('student_id', $student->id)->orderBy('id', 'desc')->paginate(30);
         $response = [
             'assessments' => $assessment_types
         ];
@@ -135,5 +135,38 @@ class AssessmentTypeController extends Controller
         return view(env('APP_THEME'). '.admin.pages.single_student_assessment', [
             'id' => $student->id
         ]);
+    }
+
+    public function get_single_assessment_for_student(AssessmentStudent $assessment)
+    {
+        $assessment = AssessmentStudent::where('id', $assessment->id)->first();
+        $response = [
+            'assessment' => $assessment
+        ];
+
+        return response($response, 200);
+    }
+
+    public function update_single_assessment(Request $request, AssessmentStudent $assessment)
+    {
+        $check_assessments = AssessmentType::where('id', $request->get('assessment_type'))->first();
+
+        if($request->get('score') > $check_assessments->max_mark) {
+            $response = [
+                'error' => 'Assessment Score Cannot be more than '.$check_assessments->max_mark. ' mark'
+            ];
+
+            return response($response, 400);
+        }
+
+        $assessment->score =  $request->get('score');
+        $assessment->save();
+
+        $response = [
+            'success' => 'Assessment Score has been updated'
+        ];
+
+        return response($response, 200);
+
     }
 }

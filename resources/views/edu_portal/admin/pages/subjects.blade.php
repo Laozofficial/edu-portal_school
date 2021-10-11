@@ -21,7 +21,15 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    Add Subjects
+                   <div class="row">
+                        <div class="col-md-6">
+                            <h4>Subjects</h4>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <span class="d-block fs-16">Select Institution</span>
+                            <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" @input="get_subjects" id="institution"></v-select>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <label for="level">Select Class</label>
@@ -71,7 +79,7 @@
                                     <td>@{{subject.created_at_text}}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="update_subject(subject.id)"><i class="fa fa-pencil"></i></a>
+                                            <a href="#" class="btn btn-primary shadow btn-sm sharp mr-1" @click="update_subject(subject.id)"><i class="fa fa-pen"></i></a>
                                             <!-- <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a> -->
                                         </div>
                                     </td>

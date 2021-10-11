@@ -87,14 +87,14 @@
                                     <td>@{{level.created_at_text}}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="edit_school(level.id)"><i class="fa fa-pencil"></i></a>
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1 text-white" @click="edit_school(level.id)"><i class="fa fa-pencil text-white"></i></a>
                                             <!-- <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a> -->
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-danger shadow btn-xs " @click="see_students(level.id)">
-                                                <i class="fa fa-eye"></i> Enrolled Students
+                                            <a href="#" class="btn btn-success shadow btn-xs text-white" @click="see_students(level.id)">
+                                                <i class="fa fa-eye text-white"></i> Enrolled Students
                                             </a>
                                         </div>
                                     </td>

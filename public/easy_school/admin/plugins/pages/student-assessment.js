@@ -193,7 +193,7 @@ new Vue({
             window.location.href = '/dashboard/admin/students';
         },
         get_student_assessments(id) {
-            window.location.href = '/dashboard.admin/single_assessment_view/' + id;
+            window.location.href = '/dashboard/admin/single_assessment_view/' + id;
         },
         showContent() {
             this.loading = false;

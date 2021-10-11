@@ -39,6 +39,11 @@ class Student extends Model
         return $this->belongsTo('App\Models\Level');
     }
 
+    public function assessment_students()
+    {
+        return $this->hasMany('App\Models\AssessmentStudent');
+    }
+
 
     protected $appends = [
         'full_name_text', 'created_at_text'

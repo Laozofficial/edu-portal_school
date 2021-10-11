@@ -52,6 +52,11 @@ class AcademicYear extends Model
         return $this->created_at->diffForHumans();
     }
 
+    // public function assessment_student()
+    // {
+    //     return $this->hasMany('App\Models\AssessmentStudent');
+    // }
+
     protected $appends = [
         'status_text','start_date_text', 'end_date_text', 'created_at_text'
     ];
