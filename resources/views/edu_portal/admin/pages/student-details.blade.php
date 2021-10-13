@@ -99,6 +99,35 @@
                 </div>
             </div>
          </div>
+            <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header">
+                    Student Class
+                </div>
+                <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-responsive-md">
+                            <thead>
+                                <tr>
+                                    <th style="width:80px;"><strong>#</strong></th>
+                                    <th><strong>Current Class</strong></th>
+                                    <th><strong>Teacher</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#</strong></td>
+                                    <td>@{{ student.level.name }}</td>
+                                    <td>@{{ student.level.teacher.user.name }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+         </div>
+         <div class="col-md-6">
+
          <div class="col-md-12">
                <div class="card shadow-lg">
                 <div class="card-header">

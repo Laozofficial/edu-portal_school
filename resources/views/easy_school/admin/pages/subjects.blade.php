@@ -88,7 +88,7 @@
                                     <td>@{{subject.created_at_text}}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="update_subject(subject.id)"><i class="fa fa-pencil"></i></a>
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="update_subject(subject.id)"><i class="fa fa-pencil text-white"></i></a>
                                             <!-- <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a> -->
                                         </div>
                                     </td>
