@@ -39,9 +39,14 @@ class Student extends Model
         return $this->belongsTo('App\Models\Level');
     }
 
-    public function assessment_students()
+    public function assessments()
     {
         return $this->hasMany('App\Models\AssessmentStudent');
+    }
+
+    public function parents()
+    {
+        return $this->belongsToMany('App\Models\Guardian', 'guardian_student', 'student_id','guardian_id');
     }
 
 
@@ -50,6 +55,6 @@ class Student extends Model
     ];
 
     protected $with = [
-      'state', 'user', 'level'
+      'state', 'user', 'level', 'parents'
     ];
 }

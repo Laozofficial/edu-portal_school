@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
+use App\Http\Controllers\Web\ParentController;
 use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TimeTableController;
 use App\Http\Controllers\Web\ViewController;
@@ -82,6 +83,10 @@ Route::prefix('dashboard')->group(function () {
 
         // time table
         Route::get('time-table', [TimeTableController::class, 'time_table_view']);
+
+        // Parents Route
+        Route::get('add-parents', [ParentController::class, 'add_parents_view']);
+        Route::get('parents', [ParentController::class, 'parent_view']);
 
 
     });

@@ -83,6 +83,12 @@ let url = {
     get_time_tables: 'get_time_tables/',
     delete_time_table: 'delete_time_table/',
 
+    // save parent
+    save_parent: 'save_parent',
+    get_parents: 'get_student_parent/',
+    get_single_parent: 'get_single_parent/',
+    update_single_parent: 'update_single_parent/'
+
 }
 
 

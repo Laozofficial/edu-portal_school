@@ -11,6 +11,7 @@ use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
 use App\Http\Controllers\Web\GeneralInfoController;
 use App\Http\Controllers\Web\InstitutionController;
+use App\Http\Controllers\Web\ParentController;
 use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TeacherController;
 use App\Http\Controllers\Web\TimeTableController;
@@ -128,6 +129,12 @@ Route::prefix('dashboard')->group(function () {
                 Route::post('save_time_table', [TimeTableController::class, 'save_time_table']);
                 Route::post('get_time_tables/{institution}', [TimeTableController::class, 'get_time_tables']);
                 Route::get('delete_time_table/{time_table}', [TimeTableController::class, 'delete_time_table']);
+
+                // parent route
+                Route::post('save_parent', [ParentController::class, 'save_parent']);
+                Route::get('get_student_parent/{student}', [ParentController::class, 'get_student_parents']);
+                Route::get('get_single_parent/{parent}', [ParentController::class, 'get_single_parent']);
+                Route::post('update_single_parent/{parent}', [ParentController::class, 'update_single_parent']);
 
             });
     });

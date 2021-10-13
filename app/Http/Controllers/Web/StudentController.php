@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\AssessmentStudent;
 use App\Models\Institution;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -67,7 +68,7 @@ class StudentController extends Controller
         $user->email_verified_at = now();
         $user->password = Hash::make('password');
         $user->phone = $request->get('phone');
-        $user->role = 1; //role is teacher
+        $user->role = 2; //role is student
         $user->otp = mt_rand('1000', '9999');
         $user->save();
 
@@ -149,8 +150,11 @@ class StudentController extends Controller
 
     public function get_single_student_by_id(Student $student)
     {
+        $assessments = AssessmentStudent::where('student_id', $student->id)->paginate(30);
+
         $response = [
-            'students' => $student
+            'student' => $student,
+            'assessments' => $assessments
         ];
 
         return response($response, 200);

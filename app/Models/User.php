@@ -16,6 +16,7 @@ class User extends Authenticatable
     CONST TEACHER = 1;
     CONST STUDENT = 2;
     CONST ADMIN = 3;
+    CONST GUARDIAN = 4;
 
 
     const ACTIVE = 0;
@@ -77,6 +78,8 @@ class User extends Authenticatable
                 return 'student';
             case $this::ADMIN:
                 return 'platform admin';
+            case $this::GUARDIAN:
+                return 'parent';
             default:
                 return 'unknown';
                 break;
@@ -96,7 +99,12 @@ class User extends Authenticatable
         }
     }
 
+    public function getCreatedAtTextAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
     protected $appends = [
-        'role_text', 'status_text'
+        'role_text', 'status_text',
     ];
 }
