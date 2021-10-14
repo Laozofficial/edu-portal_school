@@ -117,17 +117,17 @@
                     <h5 class="modal-title">Record Assessment</h5>
                 </div>
                 <div class="modal-body">
-                    <span class="">Select Academic Session <span class="text-danger">*</span> </span>
+                     <span class="">Select Academic Session <span class="text-danger">*</span> </span>
                     <v-select :options="sessions" label="name" v-model="selected_session" :reduce="sessions => sessions.id" id="sessions" @input="get_terms"></v-select>
                     <br>
                     <span class=" mt-3">Select Term <span class="text-danger">*</span></span>
                     <v-select :options="terms" label="name" v-model="selected_term" :reduce="terms => terms.id" id="terms" ></v-select>
                     <br>
+                    <span class=" mt-3">Select Class <span class="text-danger">*</span></span>
+                    <v-select :options="levels" label="name" v-model="selected_level" :reduce="levels => levels.id" id="levels" @input="get_subjects_in_a_class"></v-select>
+                    <br>
                     <span class=" mt-3">Select Subject <span class="text-danger">*</span></span>
                     <v-select :options="subjects" label="name" v-model="selected_subject" :reduce="subjects => subjects.id" id="subjects"></v-select>
-                    <br>
-                    <span class=" mt-3">Select Class <span class="text-danger">*</span></span>
-                    <v-select :options="levels" label="name" v-model="selected_level" :reduce="levels => levels.id" id="levels"></v-select>
                     <br>
                     <span class=" mt-3">Select Assessment Type <span class="text-danger">*</span></span>
                     <v-select :options="assessment_types" label="name" v-model="selected_assessment_type" :reduce="assessments => assessments.id" id="assessments"></v-select>

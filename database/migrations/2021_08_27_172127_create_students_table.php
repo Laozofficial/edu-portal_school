@@ -21,6 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');
+            $table->string('admission_number')->nullable();
             $table->string('gender');
             $table->date('date_of_birth');
             $table->foreignId('country_id')->constrained();

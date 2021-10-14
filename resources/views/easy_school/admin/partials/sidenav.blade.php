@@ -74,16 +74,14 @@
                     </li>
 
 
-                    <li><a class="has-arrow ai-icon" href="{{url('/dashboard/admin/parents')}}" aria-expanded="false">
+                    <!-- <li><a class="has-arrow ai-icon" href="{{url('/dashboard/admin/parents')}}" aria-expanded="false">
                             <i class="lni lni-users"></i>
                             <span class="nav-text">Parents</span>
-                            <!-- <span class="badge badge-xs badge-danger">New</span> -->
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{url('/dashboard/admin/parents')}}"><i class="lni lni-user"></i> Parents</a></li>
-                            <li><a href="{{url('/dashboard/admin/add-parents')}}"><i class="lni lni-plus"></i> Add Parents</a></li>
                         </ul>
-                    </li>
+                    </li> -->
 
 
                     <li><a href="{{url('/dashboard/admin/subscriptions')}}">

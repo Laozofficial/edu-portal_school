@@ -7,6 +7,7 @@ use App\Models\Institution;
 use App\Models\Level;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Subject;
 use Illuminate\Support\Facades\Validator;
 
 class LevelController extends Controller
@@ -77,6 +78,17 @@ class LevelController extends Controller
         $levels = Level::where('institution_id', $institution->id)->orderBy('id', 'desc')->get();
         $response = [
             'levels' => $levels
+        ];
+
+        return response($response, 200);
+    }
+
+    public function get_class_subjects(Level $level)
+    {
+        $subjects = Subject::where('level_id', $level->id)->orderBy('id', 'desc')->get();
+
+        $response = [
+            'subjects' => $subjects
         ];
 
         return response($response, 200);

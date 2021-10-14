@@ -106,7 +106,12 @@ new Vue({
                     swal.close();
                     this.student = response.data.student;
                     this.classes = response.data.classes;
-                    this.selected_class = this.student.level.name;
+
+                    if (this.student.level !== null) {
+                        this.selected_class = this.student.level.name;
+                    } else {
+                        this.selected_class = '';
+                    }
                     $('#assign-class').modal('show');
                 })
                 .catch((error) => {

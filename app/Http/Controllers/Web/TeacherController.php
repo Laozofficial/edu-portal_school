@@ -77,6 +77,10 @@ class TeacherController extends Controller
         $add_slug->slug = Str::of($teacher->full_name_text)->slug('-');
         $add_slug->save();
 
+        $user_check = User::findOrFail($user->id);
+        $user_check->school_identification_number = $institution->prefix_code . '/' . $teacher->id . '/'  . mt_rand(00000, 99999);
+        $user_check->save();
+
         $details = [
             'institution_name' => $institution->name,
             'teacher' => $user->name,
@@ -147,6 +151,7 @@ class TeacherController extends Controller
             $teacher->image = $image;
         }
         $teacher->save();
+
 
         $response = [
             'success' => 'Teacher details has been updated'

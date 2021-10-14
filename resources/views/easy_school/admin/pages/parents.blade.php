@@ -23,7 +23,7 @@
                 </svg>
                 <div class="text-left ml-3">
                     <span class="d-block fs-16">Select Institution</span>
-                    <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" @input="get_sessions" id="institution"></v-select>
+                    <v-select :options="institutions" label="name" v-model="selected_institution" :reduce="institutions => institutions.id" @input="get_parents" id="institution"></v-select>
                 </div>
                 <i class="fa fa-angle-down scale5 ml-3"></i>
             </div>
@@ -35,7 +35,41 @@
     </div>
 
      <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow-lg">
+                <div class="card-header">
+                    All Parents On the System
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-responsive-md">
+                            <thead>
+                                <tr>
+                                    <th style="width:80px;"><strong>#</strong></th>
+                                    <th><strong>Full Name</strong></th>
+                                    <th><strong>Email</strong></th>
+                                    <th><strong>Phone Number</strong></th>
+                                    <th><strong>Students</strong></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(parent, index) in parents">
+                                    <td><strong>#</strong></td>
+                                    <td>@{{ parent.user.name }}</td>
+                                    <td>@{{ parent.user.email }}</td>
+                                    <td>@{{ parent.user.phone }}</td>
+                                    <!-- <td>@{{ parent.user }}</td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
 
+                </div>
+            </div>
+        </div>
      </div>
 
 </div>

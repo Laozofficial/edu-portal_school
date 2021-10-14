@@ -50,7 +50,6 @@ class StudentController extends Controller
             'city' => 'required',
             'present_address' => 'required',
             'avatar' => 'required',
-            'email' => 'email|unique:users'
         ]);
 
 
@@ -58,10 +57,11 @@ class StudentController extends Controller
             return response(['errors' => $validator->errors()->all()], 422); //return error validator error
         }
 
+
         $user = new User;
         $user->name = $request->get('first_name') . ' ' . $request->get('last_name');
         if(!$request->get('email')) {
-            $user->email = 'someEmail@gmail.com';
+            $user->email = $request->get('first_name') . ' ' . $request->get('last_name').'@gmail.com';
         }else {
             $user->email = $request->get('email');
         }
@@ -95,6 +95,19 @@ class StudentController extends Controller
             $student->image = $image;
         }
         $student->save();
+
+        $admission_number = Student::findOrFail($student->id);
+        $admission_number->admission_number = $institution->prefix_code.'/'.$student->id.'/'  . mt_rand(00000, 99999);
+        $admission_number->save();
+
+        $user_number = User::findOrFail($user->id);
+        $user_number->school_identification_number =
+        $user_number->save();
+
+        $user_number = User::findOrFail($user->id);
+        $user_number->school_identification_number =  $admission_number->admission_number;
+        $user_number->save();
+
 
         $response = [
             'success' => 'Student has been Added Successfully'

@@ -99,6 +99,9 @@ new Vue({
                     .catch((error) => {
                         console.log(error);
                         swal.close();
+                        if (error.response.data.error) {
+                            swal.fire('Oops', error.response.data.error, 'error');
+                        }
                         toastr.error('something went wrong');
                     });
             }

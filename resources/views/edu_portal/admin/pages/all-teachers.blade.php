@@ -40,6 +40,9 @@
                                         <th><strong>Email</strong></th>
                                         <th><strong>Gender</strong></th>
                                         <th><strong>Status</strong></th>
+                                        <th><strong>School Identification Number</strong></th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,6 +52,7 @@
                                         <td>@{{teacher.user.email}}</td>
                                         <td>@{{teacher.gender}}</td>
                                         <td><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> @{{teacher.user.status_text}}</div></td>
+                                        <td>@{{ teacher.user.school_identification_number }}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <a @click="view(teacher.slug)" class="btn btn-sm btn-success shadow btn-xs sharp mr-1"><i class="fa fa-eye text-white"></i></a>

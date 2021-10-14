@@ -59,7 +59,7 @@
                        <div class="col-md-6 text-right">
                             Parents
                        </div>
-                       <div class="col-md-6 ml-4">
+                       <div class="col-md-6 ml-4 text-right">
                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target=".add_parent">
                                <i class="fa fa-plus"></i> add parent
                            </button>
@@ -127,6 +127,7 @@
             </div>
          </div>
          <div class="col-md-6">
+        </div>
 
          <div class="col-md-12">
                <div class="card shadow-lg">

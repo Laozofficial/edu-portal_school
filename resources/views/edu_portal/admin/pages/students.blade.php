@@ -49,7 +49,7 @@
                                             <tr>
                                                 <th><strong>S/N</strong></th>
                                                 <th><strong>Student Name</strong></th>
-                                                <th><strong>Email</strong></th>
+                                                <th><strong>Admission Number</strong></th>
                                                 <th><strong>Gender</strong></th>
                                                 <th><strong>State</strong></th>
                                                 <th><strong>Current Class</strong></th>
@@ -63,7 +63,7 @@
                                                 <td><strong>@{{index + 1}}</strong></td>
                                                 <td>@{{student.full_name_text}}</td>
                                                 <td><div class="d-flex align-items-center">
-                                                    <span class="w-space-no">@{{student.user.email}}</span></div>
+                                                    <span class="w-space-no">@{{student.admission_number}}</span></div>
                                                 </td>
                                                 <td>@{{ student.gender }}	</td>
                                                 <td><div class="d-flex align-items-center"> @{{student.state.name}} state</div> </td>

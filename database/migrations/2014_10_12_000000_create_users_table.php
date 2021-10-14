@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->integer('role')->unsigned()->default(0);
             $table->integer('otp')->unsigned();
             $table->date('verified')->nullable();
+            $table->string('school_identification_number')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

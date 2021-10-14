@@ -89,6 +89,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::post('update_single_class/{level}', [LevelController::class, 'update_single_class']);
                 Route::get('get_students_for_class/{level}', [LevelController::class, 'get_students_for_class']);
                 Route::get('get_all_classes/{institution}', [LevelController::class, 'get_all_classes']);
+                Route::get('get_class_subjects/{level}', [LevelController::class, 'get_class_subjects']);
 
                 // subjects
                 Route::get('get_subjects/{institution}', [SubjectController::class, 'get_subjects']);
@@ -114,7 +115,6 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_single_assessment_for_student/{assessment}', [AssessmentTypeController::class, 'get_single_assessment_for_student']);
                 Route::post('update_single_assessment_score/{assessment}', [AssessmentTypeController::class, 'update_single_assessment']);
 
-
                 // student Routes
                 Route::get('get_students/{institution}', [StudentController::class, 'get_students']);
                 Route::post('save_student/{institution}', [StudentController::class, 'save_student']);
@@ -135,6 +135,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_student_parent/{student}', [ParentController::class, 'get_student_parents']);
                 Route::get('get_single_parent/{parent}', [ParentController::class, 'get_single_parent']);
                 Route::post('update_single_parent/{parent}', [ParentController::class, 'update_single_parent']);
+                Route::get('get_all_parents/{institution}', [ParentController::class, 'get_all_parents']);
 
             });
     });

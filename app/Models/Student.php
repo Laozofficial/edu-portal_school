@@ -50,6 +50,7 @@ class Student extends Model
     }
 
 
+
     protected $appends = [
         'full_name_text', 'created_at_text'
     ];

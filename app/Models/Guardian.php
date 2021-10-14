@@ -19,8 +19,13 @@ class Guardian extends Model
         return $this->belongsToMany('App\Models\Student', 'guardian_student', 'guardian_id', 'student_id');
     }
 
+    public function institution()
+    {
+        return $this->belongsTo('App\Models\Institution');
+    }
+
     protected $with = [
-        'user'
+        'user', 'institution'
     ];
 
 }

@@ -17,7 +17,7 @@ class CreateLevelStudentTable extends Migration
             $table->id();
             $table->foreignId('level_id')->constrained();
             $table->foreignId('student_id')->constrained();
-            $table->integer('active')->unsigned();
+            $table->integer('is_current')->unsigned();
             $table->timestamps();
         });
     }

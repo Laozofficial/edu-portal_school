@@ -49,6 +49,7 @@
                                         <th><strong>Name</strong></th>
                                         <th><strong>Email</strong></th>
                                         <th><strong>Gender</strong></th>
+                                        <th><strong>Identification Number</strong></th>
                                         <th><strong>Status</strong></th>
                                     </tr>
                                 </thead>
@@ -58,6 +59,7 @@
                                         <td><div class="d-flex align-items-center"><img :src="teacher.full_image_path" class="rounded-lg mr-2" width="24" alt=""/> <span class="w-space-no">@{{teacher.full_name_text}}</span></div></td>
                                         <td>@{{teacher.user.email}}</td>
                                         <td>@{{teacher.gender}}</td>
+                                        <td>@{{ teacher.user.school_identification_number }}</td>
                                         <td><div class="d-flex align-items-center"><i class="fa fa-circle text-success mr-1"></i> @{{teacher.user.status_text}}</div></td>
                                         <td>
                                             <div class="d-flex">

@@ -42,6 +42,7 @@ let url = {
     update_single_class: 'update_single_class/',
     get_students_for_class: 'get_students_for_class/',
     get_classes: 'get_all_classes/',
+    get_subjects_in_class: 'get_class_subjects/',
 
     // subjects
     get_subjects: 'get_subjects/',
@@ -67,9 +68,8 @@ let url = {
     get_single_assessment_for_student: 'get_single_assessment_for_student/',
     update_single_assessment: 'update_single_assessment_score/',
 
-
     // students Routes
-    get_students:  'get_students/',
+    get_students: 'get_students/',
     save_student: 'save_student/',
     search_student: 'search_student/',
     get_single_student: 'get_single_student/',
@@ -87,7 +87,8 @@ let url = {
     save_parent: 'save_parent',
     get_parents: 'get_student_parent/',
     get_single_parent: 'get_single_parent/',
-    update_single_parent: 'update_single_parent/'
+    update_single_parent: 'update_single_parent/',
+    get_all_parents: 'get_all_parents/',
 
 }
 

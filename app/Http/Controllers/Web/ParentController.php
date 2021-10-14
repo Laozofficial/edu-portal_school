@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Guardian;
+use App\Models\Institution;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Student;
@@ -20,7 +21,7 @@ class ParentController extends Controller
 
     public function parent_view()
     {
-        return view(env('APP_THEME').'.admin.page.parents');
+        return view(env('APP_THEME').'.admin.pages.parents');
     }
 
     public function save_parent(Request $request)
@@ -47,9 +48,11 @@ class ParentController extends Controller
         $user->otp = mt_rand('1000', '9999');
         $user->save();
 
+        $institution = Student::where('id', $request->get('student_id'))->first();
 
         $parent = new Guardian;
         $parent->user_id = $user->id;
+        $parent->institution_id = $institution->institution->id;
         $parent->save();
 
         DB::table('guardian_student')->insert([
@@ -106,6 +109,17 @@ class ParentController extends Controller
 
         $response = [
             'success' => 'parent has been update to the student'
+        ];
+
+        return response($response, 200);
+    }
+
+    public function get_all_parents(Institution $institution)
+    {
+        $parents = Guardian::where('institution_id', $institution->id)->orderBy('id', 'desc')->with('students')->get();
+
+        $response = [
+            'parents' => $parents
         ];
 
         return response($response, 200);

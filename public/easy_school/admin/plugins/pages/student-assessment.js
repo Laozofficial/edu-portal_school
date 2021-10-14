@@ -189,6 +189,22 @@ new Vue({
                 }
            }
         },
+        get_subjects_in_a_class() {
+            swal.fire('Please wait .... fetching subjects');
+            swal.showLoading();
+
+            axios.get(`${url.get_subjects_in_class + this.selected_level}`, config)
+                .then((response) => {
+                    console.log(response);
+                    swal.close();
+                    this.subjects = response.data.subjects;
+                })
+                .catch((error) => {
+                    console.log(error);
+                    swal.close();
+                    toastr.error(`something went wrong ${error.response.status}`);
+                })
+        },
         go_to_student() {
             window.location.href = '/dashboard/admin/students';
         },
