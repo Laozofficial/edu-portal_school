@@ -11,8 +11,8 @@
 <div class="container-fluid" v-show="content">
      <div class="form-head d-flex mb-3 align-items-start">
         <div class="mr-auto d-none d-lg-block">
-            <h2 class="text-black font-w600 mb-0">School Terms</h2>
-            <p class="mb-0">Add A Term</p>
+            <h2 class="text-black font-w600 mb-0">Class Details</h2>
+            <!-- <p class="mb-0">Add A Term</p> -->
         </div>
           <!-- <div class="dropdown custom-dropdown">
             <div class="btn btn-sm btn-primary light d-flex align-items-center svg-btn" data-toggle="dropdown">
@@ -72,7 +72,7 @@
                                     <td>@{{student.level.created_at_text}}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="student_details(student.id)"><i class="fa fa-eye"></i></a>
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" @click="student_details(student.id)"><i class="fa fa-eye text-white"></i></a>
                                         </div>
                                     </td>
                                 </tr>

@@ -10,7 +10,7 @@
                     <div class="authincation-content">
                         <div class="row no-gutters">
                             <div class="col-xl-12">
-                                <div class="auth-form">
+                                <div class="auth-form shadow-lg">
 									<div class="text-center mb-3">
 										<a href="{{url('/')}}"><img src="{{asset('easy_school/admin/images/easyschool_logo.png')}}" style="width: 50%" alt=""></a>
 									</div>

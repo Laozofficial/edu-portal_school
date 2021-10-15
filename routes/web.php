@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
 use App\Http\Controllers\Web\AssessmentTypeController;
 use App\Http\Controllers\Web\GradeScaleController;
 use App\Http\Controllers\Web\SubjectController;
@@ -40,7 +41,7 @@ Route::prefix('dashboard')->group(function () {
     });
 
 
-     Route::prefix('admin')->group(function () {
+    Route::prefix('admin')->group(function () {
 
         Route::get('index', [ViewController::class, 'index_view']);
 
@@ -88,6 +89,16 @@ Route::prefix('dashboard')->group(function () {
         Route::get('add-parents', [ParentController::class, 'add_parents_view']);
         Route::get('parents', [ParentController::class, 'parent_view']);
 
+
+    });
+
+    Route::prefix('teacher')->group(function () {
+
+        Route::prefix('auth')->group(function () {
+            Route::get('login', [TeacherLoginController::class, 'login_view']);
+            // Route::get('register', [RegisterController::class, 'register_view']);
+            // Route::get('otp-verification/{email}', [OTPController::class, 'otp_verification_view']);
+        });
 
     });
 
