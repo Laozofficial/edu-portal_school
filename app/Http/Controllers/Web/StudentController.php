@@ -28,7 +28,10 @@ class StudentController extends Controller
 
     public function get_students(Institution $institution)
     {
-        $students = Student::where('institution_id', $institution->id)->orderBy('id', 'desc')->paginate(30);
+        $students = Student::where('institution_id', $institution->id)
+                    ->where('type', 0)
+                    ->orderBy('id', 'desc')
+                    ->paginate(30);
 
         $response = [
             'students' => $students
@@ -120,6 +123,7 @@ class StudentController extends Controller
     public function get_searched_students($q, Institution $institution)
     {
         $students = Student::where('institution_id', $institution->id)
+                    ->where('type', 0)
                     ->where('first_name', 'LIKE', "%{$q}%")
                     ->orWhere('last_name', 'LIKE', "%{$q}%")
                     ->paginate(30);

@@ -9,6 +9,9 @@ class Student extends Model
 {
     use HasFactory;
 
+    CONST ACTIVE = 0;
+    CONST ALUMNI = 1;
+
     public function user()
     {
         return $this->belongsTo('App\Models\User');
@@ -49,10 +52,23 @@ class Student extends Model
         return $this->belongsToMany('App\Models\Guardian', 'guardian_student', 'student_id','guardian_id');
     }
 
+    public function getTypeTextAttribute()
+    {
+        switch ($this->type) {
+            case $this::ACTIVE:
+                return 'active';
+            case $this::ALUMNI:
+                return 'alumni';
+            default:
+                return 'unknown';
+                break;
+        }
+    }
+
 
 
     protected $appends = [
-        'full_name_text', 'created_at_text'
+        'full_name_text', 'created_at_text', 'type_text'
     ];
 
     protected $with = [
