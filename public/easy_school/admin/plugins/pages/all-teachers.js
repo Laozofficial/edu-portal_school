@@ -86,6 +86,70 @@ new Vue({
         },
         update(slug) {
             window.location.href = '/dashboard/admin/update-teacher/' + slug;
+        },
+        ban_teacher(id) {
+            swal({
+                    title: "Are you sure?",
+                    text: "Once banned, The Teacher won'\t be able to login anymore!",
+                    type: "warning",
+                    showConfirmButton: true,
+                    cancelButtonText: "Cancel",
+                    showCancelButton: true,
+                })
+                .then((isConfirmed) => {
+                    console.log(isConfirmed.dismiss)
+                    if (isConfirmed.dismiss == 'cancel' || isConfirmed.dismiss == 'overlay') {
+                        console.log('do nothing')
+                    } else {
+                        swal('please wait ....');
+                        swal.showLoading();
+
+                        axios.get(`${url.ban_teacher + id}`, config)
+                            .then((response) => {
+                                console.log(response);
+                                swal.close();
+                                swal('Weldon', response.data.success, 'success');
+                                this.get_teachers();
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                                swal.close();
+                                toastr.error(`something went wrong, ${response.data.status}`);
+                            });
+                    }
+                });
+        },
+        activate_teacher(id) {
+            swal({
+                    title: "Are you sure?",
+                    text: "Once activated, The Teacher will be able to access their portal",
+                    type: "warning",
+                    showConfirmButton: true,
+                    cancelButtonText: "Cancel",
+                    showCancelButton: true,
+                })
+                .then((isConfirmed) => {
+                    console.log(isConfirmed.dismiss)
+                    if (isConfirmed.dismiss == 'cancel' || isConfirmed.dismiss == 'overlay') {
+                        console.log('do nothing')
+                    } else {
+                        swal('please wait ....');
+                        swal.showLoading();
+
+                        axios.get(`${url.activate_teacher + id}`, config)
+                            .then((response) => {
+                                console.log(response);
+                                swal.close();
+                                swal('Weldon', response.data.success, 'success');
+                                this.get_teachers();
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                                swal.close();
+                                toastr.error(`something went wrong, ${response.data.status}`);
+                            });
+                    }
+                });
         }
 
     },

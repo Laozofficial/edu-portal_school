@@ -49,14 +49,6 @@
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                             <div class="form-group">
-                                                <div class="custom-control custom-checkbox ml-1">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="basic_checkbox_1">
-                                                    <label class="custom-control-label" for="basic_checkbox_1">Remember
-                                                        my preference</label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
                                                 <a href="#">Forgot Password?</a>
                                             </div>
                                         </div>
@@ -65,10 +57,7 @@
                                                 Me In</button>
                                         </div>
                                     </div>
-                                    <div class="new-account mt-3">
-                                        <p>Don't have an account? <a class="text-primary"
-                                                href="{{url('dashboard/auth/register')}}">Sign up</a></p>
-                                    </div>
+
                                 </div>
 
                                 <div class="containe">

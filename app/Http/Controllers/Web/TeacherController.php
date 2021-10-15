@@ -190,6 +190,30 @@ class TeacherController extends Controller
 
     }
 
+    public function ban_teacher(User $user)
+    {
+        $user->status = 1;
+        $user->save();
+
+        $response = [
+            'success' => 'Teacher has been banned'
+        ];
+
+        return response($response, 200);
+    }
+
+    public function activate_teacher(User $user)
+    {
+        $user->status = 0;
+        $user->save();
+
+        $response = [
+            'success' => 'Teacher has been activated'
+        ];
+
+        return response($response, 200);
+    }
+
     // public function all_teachers(Institution $institution)
     // {
     //     $teachers = Teacher::where('institution_id', $institution->id)->orderBy('id', 'desc')->paginate(25);

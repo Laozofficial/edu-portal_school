@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
 use App\Http\Controllers\Web\GradeScaleController;
 use App\Http\Controllers\Web\LevelController;
 use App\Http\Controllers\Web\SubjectController;
@@ -82,6 +83,8 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_single_teacher/{teacher:slug}', [TeacherController::class, 'get_single_teacher']);
                 Route::post('update_single_teacher/{teacher:slug}', [TeacherController::class, 'update_single_teacher']);
                 Route::post('update_teacher_passport/{teacher:slug}', [TeacherController::class, 'update_teacher_passport']);
+                Route::get('ban_teacher/{user}', [TeacherController::class, 'ban_teacher']);
+                Route::get('activate_teacher/{user}', [TeacherController::class, 'activate_teacher']);
 
                 // class
                 Route::post('save_class', [LevelController::class, 'save_class']);
@@ -138,5 +141,16 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_all_parents/{institution}', [ParentController::class, 'get_all_parents']);
 
             });
+    });
+
+    Route::prefix('teacher')->group(function () {
+
+        Route::prefix('auth')->group(function () {
+            Route::post('teacher-login', [TeacherLoginController::class, 'login_teacher']);
+        });
+
+        Route::middleware(['auth:api'])->group(function () {
+
+        });
     });
 });

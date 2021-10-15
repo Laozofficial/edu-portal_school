@@ -79,7 +79,7 @@
     <!--importing axios-->
 
     <script>
-        const base_url = "{{ url('/api/dashboard/') }}";
+        const base_url = "{{ url('/api/dashboard/teacher/auth/') }}";
         axios.defaults.baseURL = base_url;
         //axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
         axios.defaults.headers.post['Content-Type'] = 'application/json'

@@ -35,6 +35,8 @@ let url = {
     get_single_teacher: 'get_single_teacher/',
     update_teacher: 'update_single_teacher/',
     update_teacher_passport: 'update_teacher_passport/',
+    ban_teacher: 'ban_teacher/',
+    activate_teacher: 'activate_teacher/',
 
     // classes
     save_class: 'save_class',
@@ -89,6 +91,9 @@ let url = {
     get_single_parent: 'get_single_parent/',
     update_single_parent: 'update_single_parent/',
     get_all_parents: 'get_all_parents/',
+
+    //teacher auth
+    teacher_login: 'teacher-login'
 
 }
 

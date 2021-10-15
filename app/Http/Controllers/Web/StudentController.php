@@ -104,10 +104,6 @@ class StudentController extends Controller
         $admission_number->save();
 
         $user_number = User::findOrFail($user->id);
-        $user_number->school_identification_number =
-        $user_number->save();
-
-        $user_number = User::findOrFail($user->id);
         $user_number->school_identification_number =  $admission_number->admission_number;
         $user_number->save();
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
+use App\Http\Controllers\Teacher\TeacherViewController;
 use App\Http\Controllers\Web\AssessmentTypeController;
 use App\Http\Controllers\Web\GradeScaleController;
 use App\Http\Controllers\Web\SubjectController;
@@ -99,6 +100,8 @@ Route::prefix('dashboard')->group(function () {
             // Route::get('register', [RegisterController::class, 'register_view']);
             // Route::get('otp-verification/{email}', [OTPController::class, 'otp_verification_view']);
         });
+
+        Route::get('index', [TeacherViewController::class, 'index']);
 
     });
 
