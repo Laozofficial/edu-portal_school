@@ -36,31 +36,33 @@ class TeacherLoginController extends Controller
             return response($errors, 400);
         }
 
+        if(Auth::user()->status = 1) {
+            $response = [
+                'errors' => ['Your Account has been banned and you no longer have access to this system']
+            ];
 
-        $user_token = User::where('email', $request->get('email'))->first();
+            return response($response, 400);
+        }
+
+        if(Auth::user()->type != 1) {
+            $response = [
+                'errors' => ['You are not a Registered Teacher on this system']
+            ];
+
+            return response($response, 400);
+        }
+
+        $user_token = User::where('school_identification_number', $request->get('s_id'))->first();
 
         $access_token = $user_token->createToken('Easy School Auth token')->accessToken;
 
-        $check_school = Institution::where('user_id', $user_token->id)->first();
+        $response = [
+            'user' => $user_token,
+            'token' => $access_token,
+            'success' => 'Login Attempt Successful',
+        ];
 
-        if ($check_school) {
-            $response = [
-                'user' => User::where('email', $request->get('email'))->first(),
-                'token' => $access_token,
-                'success' => 'Login Attempt Successful',
-                'has_school' => 1
-            ];
+        return response($response, 200);
 
-            return response($response, 200);
-        } else {
-            $response = [
-                'user' => User::where('email', $request->get('email'))->first(),
-                'token' => $access_token,
-                'success' => 'Login Attempt Successful',
-                'has_school' => 0
-            ];
-
-            return response($response, 200);
-        }
     }
 }
