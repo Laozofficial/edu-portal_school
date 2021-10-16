@@ -125,6 +125,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_single_student/{student}/{institution}', [StudentController::class, 'get_single_student']);
                 Route::post('assign_class_to_student/{student}', [StudentController::class, 'assign_class_to_student']);
                 Route::get('get_single-student_by_id/{student}', [StudentController::class, 'get_single_student_by_id']);
+                Route::post('update_student/{student}', [StudentController::class, 'update_student']);
 
                 // time table routes
                 Route::get('get_other_details/{institution}', [TimeTableController::class, 'get_other_details']);

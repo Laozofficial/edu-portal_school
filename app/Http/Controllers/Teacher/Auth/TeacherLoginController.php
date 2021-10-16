@@ -36,7 +36,7 @@ class TeacherLoginController extends Controller
             return response($errors, 400);
         }
 
-        if(Auth::user()->status = 1) {
+        if(Auth::user()->status == 1) {
             $response = [
                 'errors' => ['Your Account has been banned and you no longer have access to this system']
             ];
@@ -44,7 +44,7 @@ class TeacherLoginController extends Controller
             return response($response, 400);
         }
 
-        if(Auth::user()->type != 1) {
+        if(Auth::user()->role != 1) {
             $response = [
                 'errors' => ['You are not a Registered Teacher on this system']
             ];

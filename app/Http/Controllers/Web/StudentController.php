@@ -44,7 +44,6 @@ class StudentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'first_name' => 'required',
-            'middle_name' => 'required',
             'last_name' => 'required',
             'gender' => 'required',
             'religion' => 'required',
@@ -171,5 +170,61 @@ class StudentController extends Controller
         ];
 
         return response($response, 200);
+    }
+
+    public function update_student(Request $request, Student $student)
+    {
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'present_address' => 'required',
+            'date_of_birth' => 'required',
+            'avatar' => 'image|mimes:jpeg,png,jpg|max:2048|nullable'
+        ]);
+
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422); //return error validator error
+        }
+
+        $student->first_name = $request->get('first_name');
+        $student->middle_name = $request->get('middle_name');
+        $student->last_name = $request->get('last_name');
+        $student->present_address = $request->get('present_address');
+        $student->date_of_birth = $request->get('date_of_birth');
+        if ($request->hasFile('avatar')) {
+            $logo = $request->file('avatar');
+            $extension = $logo->getClientOriginalExtension(); // you can also use file name
+            $image =   Auth::user()->id . '-1-' . time() . '.' . $extension;
+            $path = Env('PUBLIC_IMAGE_PATH');
+            $upload = $logo->move($path, $image);
+
+            $student->image = $image;
+        }
+        $student->save();
+
+        $user = User::findOrFail($student->user->id);
+        $user->name = $request->get('first_name') . ' ' . $request->get('last_name');
+        if($request->get('password')) {
+            $validator = Validator::make($request->all(), [
+                'password' => 'required|confirmed',
+            ]);
+
+
+            if ($validator->fails()) {
+                return response(['errors' => $validator->errors()->all()], 422); //return error validator error
+            }
+
+            $user->password = Hash::make($request->get('password'));
+        }
+        $user->save();
+
+        $response = [
+            'success' => 'Updates has been saved'
+        ];
+
+        return response($response, 200);
+
+
     }
 }

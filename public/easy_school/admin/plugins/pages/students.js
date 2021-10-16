@@ -19,6 +19,13 @@ new Vue({
         selected_class: '',
 
         is_button_active: true,
+
+        avatar: '',
+        password: '',
+        password_confirmation: '',
+
+        alert: false,
+        errors: []
     },
     mounted() {
         this.get_schools();
@@ -153,6 +160,62 @@ new Vue({
         hide_button_when_class_is_not_selected() {
             if (Number.isInteger(this.selected_class)) {
                 this.is_button_active = false;
+            }
+        },
+        update_student(id) {
+            swal.fire('please wait ....');
+            swal.showLoading();
+
+            axios.get(`${url.get_single_student + id + '/' + this.selected_institution}`, config)
+                .then((response) => {
+                    console.log(response);
+                    swal.close();
+                    this.student = response.data.student;
+                    this.classes = response.data.classes;
+
+                    $('#update_school').modal('show');
+                })
+                .catch((error) => {
+                    console.log(error);
+                    swal.close();
+                    toastr.error(`something went wrong ${error.response.status}`);
+                })
+        },
+        onPassportChange(event) {
+             this.avatar = event.target.files[0];
+        },
+        update_profile() {
+            if (this.student.first_name == '' || this.student.last_name == '' || this.student.present_address == '' || this.student.date_of_birth == '') {
+                swal.fire('Oops', 'some fields are missing', 'error');
+            } else {
+                swal.fire('Please wait .....');
+                swal.showLoading();
+
+                let fd = new FormData;
+                fd.append('first_name', this.student.first_name);
+                fd.append('middle_name', this.student.middle_name);
+                fd.append('last_name', this.student.last_name);
+                fd.append('date_of_birth', this.student.date_of_birth);
+                fd.append('present_address', this.student.present_address);
+                fd.append('avatar', this.avatar);
+                fd.append('password', this.password);
+                fd.append('password_confirmation', this.password_confirmation);
+
+                axios.post(`${url.update_student + this.student.id}`, fd, config)
+                    .then((response) => {
+                        console.log(response);
+                        swal.close();
+                        this.get_students();
+                        $('#update_school').modal('show');
+                        swal.fire('Weldon', response.data.success, 'success');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        swal.close();
+                        this.errors = error.response.data.errors;
+                        this.alert = true;
+                        toastr.error(`something went wrong ${error.response.status}`);
+                    })
             }
         },
         view_student(id) {
