@@ -78,6 +78,7 @@ let url = {
     assign_class: 'assign_class_to_student/',
     get_single_student_by_id: 'get_single-student_by_id/',
     update_student: 'update_student/',
+    make_alumni: 'make_alumni/',
 
     // time table routes
     get_other_details: 'get_other_details/',

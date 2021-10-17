@@ -57,6 +57,7 @@
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -86,6 +87,12 @@
                                                 <td>
                                                     <button class="btn btn-info btn-sm shadow" @click="assign_to_class(student.id)">
                                                         <i class="fa fa-tasks"></i>  assign to class
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-danger btn-sm shadow"
+                                                        @click="make_alumni(student.id)">
+                                                        <i class="fa fa-graduation-cap"></i> Make Alumni
                                                     </button>
                                                 </td>
                                             </tr>

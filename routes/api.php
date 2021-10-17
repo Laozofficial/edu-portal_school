@@ -99,6 +99,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::post('save_subject/{institution}', [SubjectController::class, 'save_subject']);
                 Route::get('get_single_subject/{subject}', [SubjectController::class, 'get_single_subject']);
                 Route::post('save_subject_update/{subject}', [SubjectController::class, 'save_subject_update']);
+                Route::get('make_alumni/{student}', [StudentController::class, 'make_alumni']);
 
                 // grades
                 Route::post('save_grades/{institution}', [GradeScaleController::class, 'save_grade']);

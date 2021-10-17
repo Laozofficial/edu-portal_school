@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
 use App\Http\Controllers\Teacher\TeacherViewController;
+use App\Http\Controllers\Web\AlumniController;
 use App\Http\Controllers\Web\AssessmentTypeController;
 use App\Http\Controllers\Web\GradeScaleController;
 use App\Http\Controllers\Web\SubjectController;
@@ -89,6 +90,9 @@ Route::prefix('dashboard')->group(function () {
         // Parents Route
         Route::get('add-parents', [ParentController::class, 'add_parents_view']);
         Route::get('parents', [ParentController::class, 'parent_view']);
+
+        // Alumni Route
+        Route::get('alumni', [AlumniController::class, 'alumni_view']);
 
 
     });

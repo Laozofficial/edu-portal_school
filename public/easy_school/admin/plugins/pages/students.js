@@ -224,6 +224,37 @@ new Vue({
         showContent() {
             this.loading = false;
             this.content = true;
+        },
+        make_alumni(id) {
+            swal({
+                    title: "Are you sure?",
+                    text: "Once done, Student will be an alumni and will be no longer be given access to school day to day activity",
+                    type: "warning",
+                    showConfirmButton: true,
+                    cancelButtonText: "Cancel",
+                    showCancelButton: true,
+                })
+                .then((isConfirmed) => {
+                    console.log(isConfirmed.dismiss)
+                    if (isConfirmed.dismiss == 'cancel' || isConfirmed.dismiss == 'overlay') {
+                        console.log('do nothing')
+                    } else {
+                        swal('please wait ....');
+                        swal.showLoading();
+
+                        axios.get(`${url.make_alumni + id}`, config)
+                            .then((response) => {
+                                console.log(response);
+                                swal.close();
+                                swal('Weldon', response.data.success, 'success');
+                                this.get_students();
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                                toastr.error(`something went wrong, ${response.data.status}`);
+                            });
+                    }
+                });
         }
     },
 

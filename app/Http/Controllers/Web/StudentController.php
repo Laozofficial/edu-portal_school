@@ -224,7 +224,17 @@ class StudentController extends Controller
         ];
 
         return response($response, 200);
+    }
 
+    public function make_alumni(Student $student)
+    {
+        $student->type = 0;
+        $student->save();
 
+        $response = [
+            'success' => 'Student has been Marked as an Alumni'
+        ];
+
+        return response($response, 200);
     }
 }
