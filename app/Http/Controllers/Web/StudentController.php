@@ -228,11 +228,36 @@ class StudentController extends Controller
 
     public function make_alumni(Student $student)
     {
-        $student->type = 0;
+        $student->type = 1;
         $student->save();
 
         $response = [
             'success' => 'Student has been Marked as an Alumni'
+        ];
+
+        return response($response, 200);
+    }
+
+    public function get_student_alumni(Institution $institution)
+    {
+        $students = Student::where('institution_id', $institution->id)
+                    ->where('type', 1)
+                    ->paginate(30);
+
+        $response = [
+            'students' => $students
+        ];
+
+        return response($response, 200);
+    }
+
+    public function remove_as_alumni(Student $student)
+    {
+        $student->type = 0;
+        $student->save();
+
+        $response = [
+            'success' => 'Student has been Removed as an Alumni and has been given access to the school\'s  day to day activities'
         ];
 
         return response($response, 200);

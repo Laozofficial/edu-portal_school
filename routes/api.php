@@ -16,9 +16,6 @@ use App\Http\Controllers\Web\ParentController;
 use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TeacherController;
 use App\Http\Controllers\Web\TimeTableController;
-use App\Models\AssessmentStudent;
-use App\Models\GradeScale;
-use App\Models\TimeTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -127,6 +124,8 @@ Route::prefix('dashboard')->group(function () {
                 Route::post('assign_class_to_student/{student}', [StudentController::class, 'assign_class_to_student']);
                 Route::get('get_single-student_by_id/{student}', [StudentController::class, 'get_single_student_by_id']);
                 Route::post('update_student/{student}', [StudentController::class, 'update_student']);
+                Route::get('get_student_alumni/{institution}', [StudentController::class, 'get_student_alumni']);
+                Route::get('remove_as_alumni/{student}', [StudentController::class, 'remove_as_alumni']);
 
                 // time table routes
                 Route::get('get_other_details/{institution}', [TimeTableController::class, 'get_other_details']);

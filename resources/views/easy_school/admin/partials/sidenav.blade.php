@@ -57,8 +57,7 @@
                         <ul aria-expanded="false">
                             <li><a href="{{url('/dashboard/admin/students')}}"><i class="lni lni-user"></i> Students</a></li>
                             <li><a href="{{url('/dashboard/admin/add-students')}}"><i class="lni lni-plus"></i> Add Students</a></li>
-                            <li><a href="{{url('/dashboard/admin/student-attendance')}}"><i class="lni lni-checkmark-circle"></i> Mark Attendance</a></li>
-                            <li><a href="{{url('/dashboard/admin/student-remark')}}"><i class="lni lni-cup"></i> Remark</a></li>
+                            <li><a href="{{url('/dashboard/admin/alumni')}}"><i class="lni lni-user"></i> Alumni's</a></li>
                         </ul>
                     </li>
 
