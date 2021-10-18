@@ -106,6 +106,7 @@ Route::prefix('dashboard')->group(function () {
         });
 
         Route::get('index', [TeacherViewController::class, 'index']);
+        Route::get('classes', [TeacherViewController::class, 'classes']);
 
     });
 

@@ -97,7 +97,9 @@ let url = {
     get_all_parents: 'get_all_parents/',
 
     //teacher auth
-    teacher_login: 'teacher-login'
+    teacher_login: 'teacher-login',
+    teacher_classes: 'teacher_classes',
+    get_level_student: 'get_level_student/'
 
 }
 

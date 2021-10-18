@@ -11,4 +11,9 @@ class TeacherViewController extends Controller
     {
         return view(env('APP_THEME').'.teacher.pages.index');
     }
+
+    public function classes()
+    {
+        return view(env('APP_THEME').'.teacher.pages.classes');
+    }
 }

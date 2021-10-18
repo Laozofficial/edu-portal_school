@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
+use App\Http\Controllers\Teacher\TeacherClassController;
 use App\Http\Controllers\Web\GradeScaleController;
 use App\Http\Controllers\Web\LevelController;
 use App\Http\Controllers\Web\SubjectController;
@@ -151,7 +152,8 @@ Route::prefix('dashboard')->group(function () {
         });
 
         Route::middleware(['auth:api'])->group(function () {
-
+            Route::get('teacher_classes', [TeacherClassController::class, 'teacher_classes']);
+            Route::get('get_level_student/{level}', [TeacherClassController::class, 'get_level_students']);
         });
     });
 });
