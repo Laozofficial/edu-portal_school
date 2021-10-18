@@ -50,8 +50,6 @@
                           </li>
                           <li><a href="{{url('/dashboard/admin/classes')}}"><i class="lni lni-users"></i> Classes</a>
                           </li>
-                          <li><a href="{{url('/dashboard/admin/traits')}}"><i class="lni lni-more-alt"></i> Traits </a>
-                          </li>
                           <li><a href="{{url('/dashboard/admin/grade-scale')}}"><i class="lni lni-network"></i> Grade
                                   Scale</a></li>
                           <li><a class="has-arrow ai-icon" aria-expanded="false">
@@ -68,8 +66,6 @@
                           </li>
                           <li><a href="{{url('/dashboard/admin/time-table')}}"><i class="lni lni-paperclip"></i> Time
                                   Table</a></li>
-                          <li><a href="{{url('/dashboard/admin/assignment')}}"><i class="lni lni-customer"></i>
-                                  Assignments</a></li>
                       </ul>
                   </li>
 
