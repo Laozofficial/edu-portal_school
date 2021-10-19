@@ -54,6 +54,18 @@
                                             <div class="mb-3">
                                                 <button class="btn btn-primary w-100 waves-effect waves-light" @click="login">Log In</button>
                                             </div>
+                                             <div class="row">
+                                                 <div class="col-md-6">
+                                                     <a href="" class="btn btn-primary btn-block">
+                                                         <i class="fa fa-graduation-cap"></i> Student Login
+                                                     </a>
+                                                 </div>
+                                                 <div class="col-md-6 text-right">
+                                                     <a href="{{ url('/dashboard/teacher/auth/login') }}" class="btn btn-danger btn-block">
+                                                         <i class="fa fa-user"></i> Teacher Login
+                                                     </a>
+                                                 </div>
+                                             </div>
                                         </div>
 
                                       <!--  <div class="mt-4 pt-2 text-center">

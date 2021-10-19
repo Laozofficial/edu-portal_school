@@ -66,9 +66,9 @@
 <body>
 
     <div id="layout-wrapper">
-        @include('edu_portal.Teacher.partials.header')
+        @include('edu_portal.teacher.partials.nav')
 
-        @include('edu_portal.Teacher.partials.sidenav')
+        @include('edu_portal.teacher.partials.sidenav')
 
         <!-- ============================================================== -->
         <!-- Start right Content here -->

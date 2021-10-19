@@ -34,7 +34,7 @@
                                 <div class="mt-4 pt-2">
                                     <div class="mb-3">
                                         <label class="form-label">School Identification Number</label>
-                                        <input type="text" class="form-control" id="email" placeholder="Enter Email"
+                                        <input type="text" class="form-control" id="email" placeholder="Enter School Identification Number"
                                             v-model="s_id">
                                     </div>
                                     <div class="mb-3">
@@ -64,6 +64,7 @@
                                         <button class="btn btn-primary w-100 waves-effect waves-light"
                                             @click="login">Log In</button>
                                     </div>
+
                                 </div>
 
                                 <!--  <div class="mt-4 pt-2 text-center">

@@ -21,7 +21,16 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Add Student
+                   <div class="row">
+                       <div class="col-md-6">
+
+                       </div>
+                       <div class="col-md-6">
+                           <span class="d-block fs-16">Select Institution</span>
+                           <v-select :options="institutions" label="name" v-model="selected_institution"
+                               :reduce="institutions => institutions.id" id="institution"></v-select>
+                       </div>
+                   </div>
                 </div>
                 <div class="card-body">
                     <div v-for="error in errors" class="mb-4 col-md-12 container">
