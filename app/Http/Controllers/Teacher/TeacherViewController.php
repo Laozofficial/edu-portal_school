@@ -16,4 +16,9 @@ class TeacherViewController extends Controller
     {
         return view(env('APP_THEME').'.teacher.pages.classes');
     }
+
+    public function add_assessment()
+    {
+        return view(env('APP_THEME').'.teacher.pages.enter-assessment');
+    }
 }

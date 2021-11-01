@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
+use App\Http\Controllers\Teacher\TeacherAssignmentController;
+use App\Http\Controllers\Teacher\TeacherTimeTableController;
 use App\Http\Controllers\Teacher\TeacherViewController;
 use App\Http\Controllers\Web\AlumniController;
 use App\Http\Controllers\Web\AssessmentTypeController;
@@ -107,6 +109,9 @@ Route::prefix('dashboard')->group(function () {
 
         Route::get('index', [TeacherViewController::class, 'index']);
         Route::get('classes', [TeacherViewController::class, 'classes']);
+        Route::get('add-assessment', [TeacherViewController::class, 'add_assessment']);
+        Route::get('time-table', [TeacherTimeTableController::class, 'time_table']);
+        Route::get('assignment', [TeacherAssignmentController::class, 'assignment_view']);
 
     });
 

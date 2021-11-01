@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
+use App\Http\Controllers\Teacher\TeacherAssessmentController;
 use App\Http\Controllers\Teacher\TeacherClassController;
+use App\Http\Controllers\Teacher\TeacherTermsController;
+use App\Http\Controllers\Teacher\TeacherTimeTableController;
 use App\Http\Controllers\Web\GradeScaleController;
 use App\Http\Controllers\Web\LevelController;
 use App\Http\Controllers\Web\SubjectController;
@@ -154,6 +157,12 @@ Route::prefix('dashboard')->group(function () {
         Route::middleware(['auth:api'])->group(function () {
             Route::get('teacher_classes', [TeacherClassController::class, 'teacher_classes']);
             Route::get('get_level_student/{level}', [TeacherClassController::class, 'get_level_students']);
+            Route::get('get_student_records/{student}', [TeacherAssessmentController::class, 'get_student_records']);
+            Route::get('teacher_get_terms/{session}', [TeacherTermsController::class, 'teacher_get_terms']);
+            Route::get('teacher_get_subjects/{level}', [TeacherClassController::class, 'teacher_get_subjects']);
+            Route::get('get_other_details', [TeacherTimeTableController::class, 'get_other_details']);
+            Route::get('get_terms_from_academic_session/{session}', [TeacherTimeTableController::class, 'get_terms_from_academic_session']);
+            Route::post('get_time_tables', [TeacherTimeTableController::class, 'get_time_tables']);
         });
     });
 });

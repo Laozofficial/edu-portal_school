@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Teacher;
 use App\Models\Level;
 use App\Models\Student;
+use App\Models\Subject;
 
 class TeacherClassController extends Controller
 {
@@ -28,6 +29,17 @@ class TeacherClassController extends Controller
         $students = Student::where('level_id', $level->id)->paginate(30);
         $response = [
             'students' => $students
+        ];
+
+        return response($response, 200);
+    }
+
+    public function teacher_get_subjects(Level $level)
+    {
+        $subjects = Subject::where('level_id', $level->iid)->orderBy('name', 'desc')->get();
+
+        $response = [
+            'subjects' =>  $subjects
         ];
 
         return response($response, 200);
