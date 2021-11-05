@@ -60,6 +60,9 @@ new Vue({
         showContent() {
             this.loading = false;
             this.content = true;
+        },
+        view_records(id) {
+
         }
     }
 })

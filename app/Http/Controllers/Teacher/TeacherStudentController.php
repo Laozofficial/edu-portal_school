@@ -24,4 +24,11 @@ class TeacherStudentController extends Controller
 
         return response($response, 200);
     }
+
+    public function student_record_view(Student $student)
+    {
+        return view(env('APP_THEME').'.teacher.pages.student-records', [
+            'id' => $student->id
+        ]);
+    }
 }

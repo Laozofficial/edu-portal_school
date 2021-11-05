@@ -116,6 +116,7 @@ Route::prefix('dashboard')->group(function () {
         Route::get('assignment', [TeacherAssignmentController::class, 'assignment_view']);
         Route::get('students', [TeacherStudentController::class, 'students']);
         Route::get('student-attendance', [TeacherAttendanceController::class, 'student_attendance']);
+        Route::get('student-record/{student}', [TeacherStudentController::class, 'student_record_view']);
 
     });
 
