@@ -82,7 +82,24 @@ new Vue({
                 swal.fire('please wait ....');
                 swal.showLoading();
 
-                // axios.get(`${url.teacher_get_student_assessment + id}`, config)
+                axios.get(`${url.teacher_get_student_assessment + id}`, config)
+                    .then((response) => {
+                        console.log(response);
+                        swal.close();
+                        this.sessions = response.data.sessions;
+                        this.levels = response.data.levels;
+                        this.subjects = response.data.subjects;
+                        this.assessment_types = response.data.assessment_types;
+                        this.student = response.data.student;
+                        $('#record_assessment').modal('show');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        toastr.error(`something went wrong ${error.response.status}`);
+                    })
+                    .then(() => {
+                        swal.close();
+                    });
 
             },
             get_terms() {
@@ -120,31 +137,38 @@ new Vue({
                     });
             },
             save_assessment() {
-                
+                if (this.selected_assessment_type == '' || this.selected_level == '' || this.selected_session == '' || this.selected_subject == '' || this.selected_term == '' || this.score == '') {
+                    swal.fire('some fields are empty');
+                } else {
+                    swal.fire('Please wait....');
+                    swal.showLoading();
+
+                    let fd = new FormData;
+                    fd.append('assessment_type_id', this.selected_assessment_type);
+                    fd.append('level_id', this.selected_level);
+                    fd.append('session_id', this.selected_session);
+                    fd.append('subject_id', this.selected_subject);
+                    fd.append('term_id', this.selected_term);
+                    fd.append('score', this.score);
+                    fd.append('student_id', this.student.id);
+
+                    axios.post(`${url.teacher_save_assessment}`, fd, config)
+                        .then((response) => {
+                            console.log(response);
+                            swal.close();
+                            $('#record_assessment').modal('hide');
+                            swal.fire('Weldon', response.data.success, 'success');
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                            swal.fire('Oops', error.response.data.error, 'error');
+                            toastr.error(`something went wrong ${error.response.status}`);
+                        });
+                }
+
+
             }
-            // record_assessment(id) {
-            //     swal.fire('please wait...');
-            //     swal.showLoading();
 
-            //     axios.get(`${url.get_details_to_assessment + this.selected_institution + '/'+ id}`, config)
-            //         .then((response) => {
-            //             console.log(response);
-            //             this.levels = response.data.levels;
-            //             this.sessions = response.data.sessions;
-            //             this.subjects = response.data.subjects;
-            //             this.student = response.data.student;
-            //             this.assessment_types = response.data.assessment_types;
-
-            //             $('#record_assessment').modal('show');
-            //         })
-            //         .catch((error) => {
-            //             console.log(error);
-            //             toastr.error(`something went wrong ${error.response.status}`);
-            //         })
-            //         .then(() => {
-            //             swal.close();
-            //         });
-            // },
 
     }
 })

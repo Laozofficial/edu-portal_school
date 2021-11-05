@@ -36,7 +36,7 @@ class TeacherClassController extends Controller
 
     public function teacher_get_subjects(Level $level)
     {
-        $subjects = Subject::where('level_id', $level->iid)->orderBy('name', 'desc')->get();
+        $subjects = Subject::where('level_id', $level->id)->orderBy('name', 'desc')->get();
 
         $response = [
             'subjects' =>  $subjects

@@ -15,12 +15,14 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('teacher_id')->constrained();
             $table->foreignId('student_id')->constrained();
             $table->foreignId('level_id')->constrained();
             $table->foreignId('academic_year_id')->constrained();
-            $table->integer('attend_days')->unsigned();
-            $table->integer('total_days')->unsigned();
+            $table->foreignId('term_id')->constrained();
+            $table->foreignId('institution_id')->constrained();
+            $table->integer('status')->unsigned();
+            $table->date('date_recorded');
             $table->timestamps();
         });
     }

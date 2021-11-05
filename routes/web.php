@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
 use App\Http\Controllers\Teacher\TeacherAssignmentController;
+use App\Http\Controllers\Teacher\TeacherAttendanceController;
+use App\Http\Controllers\Teacher\TeacherStudentController;
 use App\Http\Controllers\Teacher\TeacherTimeTableController;
 use App\Http\Controllers\Teacher\TeacherViewController;
 use App\Http\Controllers\Web\AlumniController;
@@ -112,6 +114,8 @@ Route::prefix('dashboard')->group(function () {
         Route::get('add-assessment', [TeacherViewController::class, 'add_assessment']);
         Route::get('time-table', [TeacherTimeTableController::class, 'time_table']);
         Route::get('assignment', [TeacherAssignmentController::class, 'assignment_view']);
+        Route::get('students', [TeacherStudentController::class, 'students']);
+        Route::get('student-attendance', [TeacherAttendanceController::class, 'student_attendance']);
 
     });
 

@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
 use App\Http\Controllers\Teacher\TeacherAssessmentController;
+use App\Http\Controllers\Teacher\TeacherAssignmentController;
+use App\Http\Controllers\Teacher\TeacherAttendanceController;
 use App\Http\Controllers\Teacher\TeacherClassController;
+use App\Http\Controllers\Teacher\TeacherStudentController;
 use App\Http\Controllers\Teacher\TeacherTermsController;
 use App\Http\Controllers\Teacher\TeacherTimeTableController;
 use App\Http\Controllers\Web\GradeScaleController;
@@ -163,6 +166,12 @@ Route::prefix('dashboard')->group(function () {
             Route::get('get_other_details', [TeacherTimeTableController::class, 'get_other_details']);
             Route::get('get_terms_from_academic_session/{session}', [TeacherTimeTableController::class, 'get_terms_from_academic_session']);
             Route::post('get_time_tables', [TeacherTimeTableController::class, 'get_time_tables']);
+            Route::get('get_teacher_classes', [TeacherAssignmentController::class, 'get_teacher_classes']);
+            Route::get('get_assignments', [TeacherAssignmentController::class, 'get_assignments']);
+            Route::post('save_assignment', [TeacherAssignmentController::class, 'save_assignment']);
+            Route::post('save_assessment', [TeacherAssessmentController::class, 'save_assessments']);
+            Route::get('get_students_from_class/{level}', [TeacherStudentController::class, 'get_students_from_class']);
+            Route::post('save_attendance/{student}', [TeacherAttendanceController::class, 'save_attendance']);
         });
     });
 });

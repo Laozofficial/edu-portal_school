@@ -108,6 +108,12 @@ let url = {
     teacher_get_other_details: 'get_other_details',
     teacher_get_terms_from_academic_session: 'get_terms_from_academic_session/',
     teacher_get_time_tables: 'get_time_tables',
+    teacher_get_classes: 'get_teacher_classes',
+    teacher_get_assignment: 'get_assignments',
+    teacher_save_assignment: 'save_assignment',
+    teacher_save_assessment: 'save_assessment',
+    teacher_get_students_from_classes: 'get_students_from_class/',
+    teacher_save_attendance: 'save_attendance/',
 
 }
 
