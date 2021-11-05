@@ -65,7 +65,10 @@ class Student extends Model
         }
     }
 
-
+    public function assignment_answers()
+    {
+        return $this->hasMany('App\Models\AssignmentAnswer');
+    }
 
     protected $appends = [
         'full_name_text', 'created_at_text', 'type_text'

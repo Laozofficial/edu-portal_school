@@ -114,6 +114,9 @@ let url = {
     teacher_save_assessment: 'save_assessment',
     teacher_get_students_from_classes: 'get_students_from_class/',
     teacher_save_attendance: 'save_attendance/',
+    teacher_get_student_info: 'get_student_info/',
+    teacher_get_student_parents: 'get_student_parents/',
+    teacher_get_student_assessment_records: 'get_assessment_records/',
 
 }
 

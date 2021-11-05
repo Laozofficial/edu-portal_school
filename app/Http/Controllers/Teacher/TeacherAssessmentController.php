@@ -93,4 +93,14 @@ class TeacherAssessmentController extends Controller
             return response($response, 200);
        }
     }
+
+    public function get_assessment_records(Student $student)
+    {
+        $assessments = AssessmentStudent::where('student_id', $student->id)->orderBy('id', 'desc')->paginate(10);
+        $response = [
+            'assessments' => $assessments
+        ];
+
+        return response($response, 200);
+    }
 }

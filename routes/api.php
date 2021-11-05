@@ -172,6 +172,9 @@ Route::prefix('dashboard')->group(function () {
             Route::post('save_assessment', [TeacherAssessmentController::class, 'save_assessments']);
             Route::get('get_students_from_class/{level}', [TeacherStudentController::class, 'get_students_from_class']);
             Route::post('save_attendance/{student}', [TeacherAttendanceController::class, 'save_attendance']);
+            Route::get('get_student_info/{student}', [TeacherStudentController::class, 'get_student_info']);
+            Route::get('get_student_parents/{student}', [TeacherStudentController::class, 'get_student_parents']);
+            Route::get('get_assessment_records/{student}', [TeacherAssessmentController::class, 'get_assessment_records']);
         });
     });
 });

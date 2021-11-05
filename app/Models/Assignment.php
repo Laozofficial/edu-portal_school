@@ -55,6 +55,11 @@ class Assignment extends Model
         return  url('/') . '/uploads/' . $this->path;
     }
 
+    public function assignment_answers()
+    {
+        return $this->hasMnay('App\Models\AssignmentAnswer');
+    }
+
     protected $appends = [
         'submission_date_text', 'full_path_link', 'created_at_text'
     ];

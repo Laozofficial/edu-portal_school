@@ -62,7 +62,7 @@ new Vue({
             this.content = true;
         },
         view_records(id) {
-
-        }
+            window.location.href = '/dashboard/teacher/student-record/' + id;
+        },
     }
 })
