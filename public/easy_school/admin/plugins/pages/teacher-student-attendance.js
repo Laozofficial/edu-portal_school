@@ -12,7 +12,7 @@ new Vue({
         selected_student: '',
 
         levels: [],
-        selected_levels: '',
+        selected_level: '',
 
         sessions: [],
         selected_session: '',
@@ -115,7 +115,34 @@ new Vue({
                 });
         },
         record_attendance(id) {
+            if (this.selected_session == '' || this.selected_term == '' || this.selected_level == '' || this.status == '' || this.date_recorded == '') {
+                swal.fire('Oops', 'some fields are missing', 'error');
+            } else {
+                swal.fire('Please wait......');
+                swal.showLoading();
 
+                let fd = new FormData;
+                fd.append('session_id', this.selected_session);
+                fd.append('term_id', this.selected_term);
+                fd.append('level_id', this.selected_level);
+                fd.append('status', this.status);
+                fd.append('date_recorded', this.date_recorded);
+
+                axios.post(`${url.teacher_save_attendance + this.student.id}`, config)
+                    .then((response) => {
+                        console.log(response);
+                        swal.close();
+                        $('#attendance').modal('hide');
+                        swal.fire('Weldon', response.data.success, 'success');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        toastr.error(`something went wrong ${error.response.status}`);
+                    })
+                    .then(() => {
+                        // swal.close();
+                    });
+            }
         }
     }
 })
