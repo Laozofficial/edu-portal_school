@@ -128,7 +128,7 @@ new Vue({
                 fd.append('status', this.status);
                 fd.append('date_recorded', this.date_recorded);
 
-                axios.post(`${url.teacher_save_attendance + this.student.id}`, config)
+                axios.post(`${url.teacher_save_attendance + this.student.id}`,fd, config)
                     .then((response) => {
                         console.log(response);
                         swal.close();
@@ -137,6 +137,9 @@ new Vue({
                     })
                     .catch((error) => {
                         console.log(error);
+                        if (error.response.data.error) {
+                            swal.fire('Oops', error.response.data.error, 'error');
+                        }
                         toastr.error(`something went wrong ${error.response.status}`);
                     })
                     .then(() => {

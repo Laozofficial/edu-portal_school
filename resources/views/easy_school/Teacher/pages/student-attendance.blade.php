@@ -109,8 +109,8 @@
                       <label for="" class="mt-3">Attendance Status</label>
                       <div class="form-group">
                           <select class="form-control default-select form-control-lg" v-model="status">
-                              <option>Present</option>
-                              <option>Absent</option>
+                              <option value="0">Present</option>
+                              <option value="1">Absent</option>
                           </select>
                       </div>
                       <label class="mt-3">Date</label>

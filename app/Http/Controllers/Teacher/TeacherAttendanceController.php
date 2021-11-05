@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Attendance;
 use App\Models\Teacher;
 
