@@ -117,6 +117,7 @@ let url = {
     teacher_get_student_info: 'get_student_info/',
     teacher_get_student_parents: 'get_student_parents/',
     teacher_get_student_assessment_records: 'get_assessment_records/',
+    teacher_get_grade_scale: 'get_grade_scale',
 
 }
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\Teacher\TeacherAssessmentController;
 use App\Http\Controllers\Teacher\TeacherAssignmentController;
 use App\Http\Controllers\Teacher\TeacherAttendanceController;
 use App\Http\Controllers\Teacher\TeacherClassController;
+use App\Http\Controllers\Teacher\TeacherGradeScaleController;
 use App\Http\Controllers\Teacher\TeacherStudentController;
 use App\Http\Controllers\Teacher\TeacherTermsController;
 use App\Http\Controllers\Teacher\TeacherTimeTableController;
@@ -175,6 +176,7 @@ Route::prefix('dashboard')->group(function () {
             Route::get('get_student_info/{student}', [TeacherStudentController::class, 'get_student_info']);
             Route::get('get_student_parents/{student}', [TeacherStudentController::class, 'get_student_parents']);
             Route::get('get_assessment_records/{student}', [TeacherAssessmentController::class, 'get_assessment_records']);
+            Route::get('get_grade_scale', [TeacherGradeScaleController::class, 'get_grade_scale']);
         });
     });
 });

@@ -71,7 +71,7 @@
                                        <th><strong>Class</strong></th>
                                        <th><strong>Term</strong></th>
                                        <th><strong>Download</strong></th>
-                                       <th></th>
+                                       <!-- <th></th> -->
                                    </tr>
                                </thead>
                                <tbody>
@@ -81,13 +81,13 @@
                                        <td>@{{ time_table.level.name }}</td>
                                        <td>@{{ time_table.term.name }}</td>
                                        <td><a :href="time_table.download_link" class="text-primary"> Download</a></td>
-                                       <td>
+                                       <!-- <td>
                                            <div class="d-flex">
                                                <a href="#" class="btn btn-danger shadow btn-xs sharp mr-1"
                                                    @click="delete_time_table(time_table.id)"><i
                                                        class="fa fa-trash text-white"></i></a>
                                            </div>
-                                       </td>
+                                       </td> -->
                                    </tr>
                                </tbody>
                            </table>
