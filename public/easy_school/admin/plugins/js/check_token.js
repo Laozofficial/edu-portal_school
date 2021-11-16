@@ -54,6 +54,11 @@ $("#logout-button").click(function(){
     remove_token_and_redirect_to_login();
 });
 
+let showContentView = () => {
+    $('#page_loader').hide();
+    $('#show_content').show();
+};
+
 
 
 

@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <title>Easy School </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('easy_school/images/favicon.png') }}">
     <link href="{{asset('easy_school/admin/vendor/jqvmap/css/jqvmap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('easy_school/admin/vendor/chartist/css/chartist.min.css')}}">
     <link href="{{asset('easy_school/admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}"
@@ -23,6 +23,8 @@
     <!-- page plugins -->
     <link href="{{asset('easy_school/admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('easy_school/admin/vendor/toastr/css/toastr.min.css')}}" />
+
+    @yield('style')
 
     <style>
         body,

@@ -22,10 +22,10 @@ class TeacherTimeTableController extends Controller
 
     public function get_other_details()
     {
-        $institution = Teacher::where('user_id', Auth::user()->id)->first();
+        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
 
-        $sessions = AcademicYear::where('institution_id', $institution->institution_id)->orderBy('id', 'desc')->get();
-        $levels = Level::where('teacher_id', $institution->id)->orderBy('id', 'desc')->get();
+        $sessions = AcademicYear::where('institution_id', $teacher->institution_id)->orderBy('id', 'desc')->get();
+        $levels = Level::where('teacher_id', $teacher->id)->orderBy('id', 'desc')->get();
 
         $response = [
             'sessions' => $sessions,

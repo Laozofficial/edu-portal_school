@@ -7,6 +7,7 @@ use App\Http\Controllers\Teacher\TeacherAttendanceController;
 use App\Http\Controllers\Teacher\TeacherClassController;
 use App\Http\Controllers\Teacher\TeacherGradeScaleController;
 use App\Http\Controllers\Teacher\TeacherStudentController;
+use App\Http\Controllers\Teacher\TeacherStudyMaterialController;
 use App\Http\Controllers\Teacher\TeacherTermsController;
 use App\Http\Controllers\Teacher\TeacherTimeTableController;
 use App\Http\Controllers\Web\GradeScaleController;
@@ -177,6 +178,7 @@ Route::prefix('dashboard')->group(function () {
             Route::get('get_student_parents/{student}', [TeacherStudentController::class, 'get_student_parents']);
             Route::get('get_assessment_records/{student}', [TeacherAssessmentController::class, 'get_assessment_records']);
             Route::get('get_grade_scale', [TeacherGradeScaleController::class, 'get_grade_scale']);
+            Route::get('get_teacher_materials', [TeacherStudyMaterialController::class, 'get_materials']);
         });
     });
 });

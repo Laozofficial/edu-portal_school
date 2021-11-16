@@ -96,8 +96,8 @@
 
 
             <li>
-                <a href="study-materials">
-                    <i class="fa fa-book"></i>
+                <a href="{{ url('/dashboard/teacher/study-materials') }}">
+                    <i class="lni lni-book"></i>
                     <span class="nav-text">Study Materials</span>
                 </a>
             </li>

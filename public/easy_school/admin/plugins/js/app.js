@@ -118,6 +118,7 @@ let url = {
     teacher_get_student_parents: 'get_student_parents/',
     teacher_get_student_assessment_records: 'get_assessment_records/',
     teacher_get_grade_scale: 'get_grade_scale',
+    teacher_get_materials: 'get_teacher_materials'
 
 }
 
@@ -131,8 +132,6 @@ let url = {
 
 
 var institution_and_empty_field_error = 'Some fields are missing and if you have not selected an institution, it\'s at the top right of your screen , please do so'
+var server_error = 'something went wrong';
 
 
-
-
-hide_alert();
