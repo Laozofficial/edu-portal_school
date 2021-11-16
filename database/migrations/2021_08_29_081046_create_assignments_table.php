@@ -21,6 +21,7 @@ class CreateAssignmentsTable extends Migration
             $table->foreignId('subject_id')->constrained();
             $table->foreignId('term_id')->constrained();
             $table->foreignId('teacher_id')->constrained();
+            $table->integer('score')->unsigned()->default(0);
 
             $table->string('path');
             $table->date('submission_date');

@@ -57,6 +57,7 @@ class TeacherAssignmentController extends Controller
         $assignment->subject_id = $request->get('subject_id');
         $assignment->term_id = $request->get('term_id');
         $assignment->submission_date = Carbon::parse($request->get('submission_date'));
+        $assignment->score = $request->get('score');
         if ($request->hasFile('assignment')) {
             $tt = $request->file('assignment');
             $extension = $tt->getClientOriginalExtension(); // you can also use file name

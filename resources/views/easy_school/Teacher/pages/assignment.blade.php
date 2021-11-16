@@ -11,8 +11,8 @@
 <div class="container-fluid" v-show="content">
     <div class="form-head d-flex mb-3 align-items-start">
         <div class="mr-auto d-none d-lg-block">
-            <h2 class="text-black font-w600 mb-0">School Terms</h2>
-            <p class="mb-0">Add A Term</p>
+            <h2 class="text-black font-w600 mb-0">Assignments</h2>
+            <p class="mb-0">All Assignments</p>
         </div>
         <!-- <div class="dropdown custom-dropdown">
             <div class="btn btn-sm btn-primary light d-flex align-items-center svg-btn" data-toggle="dropdown">
@@ -34,7 +34,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card shadow-lg">
                 <div class="card-header">
                     Add Assignments
@@ -65,6 +65,9 @@
                     <label class="mt-3">Submission Date</label>
                     <input class="form-control form-control-sm" type="date" v-model="submission_date"/>
 
+                    <label for="score">Assignment Score</label>
+                    <input class="form-control form-control-sm" type="number" v-model="score" placeholder="Assignment Scores"/>
+
                     <label class="mt-3">Upload Assignment File</label>
                     <input class="form-control form-control" type="file" @change="onAssignmentChange"/>
 
@@ -74,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card shadow-lg">
                 <div class="card-header">
                     <div class="row">
@@ -94,9 +97,10 @@
                                     <th scope="col">Subject</th>
                                     <th scope="col">Term</th>
                                     <th scope="col">Submission Deadline</th>
+                                    <th scope="col">Assignment Score</th>
                                     <th scope="col">Assignment Link</th>
                                     <th scope="col">Created on</th>
-                                    <!--<th scope="col"></th>-->
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -107,13 +111,14 @@
                                     <td>@{{ assignment.subject.name }}</td>
                                     <td>@{{ assignment.term.name }}</td>
                                     <td>@{{ assignment.submission_date_text }}</td>
+                                    <td>@{{ assignment.score }} marks</td>
                                     <td><a :href="assignment.full_path_link" class="text-primary">Assignment Link</a></td>
                                     <td>@{{ assignment.created_at_text }}</td>
-                                    <!--<td>
-                                                <button class="btn btn-primary btn-xs" @click="view_student(student.id)">
-                                                    <i class="fa fa-eye"></i>
-                                                </button>
-                                            </td>-->
+                                    <td>
+                                        <button class="btn btn-primary btn-xs">
+                                            Submissions
+                                        </button>
+                                    </td>
 
                                 </tr>
                             </tbody>

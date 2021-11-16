@@ -34,38 +34,38 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
-              <div class="card">
-                  <div class="card-header">
-                      Grades
-                  </div>
-                  <div class="card-body">
-                      <div class="table-responsive">
-                          <table class="table table-responsive-md">
-                              <thead>
-                                  <tr>
-                                      <th style="width:80px;"><strong>#</strong></th>
-                                      <th><strong>Grade</strong></th>
-                                      <th><strong>From</strong></th>
-                                      <th><strong>To</strong></th>
-                                      <th><strong>Created at</strong></th>
-                                      <th></th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr v-for="(grade, index) in grade_scale">
-                                      <td><strong>@{{index + 1}}</strong></td>
-                                      <td>@{{grade.grade}}</td>
-                                      <td>@{{grade.lower_value}}</td>
-                                      <td>@{{grade.upper_value}}</td>
-                                      <td>@{{grade.created_at_text}}</td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-        </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        Grades
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-responsive-md">
+                                <thead>
+                                    <tr>
+                                        <th style="width:80px;"><strong>#</strong></th>
+                                        <th><strong>Grade</strong></th>
+                                        <th><strong>From</strong></th>
+                                        <th><strong>To</strong></th>
+                                        <th><strong>Created at</strong></th>
+                                        <!-- <th></th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(grade, index) in grade_scale">
+                                        <td><strong>@{{index + 1}}</strong></td>
+                                        <td>@{{grade.grade}}</td>
+                                        <td>@{{grade.lower_value}}</td>
+                                        <td>@{{grade.upper_value}}</td>
+                                        <td>@{{grade.created_at_text}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
 
 </div>

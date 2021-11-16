@@ -45,7 +45,10 @@
         input,
         textarea,
         label,
-        span {
+        span,
+        th,
+        tr,
+        td {
             font-size: 0.825rem !important;
             /*font-weight: 700 !important;*/
         }

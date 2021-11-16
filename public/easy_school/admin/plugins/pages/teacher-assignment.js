@@ -20,6 +20,8 @@ new Vue({
         submission_date: '',
         assignment: '',
 
+        score: '',
+
         assignments: [],
 
         page: 1,
@@ -106,7 +108,7 @@ new Vue({
             this.assignment = event.target.files[0];
         },
         save_assignment() {
-            if (this.selected_level == '' || this.selected_session == '' || this.selected_subject == '' || this.selected_terms == '' || this.submission_date == '' || this.assignment == '') {
+            if (this.selected_level == '' || this.selected_session == '' || this.selected_subject == '' || this.selected_terms == '' || this.submission_date == '' || this.assignment == '' || this.score == '') {
                 swal.fire('oops', 'some fields are still empty', 'error');
             } else {
                 swal.fire('Please wait.....');
@@ -119,6 +121,7 @@ new Vue({
                 fd.append('term_id', this.selected_term);
                 fd.append('submission_date', this.submission_date);
                 fd.append('assignment', this.assignment);
+                fd.append('score', this.score);
 
                 axios.post(`${url.teacher_save_assignment}`, fd, config)
                     .then((response) => {
