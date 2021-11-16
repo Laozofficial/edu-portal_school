@@ -179,6 +179,8 @@ Route::prefix('dashboard')->group(function () {
             Route::get('get_assessment_records/{student}', [TeacherAssessmentController::class, 'get_assessment_records']);
             Route::get('get_grade_scale', [TeacherGradeScaleController::class, 'get_grade_scale']);
             Route::get('get_teacher_materials', [TeacherStudyMaterialController::class, 'get_materials']);
+            Route::post('save_material', [TeacherStudyMaterialController::class, 'save_material']);
+            Route::get('delete_material/{material}', [TeacherStudyMaterialController::class, 'delete_material']);
         });
     });
 });

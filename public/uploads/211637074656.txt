@@ -1,0 +1,2 @@
+react-native-foodr-alias: foodr
+password: 1234567890

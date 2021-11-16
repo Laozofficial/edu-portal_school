@@ -39,11 +39,16 @@ class StudyMaterial extends Model
         return $this->belongsTo('App\Models\AcademicYear');
     }
 
+    public function getMaterialPathFullTextAttribute()
+    {
+        return  url('/') . '/uploads/' . $this->path;
+    }
+
     protected $with = [
-        'institution', 'teacher', 'subject', 'academic_year'
+        'institution', 'teacher', 'subject', 'academic_year', 'level'
     ];
 
     protected $appends = [
-        'created_at_text'
+        'created_at_text', 'material_path_full_text'
     ];
 }

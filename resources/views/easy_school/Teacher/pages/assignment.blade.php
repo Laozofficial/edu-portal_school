@@ -115,7 +115,7 @@
                                     <td><a :href="assignment.full_path_link" class="text-primary">Assignment Link</a></td>
                                     <td>@{{ assignment.created_at_text }}</td>
                                     <td>
-                                        <button class="btn btn-primary btn-xs">
+                                        <button class="btn btn-primary btn-xs" @click="see_submissions">
                                             Submissions
                                         </button>
                                     </td>

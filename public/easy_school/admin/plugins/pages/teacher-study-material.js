@@ -5,9 +5,16 @@ new Vue({
         loading: true,
         content: false,
 
-        levels: [],
+        levels: [
+            {
+                id: '',
+                name: ''
+            }
+        ],
         selected_level: '',
-        new_selected_class: '',
+
+        classes: [],
+        selected_class: '',
 
         subjects: [],
         selected_subject: '',
@@ -40,6 +47,7 @@ new Vue({
                 .then((response) => {
                     console.log(response);
                     this.levels = response.data.levels;
+                    this.classes = response.data.classes;
                     this.sessions = response.data.sessions;
                 })
                 .catch((error) => {
@@ -90,7 +98,70 @@ new Vue({
             }
         },
         onMaterialChange(event) {
+             this.material = event.target.files[0];
+        },
+        save_material() {
+            // get summernote values
+            this.description = $('.summernote').val();
+            if (this.selected_level == '' || this.selected_session == '' || this.selected_subject == '' || this.title == '' || this.material == '' || this.description == '')
+            {
+                swal.fire('Oops', 'some fields are missing', 'error');
+            } else {
+                swal.fire('Please wait.....');
+                swal.showLoading();
 
-        }
+                let fd = new FormData;
+                fd.append('level_id', this.selected_level);
+                fd.append('session_id', this.selected_session);
+                fd.append('subject_id', this.selected_subject);
+                fd.append('title', this.title);
+                fd.append('material', this.material);
+                fd.append('description', this.description);
+
+                axios.post(`${url.teacher_save_material}`, fd, config)
+                    .then((response) => {
+                        console.log(response);
+                        swal.fire('weldon', response.data.success, 'success');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        toastr.error(`${server_error} ${error.response.status}`);
+                    })
+                    .then(() => {
+                        this.get_materials();
+                    });
+            }
+        },
+        delete_material(id) {
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this file!",
+                    type: "warning",
+                    showConfirmButton: true,
+                    cancelButtonText: "Cancel",
+                    showCancelButton: true,
+                })
+                .then((isConfirmed) => {
+                    console.log(isConfirmed.dismiss)
+                    if (isConfirmed.dismiss == 'cancel' || isConfirmed.dismiss == 'overlay') {
+                        console.log('do nothing');
+                    } else {
+                        swal('please wait ....');
+                        swal.showLoading();
+
+                        axios.get(`${url.teacher_delete_material + id}`, config)
+                            .then((response) => {
+                                console.log(response);
+                                swal.close();
+                                swal('Weldon', response.data.success, 'success');
+                                this.get_materials();
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                                toastr.error(`something went wrong, ${response.data.status}`);
+                            });
+                    }
+                });
+        },
     }
 });

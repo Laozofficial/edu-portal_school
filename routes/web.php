@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
 use App\Http\Controllers\Teacher\TeacherAssignmentController;
+use App\Http\Controllers\Teacher\TeacherAssignmentSubmissionController;
 use App\Http\Controllers\Teacher\TeacherAttendanceController;
 use App\Http\Controllers\Teacher\TeacherGradeScaleController;
+use App\Http\Controllers\Teacher\TeacherLeaveController;
 use App\Http\Controllers\Teacher\TeacherStudentController;
 use App\Http\Controllers\Teacher\TeacherStudyMaterialController;
 use App\Http\Controllers\Teacher\TeacherTimeTableController;
@@ -121,6 +123,8 @@ Route::prefix('dashboard')->group(function () {
         Route::get('student-record/{student}', [TeacherStudentController::class, 'student_record_view']);
         Route::get('grade-scale', [TeacherGradeScaleController::class, 'grade_scale_view']);
         Route::get('study-materials', [TeacherStudyMaterialController::class, 'study_material_view']);
+        Route::get('submissions/{assignment}', [TeacherAssignmentSubmissionController::class, 'submission_view' ]);
+        Route::get('staff-leave', [TeacherLeaveController::class, 'staff_leave_view']);
 
     });
 

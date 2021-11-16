@@ -118,7 +118,9 @@ let url = {
     teacher_get_student_parents: 'get_student_parents/',
     teacher_get_student_assessment_records: 'get_assessment_records/',
     teacher_get_grade_scale: 'get_grade_scale',
-    teacher_get_materials: 'get_teacher_materials'
+    teacher_get_materials: 'get_teacher_materials',
+    teacher_save_material: 'save_material',
+    teacher_delete_material: 'delete_material/'
 
 }
 

@@ -142,5 +142,8 @@ new Vue({
                 this.get_assignments();
             }
         },
+        see_submissions() {
+            window.location.href = '/dashboard/teacher/submissions';
+        }
     }
 })

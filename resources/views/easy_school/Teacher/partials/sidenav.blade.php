@@ -93,7 +93,19 @@
                             <li><a href="{{url('/dashboard/teacher/parents')}}"><i class="lni lni-user"></i> Parents</a></li>
                         </ul>
                     </li> -->
+            <li>
+                <a href="{{ url('/dashboard/teacher/staff-leave') }}">
+                    <i class="lni lni-list"></i>
+                    <span class="nav-text">Staff Leave</span>
+                </a>
+            </li>
 
+            <!-- <li>
+                <a href="{{ url('/dashboard/teacher/submissions') }}">
+                    <i class="lni lni-list"></i>
+                    <span class="nav-text">Submissions</span>
+                </a>
+            </li> -->
 
             <li>
                 <a href="{{ url('/dashboard/teacher/study-materials') }}">
