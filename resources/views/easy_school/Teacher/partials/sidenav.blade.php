@@ -95,7 +95,12 @@
                     </li> -->
 
 
-
+            <li>
+                <a href="study-materials">
+                    <i class="fa fa-book"></i>
+                    <span class="nav-text">Study Materials</span>
+                </a>
+            </li>
 
             <li><a href="#">
                     <i class="lni lni-laptop-phone"></i>
