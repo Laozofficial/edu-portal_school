@@ -18,4 +18,17 @@ class AssignmentAnswer extends Model
     {
         return $this->belongsTo('App\Models\Student');
     }
+
+    public function getAssignmentPathTextAttribute()
+    {
+        return  url('/') . '/uploads/' . $this->assignment_solution_path;
+    }
+
+    protected $appends = [
+        'assignment_path_text'
+    ];
+
+    protected $with = [
+        'assignment', 'student'
+    ];
 }

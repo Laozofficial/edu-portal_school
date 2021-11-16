@@ -3,6 +3,7 @@
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
 use App\Http\Controllers\Teacher\TeacherAssessmentController;
 use App\Http\Controllers\Teacher\TeacherAssignmentController;
+use App\Http\Controllers\Teacher\TeacherAssignmentSubmissionController;
 use App\Http\Controllers\Teacher\TeacherAttendanceController;
 use App\Http\Controllers\Teacher\TeacherClassController;
 use App\Http\Controllers\Teacher\TeacherGradeScaleController;
@@ -181,6 +182,7 @@ Route::prefix('dashboard')->group(function () {
             Route::get('get_teacher_materials', [TeacherStudyMaterialController::class, 'get_materials']);
             Route::post('save_material', [TeacherStudyMaterialController::class, 'save_material']);
             Route::get('delete_material/{material}', [TeacherStudyMaterialController::class, 'delete_material']);
+            Route::get('get_assignment_submission/{assignment}', [TeacherAssignmentSubmissionController::class, 'get_assignment_submission'])
         });
     });
 });

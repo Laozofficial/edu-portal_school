@@ -120,7 +120,8 @@ let url = {
     teacher_get_grade_scale: 'get_grade_scale',
     teacher_get_materials: 'get_teacher_materials',
     teacher_save_material: 'save_material',
-    teacher_delete_material: 'delete_material/'
+    teacher_delete_material: 'delete_material/',
+    teacher_assignment_submission: 'get_assignment_submission/'
 
 }
 
