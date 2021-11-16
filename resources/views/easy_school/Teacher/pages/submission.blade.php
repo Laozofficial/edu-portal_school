@@ -40,7 +40,43 @@
                     Assignment Submissions
                 </div>
                 <div class="card-body">
-
+                       <div class="table-responsive">
+                           <table class="table">
+                               <table class="table table-sm">
+                                   <thead>
+                                       <tr>
+                                           <th style="width:80px;"><strong>#</strong></th>
+                                           <th><strong>Student Name</strong></th>
+                                           <th><strong>Assignment Path</strong></th>
+                                           <th><strong>Assignment Written</strong></th>
+                                           <th><strong>Score</strong></th>
+                                           <th><strong>Submitted On</strong></th>
+                                           <th></th>
+                                       </tr>
+                                   </thead>
+                                   <tbody>
+                                       <!-- <tr v-for="(material, index) in materials.data">
+                                           <td>@{{ index + 1 }}</td>
+                                           <td>@{{ material.title }}</td>
+                                           <td>@{{ material.academic_year.name }}</td>
+                                           <td>@{{ material.level.name }}</td>
+                                           <td>@{{ material.subject.name }}</td>
+                                           <td><a :href="material.material_path_full_text" class="text-primary">
+                                                   Download
+                                                   Material</a></td>
+                                           <td>@{{ material.created_at_text }}</td>
+                                           <td>
+                                               <div class="d-flex">
+                                                   <a href="#" class="btn btn-danger shadow btn-xs sharp mr-1"
+                                                       @click="delete_material(material.id)"><i
+                                                           class="fa fa-trash text-white"></i></a>
+                                               </div>
+                                           </td>
+                                       </tr> -->
+                                   </tbody>
+                               </table>
+                           </table>
+                       </div>
                 </div>
                 <div class="card-footer">
 
@@ -53,5 +89,8 @@
 
 @endsection
 @section('script')
+<script>
+    let id = "{{ $id }}"
+</script>
 <script src="{{asset('easy_school/admin/plugins/pages/teacher_submission.js')}}"></script>
 @endsection
