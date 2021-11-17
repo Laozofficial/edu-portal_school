@@ -5,12 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Scopes\StudentScope;
+
 class Student extends Model
 {
     use HasFactory;
 
     CONST ACTIVE = 0;
     CONST ALUMNI = 1;
+
+    /*
+        adding global scope to make sure
+        any student query must only be
+        for active student and exclude all
+        the alumni's
+    */
+    protected static function booted()
+    {
+        static::addGlobalScope(new StudentScope);
+    }
 
     public function user()
     {

@@ -60,6 +60,11 @@ class Institution extends Model
         return $this->hasMany('App\Models\LeaveApplication');
     }
 
+    public function students()
+    {
+        return $this->hasMany('App\Models\Student');
+    }
+
     public function getFullLogoPathAttribute()
     {
         $full_logo_path =  url('/') . '/uploads/' . $this->logo;
