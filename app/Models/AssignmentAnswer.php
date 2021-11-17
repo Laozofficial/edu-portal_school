@@ -24,8 +24,13 @@ class AssignmentAnswer extends Model
         return  url('/') . '/uploads/' . $this->assignment_solution_path;
     }
 
+    public function getSubmissionDateTextAttribute()
+    {
+        return $this->created_at->isoFormat('llll');
+    }
+
     protected $appends = [
-        'assignment_path_text'
+        'assignment_path_text', 'submission_date_text'
     ];
 
     protected $with = [

@@ -121,7 +121,9 @@ let url = {
     teacher_get_materials: 'get_teacher_materials',
     teacher_save_material: 'save_material',
     teacher_delete_material: 'delete_material/',
-    teacher_assignment_submission: 'get_assignment_submission/'
+    teacher_assignment_submission: 'get_assignment_submission/',
+    teacher_get_single_submission: 'get_single_submission/',
+    teacher_save_assignment_score: 'save_assignment_score/',
 
 }
 

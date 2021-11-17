@@ -182,7 +182,9 @@ Route::prefix('dashboard')->group(function () {
             Route::get('get_teacher_materials', [TeacherStudyMaterialController::class, 'get_materials']);
             Route::post('save_material', [TeacherStudyMaterialController::class, 'save_material']);
             Route::get('delete_material/{material}', [TeacherStudyMaterialController::class, 'delete_material']);
-            Route::get('get_assignment_submission/{assignment}', [TeacherAssignmentSubmissionController::class, 'get_assignment_submission'])
+            Route::get('get_assignment_submission/{assignment}', [TeacherAssignmentSubmissionController::class, 'get_assignment_submission']);
+            Route::get('get_single_submission/{submission}', [TeacherAssignmentSubmissionController::class, 'get_single_submission']);
+            Route::post('save_assignment_score/{submission}', [TeacherAssignmentSubmissionController::class, 'save_assignment_score']);
         });
     });
 });

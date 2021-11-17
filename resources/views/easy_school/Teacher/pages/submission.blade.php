@@ -55,24 +55,28 @@
                                        </tr>
                                    </thead>
                                    <tbody>
-                                       <!-- <tr v-for="(material, index) in materials.data">
+                                       <tr v-for="(submission, index) in submissions.data">
                                            <td>@{{ index + 1 }}</td>
-                                           <td>@{{ material.title }}</td>
-                                           <td>@{{ material.academic_year.name }}</td>
-                                           <td>@{{ material.level.name }}</td>
-                                           <td>@{{ material.subject.name }}</td>
-                                           <td><a :href="material.material_path_full_text" class="text-primary">
-                                                   Download
-                                                   Material</a></td>
-                                           <td>@{{ material.created_at_text }}</td>
+                                           <td>@{{ submission.student.full_name_text }}</td>
+                                           <td v-if="submission.assignment_path_text"><a
+                                                   :href="submission.assignment_path_text">Download Assignment</a>
+                                            </td>
+                                            <td v-else>it's Written Assignment</td>
+                                           <td v-if="submission.assignment_solution_written">
+                                               <button class="btn btn-sm btn-success">
+                                                   <i class="fa fa-eye"></i> View Assignment
+                                               </button>
+                                           </td>
+                                           <td>@{{ submission.score }} Marks</td>
+                                           <td>@{{ submission.submission.date_text }}</td>
                                            <td>
                                                <div class="d-flex">
                                                    <a href="#" class="btn btn-danger shadow btn-xs sharp mr-1"
-                                                       @click="delete_material(material.id)"><i
+                                                       @click="score_assignment(submission.id)"><i
                                                            class="fa fa-trash text-white"></i></a>
                                                </div>
                                            </td>
-                                       </tr> -->
+                                       </tr>
                                    </tbody>
                                </table>
                            </table>
@@ -84,6 +88,31 @@
             </div>
         </div>
     </div>
+
+
+
+
+     <div class="modal fade" id="record_assignment">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title">Record Assessment</h5>
+                 </div>
+                 <div class="modal-body">
+
+                     <label for="" class="mt-3">Enter Assignment Score</label>
+                     <input class="form-control form-control-sm" type="number" v-model="score"
+                         placeholder="Enter Score" />
+
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                     <button type="button" class="btn btn-primary" @click="store_score">Record Score for
+                         @{{ submission.student.full_name_text }}</button>
+                 </div>
+             </div>
+         </div>
+     </div>
 
 </div>
 
