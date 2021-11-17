@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Hash;
 use  App\Models\Level;
 use Illuminate\Support\Facades\DB;
 
+use App\Scopes\StudentScope;
+
 class StudentController extends Controller
 {
     public function add_students()
@@ -239,7 +241,9 @@ class StudentController extends Controller
 
     public function get_student_alumni(Institution $institution)
     {
-        $students = Student::where('institution_id', $institution->id)
+        $students = Student::
+                    withoutGlobalScope(StudentScope::class)
+                    ->where('institution_id', $institution->id)
                     ->where('type', 1)
                     ->paginate(30);
 
