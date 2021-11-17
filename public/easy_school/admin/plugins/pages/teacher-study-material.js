@@ -149,7 +149,7 @@ new Vue({
                         swal('please wait ....');
                         swal.showLoading();
 
-                        axios.get(`${url.teacher_delete_material + id}`, config)
+                        axios.get(`${url.teacher_delete_application + id}`, config)
                             .then((response) => {
                                 console.log(response);
                                 swal.close();

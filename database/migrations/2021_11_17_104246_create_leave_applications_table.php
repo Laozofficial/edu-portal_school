@@ -26,6 +26,8 @@ class CreateLeaveApplicationsTable extends Migration
             $table->string('leave_attachment');
             $table->date('leave_approved_return_date')->nullable();
             $table->integer('status')->nullable()->default(0);
+
+            $table->timestamp('approved_at')->nullable();
             $table->timestamps();
         });
     }

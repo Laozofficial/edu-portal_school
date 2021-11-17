@@ -124,6 +124,10 @@ let url = {
     teacher_assignment_submission: 'get_assignment_submission/',
     teacher_get_single_submission: 'get_single_submission/',
     teacher_save_assignment_score: 'save_assignment_score/',
+    teacher_details_for_leave: 'get_details_for_leave',
+    teacher_get_leave_application: 'get_leave_application',
+    teacher_apply_leave: 'apply_for_leave',
+    teacher_delete_application: 'delete_leave_application/',
 
 }
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Teacher\TeacherAssignmentSubmissionController;
 use App\Http\Controllers\Teacher\TeacherAttendanceController;
 use App\Http\Controllers\Teacher\TeacherClassController;
 use App\Http\Controllers\Teacher\TeacherGradeScaleController;
+use App\Http\Controllers\Teacher\TeacherLeaveController;
 use App\Http\Controllers\Teacher\TeacherStudentController;
 use App\Http\Controllers\Teacher\TeacherStudyMaterialController;
 use App\Http\Controllers\Teacher\TeacherTermsController;
@@ -185,6 +186,10 @@ Route::prefix('dashboard')->group(function () {
             Route::get('get_assignment_submission/{assignment}', [TeacherAssignmentSubmissionController::class, 'get_assignment_submission']);
             Route::get('get_single_submission/{submission}', [TeacherAssignmentSubmissionController::class, 'get_single_submission']);
             Route::post('save_assignment_score/{submission}', [TeacherAssignmentSubmissionController::class, 'save_assignment_score']);
+            Route::get('get_details_for_leave', [TeacherLeaveController::class, 'get_details_for_leave']);
+            Route::get('get_leave_application', [TeacherLeaveController::class, 'get_leave_application']);
+            Route::post('apply_for_leave', [TeacherLeaveController::class, 'apply_for_leave']);
+            Route::get('delete_leave_application/{leave}', [TeacherLeaveController::class, 'delete_leave_application']);
         });
     });
 });

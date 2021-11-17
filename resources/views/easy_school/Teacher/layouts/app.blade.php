@@ -143,6 +143,7 @@
     <script src="{{asset('easy_school/admin/plugins/js/app.js')}}"></script>
     <script src="{{asset('easy_school/admin/plugins/js/check_token.js')}}"></script>
     <script src="{{asset('easy_school/admin/plugins/js/vue-pagination.js')}}"></script>
+    <script src="{{asset('easy_school/admin/plugins/js/vue-truncate.js')}}"></script>
 
     <script>
         const base_url = "{{ url('/api/dashboard/teacher/') }}";
