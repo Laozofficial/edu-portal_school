@@ -99,6 +99,7 @@ let url = {
     //teacher auth
     teacher_login: 'teacher-login',
     teacher_classes: 'teacher_classes',
+    teacher_leave_applications: 'teacher_leaves_applications/',
 
     // teacher get students
     get_level_student: 'get_level_student/',

@@ -19,6 +19,7 @@ use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
 use App\Http\Controllers\Web\ParentController;
+use App\Http\Controllers\Web\StaffLeaveController;
 use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TimeTableController;
 use App\Http\Controllers\Web\ViewController;
@@ -101,6 +102,9 @@ Route::prefix('dashboard')->group(function () {
 
         // Alumni Route
         Route::get('alumni', [AlumniController::class, 'alumni_view']);
+
+        // staff Leave Route
+        Route::get('staff-leave', [StaffLeaveController::class, 'staff_leave']);
 
 
     });

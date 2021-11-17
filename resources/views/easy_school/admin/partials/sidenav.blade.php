@@ -80,6 +80,13 @@
                         </ul>
                     </li> -->
 
+                    <li>
+                        <a href="{{ url('/dashboard/admin/staff-leave') }}">
+                            <i class="lni lni-list"></i>
+                            <span class="nav-text">Staff Leave</span>
+                        </a>
+                    </li>
+
 
                     <li><a href="{{url('/dashboard/admin/subscriptions')}}">
                             <i class="lni lni-bolt"></i>
