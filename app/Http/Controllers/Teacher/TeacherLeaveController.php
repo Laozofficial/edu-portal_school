@@ -9,6 +9,6 @@ class TeacherLeaveController extends Controller
 {
     public function staff_leave_view()
     {
-        return view(env('APP_THEME').'.teacher.pages.leave');
+        return view(env('APP_THEME'). '.teacher.pages.staff-leave');
     }
 }

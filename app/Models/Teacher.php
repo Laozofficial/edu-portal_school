@@ -56,8 +56,13 @@ class Teacher extends Model
         return $this->created_at->diffForHumans();
     }
 
+    public function leave_applications()
+    {
+        return $this->hasMany('App\Models\LeaveApplication');
+    }
+
     protected $appends = [
-        'full_name_text', 'full_image_path','date_of_birth_text', 'created_at_text'
+        'full_name_text', 'full_image_path','date_of_birth_text', 'created_at_text', 'leave_applications'
     ];
 
     protected $with = [
