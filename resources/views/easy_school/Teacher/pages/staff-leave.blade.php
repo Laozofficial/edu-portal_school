@@ -11,8 +11,8 @@
 <div class="container-fluid" v-show="content" id="show_content">
     <div class="form-head d-flex mb-3 align-items-start">
         <div class="mr-auto d-none d-lg-block">
-            <h2 class="text-black font-w600 mb-0">School Terms</h2>
-            <p class="mb-0">Add A Term</p>
+            <h2 class="text-black font-w600 mb-0">Staff Leave</h2>
+            <!-- <p class="mb-0">m</p> -->
         </div>
         <!-- <div class="dropdown custom-dropdown">
             <div class="btn btn-sm btn-primary light d-flex align-items-center svg-btn" data-toggle="dropdown">
@@ -34,7 +34,17 @@
     </div>
 
     <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow-lg">
+                <div class="card-header">Apply For Leave</div>
+                <div class="card-body">
 
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+
+        </div>
     </div>
 
 </div>
