@@ -71,7 +71,7 @@
                                        <td>@{{ leave.approved_at_text }}</td>
                                        <td :class="leave.status_class_text">@{{ leave.status_text }}</td>
                                        <td>@{{ leave.created_at_text }}</td>
-                                       <td>
+                                       <td v-if="leave.status == '0'">
                                            <button class="btn btn-xs sharp mr-1 btn-primary" @click="leave_details(leave.id)">
                                                <i class="fa fa-pencil"></i>
                                            </button>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="col-md-6">
                             <label>When Should The Staff Return ></label>
-                            <input class="form-control form-control-sm" type="date" :readonly="update_leave_status == '1'" v-model="application.end_leave_date"/>
+                            <input class="form-control form-control-sm" type="date" :disabled="update_leave_status == '' || update_leave_status == '2'" v-model="application.end_leave_date"/>
                              <small id="emailHelp" class="form-text text-muted">What date should the staff return ?</small>
                         </div>
                     </div>

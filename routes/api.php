@@ -97,6 +97,7 @@ Route::prefix('dashboard')->group(function () {
                 // leave Route
                 Route::get('teacher_leaves_applications/{institution}', [TeacherController::class, 'teacher_leaves_applications']);
                 Route::get('get_leave_details/{leave}', [TeacherController::class, 'get_leave_details']);
+                Route::post('save_leave_response/{leave}', [TeacherController::class, 'save_leave_response']);
 
                 // class
                 Route::post('save_class', [LevelController::class, 'save_class']);

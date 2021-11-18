@@ -103,6 +103,7 @@ let url = {
     // leave Routes
     teacher_leave_applications: 'teacher_leaves_applications/',
     get_leave_details: 'get_leave_details/',
+    save_leave_response: 'save_leave_response/',
 
     // teacher get students
     get_level_student: 'get_level_student/',

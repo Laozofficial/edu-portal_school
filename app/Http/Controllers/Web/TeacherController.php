@@ -235,6 +235,20 @@ class TeacherController extends Controller
         return response($response, 200);
     }
 
+    public function save_leave_response(Request $request, LeaveApplication $leave)
+    {
+       $leave->status = $request->get('status');
+       if($request->get('status') == '1') $leave->leave_approved_return_date = $request->get('return_date') && $leave->approved_at = now();
+       $leave->save();
+
+       $response = [
+           'success' => 'Leave Application has been updated'
+       ];
+
+       return response($response, 200);
+
+    }
+
     // public function all_teachers(Institution $institution)
     // {
     //     $teachers = Teacher::where('institution_id', $institution->id)->orderBy('id', 'desc')->paginate(25);

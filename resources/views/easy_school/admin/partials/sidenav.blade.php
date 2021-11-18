@@ -79,11 +79,17 @@
                             <li><a href="{{url('/dashboard/admin/parents')}}"><i class="lni lni-user"></i> Parents</a></li>
                         </ul>
                     </li> -->
+                     <li>
+                         <a href="{{ url('/dashboard/admin/leave-type') }}">
+                             <i class="lni lni-plane"></i>
+                             <span class="nav-text">Staff Leave Type</span>
+                         </a>
+                     </li>
 
                     <li>
                         <a href="{{ url('/dashboard/admin/staff-leave') }}">
                             <i class="lni lni-list"></i>
-                            <span class="nav-text">Staff Leave</span>
+                            <span class="nav-text">Staff Leave Application</span>
                         </a>
                     </li>
 

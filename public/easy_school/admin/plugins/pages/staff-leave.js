@@ -80,7 +80,31 @@ new Vue({
 
         },
         update_application() {
+            if (this.update_leave_status == '' || this.application.end_leave_date == '') {
+                swal.fire('Oops', 'some fields are empty', 'error');
+            } else {
+                swal.fire('Please wait....');
+                swal.showLoading();
 
+                let fd = new FormData;
+                fd.append('status', this.update_leave_status);
+                if (this.update_leave_status == '2') fd.append('return_date', this.application.end_leave_date);
+
+                axios.post(`${url.save_leave_response + this.application.id}`, fd, config)
+                    .then((response) => {
+                        console.log(response);
+                        swal.fire('Weldon', response.data.success, 'success');
+                         $('#leave_details').modal('hide');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        toastr.error(`${server_error} ${error.response.status}`);
+                    })
+                    .then(() => {
+                        swal.close();
+                        this.get_leave_applications();
+                    });
+            }
         }
     },
 })
