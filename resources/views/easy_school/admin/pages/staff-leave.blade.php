@@ -3,12 +3,11 @@
 
 
 @section('content')
-
-<div class="text-center" v-show="loading">
+<div class="text-center" v-show="loading" id="page_loader">
     <i class="fa fa-spinner fa-spin fa-5x text-primary"></i>
 </div>
 
-<div class="container-fluid" v-show="content">
+<div class="container-fluid" v-show="content" id="show_content">
     <div class="form-head d-flex mb-3 align-items-start">
         <div class="mr-auto d-none d-lg-block">
             <h2 class="text-black font-w600 mb-0">School Terms</h2>
@@ -38,7 +37,96 @@
     </div>
 
     <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow-lg">
+                <div class="card-header">
+                    Staff Leave Application
+                </div>
+                <div class="card-body">
+                       <div class="table-responsive">
+                           <table class="table">
+                               <thead>
+                                   <tr>
+                                       <th scope="col">#</th>
+                                       <th scope="col">Academic Session</th>
+                                       <th scope="col">Leave Start Date</th>
+                                       <th scope="col">Leave End Date</th>
+                                       <th scope="col">Attachment Letter</th>
+                                       <th scope="col">Leave Days</th>
+                                       <th scope="col">Approved On</th>
+                                       <th scope="col">status</th>
+                                       <th scope="col">Submitted </th>
+                                       <th scope="col"></th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr v-for="(leave, index) in leaves.data">
+                                       <th scope="row">@{{ index + 1 }}</th>
+                                       <td>@{{ leave.academic_year.name }}</td>
+                                       <td>@{{ leave.start_leave_date_text }}</td>
+                                       <td>@{{ leave.end_leave_date_text }}</td>
+                                       <td><a class="text-primary" :href="leave.leave_attachment_path">Download Leave
+                                               Attachment</a></td>
+                                       <td>@{{ leave.difference_in_days_text }}</td>
+                                       <td>@{{ leave.approved_at_text }}</td>
+                                       <td :class="leave.status_class_text">@{{ leave.status_text }}</td>
+                                       <td>@{{ leave.created_at_text }}</td>
+                                       <td>
+                                           <button class="btn btn-xs sharp mr-1 btn-primary" @click="leave_details(leave.id)">
+                                               <i class="fa fa-pencil"></i>
+                                           </button>
+                                       </td>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                </div>
+                <div class="card-footer">
+                      <vue-pagination :total-items="leaves.total" :page="page" :loading="loading_applications"
+                          :items-per-page="leaves.per_page" v-on:page-change="pageChange">
+                      </vue-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="modal fade" id="leave_details" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Leave Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3" v-if="application.status == 0">
+                        <div class="col-md-6">
+                            <label>Change Leave Status</label>
+                            <select class="mr-sm-2 default-select form-control" id="inlineFormCustomSelect" v-model="update_leave_status">
+                                <option selected>Choose...</option>
+                                <option value="1">Approve</option>
+                                <option value="2">Declined</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>When Should The Staff Return ></label>
+                            <input class="form-control form-control-sm" type="date" :readonly="update_leave_status == '1'" v-model="application.end_leave_date"/>
+                             <small id="emailHelp" class="form-text text-muted">What date should the staff return ?</small>
+                        </div>
+                    </div>
+
+
+                    <label class="mb-4">Staff Extra Leave Note</label>
+                    <div v-html="application.leave_reason"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-xs" @click="update_application">Update Application</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

@@ -94,6 +94,10 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('ban_teacher/{user}', [TeacherController::class, 'ban_teacher']);
                 Route::get('activate_teacher/{user}', [TeacherController::class, 'activate_teacher']);
 
+                // leave Route
+                Route::get('teacher_leaves_applications/{institution}', [TeacherController::class, 'teacher_leaves_applications']);
+                Route::get('get_leave_details/{leave}', [TeacherController::class, 'get_leave_details']);
+
                 // class
                 Route::post('save_class', [LevelController::class, 'save_class']);
                 Route::get('get_single_class/{level}', [LevelController::class, 'get_single_class']);

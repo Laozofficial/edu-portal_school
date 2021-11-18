@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Mail;
 use App\Mail\TeacherNotificationMail;
+use App\Models\LeaveApplication;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -209,6 +210,26 @@ class TeacherController extends Controller
 
         $response = [
             'success' => 'Teacher has been activated'
+        ];
+
+        return response($response, 200);
+    }
+
+    public function teacher_leaves_applications(Institution $institution)
+    {
+        $leaves = LeaveApplication::where('institution_id', $institution->id)->orderBy('id', 'desc')->paginate(10);
+
+        $response = [
+            'leaves' => $leaves
+        ];
+
+        return response($response, 200);
+    }
+
+    public function get_leave_details(LeaveApplication $leave)
+    {
+        $response = [
+            'application' => $leave
         ];
 
         return response($response, 200);

@@ -12,6 +12,11 @@ new Vue({
 
         page: 1,
         loading_applications: false,
+
+        application: {},
+
+        update_leave_status: ''
+
     },
     mounted() {
         this.get_schools();
@@ -53,5 +58,29 @@ new Vue({
                 this.get_leave_applications();
             }
         },
+        leave_details(id) {
+            swal.fire('Please wait....');
+            swal.showLoading();
+
+            axios.get(`${url.get_leave_details + id}`, config)
+                .then((response) => {
+                    console.log(response);
+                    this.application = response.data.application;
+                    $('#leave_details').modal('show');
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toastr.error(`${server_error} ${error.response.status}`);
+                })
+                .then(() => {
+                    swal.close();
+                });
+        },
+        approve_leave(id) {
+
+        },
+        update_application() {
+
+        }
     },
 })
