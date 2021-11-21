@@ -21,6 +21,7 @@ use App\Http\Controllers\Web\Auth\RegisterController;
 use App\Http\Controllers\Web\ParentController;
 use App\Http\Controllers\Web\StaffLeaveController;
 use App\Http\Controllers\Web\StudentController;
+use App\Http\Controllers\Web\StudyMaterialController;
 use App\Http\Controllers\Web\TimeTableController;
 use App\Http\Controllers\Web\ViewController;
 
@@ -106,6 +107,9 @@ Route::prefix('dashboard')->group(function () {
         // staff Leave Route
         Route::get('staff-leave', [StaffLeaveController::class, 'staff_leave']);
         Route::get('leave-type', [StaffLeaveController::class, 'leave_type']);
+
+        // study materials
+        Route::get('study-materials', [StudyMaterialController::class, 'study_materials']);
 
 
     });

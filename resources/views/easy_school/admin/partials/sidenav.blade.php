@@ -78,7 +78,17 @@
                         <ul aria-expanded="false">
                             <li><a href="{{url('/dashboard/admin/parents')}}"><i class="lni lni-user"></i> Parents</a></li>
                         </ul>
+
+
                     </li> -->
+
+                     <li>
+                         <a href="{{ url('/dashboard/admin/study-materials') }}">
+                             <i class="lni lni-book"></i>
+                             <span class="nav-text">Study Materials</span>
+                         </a>
+                     </li>
+
                      <li>
                          <a href="{{ url('/dashboard/admin/leave-type') }}">
                              <i class="lni lni-plane"></i>
