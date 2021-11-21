@@ -105,6 +105,11 @@ let url = {
     get_leave_details: 'get_leave_details/',
     save_leave_response: 'save_leave_response/',
 
+    // leave types
+    get_leave_types: 'get_leave_types/',
+    save_leave_type_update: 'save_leave_type_update/',
+    save_leave_type: 'save_new_leave_type',
+
     // teacher get students
     get_level_student: 'get_level_student/',
     teacher_get_student_assessment: 'get_student_records/',

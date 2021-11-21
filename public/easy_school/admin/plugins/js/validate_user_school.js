@@ -16,6 +16,7 @@ let check_if_user_has_school = () => {
                     window.localStorage.setItem('schools', JSON.stringify(response.data.schools));
                     school = JSON.parse(window.localStorage.getItem('school'));
                     schools = JSON.parse(window.localStorage.getItem('schools'));
+                    console.log(schools);
 
                     schools.forEach(institution => {
                         $('#schools_list').html('<li id="change_school_id"  data-id="' + institution.id + '"><a class="dropdown-item" >' + institution.name + '</a></li>');

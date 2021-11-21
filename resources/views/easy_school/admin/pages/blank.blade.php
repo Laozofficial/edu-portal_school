@@ -4,11 +4,11 @@
 
 @section('content')
 
-<div class="text-center" v-show="loading">
+<div class="text-center" v-show="loading" id="page_loader">
     <i class="fa fa-spinner fa-spin fa-5x text-primary"></i>
 </div>
 
-<div class="container-fluid" v-show="content">
+<div class="container-fluid" v-show="content" id="show_content">
      <div class="form-head d-flex mb-3 align-items-start">
         <div class="mr-auto d-none d-lg-block">
             <h2 class="text-black font-w600 mb-0">School Terms</h2>

@@ -105,6 +105,7 @@ Route::prefix('dashboard')->group(function () {
 
         // staff Leave Route
         Route::get('staff-leave', [StaffLeaveController::class, 'staff_leave']);
+        Route::get('leave-type', [StaffLeaveController::class, 'leave_type']);
 
 
     });

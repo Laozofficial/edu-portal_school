@@ -13,4 +13,13 @@ class LeaveType extends Model
     {
         return $this->hasMany('App\Models\LeaveApplication')->orderBy('id', 'desc')->get();
     }
+
+
+    protected $with = [
+        // 'leave_applications'
+    ];
+
+    protected $appends = [
+
+    ];
 }

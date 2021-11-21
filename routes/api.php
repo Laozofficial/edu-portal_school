@@ -24,6 +24,7 @@ use App\Http\Controllers\Web\Auth\RegisterController;
 use App\Http\Controllers\Web\GeneralInfoController;
 use App\Http\Controllers\Web\InstitutionController;
 use App\Http\Controllers\Web\ParentController;
+use App\Http\Controllers\Web\StaffLeaveController;
 use App\Http\Controllers\Web\StudentController;
 use App\Http\Controllers\Web\TeacherController;
 use App\Http\Controllers\Web\TimeTableController;
@@ -98,6 +99,11 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('teacher_leaves_applications/{institution}', [TeacherController::class, 'teacher_leaves_applications']);
                 Route::get('get_leave_details/{leave}', [TeacherController::class, 'get_leave_details']);
                 Route::post('save_leave_response/{leave}', [TeacherController::class, 'save_leave_response']);
+
+                // leave type Route
+                Route::get('get_leave_types/{institution}', [StaffLeaveController::class, 'get_leave_types']);
+                Route::post('save_leave_type_update/{leave_type}', [StaffLeaveController::class, 'save_leave_type_update']);
+                Route::post('save_new_leave_type', [StaffLeaveController::class, 'save_new_leave_type']);
 
                 // class
                 Route::post('save_class', [LevelController::class, 'save_class']);

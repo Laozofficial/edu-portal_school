@@ -59,6 +59,10 @@ let showContentView = () => {
     $('#show_content').show();
 };
 
+let check_if_school_loaded = () => {
+    if (schools.length > 0) showContentView();
+};
+
 
 
 
