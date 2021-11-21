@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\OTPController;
 use App\Http\Controllers\Web\Auth\RegisterController;
+use App\Http\Controllers\Web\DownloadController;
 use App\Http\Controllers\Web\ParentController;
 use App\Http\Controllers\Web\StaffLeaveController;
 use App\Http\Controllers\Web\StudentController;
@@ -39,6 +40,9 @@ use App\Http\Controllers\Web\ViewController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/download/countries', [DownloadController::class, 'download_countries']);
+Route::get('/download/states', [DownloadController::class, 'download_states']);
 
 
 Route::prefix('dashboard')->group(function () {

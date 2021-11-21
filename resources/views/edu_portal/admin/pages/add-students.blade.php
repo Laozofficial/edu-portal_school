@@ -46,11 +46,15 @@
                         <div class="col-md-4">
                             <label for="country">Select Student Country <span class="text-danger">*</span></label>
                             <v-select :options="countries" label="name" v-model="selected_country" :reduce="countries => countries.id" id="country"></v-select>
+                             <small style="font-size: 20px;"><i class="fa fa-file text-primary" style="font-size: 15px;"></i> <a href="/download/countries">Download file to get list of countries for bulk
+                                     upload</a></small>
                         </div>
 
                         <div class="col-md-4">
                             <label for="state">Select Student State <span class="text-danger">*</span></label>
                             <v-select :options="states" label="name" v-model="selected_state" :reduce="states => states.id" id="states"></v-select>
+                            <small style="font-size: 20px;"><i class="fa fa-file text-primary" style="font-size: 15px;"></i> <a href="/download/states">Download file to get list of states for bulk
+                                     upload</a></small>
                         </div>
 
                         <div class="col-md-4">
