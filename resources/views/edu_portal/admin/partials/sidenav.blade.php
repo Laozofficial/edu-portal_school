@@ -112,6 +112,28 @@
                       </ul>
                   </li> -->
 
+                     <li>
+                         <a href="{{ url('/dashboard/admin/study-materials') }}">
+                             <i class="lni lni-book"></i>
+                             <span class="nav-text">Study Materials</span>
+                         </a>
+                     </li>
+
+                     <li>
+                         <a href="{{ url('/dashboard/admin/leave-type') }}">
+                             <i class="lni lni-plane"></i>
+                             <span class="nav-text">Staff Leave Type</span>
+                         </a>
+                     </li>
+
+                     <li>
+                         <a href="{{ url('/dashboard/admin/staff-leave') }}">
+                             <i class="lni lni-list"></i>
+                             <span class="nav-text">Staff Leave Application</span>
+                         </a>
+                     </li>
+
+
 
                   <li><a href="{{url('/dashboard/admin/subscriptions')}}">
                           <i class="lni lni-bolt"></i>

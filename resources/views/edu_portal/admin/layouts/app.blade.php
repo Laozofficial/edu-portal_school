@@ -108,6 +108,9 @@
         <script src="{{asset('easy_school/admin/plugins/js/validate_user_school.js')}}"></script>
 
         <!-- yield on all pages -->
+        <script>
+            $('#modal-close-library').html('<button type="button" class="btn btn-danger waves-effect" data-bs-dismiss="modal">Close</button>')
+        </script>
         @yield('script')
 
     </body>
