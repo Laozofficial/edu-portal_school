@@ -61,6 +61,8 @@
         }
     </style>
 
+    @yield('style')
+
 </head>
 
 <body>
@@ -131,6 +133,9 @@
 
     <!-- <script src="{{asset('easy_school/admin/plugins/js/validate_user_school.js')}}"></script> -->
 
+     <script>
+         $('#modal-close-library').html('<button type="button" class="btn btn-danger waves-effect" data-bs-dismiss="modal">Close</button>')
+     </script>
     <!-- yield on all pages -->
     @yield('script')
 

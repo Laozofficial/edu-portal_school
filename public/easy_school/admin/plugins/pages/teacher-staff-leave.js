@@ -30,6 +30,7 @@ new Vue({
             maxHeight: null,
             focus: !1
         }),
+
         this.get_details_for_leave();
         this.get_leaves();
     },
