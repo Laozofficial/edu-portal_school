@@ -110,6 +110,9 @@ let url = {
     save_leave_type_update: 'save_leave_type_update/',
     save_leave_type: 'save_new_leave_type',
 
+    // study material routes
+    get_study_materials: 'get_study_materials/',
+
     // teacher get students
     get_level_student: 'get_level_student/',
     teacher_get_student_assessment: 'get_student_records/',

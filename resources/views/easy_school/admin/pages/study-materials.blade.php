@@ -26,7 +26,7 @@
                 <div class="text-left ml-3">
                     <span class="d-block fs-16">Select Institution</span>
                     <v-select :options="institutions" label="name" v-model="selected_institution"
-                        :reduce="institutions => institutions.id" @input="get_sessions" id="institution"></v-select>
+                        :reduce="institutions => institutions.id" @input="get_study_materials" id="institution"></v-select>
                 </div>
                 <i class="fa fa-angle-down scale5 ml-3"></i>
             </div>
@@ -44,10 +44,37 @@
                     Study Materials
                </div>
                <div class="card-body">
-
+                  <div class="table-responsive">
+                      <table class="table table-responsive-md">
+                          <thead>
+                              <tr>
+                                  <th style="width:80px;"><strong>#</strong></th>
+                                  <th><strong>Title</strong></th>
+                                  <th><strong>Leave Total days Allowed</strong></th>
+                                  <th></th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr >
+                                  <!-- <td>@{{ index + 1 }}</td>
+                                  <td>@{{ type.name }}</td>
+                                  <td>@{{ type.total_days}} Days Leave</td>
+                                  <td>
+                                      <div class="d-flex">
+                                          <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"
+                                              @click="get_single_leave_type(type)"><i
+                                                  class="fa fa-pencil text-white"></i></a>
+                                      </div>
+                                  </td> -->
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
                </div>
                <div class="card-footer">
-
+                     <vue-pagination :total-items="materials.total" :page="page" :loading="loading_materials"
+                         :items-per-page="materials.per_page" v-on:page-change="pageChange">
+                     </vue-pagination>
                </div>
             </div>
 

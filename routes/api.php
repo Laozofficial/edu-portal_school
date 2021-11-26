@@ -26,6 +26,7 @@ use App\Http\Controllers\Web\InstitutionController;
 use App\Http\Controllers\Web\ParentController;
 use App\Http\Controllers\Web\StaffLeaveController;
 use App\Http\Controllers\Web\StudentController;
+use App\Http\Controllers\Web\StudyMaterialController;
 use App\Http\Controllers\Web\TeacherController;
 use App\Http\Controllers\Web\TimeTableController;
 use Illuminate\Http\Request;
@@ -162,6 +163,9 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('get_single_parent/{parent}', [ParentController::class, 'get_single_parent']);
                 Route::post('update_single_parent/{parent}', [ParentController::class, 'update_single_parent']);
                 Route::get('get_all_parents/{institution}', [ParentController::class, 'get_all_parents']);
+
+                // study material Route
+                Route::get('get_study_materials/{institution}', [StudyMaterialController::class, 'get_study_materials']);
 
             });
     });

@@ -22,11 +22,15 @@
             <div class="card">
                 <div class="card-header">
                    <div class="row">
-                       <div class="col-md-6">
+                       <div class="col-md-3">
+                        <label>Bulk Upload with Excel File</label>
+                        <input class="form-control form-control-sm" type="file" name="students-file"/>
+                       </div>
+                       <div class="col-md-4">
 
                        </div>
-                       <div class="col-md-6">
-                           <span class="d-block fs-16">Select Institution</span>
+                       <div class="col-md-5 text-right">
+                           <label for="">Select Institution</label>
                            <v-select :options="institutions" label="name" v-model="selected_institution"
                                :reduce="institutions => institutions.id" id="institution"></v-select>
                        </div>
