@@ -82,12 +82,14 @@ class InstitutionController extends Controller
         $institution->save();
 
 
-        // $subscription = new Subscription;
-        // $subscription->subscription_type_id = 1;
-        // $subscription->institution_id = $institution->id;
-        // $subscription->start_date = now();
-        // $subscription->status = 1;
-        // $subscription->save();
+        if(env('APP_THEME') == 'easy_school') {
+            // $subscription = new Subscription;
+            // $subscription->subscription_type_id = 1;
+            // $subscription->institution_id = $institution->id;
+            // $subscription->start_date = now();
+            // $subscription->status = 1;
+            // $subscription->save();
+        }
 
         $response = [
             'success' => 'Institution has been added Successfully'
