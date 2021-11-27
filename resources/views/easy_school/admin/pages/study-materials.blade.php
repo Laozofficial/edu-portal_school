@@ -50,22 +50,30 @@
                               <tr>
                                   <th style="width:80px;"><strong>#</strong></th>
                                   <th><strong>Title</strong></th>
-                                  <th><strong>Leave Total days Allowed</strong></th>
+                                  <th><strong>Academic Year</strong></th>
+                                  <th><strong>Level</strong></th>
+                                  <th><strong>Subject</strong></th>
+                                  <th><strong>Teacher</strong></th>
+                                  <th><strong>Material Download</strong></th>
+                                  <th>Created at</th>
                                   <th></th>
                               </tr>
                           </thead>
                           <tbody>
-                              <tr >
-                                  <!-- <td>@{{ index + 1 }}</td>
-                                  <td>@{{ type.name }}</td>
-                                  <td>@{{ type.total_days}} Days Leave</td>
+                              <tr v-for="(material, index) in materials.data">
+                                  <td>@{{ index + 1 }}</td>
+                                  <td>@{{ material.title }}</td>
+                                  <td>@{{ material.academic_year.name }}</td>
+                                  <td>@{{ material.level.name }}</td>
+                                  <td>@{{ material.subject.name }}</td>
+                                  <td>@{{ material.teacher.full_name_text }}</td>
+                                  <td><a class="text-primary" :href="material.material_path_full_text">Download Material</a></td>
+                                  <td>@{{ material.created_at_text }}</td>
                                   <td>
-                                      <div class="d-flex">
-                                          <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"
-                                              @click="get_single_leave_type(type)"><i
-                                                  class="fa fa-pencil text-white"></i></a>
-                                      </div>
-                                  </td> -->
+                                      <button class="btn btn-xs btn-danger sharp mr-1" @click="delete_material(material.id)">
+                                          <i class="fa fa-trash"></i>
+                                      </button>
+                                  </td>
                               </tr>
                           </tbody>
                       </table>

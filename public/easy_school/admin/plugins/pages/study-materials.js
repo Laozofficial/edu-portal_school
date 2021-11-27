@@ -44,5 +44,36 @@ new Vue({
                 this.get_study_materials();
             }
         },
+        delete_material(id) {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this file!",
+                type: "warning",
+                showConfirmButton: true,
+                cancelButtonText: "Cancel",
+                showCancelButton: true,
+            })
+            .then((isConfirmed) => {
+                console.log(isConfirmed.dismiss)
+                if (isConfirmed.dismiss == 'cancel' || isConfirmed.dismiss == 'overlay') {
+                    console.log('do nothing');
+                } else {
+                    swal('please wait ....');
+                    swal.showLoading();
+
+                    axios.get(`${url.teacher_delete_application + id}`, config)
+                        .then((response) => {
+                            console.log(response);
+                            swal.close();
+                            swal('Weldon', response.data.success, 'success');
+                            this.get_study_materials();
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                            toastr.error(`something went wrong, ${response.data.status}`);
+                        });
+                }
+            });
+        }
     },
 })
