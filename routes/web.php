@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Student\StudentAssessmentController;
+use App\Http\Controllers\Student\StudentTimeTableController;
+use App\Http\Controllers\Student\StudentViewController;
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
 use App\Http\Controllers\Teacher\TeacherAssignmentController;
 use App\Http\Controllers\Teacher\TeacherAssignmentSubmissionController;
@@ -138,6 +141,17 @@ Route::prefix('dashboard')->group(function () {
         Route::get('study-materials', [TeacherStudyMaterialController::class, 'study_material_view']);
         Route::get('submissions/{assignment}', [TeacherAssignmentSubmissionController::class, 'submission_view' ]);
         Route::get('staff-leave', [TeacherLeaveController::class, 'staff_leave_view']);
+
+    });
+
+    Route::prefix('student')->group(function () {
+        Route::prefix('auth')->group(function() {
+            Route::get('login', [StudentViewController::class, 'login_view']);
+        });
+
+        Route::get('index', [StudentViewController::class, 'index']);
+        Route::get('student_assessments', [StudentAssessmentController::class, 'student_assessments']);
+        Route::get('time-table', [StudentTimeTableController::class, 'time_table']);
 
     });
 

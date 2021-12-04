@@ -142,6 +142,12 @@ let url = {
     teacher_apply_leave: 'apply_for_leave',
     teacher_delete_application: 'delete_leave_application/',
 
+
+    // student routes
+    student_login: 'student-login',
+    student_get_assessment: 'get_student_assessments',
+    student_get_time_table: 'get_student_time_table',
+
 }
 
 

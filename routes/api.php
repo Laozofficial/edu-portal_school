@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Student\Auth\StudentLoginController;
+use App\Http\Controllers\Student\StudentAssessmentController;
+use App\Http\Controllers\Student\StudentTimeTableController;
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
 use App\Http\Controllers\Teacher\TeacherAssessmentController;
 use App\Http\Controllers\Teacher\TeacherAssignmentController;
@@ -205,6 +208,18 @@ Route::prefix('dashboard')->group(function () {
             Route::get('get_leave_application', [TeacherLeaveController::class, 'get_leave_application']);
             Route::post('apply_for_leave', [TeacherLeaveController::class, 'apply_for_leave']);
             Route::get('delete_leave_application/{leave}', [TeacherLeaveController::class, 'delete_leave_application']);
+        });
+    });
+
+    Route::prefix('student')->group(function () {
+
+        Route::prefix('auth')->group(function () {
+            Route::post('student-login', [StudentLoginController::class, 'student_login']);
+        });
+
+        Route::middleware(['auth:api'])->group(function () {
+            Route::get('get_student_assessments', [StudentAssessmentController::class, 'get_student_assessments']);
+            Route::get('get_student_time_table', [StudentTimeTableController::class, 'get_student_time_table']);
         });
     });
 });
