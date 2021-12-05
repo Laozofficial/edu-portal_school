@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Student\StudentAssessmentController;
 use App\Http\Controllers\Student\StudentTimeTableController;
+use App\Http\Controllers\Student\StudentHomeWorkController;
 use App\Http\Controllers\Student\StudentViewController;
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
 use App\Http\Controllers\Teacher\TeacherAssignmentController;
@@ -152,6 +153,7 @@ Route::prefix('dashboard')->group(function () {
         Route::get('index', [StudentViewController::class, 'index']);
         Route::get('student_assessments', [StudentAssessmentController::class, 'student_assessments']);
         Route::get('time-table', [StudentTimeTableController::class, 'time_table']);
+        Route::get('home-work', [StudentHomeWorkController::class, 'home_work']);
 
     });
 

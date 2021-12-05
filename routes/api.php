@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Student\Auth\StudentLoginController;
 use App\Http\Controllers\Student\StudentAssessmentController;
+use App\Http\Controllers\Student\StudentHomeWorkController;
 use App\Http\Controllers\Student\StudentTimeTableController;
 use App\Http\Controllers\Teacher\Auth\TeacherLoginController;
 use App\Http\Controllers\Teacher\TeacherAssessmentController;
@@ -220,6 +221,7 @@ Route::prefix('dashboard')->group(function () {
         Route::middleware(['auth:api'])->group(function () {
             Route::get('get_student_assessments', [StudentAssessmentController::class, 'get_student_assessments']);
             Route::get('get_student_time_table', [StudentTimeTableController::class, 'get_student_time_table']);
+            Route::get('get_student_home_work', [StudentHomeWorkController::class, 'get_student_home_work']);
         });
     });
 });

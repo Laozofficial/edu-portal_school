@@ -147,6 +147,7 @@ let url = {
     student_login: 'student-login',
     student_get_assessment: 'get_student_assessments',
     student_get_time_table: 'get_student_time_table',
+    student_get_home_work: 'get_student_home_work',
 
 }
 
