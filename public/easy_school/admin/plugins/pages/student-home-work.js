@@ -7,6 +7,12 @@ new Vue({
         assignments:[]
     },
     mounted() {
+         $(".summernote").summernote({
+             height: 190,
+             minHeight: null,
+             maxHeight: null,
+             focus: !1
+         }),
         this.get_home_works();
     },
     methods: {

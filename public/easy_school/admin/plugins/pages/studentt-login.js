@@ -22,6 +22,8 @@ new Vue({
                 swal.fire('Please wait ....');
                 swal.showLoading();
 
+
+
                 let fd = new FormData;
                 fd.append('s_id', this.s_id);
                 fd.append('password', this.password);

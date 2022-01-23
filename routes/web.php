@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Student\StudentAssessmentController;
+use App\Http\Controllers\Student\StudentAssignmentAnswerController;
 use App\Http\Controllers\Student\StudentTimeTableController;
 use App\Http\Controllers\Student\StudentHomeWorkController;
 use App\Http\Controllers\Student\StudentViewController;
@@ -154,6 +155,7 @@ Route::prefix('dashboard')->group(function () {
         Route::get('student_assessments', [StudentAssessmentController::class, 'student_assessments']);
         Route::get('time-table', [StudentTimeTableController::class, 'time_table']);
         Route::get('home-work', [StudentHomeWorkController::class, 'home_work']);
+        Route::get('submit-answers/{assignment}', [StudentAssignmentAnswerController::class, 'submit_answers']);
 
     });
 

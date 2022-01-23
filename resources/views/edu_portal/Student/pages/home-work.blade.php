@@ -1,23 +1,24 @@
-@extends('easy_school.student.layouts.app')
-
+@extends('edu_portal.student.layouts.app')
 @section('style')
-    <link href="{{ asset('easy_school/admin/vendor/summernote/summernote.css') }}" rel="stylesheet">
+<link href="{{ asset('easy_school/admin/vendor/summernote/summernote.css') }}" rel="stylesheet">
 @endsection
-
 
 @section('content')
 
-<div class="text-center" v-show="loading" id="page_loader">
-    <i class="fa fa-spinner fa-spin fa-5x text-primary"></i>
-</div>
-
-<div class="container-fluid" v-show="content" id="show_content">
-    <div class="form-head d-flex mb-3 align-items-start">
-        <div class="mr-auto d-none d-lg-block">
-            <h2 class="text-black font-w600 mb-0">School Assignments</h2>
-            <p class="mb-0">Check all Assignments</p>
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Assignments</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <!-- <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
+                    <li class="breadcrumb-item active">Starter Page</li> -->
+                </ol>
+            </div>
         </div>
     </div>
+</div>
+
 
     <div class="row">
         <div class="col-md-12">
@@ -57,7 +58,8 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a :href=`/dashboard/student/submit-answers/${home_work.id}` class="btn btn-primary btn-xs text-white">
+                                    <a :href=`/dashboard/student/submit-answers/${home_work.id}`
+                                        class="btn btn-primary btn-xs text-white">
                                         <i class="fa fa-paper-plane"></i> Submit Answer
                                     </a>
                                 </td>
@@ -72,7 +74,7 @@
         </div>
     </div>
 
-    <div class="mt-5 card shadow-lg">
+    <!-- <div class="mt-5 card shadow-lg">
         <div class="card-header">
             Submit Answer
         </div>
@@ -84,19 +86,23 @@
                     <legend class="text-center mt-5"><mark>OR</mark></legend>
 
                     <label class="mt-5">Upload a document containing the answer to the assignment</label>
-                    <input class="form-control form-control-sm form-control-file" type="file"/>
+                    <input class="form-control form-control-sm form-control-file" type="file" />
                 </div>
                 <div class="col-md-6">
 
                 </div>
             </div>
         </div>
-    </div>
-
-</div>
+    </div> -->
 
 @endsection
 @section('script')
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous">
+</script>
 <script src="{{ asset('easy_school/admin/vendor/summernote/js/summernote.min.js') }}"></script>
 <script src="{{asset('easy_school/admin/plugins/pages/student-home-work.js')}}"></script>
 @endsection

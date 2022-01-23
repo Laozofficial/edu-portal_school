@@ -64,6 +64,11 @@ let check_if_school_loaded = () => {
 };
 
 
+function getFileExtension(filename) {
+    let ext = /^.+\.([^.]+)$/.exec(filename);
+    console.log(ext == null ? "" : ext[1]);
+}
+
 
 
 get_token();
