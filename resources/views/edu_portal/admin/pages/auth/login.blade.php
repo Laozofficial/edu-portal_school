@@ -56,7 +56,8 @@
                                             </div>
                                              <div class="row">
                                                  <div class="col-md-6">
-                                                     <a href="" class="btn btn-primary btn-block">
+                                                     <a href="/dashboard/student/auth/login"
+                                                         class="btn btn-primary btn-block">
                                                          <i class="fa fa-graduation-cap"></i> Student Login
                                                      </a>
                                                  </div>

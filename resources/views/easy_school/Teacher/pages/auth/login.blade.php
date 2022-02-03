@@ -57,7 +57,8 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <a class="text-primary" href=""><i class="fa fa-graduation-cap"></i>
+                                                    <a class="text-primary" href="/dashboard/student/auth/login"><i
+                                                            class="fa fa-graduation-cap"></i>
                                                         Student Login</a>
                                                 </div>
                                                 <div class="col-md-6 text-right">
