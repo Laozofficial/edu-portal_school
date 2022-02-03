@@ -200,5 +200,5 @@
 
 @endsection
 @section('script')
-    <script src="{{asset('easy_school/admin/plugins/pages/alumni.js')}}"></script>
+<script src="{{asset('easy_school/admin/plugins/pages/alumni.js')}}"></script>
 @endsection
