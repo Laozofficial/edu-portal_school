@@ -82,7 +82,7 @@
                 </div>
             </div>
 
-            @include('edu_portal.Teacher.partials.footer')
+            @include('edu_portal.teacher.partials.footer')
         </div>
 
     </div>
