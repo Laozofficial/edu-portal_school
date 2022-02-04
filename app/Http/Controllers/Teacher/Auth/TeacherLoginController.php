@@ -12,7 +12,7 @@ class TeacherLoginController extends Controller
 {
     public function login_view()
     {
-        return view(env('APP_THEME').'.Teacher.pages.auth.login');
+        return view(env('APP_THEME').'.teacher.pages.auth.login');
     }
 
     public function login_teacher(Request $request)
