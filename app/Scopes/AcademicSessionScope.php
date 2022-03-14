@@ -2,13 +2,15 @@
 
 namespace App\Scopes;
 
-use App\Models\Student;
+// use App\Models\Student;
+
+use App\Models\AcademicYear;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
 
-class StudentScope implements Scope
+class AcademicSessionScope implements Scope
 {
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -19,6 +21,6 @@ class StudentScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where('type', '==', Student::ACTIVE);
+        $builder->where('status', '==', AcademicYear::ACTIVE);
     }
 }

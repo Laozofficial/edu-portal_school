@@ -20,7 +20,7 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card">
+                    <div class="card shadow-lg">
                         <div class="card-header">
                            <div class="row">
                                <div class="col-md-6">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="card">
+                    <div class="card shadow-lg">
                         <div class="card-header">
                             Assessment Types
                         </div>
@@ -68,7 +68,7 @@
                                         <td>@{{type.max_mark}} marks</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a @click="update_type(type.id)" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pen text-white"></i></a>
+                                                <a @click="update_type(type.id)" class="btn btn-primary shadow btn-sm sharp mr-1"><i class="fa fa-pen text-white"></i></a>
                                             </div>
                                         </td>
                                     </tr>

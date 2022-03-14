@@ -21,10 +21,10 @@
           <div class="card shadow-lg">
               <div class="card-header">
                   <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-8">
                           Enter Student Assessments
                       </div>
-                      <div class="col-md-8 text">
+                      <div class="col-md-4 text">
                           <label class="d-block fs-16">Select Class</label>
                           <v-select :options="classes" label="name" v-model="selected_class"
                               :reduce="classes => classes.id" @input="fetch_students" id="class">
@@ -34,7 +34,7 @@
               </div>
               <div class="card-body">
                   <div class="table-responsive">
-                      <table class="table">
+                      <table class="table table-bordered">
                           <thead>
                               <tr>
                                   <th scope="col">#</th>
@@ -42,23 +42,53 @@
                                   <th scope="col">Admission Number</th>
                                   <th scope="col">Gender</th>
                                   <th scope="col">Date of Birth</th>
-                                  <th scope="col">Religion</th>
-                                  <th scope="col">Address</th>
+
+                                  <th scope="col">Academic Session</th>
+                                  <th scope="col">Academic Term</th>
+                                  <th scope="col">Subject</th>
+                                  <th scope="col">Assessment Type</th>
+                                  <th scope="col">Enter Score</th>
+                                  <th></th>
                                   <th></th>
                               </tr>
                           </thead>
                           <tbody>
-                              <tr v-for="(student, index) in students.data">
+                              <tr v-for="(student, index) in students.data" class="mb-3">
                                   <td>@{{ index + 1 }}</td>
                                   <td>@{{ student.full_name_text }}</td>
                                   <td>@{{ student.admission_number }}</td>
                                   <td>@{{ student.gender }}</td>
                                   <td>@{{ student.date_of_birth }}</td>
-                                  <td>@{{ student.religion }}</td>
-                                  <td>@{{ student.present_address }}</td>
                                   <td>
-                                      <button class="btn btn-primary btn-xs" @click="add_assessment(student.id)">
-                                          <i class="fa fa-plus"></i> Add Assessment
+                                       <v-select :options="sessions" label="name" v-model="selected_session"
+                                           :reduce="sessions => sessions.id" id="sessions" @input="get_terms">
+                                       </v-select>
+                                  </td>
+                                  <td>
+                                        <v-select :options="terms" label="name" v-model="selected_term"
+                                            :reduce="terms => terms.id" id="terms"></v-select>
+                                  </td>
+                                  <td>
+                                       <v-select :options="subjects" label="name" v-model="selected_subject"
+                                           :reduce="subjects => subjects.id" id="subjects"></v-select>
+                                  </td>
+                                  <td>
+                                       <v-select :options="assessment_types" label="name"
+                                           v-model="selected_assessment_type" :reduce="assessments => assessments.id"
+                                           id="assessments"></v-select>
+                                  </td>
+                                  <td>
+                                      <input class="form-control form-control-sm" type="number" v-model="score"
+                                          placeholder="Enter Score" />
+                                  </td>
+                                  <td>
+                                      <button class="btn btn-primary btn-sm" @click="add_assessment(student.id)">
+                                          <i class="fa fa-sync"></i>
+                                      </button>
+                                  </td>
+                                  <td>
+                                      <button class="btn btn-success btn-sm" @click="save_assessment">
+                                          <i class="fa fa-paper-plane"></i>
                                       </button>
                                   </td>
                               </tr>

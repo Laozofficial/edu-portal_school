@@ -18,13 +18,13 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="card">
+        <div class="card shadow-lg">
             <div class="card-header">
                 Grades
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-responsive-md">
+                    <table class="table table-responsive-md table-bordered">
                         <thead>
                             <tr>
                                 <th style="width:80px;"><strong>#</strong></th>

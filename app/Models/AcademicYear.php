@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Scopes\AcademicSessionScope;
 
 class AcademicYear extends Model
 {
@@ -13,6 +14,11 @@ class AcademicYear extends Model
 
     const ACTIVE = 0;
     const NOT_ACTIVE = 1;
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new AcademicSessionScope);
+    }
 
     public function institution()
     {

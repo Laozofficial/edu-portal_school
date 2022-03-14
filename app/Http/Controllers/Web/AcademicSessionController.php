@@ -43,6 +43,13 @@ class AcademicSessionController extends Controller
 
             return response($response, 422);
         }else {
+            // make other sessions disabled
+            $sessions = AcademicYear::get();
+            foreach ($sessions as $session) {
+                $session->status = AcademicYear::NOT_ACTIVE;
+                $session->save();
+            }
+
             $session = new AcademicYear;
             $session->institution_id =  $institution->id;
             $session->name = $request->get('name');
