@@ -69,6 +69,8 @@ Route::prefix('dashboard')->group(function () {
 
             // authenticated route
             Route::middleware(['auth:api'])->group(function () {
+                // Dashboard details
+                Route::get('dashboard-details', [GeneralInfoController::class, 'dashboard_details']);
 
                 Route::post('save_institution', [InstitutionController::class, 'save_institution']);
                 Route::get('validate_user_school', [InstitutionController::class, 'validate_user_school']);

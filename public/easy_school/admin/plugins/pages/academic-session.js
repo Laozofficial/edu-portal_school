@@ -7,7 +7,7 @@ new Vue({
 
         institutions: [],
         institution: {},
-        selected_institution: '',
+        selected_institution: 2,
 
         name: '',
         end_date: '',

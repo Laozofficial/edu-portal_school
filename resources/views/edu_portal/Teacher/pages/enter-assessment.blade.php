@@ -61,25 +61,27 @@
                                   <td>@{{ student.date_of_birth }}</td>
                                   <td>
                                        <v-select :options="sessions" label="name" v-model="selected_session"
-                                           :reduce="sessions => sessions.id" id="sessions" @input="get_terms">
+                                           :reduce="sessions => sessions.id" id="sessions" @input="get_terms"
+                                           v-show="student_id == student.id">
                                        </v-select>
                                   </td>
                                   <td>
                                         <v-select :options="terms" label="name" v-model="selected_term"
-                                            :reduce="terms => terms.id" id="terms"></v-select>
+                                            :reduce="terms => terms.id" id="terms" v-show="student_id == student.id">
+                                            </v-select>
                                   </td>
                                   <td>
                                        <v-select :options="subjects" label="name" v-model="selected_subject"
-                                           :reduce="subjects => subjects.id" id="subjects"></v-select>
+                                           :reduce="subjects => subjects.id" id="subjects" v-show="student_id == student.id"></v-select>
                                   </td>
                                   <td>
                                        <v-select :options="assessment_types" label="name"
                                            v-model="selected_assessment_type" :reduce="assessments => assessments.id"
-                                           id="assessments"></v-select>
+                                           id="assessments" v-show="student_id == student.id"></v-select>
                                   </td>
                                   <td>
                                       <input class="form-control form-control-sm" type="number" v-model="score"
-                                          placeholder="Enter Score" />
+                                          placeholder="Enter Score" v-show="student_id == student.id"/>
                                   </td>
                                   <td>
                                       <button class="btn btn-primary btn-sm" @click="add_assessment(student.id)">

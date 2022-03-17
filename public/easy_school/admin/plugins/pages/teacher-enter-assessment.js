@@ -31,7 +31,10 @@ new Vue({
         loading_students: false,
         page: 1,
 
-        score: ''
+        score: '',
+
+        student_id: '',
+
     },
     mounted() {
         this.get_classes();
@@ -91,6 +94,7 @@ new Vue({
                     this.subjects = response.data.subjects;
                     this.assessment_types = response.data.assessment_types;
                     this.student = response.data.student;
+                    this.student_id = response.data.student.id;
                     // $('#record_assessment').modal('show');
                 })
                 .catch((error) => {
