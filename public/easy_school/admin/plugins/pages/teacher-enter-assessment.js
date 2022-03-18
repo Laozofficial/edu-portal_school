@@ -34,12 +34,32 @@ new Vue({
         score: '',
 
         student_id: '',
+        active_session: {}
 
     },
     mounted() {
         this.get_classes();
     },
     methods: {
+        get_class_from_subject() {
+            this.fetch_students();
+            swal.fire('Loading subjects');
+            swal.showLoading();
+
+            axios.get(`${url.teacher_get_subjects + this.selected_class}`, config)
+                .then((response) => {
+                    console.log(response);
+                    this.subjects = response.data.subjects;
+
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toastr.error(`something went wrong ${error.response.status}`);
+                })
+                .then(() => {
+                    swal.close();
+                });
+        },
         get_classes() {
             axios.get(`${url.teacher_classes}`, config)
                 .then((response) => {
@@ -66,6 +86,9 @@ new Vue({
                 .then((response) => {
                     console.log(response);
                     this.students = response.data.students;
+                    this.active_session = response.data.session;
+                    this.assessment_types = response.data.assessments;
+                    this.get_terms();
                 })
                 .catch((error) => {
                     console.log(error);
@@ -110,7 +133,7 @@ new Vue({
             swal.fire('Please wait ....');
             swal.showLoading();
 
-            axios.get(`${url.teacher_get_terms + this.selected_session}`, config)
+            axios.get(`${url.teacher_get_terms + this.active_session.id}`, config)
                 .then((response) => {
                     console.log(response);
                     this.terms = response.data.terms;

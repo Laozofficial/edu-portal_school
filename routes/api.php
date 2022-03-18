@@ -211,6 +211,7 @@ Route::prefix('dashboard')->group(function () {
             Route::get('get_leave_application', [TeacherLeaveController::class, 'get_leave_application']);
             Route::post('apply_for_leave', [TeacherLeaveController::class, 'apply_for_leave']);
             Route::get('delete_leave_application/{leave}', [TeacherLeaveController::class, 'delete_leave_application']);
+
         });
     });
 

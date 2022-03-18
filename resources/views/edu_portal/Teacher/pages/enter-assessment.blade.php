@@ -16,7 +16,7 @@
     </div>
 </div>
 
-  <div class="row">
+ <!-- <div class="row">
       <div class="col-md-12">
           <div class="card shadow-lg">
               <div class="card-header">
@@ -104,6 +104,85 @@
                   </vue-pagination>
               </div>
           </div>
+      </div>
+  </div>-->
+
+  <div class="row">
+      <div class="col-md-3">
+        <div class="card shadow-lg">
+            <div class="card-header">
+                Select Details
+            </div>
+            <div class="card-body">
+                <label for="">Select Class</label>
+                <v-select :options="classes" label="name" v-model="selected_class" :reduce="classes => classes.id"
+                    @input="get_class_from_subject" id="class">
+                </v-select>
+                    <br>
+                  <span class=" mt-3">Select Term <span class="text-danger">*</span></span>
+                  <v-select :options="terms" label="name" v-model="selected_term" :reduce="terms => terms.id"
+                      id="terms"></v-select>
+                  <br>
+
+                  <span class=" mt-3">Select Subject <span class="text-danger">*</span></span>
+                  <v-select :options="subjects" label="name" v-model="selected_subject"
+                      :reduce="subjects => subjects.id" id="subjects"></v-select>
+                  <br>
+                  <span class=" mt-3">Select Assessment Type <span class="text-danger">*</span></span>
+                  <v-select :options="assessment_types" label="name" v-model="selected_assessment_type"
+                      :reduce="assessments => assessments.id" id="assessments"></v-select>
+                  <br>
+
+            </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="card shadow-lg">
+            <div class="card-header">
+                Students
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered">
+                       <thead>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Admission Number</th>
+                            <th scope="col">Academic session</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Date of Birth</th>
+                            <th scope="col">Score</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                       </thead>
+                       <tbody>
+                           <tr v-for="(student, index) in students.data" :key="index">
+                            <td>@{{ index + 1 }}</td>
+                            <td>@{{ student.full_name_text }}</td>
+                            <td>@{{ student.admission_number }}</td>
+                            <td>@{{ active_session.name }}</td>
+                            <td>@{{ student.gender }}</td>
+                            <td>@{{ student.date_of_birth }}</td>
+                            <td>
+                               <input class="form-control form-control-sm" type="number" v-model="score"
+                                   placeholder="Enter Score" />
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fa fa-sync"></i>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-success">
+                                    <i class="fa fa-paper-plane"></i>
+                                </button>
+                            </td>
+                           </tr>
+                       </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
       </div>
   </div>
 
