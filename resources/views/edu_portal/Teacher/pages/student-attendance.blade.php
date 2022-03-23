@@ -21,19 +21,19 @@
         <div class="card shadow-lg">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         Students
                     </div>
-                    <div class="col-md-8 text">
+                    <div class="col-md-6 ">
                         <label class="d-block fs-16">Select Class</label>
                         <v-select :options="classes" label="name" v-model="selected_class"
-                            :reduce="classes => classes.id" @input="get_students" id="institution"></v-select>
+                            :reduce="classes => classes.id" @input="get_students" id="institution" class="w-50"></v-select>
                     </div>
                 </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table table-sm table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -56,7 +56,7 @@
                                 <td>@{{ student.religion }}</td>
                                 <td>@{{ student.present_address }}</td>
                                 <td>
-                                    <button class="btn btn-primary btn-xs" @click="add_attendance(student.id)">
+                                    <button class="btn btn-primary btn-sm" @click="add_attendance(student.id)">
                                         <i class="fa fa-plus"></i> Add Attendance
                                     </button>
                                 </td>

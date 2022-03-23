@@ -164,16 +164,16 @@
                             <td>@{{ student.gender }}</td>
                             <td>@{{ student.date_of_birth }}</td>
                             <td>
-                               <input class="form-control form-control-sm" type="number" v-model="score"
-                                   placeholder="Enter Score" />
+                               <input class="form-control form-control-sm" type="number"
+                                   placeholder="Enter Score" v-model="score" v-if="student_id == student.id"/>
                             </td>
-                            <td>
-                                <button class="btn btn-sm btn-primary">
-                                    <i class="fa fa-sync"></i>
+                              <td>
+                                <button class="btn btn-sm btn-primary" @click="student_id = student.id">
+                                    <i class="fa fa-plus"></i>
                                 </button>
-                            </td>
+                              </td>
                             <td>
-                                <button class="btn btn-sm btn-success">
+                                <button class="btn btn-sm btn-success" @click="save_assessment(student.id)">
                                     <i class="fa fa-paper-plane"></i>
                                 </button>
                             </td>

@@ -35,7 +35,6 @@ class TeacherAssessmentController extends Controller
     public function save_assessments(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'session_id' => 'required',
             'assessment_type_id' => 'required',
             'level_id' => 'required',
             'subject_id' => 'required',
@@ -50,16 +49,18 @@ class TeacherAssessmentController extends Controller
         $student = Student::where('id', $request->get('student_id'))->first();
         $check_assessments = AssessmentType::where('id', $request->get('assessment_type_id'))->first();
 
+        $session = AcademicYear::where(['status' => AcademicYear::ACTIVE, 'institution_id' => $student->institution_id])->first();
+
         if ($request->get('score') > $check_assessments->max_mark) {
             $response = [
-                'error' => 'Assessment Score Cannot be More than ' . $check_assessments->max_mark . ' mark'
+                'error' => 'Assessment Score Cannot be More than ' . $check_assessments->max_mark . ' mark(s)'
             ];
 
             return response($response, 400);
         }
 
         $check_student_assessment = AssessmentStudent::where('institution_id', $student->institution_id)
-                                    ->where('academic_year_id', $request->get('academic_year_id'))
+                                    ->where('academic_year_id', $session->id)
                                     ->where('level_id', $request->get('level_id'))
                                     ->where('student_id', $request->get('student_id'))
                                     ->where('assessment_type_id', $request->get('assessment_type_id'))
@@ -76,7 +77,7 @@ class TeacherAssessmentController extends Controller
 
        }else {
             $assessment = new AssessmentStudent;
-            $assessment->academic_year_id = $request->get('session_id');
+            $assessment->academic_year_id = $session->id;
             $assessment->assessment_type_id = $request->get('assessment_type_id');
             $assessment->level_id = $request->get('level_id');
             $assessment->subject_id = $request->get('subject_id');

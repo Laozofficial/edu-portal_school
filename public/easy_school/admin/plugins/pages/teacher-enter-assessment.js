@@ -34,7 +34,9 @@ new Vue({
         score: '',
 
         student_id: '',
-        active_session: {}
+        active_session: {},
+
+        all_scores: []
 
     },
     mounted() {
@@ -77,6 +79,9 @@ new Vue({
         showContent() {
             this.loading = false;
             this.content = true;
+        },
+        handle_score(event) {
+            console.log(event.target.value);
         },
         fetch_students() {
             swal.fire('Please wait.....');
@@ -163,8 +168,8 @@ new Vue({
                     swal.close();
                 });
         },
-        save_assessment() {
-            if (this.selected_assessment_type == '' || this.selected_class == '' || this.selected_session == '' || this.selected_subject == '' || this.selected_term == '' || this.score == '') {
+        save_assessment(id) {
+            if (this.selected_assessment_type == '' || this.selected_class == '' || this.selected_subject == '' || this.selected_term == '' || this.score == '') {
                 swal.fire('error', 'some fields are empty', 'error');
             } else {
                 swal.fire('Please wait....');
@@ -177,7 +182,7 @@ new Vue({
                 fd.append('subject_id', this.selected_subject);
                 fd.append('term_id', this.selected_term);
                 fd.append('score', this.score);
-                fd.append('student_id', this.student.id);
+                fd.append('student_id', id);
 
                 axios.post(`${url.teacher_save_assessment}`, fd, config)
                     .then((response) => {
