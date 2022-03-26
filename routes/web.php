@@ -120,6 +120,9 @@ Route::prefix('dashboard')->group(function () {
         // study materials
         Route::get('study-materials', [StudyMaterialController::class, 'study_materials']);
 
+        // attendance setup
+        Route::get('institution-attendance', [ViewController::class, 'institution_attendance_view']);
+
 
     });
 
@@ -143,6 +146,7 @@ Route::prefix('dashboard')->group(function () {
         Route::get('study-materials', [TeacherStudyMaterialController::class, 'study_material_view']);
         Route::get('submissions/{assignment}', [TeacherAssignmentSubmissionController::class, 'submission_view' ]);
         Route::get('staff-leave', [TeacherLeaveController::class, 'staff_leave_view']);
+        Route::get('student-total-attendance', [TeacherViewController::class, 'student_total_attendance']);
 
     });
 

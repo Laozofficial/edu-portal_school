@@ -2,7 +2,6 @@
 <html lang="en">
 
 
-<!-- Mirrored from minia.php.themesbrand.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Sep 2021 15:23:04 GMT -->
 <head>
 
         <meta charset="utf-8" />

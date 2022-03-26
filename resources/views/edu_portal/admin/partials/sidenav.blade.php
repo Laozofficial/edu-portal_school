@@ -50,6 +50,8 @@
                           </li>
                           <li><a href="{{url('/dashboard/admin/classes')}}"><i class="lni lni-users"></i> Classes</a>
                           </li>
+                          <li><a href="{{url('/dashboard/admin/institution-attendance')}}"><i class="lni lni-ruler-pencil"></i> Attendance Setup</a>
+                          </li>
                           <li><a href="{{url('/dashboard/admin/grade-scale')}}"><i class="lni lni-network"></i> Grade
                                   Scale</a></li>
                           <li><a class="has-arrow ai-icon" aria-expanded="false">

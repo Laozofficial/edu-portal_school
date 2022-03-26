@@ -10,6 +10,17 @@ let url = {
     // check items
     get_classes_and_teachers: 'get_classes_and_teachers/',
 
+    // get terms with session
+    get_terms_by_session: 'get_terms_by_session/',
+
+    // get attendance setups
+    get_attendance_setups: 'get_attendance_setups/',
+    update_attendance_setup: 'update_attendance_setup/',
+
+
+    // institution attendance setup
+    save_attendance_setup: 'save_attendance_setup',
+
     // school admin
     get_details_for_registration: 'get_details_for_registration',
     save_institution: 'save_institution',
@@ -141,6 +152,8 @@ let url = {
     teacher_get_leave_application: 'get_leave_application',
     teacher_apply_leave: 'apply_for_leave',
     teacher_delete_application: 'delete_leave_application/',
+    teacher_get_attendance_setup: 'get_attendance_setup',
+    teacher_save_attendance_setup: 'save_attendance_setup',
 
 
     // student routes

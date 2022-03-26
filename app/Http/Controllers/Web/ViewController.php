@@ -80,4 +80,9 @@ class ViewController extends Controller
             'id' => $level->id
         ]);
     }
+
+    public function institution_attendance_view()
+    {
+        return view(env('APP_THEME'). '.admin.pages.institution-attendance');
+    }
 }

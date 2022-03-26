@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
+use App\Models\AcademicYear;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Attendance;
+use App\Models\InstitutionAttendance;
+use App\Models\StudentAttendance;
 use App\Models\Teacher;
 
 class TeacherAttendanceController extends Controller
@@ -60,6 +63,48 @@ class TeacherAttendanceController extends Controller
         $attendance->status = $request->get('status');
         $attendance->date_recorded =  $request->get('date_recorded');
         $attendance->save();
+
+        $response = [
+            'success' => 'Attendance has been recorded'
+        ];
+
+        return response($response, 200);
+    }
+
+    public function get_attendance_setup()
+    {
+        $teacher = Teacher::where(['user_id' => Auth::user()->id])->first();
+        $session = AcademicYear::where(['institution_id' => $teacher->institution_id, 'status' => AcademicYear::ACTIVE])->first();
+
+        $attendance = InstitutionAttendance::where(['institution_id' => $teacher->institution_id, 'academic_year_id' => $session->id])->first();
+        $response = [
+            'attendance' => $attendance
+        ];
+
+        return response($response, 200);
+    }
+
+    public function save_attendance_setup(Request $request)
+    {
+        $teacher = Teacher::where(['user_id' => Auth::user()->id])->first();
+        $attendance = InstitutionAttendance::where(['id' => $request->get('attendance_setup')])->first();
+
+
+        if($request->get('days') > $attendance->total_days) {
+            $response = [
+                'error' => 'Attendance days cannot be more than the institution attendance of '. $attendance->total_days
+            ];
+
+            return response($response, 400);
+        }
+
+        $student_attendance = new StudentAttendance;
+        $student_attendance->institution_id = $teacher->institution_id;
+        $student_attendance->institution_attendance_id = $request->get('attendance_setup');
+        $student_attendance->student_id = $request->get('student');
+        $student_attendance->level_id = $request->get('class');
+        $student_attendance->attendance_number = $request->get('days');
+        $student_attendance->save();
 
         $response = [
             'success' => 'Attendance has been recorded'

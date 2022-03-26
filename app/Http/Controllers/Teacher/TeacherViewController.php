@@ -21,4 +21,9 @@ class TeacherViewController extends Controller
     {
         return view(env('APP_THEME').'.teacher.pages.enter-assessment');
     }
+
+    public function student_total_attendance()
+    {
+        return view(env('APP_THEME').'.teacher.pages.student-total-attendance');
+    }
 }

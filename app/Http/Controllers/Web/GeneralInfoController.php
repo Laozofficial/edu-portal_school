@@ -3,14 +3,17 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\AcademicYear;
 use App\Models\Country;
 use App\Models\Currency;
 use App\Models\Institution;
+use App\Models\InstitutionAttendance;
 use App\Models\Language;
 use App\Models\State;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Teacher;
+use App\Models\Term;
 use Illuminate\Http\Request;
 
 class GeneralInfoController extends Controller
@@ -49,6 +52,73 @@ class GeneralInfoController extends Controller
             'subjects' => $subjects,
             'last_registered_student' => $last_registered_student,
             'last_registered_teacher' => $last_registered_teacher
+        ];
+
+        return response($response, 200);
+    }
+
+    public function save_attendance_setup(Request $request)
+    {
+        $setup = InstitutionAttendance::where([
+                    'institution_id' => $request->get('institution'),
+                    'term_id' => $request->get('term'),
+                    'academic_year_id' => $request->get('session')
+                    ])->first();
+
+        if ($setup) {
+            $response = [
+                'error' => 'Attendance setup already exists.'
+            ];
+
+            return response($response, 400);
+        }
+
+
+
+        $attendance_setup = new InstitutionAttendance;
+        $attendance_setup->institution_id = $request->get('institution');
+        $attendance_setup->academic_year_id = $request->get('session');
+        $attendance_setup->term_id = $request->get('term');
+        $attendance_setup->total_days = $request->get('total_days');
+        $attendance_setup->save();
+
+        $response = [
+            'success' => 'Attendance setup saved successfully.'
+        ];
+
+        return response($response, 200);
+
+    }
+
+    public function get_terms_by_session(AcademicYear $session)
+    {
+        $terms = Term::where(['academic_year_id' => $session->id])->orderByDesc('id')->get();
+
+        $response = [
+            'terms' => $terms
+        ];
+
+        return response($response, 200);
+    }
+
+    public function get_attendance_setups(Institution $institution)
+    {
+        $attendance_setups = InstitutionAttendance::where(['institution_id' => $institution->id])->get();
+
+        $response = [
+            'attendance_setups' => $attendance_setups
+        ];
+
+        return response($response, 200);
+    }
+
+    public function update_attendance_setup(Request $request, InstitutionAttendance $attendance_setup)
+    {
+        $attendance_setup->total_days = $request->get('total_days');
+        $attendance_setup->save();
+
+        $response = [
+            'success' => 'Attendance setup updated successfully.'
         ];
 
         return response($response, 200);

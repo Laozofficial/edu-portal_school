@@ -173,6 +173,12 @@ Route::prefix('dashboard')->group(function () {
                 // study material Route
                 Route::get('get_study_materials/{institution}', [StudyMaterialController::class, 'get_study_materials']);
 
+                // attendance setup
+                Route::post('save_attendance_setup', [GeneralInfoController::class, 'save_attendance_setup']);
+                Route::get('get_terms_by_session/{session}', [GeneralInfoController::class, 'get_terms_by_session']); // get terms by session
+                Route::get('get_attendance_setups/{institution}', [GeneralInfoController::class, 'get_attendance_setups']);// get all attendance setups\
+                Route::post('update_attendance_setup/{attendance_setup}', [GeneralInfoController::class, 'update_attendance_setup']); //update attendance set up
+
             });
     });
 
@@ -211,6 +217,8 @@ Route::prefix('dashboard')->group(function () {
             Route::get('get_leave_application', [TeacherLeaveController::class, 'get_leave_application']);
             Route::post('apply_for_leave', [TeacherLeaveController::class, 'apply_for_leave']);
             Route::get('delete_leave_application/{leave}', [TeacherLeaveController::class, 'delete_leave_application']);
+            Route::get('get_attendance_setup', [TeacherAttendanceController::class, 'get_attendance_setup']);
+            Route::post('save_attendance_setup', [TeacherAttendanceController::class, 'save_attendance_setup']);
 
         });
     });
