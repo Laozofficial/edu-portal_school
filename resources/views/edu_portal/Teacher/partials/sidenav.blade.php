@@ -86,7 +86,7 @@
                         <li><a href="{{url('/dashboard/teacher/student-attendance')}}"><i
                                     class="lni lni-checkmark-circle"></i> Mark Attendance</a></li>
                         <li><a href="{{url('/dashboard/teacher/student-total-attendance')}}">
-                                <i class="lni lni-spellcheck"></i> Mark Total Attendance
+                                <i class="lni lni-spellcheck"></i> Mark Total Attendances
                             </a></li>
                         <li><a href="{{url('/dashboard/teacher/student-remark')}}"><i class="lni lni-cup"></i>
                                 Remark</a></li>
