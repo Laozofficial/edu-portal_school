@@ -83,6 +83,7 @@ new Vue({
                     setTimeout(() => {
                         swal.close();
                     }, 3000);
+                    this.get_attendance_setups();
                 });
         },
         get_terms() {
