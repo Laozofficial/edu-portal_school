@@ -81,10 +81,8 @@
                     <ul aria-expanded="false">
                         <li><a href="{{url('/dashboard/teacher/students')}}"><i class="lni lni-user"></i> Students</a>
                         </li>
-                        <!--<li><a href="{{url('/dashboard/teacher/add-students')}}"><i class="lni lni-plus"></i> Add Students</a>
-                    </li>-->
-                        <li><a href="{{url('/dashboard/teacher/student-attendance')}}"><i
-                                    class="lni lni-checkmark-circle"></i> Mark Attendance</a></li>
+                        <li><a href="{{url('/dashboard/teacher/student-attendance')}}">
+                            <i class="lni lni-checkmark-circle"></i> Mark Attendance</a></li>
                         <li><a href="{{url('/dashboard/teacher/student-total-attendance')}}">
                                 <i class="lni lni-spellcheck"></i> Mark Total Attendances
                             </a></li>
