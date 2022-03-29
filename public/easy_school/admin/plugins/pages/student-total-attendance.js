@@ -15,7 +15,7 @@ new Vue({
 
         student: {},
 
-        loading_student: false,
+        loading_students: false,
         page: 1,
     },
     mounted() {
